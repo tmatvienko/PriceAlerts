@@ -165,12 +165,18 @@
       <elementValue elementRef="QUERY" value="&quot;ruleId&quot;"/>
       <elementValue elementRef="NODECHECK" value="false"/>
       <elementValue elementRef="ISARRAY" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="price"/>
+      <elementValue elementRef="QUERY" value="&quot;price&quot;"/>
+      <elementValue elementRef="NODECHECK" value="false"/>
+      <elementValue elementRef="ISARRAY" value="false"/>
     </elementParameter>
     <elementParameter field="TABLE" name="MAPPING_4_JSONPATH" show="false">
       <elementValue elementRef="SCHEMA_COLUMN" value="threshold"/>
       <elementValue elementRef="QUERY" value="&quot;threshold&quot;"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="ruleId"/>
       <elementValue elementRef="QUERY" value="&quot;ruleId&quot;"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="price"/>
+      <elementValue elementRef="QUERY" value=""/>
     </elementParameter>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
     <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" show="false" value="100"/>
@@ -182,10 +188,12 @@
     <metadata connector="FLOW" name="tExtractJSONFields_1">
       <column comment="" key="false" length="-1" name="threshold" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ruleId" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="price" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
     </metadata>
     <metadata connector="REJECT" name="REJECT">
       <column comment="" key="false" length="-1" name="threshold" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ruleId" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="price" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorJSONField" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
@@ -211,7 +219,9 @@
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
       <uiProperties/>
-      <varTables name="Var" sizeState="INTERMEDIATE"/>
+      <varTables name="Var" sizeState="INTERMEDIATE">
+        <mapperTableEntries expression="row5.BasePrice.compareTo(new BigDecimal(row6.price)) &lt; 0; " name="var1" type="id_Boolean"/>
+      </varTables>
       <outputTables name="output1" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="row6.threshold " name="threshold" type="id_String"/>
         <mapperTableEntries expression="row6.ruleId " name="ruleId" type="id_String"/>
@@ -219,11 +229,16 @@
       <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="row6" sizeState="INTERMEDIATE">
         <mapperTableEntries name="threshold" type="id_String"/>
         <mapperTableEntries name="ruleId" type="id_String"/>
+        <mapperTableEntries name="price" type="id_String"/>
       </inputTables>
-      <inputTables activateCondensedTool="true" lookupMode="LOAD_ONCE" matchingMode="FIRST_MATCH" name="row5" sizeState="INTERMEDIATE">
-        <mapperTableEntries expression="Integer.valueOf(row6.ruleId) " name="RuleID" operator="=" type="id_Integer"/>
-        <mapperTableEntries name="ThresholdValue" type="id_BigDecimal"/>
-        <mapperTableEntries name="TimeThreshold_Seconds" nullable="true" type="id_Short"/>
+      <inputTables activateCondensedTool="true" innerJoin="true" lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="row5" sizeState="INTERMEDIATE">
+        <mapperTableEntries expression="Integer.valueOf(row6.ruleId) " name="StockAlertID" operator="=" type="id_Integer"/>
+        <mapperTableEntries name="RuleGroupID" type="id_Integer"/>
+        <mapperTableEntries name="InstrViewCode" type="id_String"/>
+        <mapperTableEntries name="MonitorStartDate" nullable="true" type="id_Date"/>
+        <mapperTableEntries name="MonitorEndDate" nullable="true" type="id_Date"/>
+        <mapperTableEntries name="BasePrice" nullable="true" type="id_BigDecimal"/>
+        <mapperTableEntries name="Note" nullable="true" type="id_String"/>
         <mapperTableEntries name="UpdatedBy" nullable="true" type="id_String"/>
         <mapperTableEntries name="UpdatedOn" nullable="true" type="id_Date"/>
       </inputTables>
@@ -246,7 +261,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" show="false" value=""/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;select * from RulesThreshold&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;select * from StockAlerts&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" show="false" value="&quot;&quot;"/>
@@ -256,11 +271,19 @@
     <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
     <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="false"/>
     <elementParameter field="TABLE" name="TRIM_COLUMN">
-      <elementValue elementRef="SCHEMA_COLUMN" value="RuleID"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="StockAlertID"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ThresholdValue"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="RuleGroupID"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="TimeThreshold_Seconds"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="InstrViewCode"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="MonitorStartDate"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="MonitorEndDate"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="BasePrice"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="Note"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="UpdatedBy"/>
       <elementValue elementRef="TRIM" value="false"/>
@@ -270,9 +293,13 @@
     <elementParameter field="TEXT" name="LABEL" value="stock_alerts"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tDBInput_1">
-      <column comment="" defaultValue="" key="false" length="10" name="RuleID" nullable="false" originalLength="-1" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="18" name="ThresholdValue" nullable="false" originalLength="-1" pattern="" precision="2" sourceType="DECIMAL" type="id_BigDecimal" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="5" name="TimeThreshold_Seconds" nullable="true" originalLength="-1" pattern="" precision="0" sourceType="SMALLINT" type="id_Short" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="10" name="StockAlertID" nullable="false" originalLength="-1" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="10" name="RuleGroupID" nullable="false" originalLength="-1" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="20" name="InstrViewCode" nullable="false" originalLength="-1" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="23" name="MonitorStartDate" nullable="true" originalLength="-1" pattern="" precision="3" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="23" name="MonitorEndDate" nullable="true" originalLength="-1" pattern="" precision="3" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="18" name="BasePrice" nullable="true" originalLength="-1" pattern="" precision="2" sourceType="DECIMAL" type="id_BigDecimal" usefulColumn="true"/>
+      <column comment="" key="false" length="500" name="Note" nullable="true" originalLength="-1" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="30" name="UpdatedBy" nullable="true" originalLength="-1" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="23" name="UpdatedOn" nullable="true" originalLength="-1" pattern="" precision="3" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
     </metadata>
@@ -316,6 +343,9 @@
       <elementValue elementRef="TRACE_COLUMN" value="threshold"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="price"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row6"/>
@@ -350,13 +380,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_3dcc5cea-f8d3-4d3b-bf05-c4f4c6ccdcbe"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>81XYFcGrooC2MzCE8mxSArpQULXWCBlqoQiSiTVWuWey8AtOoUdv5hYsIa7bnwLsNSJ2wK/Pu/7W
-l7VesRNzEA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_e9286844-75f7-4647-94e5-41b7bb1b4cd3"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>6J7BWlSzCJ9fiVtq9PR0JUCSc3BGUa6vQQDSuN5D/dCrXuI2jQRnPi7COmpEbWibrzAcgDRZFzL7
-WC1W4KjwLw==</DigestValue></Reference></SignedInfo><SignatureValue>rFMTKrDb6M2F1AEYhaZ0MBLgyvSnx9+kaxKoqkWSTZ6oO5bzg8y4mvppqVpKricBlmh8Gxujtw4W
-DHbRS9u2W/r1kCR1uEDzibxUS4Kqzt9R7b5JZxY9W1XBt9EpNlTABP6HcFJgpaD6xlVhHai6U6eb
-K033xjcsrabzfswjmjz9WIQLW9COi+P5rtIJMCbtXfCkRJqK6cg/YxqxIWjNqF3ZWTOYvIZ4sxQS
-hVDLUABVdOTv4Zt+0b8bjATqXtq8JqqcyK3bTPapafgJ9IHQgxpqoNpndhb29cslusD3AEpAwFSQ
-egyEIJpXLIbVw9NWmdpSteiM/bBptlH+WDNwpw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_9051f733-b797-47bf-9ab2-167b70d7295d"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>g/nokRp57yDZBek42MoKn8FHMsbHAO/JFIYBc0ViuYE5X+6hwOu5zdXmM7lAcPGGoSgLivexTLim
+Ew92Hlsb5g==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_0a323be1-80ba-4eab-b675-1b22da7f34e1"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>F4xf+4V5knQoqtMIU5TukzqFoV0yDo0Vq64pFmjMZhe5rhsNn0bMSSQ4ezTp5evXa9l0IS6uvsqW
+eRjTGAs6/A==</DigestValue></Reference></SignedInfo><SignatureValue>By82Gnhbhduc+Adpkfx+JsIiSyCmwZ7z8+JTElh78KjqedALyqjhXaDE1F4r5zJcB3XNWIaTF/H+
+tusVaWRPtxx6YRgqYQQAB1t57s8Sv13j/VGPTgrcfRYPzliaPko511B5vl08ivXhIAyZv0oQjroy
+3e+OVn0iHrOpgIRjWU3qjK7IF1G6zQZXjXE6mpwnlYrEe/YwStR3jUZtrETvB91ywNg874Jc9fmk
+qPpjNuBegw4+mOdIwmuT9JGK1YmOpiKlyfId98DpBIcl8M1/iSl9/roBwwd86hF/ACeo5RJKcDNh
+CYEi6FwNGbKjTbgmtl2E+jXeqcmxPftnBrlSvg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -380,4 +410,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_e9286844-75f7-4647-94e5-41b7bb1b4cd3" Target="#_3dcc5cea-f8d3-4d3b-bf05-c4f4c6ccdcbe"><Timestamp>2019-01-02 14:51:51</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_0a323be1-80ba-4eab-b675-1b22da7f34e1" Target="#_9051f733-b797-47bf-9ab2-167b70d7295d"><Timestamp>2019-01-02 15:17:06</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
