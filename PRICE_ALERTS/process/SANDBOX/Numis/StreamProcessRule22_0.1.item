@@ -316,27 +316,23 @@
     <elementParameter field="TEXT" name="JSON_LOOP_QUERY" show="false" value="&quot;$.bills.bill.line[*]&quot;"/>
     <elementParameter field="TABLE" name="MAPPING">
       <elementValue elementRef="SCHEMA_COLUMN" value="InstrCode"/>
-      <elementValue elementRef="QUERY" value="&quot;m_FIM&quot;"/>
+      <elementValue elementRef="QUERY" value="&quot;stock_code&quot;"/>
       <elementValue elementRef="NODECHECK" value="false"/>
       <elementValue elementRef="ISARRAY" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="TradePrice"/>
-      <elementValue elementRef="QUERY" value="&quot;m_TRD_PRICE&quot;"/>
+      <elementValue elementRef="QUERY" value="&quot;last_trade_price&quot;"/>
       <elementValue elementRef="NODECHECK" value="false"/>
       <elementValue elementRef="ISARRAY" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="MidPrice"/>
-      <elementValue elementRef="QUERY" value="&quot;m_MID&quot;"/>
+      <elementValue elementRef="QUERY" value="&quot;mid_price&quot;"/>
       <elementValue elementRef="NODECHECK" value="false"/>
       <elementValue elementRef="ISARRAY" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="PreviousDayClosePrice"/>
-      <elementValue elementRef="QUERY" value="&quot;m_LAST_CLOSE&quot;"/>
-      <elementValue elementRef="NODECHECK" value="false"/>
-      <elementValue elementRef="ISARRAY" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ClosePrice"/>
-      <elementValue elementRef="QUERY" value="&quot;m_CLOSE&quot;"/>
+      <elementValue elementRef="QUERY" value="&quot;previous_day_closing_price&quot;"/>
       <elementValue elementRef="NODECHECK" value="false"/>
       <elementValue elementRef="ISARRAY" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="EventTime"/>
-      <elementValue elementRef="QUERY" value="&quot;m_EVENT_TIME&quot;"/>
+      <elementValue elementRef="QUERY" value="&quot;timestamp&quot;"/>
       <elementValue elementRef="NODECHECK" value="false"/>
       <elementValue elementRef="ISARRAY" value="false"/>
     </elementParameter>
@@ -348,8 +344,6 @@
       <elementValue elementRef="SCHEMA_COLUMN" value="MidPrice"/>
       <elementValue elementRef="QUERY" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="PreviousDayClosePrice"/>
-      <elementValue elementRef="QUERY" value=""/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ClosePrice"/>
       <elementValue elementRef="QUERY" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="EventTime"/>
       <elementValue elementRef="QUERY" value=""/>
@@ -367,7 +361,6 @@
       <column comment="" key="false" length="-1" name="TradePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="MidPrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="EventTime" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
     </metadata>
     <metadata connector="REJECT" name="REJECT">
@@ -375,7 +368,6 @@
       <column comment="" key="false" length="-1" name="TradePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="MidPrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="EventTime" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorJSONField" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
@@ -403,7 +395,6 @@
       <column comment="" key="false" length="-1" name="TradePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="MidPrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="EventTime" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
     </metadata>
   </node>
@@ -419,8 +410,6 @@
       <elementValue elementRef="VALUE" value="MidPrice"/>
       <elementValue elementRef="KEY" value="&quot;cPreviousDayClosePrice&quot;"/>
       <elementValue elementRef="VALUE" value="PreviousDayClosePrice"/>
-      <elementValue elementRef="KEY" value="&quot;cClosePrice&quot;"/>
-      <elementValue elementRef="VALUE" value="ClosePrice"/>
       <elementValue elementRef="KEY" value="&quot;cEventTime&quot;"/>
       <elementValue elementRef="VALUE" value="EventTime"/>
     </elementParameter>
@@ -482,7 +471,7 @@
       <column comment="" key="false" length="-1" name="TradePriceLastMin" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables name="Var" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="row3.MidPrice == null ? false : (row3.MidPrice &lt; row5.BasePrice ? true : false) " name="isBasePriceAlert" type="id_Boolean"/>
       </varTables>
@@ -548,7 +537,6 @@
       <column comment="" key="false" length="-1" name="TradePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="MidPrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="EventTime" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="BasePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="IsBasePriceAlert" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Boolean" usefulColumn="true"/>
@@ -556,7 +544,7 @@
       <column comment="" key="false" length="-1" name="IsTradePriceAlert" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Boolean" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables name="Var" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="cOut_1.TradePrice == null ? false : ( cOut_1.TradePriceLastMin != null ? ( cOut_1.TradePrice &lt; cOut_1.TradePriceLastMin &amp;&amp; cOut_1.TradePrice &lt; cOut_1.BasePrice ? true : false ) : (cOut_1.TradePrice &lt; cOut_1.BasePrice ? true : false ) ) " name="isTradePriceAlert" type="id_Boolean"/>
       </varTables>
@@ -565,7 +553,6 @@
         <mapperTableEntries expression="cOut_1.TradePrice " name="TradePrice" nullable="true" type="id_Double"/>
         <mapperTableEntries expression="cOut_1.MidPrice " name="MidPrice" nullable="true" type="id_Double"/>
         <mapperTableEntries expression="cOut_1.PreviousDayClosePrice " name="PreviousDayClosePrice" nullable="true" type="id_Double"/>
-        <mapperTableEntries expression="cOut_1.ClosePrice " name="ClosePrice" nullable="true" type="id_Double"/>
         <mapperTableEntries expression="cOut_1.EventTime " name="EventTime" type="id_Date"/>
         <mapperTableEntries expression="cOut_1.BasePrice " name="BasePrice" nullable="true" type="id_Double"/>
         <mapperTableEntries expression="cOut_1.IsBasePriceAlert " name="IsBasePriceAlert" nullable="true" type="id_Boolean"/>
@@ -592,7 +579,6 @@
       <column comment="" key="false" length="-1" name="TradePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="MidPrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="EventTime" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="BasePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="IsBasePriceAlert" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Boolean" usefulColumn="true"/>
@@ -636,7 +622,7 @@
       <column comment="" key="false" length="-1" name="BasePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables minimized="true" name="Var" sizeState="INTERMEDIATE"/>
       <outputTables activateExpressionFilter="true" name="cOut_vsBasePrice" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="row9.InstrCode " name="InstrCode" type="id_String"/>
@@ -650,7 +636,6 @@
         <mapperTableEntries name="TradePrice" nullable="true" type="id_Double"/>
         <mapperTableEntries name="MidPrice" nullable="true" type="id_Double"/>
         <mapperTableEntries name="PreviousDayClosePrice" nullable="true" type="id_Double"/>
-        <mapperTableEntries name="ClosePrice" nullable="true" type="id_Double"/>
         <mapperTableEntries name="EventTime" type="id_Date"/>
         <mapperTableEntries name="BasePrice" nullable="true" type="id_Double"/>
         <mapperTableEntries name="IsBasePriceAlert" nullable="true" type="id_Boolean"/>
@@ -752,13 +737,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_1734e3d4-da97-4126-999c-ddba1adaadb4"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>R4gINbtWZGF61mfzpvFZgob/gjvBU9NaT6jkKsQSbkiuPv6F2d4UuuC6vVf8EMosNSqsMB/Igq1R
-Od/o0nIUnw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_5e236163-872c-4df2-9e6d-59ee146757a2"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>2e47WODYLkOU+aNcmiyvaAqWMMrkqy5ur2yDIxpLYGrLeLxbFaBfVToKNkTFL2dh6UGgGy9GL3Yj
-9tHXJHig8g==</DigestValue></Reference></SignedInfo><SignatureValue>bjcktRfaAQtXyg0OSzEwQhqf+N65UTTASsJr/1gLtAk56S7VqcieV3/bzTq0Q6KX0tJJWZoI8dJ4
-A0WSP28aYffdGvoChsNFQag60ZxDygZ2cA3rEGpdFc48q4DP/twNp2JsTT/bpDp8iO0KdQDgphy3
-+QZzrWhylO8uojMbDOdub14KwA6/fj4QSn4DlJ0wRhx8MWlDEVSlCNZBecsmLRGRzhD1JZRUsTPF
-8/Qt9tjpTfV5/VbcLgJiCp335iyTNE06Kkx2YmEmLAz0GqgwFgbi6xKlyedeUoQQYR0lfCpbSqJt
-1zbPOeVBvqGrtlEoaeT2hGl/AutZoB5kOml6OQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_cb95fc6e-3a1b-4ede-a486-6a8ef2cd42eb"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>4surW8VSF0mR37jK1RYXqHwDOTnGpC/I8+9APCFiykjP2QFVUc1oCvF55GBjqiGv9KkPPT+wb0dE
+zgf202Ei1g==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_3038a0c7-e51b-409e-9973-17fa61261d89"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>hJCPG/b5Q9vDZjskDLYNOGCQHKjaangiVb/yC7e6wb6UsSI7/DSlU1eq3EZmkmOT6ZnkNxz1ovNt
+N9wcIBhjag==</DigestValue></Reference></SignedInfo><SignatureValue>r81Uf+w2ZUEVUy6AicvtsfR9Mm/rFnFISZmOf1DJyo8vNw1UiCijUcRhruzcnsiym145TTpVPpON
+vFUtC1vjdfPImMQzIo1cEdopEsJR7pN3yF8ofTpOAaF865HaF57IJ4vm6/wj/ZqiOe8eugcJFGom
+06Iwxl35rZtK/tdRKlyTziTHLRIUgWJ+07OLEdo9GQvh4jj8IMp9XuhTRcd/E5+3pF4iOfcWc4w7
+3gjCirz56Cn1CdrWZgckkSFPrHBlnbJBQEBSTqU3eEslKfQtgM6Tpqb+s93vlqEfDSQQZLVYnVuD
+pvCUo7o5mh+IvXtarlY/a9KLwaUCW2ZtjAzGfg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -782,4 +767,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_5e236163-872c-4df2-9e6d-59ee146757a2" Target="#_1734e3d4-da97-4126-999c-ddba1adaadb4"><Timestamp>2019-01-17 19:46:45</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_3038a0c7-e51b-409e-9973-17fa61261d89" Target="#_cb95fc6e-3a1b-4ede-a486-6a8ef2cd42eb"><Timestamp>2019-01-17 19:53:03</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
