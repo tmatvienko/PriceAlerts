@@ -399,11 +399,9 @@
       <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="EventTime" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="18" name="BasePrice" nullable="true" originalLength="-1" pattern="" precision="2" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="18" name="TradePriceLastMin" nullable="true" originalLength="-1" pattern="" precision="2" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables name="Var" sizeState="INTERMEDIATE"/>
       <outputTables name="out1" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="row2.InstrCode " name="InstrCode" type="id_String"/>
@@ -412,8 +410,6 @@
         <mapperTableEntries expression="row2.PreviousDayClosePrice " name="PreviousDayClosePrice" nullable="true" type="id_Double"/>
         <mapperTableEntries expression="row2.ClosePrice " name="ClosePrice" nullable="true" type="id_Double"/>
         <mapperTableEntries expression="row2.EventTime " name="EventTime" type="id_Date"/>
-        <mapperTableEntries expression="row3.BasePrice " name="BasePrice" nullable="true" type="id_Double"/>
-        <mapperTableEntries expression="row3.TradePriceLastMin " name="TradePriceLastMin" nullable="true" type="id_Double"/>
       </outputTables>
       <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="row2" sizeState="INTERMEDIATE">
         <mapperTableEntries name="InstrCode" type="id_String"/>
@@ -423,32 +419,7 @@
         <mapperTableEntries name="ClosePrice" nullable="true" type="id_Double"/>
         <mapperTableEntries name="EventTime" type="id_Date"/>
       </inputTables>
-      <inputTables activateCondensedTool="true" lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="row3" sizeState="INTERMEDIATE">
-        <mapperTableEntries expression="row2.InstrCode " name="InstrCode" operator="=" type="id_String"/>
-        <mapperTableEntries name="BasePrice" nullable="true" type="id_Double"/>
-        <mapperTableEntries name="PreviousDayClosePrice" nullable="true" type="id_Double"/>
-        <mapperTableEntries name="TradePriceLastMin" nullable="true" type="id_Double"/>
-      </inputTables>
     </nodeData>
-  </node>
-  <node componentName="tJavaFlex" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="800" posY="320">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tJavaFlex_2"/>
-    <elementParameter field="CHECK" name="DATA_AUTO_PROPAGATE" value="true"/>
-    <elementParameter field="MEMO_JAVA" name="CODE_START" value="ConcurrentHashMap&lt;String, AlertsUtils.StockCache&gt; list = (ConcurrentHashMap&lt;String, AlertsUtils.StockCache&gt;)globalMap.get(&quot;rulesCache&quot;);&#10;&#10;&#10;Set&lt;Map.Entry&lt;String, AlertsUtils.StockCache&gt;&gt; entrySet = list.entrySet();&#10;Iterator&lt;Map.Entry&lt;String, AlertsUtils.StockCache&gt;&gt; itr = entrySet.iterator();&#10;&#10;&#10;while (itr.hasNext()) {"/>
-    <elementParameter field="MEMO_JAVA" name="CODE_MAIN" value="Map.Entry&lt;String, AlertsUtils.StockCache&gt; entry = itr.next();&#10;&#10;&#10;row3.InstrCode = entry.getKey();&#10;AlertsUtils.StockCache ruleValues = entry.getValue();&#10;row3.BasePrice = ruleValues.basePrice;&#10;row3.PreviousDayClosePrice = ruleValues.previousDayClosePrice;&#10;row3.TradePriceLastMin = ruleValues.tradePriceLastMin;"/>
-    <elementParameter field="MEMO_JAVA" name="CODE_END" value="}"/>
-    <elementParameter field="CHECK" name="Version_V2_0" show="false" value="false"/>
-    <elementParameter field="CHECK" name="Version_V3_2" show="false" value="false"/>
-    <elementParameter field="CHECK" name="Version_V4.0" show="false" value="true"/>
-    <elementParameter field="MEMO_IMPORT" name="IMPORT" value="import java.util.List;&#10;import java.util.concurrent.*;&#10;import java.util.Iterator;&#10;import java.util.Map;&#10;import java.util.Set;"/>
-    <elementParameter field="TEXT" name="LABEL" value="Price Cache"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tJavaFlex_2">
-      <column comment="" key="true" length="-1" name="InstrCode" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="BasePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="TradePriceLastMin" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-    </metadata>
   </node>
   <node componentName="tSortRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1088" posY="192">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tSortRow_1"/>
@@ -470,8 +441,6 @@
       <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="EventTime" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="18" name="BasePrice" nullable="true" originalLength="-1" pattern="" precision="2" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="18" name="TradePriceLastMin" nullable="true" originalLength="-1" pattern="" precision="2" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tFlowToIterate" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1248" posY="192">
@@ -494,7 +463,7 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tFlowToIterate_1"/>
   </node>
-  <node componentName="tFixedFlowInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1376" posY="192">
+  <node componentName="tFixedFlowInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1408" posY="192">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tFixedFlowInput_1"/>
     <elementParameter field="TEXT" name="NB_ROWS" value="1"/>
     <elementParameter field="RADIO" name="USE_SINGLEMODE" value="true"/>
@@ -528,44 +497,110 @@
       <column comment="" key="false" length="-1" name="EventTime" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1504" posY="288">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tLogRow_1"/>
-    <elementParameter field="RADIO" name="BASIC_MODE" value="false"/>
-    <elementParameter field="RADIO" name="TABLE_PRINT" value="true"/>
-    <elementParameter field="RADIO" name="VERTICAL" value="false"/>
-    <elementParameter field="RADIO" name="PRINT_UNIQUE" show="false" value="true"/>
-    <elementParameter field="RADIO" name="PRINT_LABEL" show="false" value="false"/>
-    <elementParameter field="RADIO" name="PRINT_UNIQUE_LABEL" show="false" value="false"/>
-    <elementParameter field="TEXT" name="FIELDSEPARATOR" show="false" value="&quot;|&quot;"/>
-    <elementParameter field="CHECK" name="PRINT_HEADER" show="false" value="false"/>
-    <elementParameter field="CHECK" name="PRINT_UNIQUE_NAME" show="false" value="false"/>
-    <elementParameter field="CHECK" name="PRINT_COLNAMES" show="false" value="false"/>
-    <elementParameter field="CHECK" name="USE_FIXED_LENGTH" show="false" value="false"/>
-    <elementParameter field="TABLE" name="LENGTHS" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="InstrCode"/>
-      <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="TradePrice"/>
-      <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="MidPrice"/>
-      <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="PreviousDayClosePrice"/>
-      <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ClosePrice"/>
-      <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="EventTime"/>
-      <elementValue elementRef="LENGTH" value="10"/>
-    </elementParameter>
-    <elementParameter field="CHECK" name="PRINT_CONTENT_WITH_LOG4J" value="true"/>
-    <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" show="false" value="100"/>
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="736" posY="384">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_2"/>
+    <elementParameter field="EXTERNAL" name="MAP" value=""/>
+    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
+    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_fCzxIBpAEem4zpFfXTordw-tMap_2-PREVIEW.bmp"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" show="false" value="true"/>
+    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" show="false" value="false"/>
+    <elementParameter field="TEXT" name="LEVENSHTEIN" show="false" value="0"/>
+    <elementParameter field="TEXT" name="JACCARD" show="false" value="0"/>
+    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" show="false" value="false"/>
+    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
+    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="true"/>
+    <elementParameter field="TEXT" name="LABEL" value="Calculate Base Price"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tLogRow_1">
+    <metadata connector="FLOW" name="out1">
       <column comment="" key="false" length="-1" name="InstrCode" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="TradePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="MidPrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="EventTime" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="BasePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="IsBasePriceAlert" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Boolean" usefulColumn="true"/>
     </metadata>
+    <nodeData xsi:type="TalendMapper:MapperData">
+      <uiProperties shellMaximized="true"/>
+      <varTables name="Var" sizeState="INTERMEDIATE">
+        <mapperTableEntries expression="row3.MidPrice &lt; row5.BasePrice ? true : false " name="IsBasePriceAlert" type="id_Boolean"/>
+      </varTables>
+      <outputTables activateExpressionFilter="true" expressionFilter="Var.IsBasePriceAlert" name="out1" sizeState="INTERMEDIATE">
+        <mapperTableEntries expression="row3.InstrCode " name="InstrCode" type="id_String"/>
+        <mapperTableEntries expression="row3.TradePrice " name="TradePrice" nullable="true" type="id_Double"/>
+        <mapperTableEntries expression="row3.MidPrice " name="MidPrice" nullable="true" type="id_Double"/>
+        <mapperTableEntries expression="row3.PreviousDayClosePrice " name="PreviousDayClosePrice" nullable="true" type="id_Double"/>
+        <mapperTableEntries expression="row3.ClosePrice " name="ClosePrice" nullable="true" type="id_Double"/>
+        <mapperTableEntries expression="row3.EventTime " name="EventTime" type="id_Date"/>
+        <mapperTableEntries expression="Var.IsBasePriceAlert ? row3.MidPrice : row5.BasePrice " name="BasePrice" nullable="true" type="id_Double"/>
+        <mapperTableEntries expression="Var.IsBasePriceAlert" name="IsBasePriceAlert" nullable="true" type="id_Boolean"/>
+      </outputTables>
+      <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="row3" sizeState="INTERMEDIATE">
+        <mapperTableEntries name="InstrCode" type="id_String"/>
+        <mapperTableEntries name="TradePrice" nullable="true" type="id_Double"/>
+        <mapperTableEntries name="MidPrice" nullable="true" type="id_Double"/>
+        <mapperTableEntries name="PreviousDayClosePrice" nullable="true" type="id_Double"/>
+        <mapperTableEntries name="ClosePrice" nullable="true" type="id_Double"/>
+        <mapperTableEntries name="EventTime" type="id_Date"/>
+      </inputTables>
+      <inputTables activateCondensedTool="true" innerJoin="true" lookupMode="LOAD_ONCE" matchingMode="ALL_MATCHES" name="row5" sizeState="INTERMEDIATE">
+        <mapperTableEntries expression="row3.InstrCode " name="InstrCode" operator="=" type="id_String"/>
+        <mapperTableEntries name="BasePrice" nullable="true" type="id_Double"/>
+        <mapperTableEntries name="PreviousDayClosePrice" nullable="true" type="id_Double"/>
+        <mapperTableEntries name="TradePriceLastMin" nullable="true" type="id_Double"/>
+      </inputTables>
+    </nodeData>
+  </node>
+  <node componentName="tJavaFlex" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="640" posY="448">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tJavaFlex_2"/>
+    <elementParameter field="CHECK" name="DATA_AUTO_PROPAGATE" value="true"/>
+    <elementParameter field="MEMO_JAVA" name="CODE_START" value="ConcurrentHashMap&lt;String, AlertsUtils.StockCache&gt; list = (ConcurrentHashMap&lt;String, AlertsUtils.StockCache&gt;)globalMap.get(&quot;rulesCache&quot;);&#10;&#10;&#10;Set&lt;Map.Entry&lt;String, AlertsUtils.StockCache&gt;&gt; entrySet = list.entrySet();&#10;Iterator&lt;Map.Entry&lt;String, AlertsUtils.StockCache&gt;&gt; itr = entrySet.iterator();&#10;&#10;&#10;while (itr.hasNext()) {"/>
+    <elementParameter field="MEMO_JAVA" name="CODE_MAIN" value="Map.Entry&lt;String, AlertsUtils.StockCache&gt; entry = itr.next();&#10;&#10;&#10;row3.InstrCode = entry.getKey();&#10;AlertsUtils.StockCache ruleValues = entry.getValue();&#10;row3.BasePrice = ruleValues.basePrice;&#10;row3.PreviousDayClosePrice = ruleValues.previousDayClosePrice;&#10;row3.TradePriceLastMin = ruleValues.tradePriceLastMin;"/>
+    <elementParameter field="MEMO_JAVA" name="CODE_END" value="}"/>
+    <elementParameter field="CHECK" name="Version_V2_0" show="false" value="false"/>
+    <elementParameter field="CHECK" name="Version_V3_2" show="false" value="false"/>
+    <elementParameter field="CHECK" name="Version_V4.0" show="false" value="true"/>
+    <elementParameter field="MEMO_IMPORT" name="IMPORT" value="import java.util.List;&#10;import java.util.concurrent.*;&#10;import java.util.Iterator;&#10;import java.util.Map;&#10;import java.util.Set;"/>
+    <elementParameter field="TEXT" name="LABEL" value="Price Cache"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tJavaFlex_2">
+      <column comment="" key="true" length="-1" name="InstrCode" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="BasePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TradePriceLastMin" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="960" posY="384">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_3"/>
+    <elementParameter field="EXTERNAL" name="MAP" value=""/>
+    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
+    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_fCzxIBpAEem4zpFfXTordw-tMap_3-PREVIEW.bmp"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" show="false" value="true"/>
+    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" show="false" value="false"/>
+    <elementParameter field="TEXT" name="LEVENSHTEIN" show="false" value="0"/>
+    <elementParameter field="TEXT" name="JACCARD" show="false" value="0"/>
+    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" show="false" value="false"/>
+    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
+    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="true"/>
+    <elementParameter field="TEXT" name="LABEL" value="Calculate Trade Price"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <nodeData xsi:type="TalendMapper:MapperData">
+      <uiProperties/>
+      <varTables minimized="true" name="Var" sizeState="INTERMEDIATE"/>
+      <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="out1" sizeState="INTERMEDIATE">
+        <mapperTableEntries name="InstrCode" type="id_String"/>
+        <mapperTableEntries name="TradePrice" nullable="true" type="id_Double"/>
+        <mapperTableEntries name="MidPrice" nullable="true" type="id_Double"/>
+        <mapperTableEntries name="PreviousDayClosePrice" nullable="true" type="id_Double"/>
+        <mapperTableEntries name="ClosePrice" nullable="true" type="id_Double"/>
+        <mapperTableEntries name="EventTime" type="id_Date"/>
+        <mapperTableEntries name="BasePrice" nullable="true" type="id_Double"/>
+        <mapperTableEntries name="IsBasePriceAlert" nullable="true" type="id_Boolean"/>
+      </inputTables>
+    </nodeData>
   </node>
   <connection connectorName="FLOW" label="row7" lineStyle="0" metaname="tDBInput_1" offsetLabelX="0" offsetLabelY="0" source="tDBInput_1" target="tHashOutput_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
@@ -601,10 +636,6 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="out1"/>
   </connection>
-  <connection connectorName="FLOW" label="row3" lineStyle="8" metaname="tJavaFlex_2" offsetLabelX="0" offsetLabelY="0" source="tJavaFlex_2" target="tMap_1">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row3"/>
-  </connection>
   <connection connectorName="FLOW" label="row4" lineStyle="0" metaname="tSortRow_1" offsetLabelX="0" offsetLabelY="0" source="tSortRow_1" target="tFlowToIterate_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row4"/>
@@ -614,7 +645,23 @@
     <elementParameter field="TEXT" name="NUMBER_PARALLEL" show="false" value="2"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="iterate2"/>
   </connection>
-  <connection connectorName="FLOW" label="row5" lineStyle="0" metaname="tFixedFlowInput_1" offsetLabelX="0" offsetLabelY="0" source="tFixedFlowInput_1" target="tLogRow_1">
+  <connection connectorName="FLOW" label="row3" lineStyle="0" metaname="tFixedFlowInput_1" offsetLabelX="0" offsetLabelY="0" source="tFixedFlowInput_1" target="tMap_2">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row3"/>
+  </connection>
+  <connection connectorName="FLOW" label="out1" lineStyle="0" metaname="out1" offsetLabelX="0" offsetLabelY="0" source="tMap_2" target="tMap_3">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="BasePrice"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="IsBasePriceAlert"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="out1"/>
+  </connection>
+  <connection connectorName="FLOW" label="row5" lineStyle="8" metaname="tJavaFlex_2" offsetLabelX="0" offsetLabelY="0" source="tJavaFlex_2" target="tMap_2">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row5"/>
   </connection>
@@ -643,13 +690,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_5411bd9e-9757-4842-b90e-12f84dd84ba1"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>Ml6zG+xQg9lBVvSbNBP/sulo6/ssft3jJjtkJNGMZH7dy/9CJPJ/EPmNIaOh5h3L5RhV6dF7aUiQ
-jeePcUukgA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_d7a500c5-977f-47e8-93df-cd3be8b0e26a"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>A9T4iiCm+rBXl3u/i2XdENCgFjSLphwOUtcKHmAvhhfx9b47MaXFjsY++FhEXF9kIxbZ43NrPLmn
-Nl3mhS4ZTA==</DigestValue></Reference></SignedInfo><SignatureValue>gDS9Fb+pMG6lltVzKggWTH8rLGn+CSfyfwCfGSWzvjsjgH24BBNQViTdfJseTVSvN6rU6vDzhBYI
-/oGhL2h6IqLx/xB0O0EMul+mNnKSUFfVcL/PCMk3mU1WxthD9Mjjmk8U/1fyEw3+XywzuaOsNR9C
-gr/y82Ix1Jc3eLLvJuV9EmYMc4BOgmCmYJlqlZnsxLmMRQac+c/HBlndPtmiH7475mBUEpSHz/CD
-ldD+w/rZFf4XSjk5B7OpgL0oshVduDetpLlc4FBrUUQGWlitgEBIujzvsA92x6Wsxrkx6pknQjos
-T0wue4KA+fYavdFM2iCa0jzt78oKke1qhkwNVQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_d6ec84cc-80ed-4b35-9c42-07909b4b0d70"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>UsGqJu+8F2PjMK5+ZpG3EevRi3OOVCIehRQaMiRCxUq7C2uRYGZnblzpRS1wvAziiXc/GhDjAQuw
+zY+4Qw5JcA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_ae6e033f-2faa-43b3-8f3c-cbe8372b3b64"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>CVc2Agm3eTYsT6WQeQLQZyhogerC3E75PXWHsvp8XAGrvFDmEDP3EI63ICWsgFpicmgbxqY1Pk5T
+vA05JXkQGA==</DigestValue></Reference></SignedInfo><SignatureValue>vRl1Mcwd9c7TQB5iXPinhYbyCdiLGUU/kuJrBoBwGrR0Qlrb1zpgSF4ffADi8kSe5LLAtPrgWhWT
+Z8YbHVxJPFzHqAnEQOxtYaIeRZPs8xQ1h9nw6yUi949rf5dyH8WFD/6xwqEB/wQKOFPtwNj2+fy6
+voyGQrh/oe5nWs8wK+/gfTNrEpFKPZwwLDZBm1C0FXRcCZk3loqC1ZmqGx06pQv83oUVhUyBUNe7
+8NFVXjO/R/PmzbfYZd5gz+7OXrnK0+Ya88+Fkc1aHAh8PJvk3sDi2o30fk6y5Re1Eg0FNb4efXSh
+CqGOYwRsADC8YkXy/Dq0/S+MMrjrnszqvdWdzw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -673,4 +720,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_d7a500c5-977f-47e8-93df-cd3be8b0e26a" Target="#_5411bd9e-9757-4842-b90e-12f84dd84ba1"><Timestamp>2019-01-17 13:47:20</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_ae6e033f-2faa-43b3-8f3c-cbe8372b3b64" Target="#_d6ec84cc-80ed-4b35-9c42-07909b4b0d70"><Timestamp>2019-01-17 14:08:28</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
