@@ -622,27 +622,31 @@
       <column comment="" key="false" length="-1" name="TradePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="MidPrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="EventTime" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="BasePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ThresholdValue" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ThresholdDelay" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="EventTime" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="RuleID" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="RuleName" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
       <uiProperties shellMaximized="true"/>
       <varTables name="Var" sizeState="INTERMEDIATE">
-        <mapperTableEntries expression="row10.RuleName.equals(&quot;Mid-price vs. Base price&quot;) ? AlertsUtils.getThresholds(row9.MidPrice, row9.BasePrice, row10.ThresholdValue, row10.ThresholdDelay)[0]  : ( row10.RuleName.toLowerCase().trim().equalsIgnoreCase(&quot;trade price vs. base price&quot;) ? AlertsUtils.getThresholds(row9.TradePrice, row9.BasePrice, row10.ThresholdValue, row10.ThresholdDelay)[0] : (row10.RuleName.toLowerCase().trim().equalsIgnoreCase(&quot;mid-price vs. previous day close&quot;) ? AlertsUtils.getThresholds(row9.MidPrice, row9.PreviousDayClosePrice, row10.ThresholdValue, row10.ThresholdDelay)[0] : (row10.RuleName.toLowerCase().trim().equalsIgnoreCase(&quot;trade price vs. previous day close&quot;) ? AlertsUtils.getThresholds(row9.TradePrice, row9.PreviousDayClosePrice, row10.ThresholdValue, row10.ThresholdDelay)[0] : &quot;0&quot; ))) " name="isAlert" type="id_String"/>
+        <mapperTableEntries expression="row10.RuleName.toLowerCase().trim().equalsIgnoreCase(&quot;mid-price vs. base price&quot;) ? AlertsUtils.getThresholds(row9.MidPrice, row9.BasePrice, row10.ThresholdValue, row10.ThresholdDelay)[0]  : ( row10.RuleName.toLowerCase().trim().equalsIgnoreCase(&quot;trade price vs. base price&quot;) ? AlertsUtils.getThresholds(row9.TradePrice, row9.BasePrice, row10.ThresholdValue, row10.ThresholdDelay)[0] : (row10.RuleName.toLowerCase().trim().equalsIgnoreCase(&quot;mid-price vs. previous day close&quot;) ? AlertsUtils.getThresholds(row9.MidPrice, row9.PreviousDayClosePrice, row10.ThresholdValue, row10.ThresholdDelay)[0] : (row10.RuleName.toLowerCase().trim().equalsIgnoreCase(&quot;trade price vs. previous day close&quot;) ? AlertsUtils.getThresholds(row9.TradePrice, row9.PreviousDayClosePrice, row10.ThresholdValue, row10.ThresholdDelay)[0] : &quot;0&quot; ))) " name="isAlert" type="id_String"/>
         <mapperTableEntries expression="row10.RuleName.toLowerCase().trim().equalsIgnoreCase(&quot;mid-price vs. base price&quot;) ? AlertsUtils.getThresholds(row9.MidPrice, row9.BasePrice, row10.ThresholdValue, row10.ThresholdDelay)[1]  : ( row10.RuleName.toLowerCase().trim().equalsIgnoreCase(&quot;trade price vs. base price&quot;) ? AlertsUtils.getThresholds(row9.TradePrice, row9.BasePrice, row10.ThresholdValue, row10.ThresholdDelay)[1] : (row10.RuleName.toLowerCase().trim().equalsIgnoreCase(&quot;mid-price vs. previous day close&quot;) ? AlertsUtils.getThresholds(row9.MidPrice, row9.PreviousDayClosePrice, row10.ThresholdValue, row10.ThresholdDelay)[1] : (row10.RuleName.toLowerCase().trim().equalsIgnoreCase(&quot;trade price vs. previous day close&quot;) ? AlertsUtils.getThresholds(row9.TradePrice, row9.PreviousDayClosePrice, row10.ThresholdValue, row10.ThresholdDelay)[1] : &quot;0&quot; ))) " name="thresholdValue" type="id_String"/>
         <mapperTableEntries expression="row10.RuleName.toLowerCase().trim().equalsIgnoreCase(&quot;mid-price vs. base price&quot;) ? AlertsUtils.getThresholds(row9.MidPrice, row9.BasePrice, row10.ThresholdValue, row10.ThresholdDelay)[2]  : ( row10.RuleName.toLowerCase().trim().equalsIgnoreCase(&quot;trade price vs. base price&quot;) ? AlertsUtils.getThresholds(row9.TradePrice, row9.BasePrice, row10.ThresholdValue, row10.ThresholdDelay)[2] : (row10.RuleName.toLowerCase().trim().equalsIgnoreCase(&quot;mid-price vs. previous day close&quot;) ? AlertsUtils.getThresholds(row9.MidPrice, row9.PreviousDayClosePrice, row10.ThresholdValue, row10.ThresholdDelay)[2] : (row10.RuleName.toLowerCase().trim().equalsIgnoreCase(&quot;trade price vs. previous day close&quot;) ? AlertsUtils.getThresholds(row9.TradePrice, row9.PreviousDayClosePrice, row10.ThresholdValue, row10.ThresholdDelay)[2] : &quot;0&quot; ))) " name="thresholdDelay" type="id_String"/>
       </varTables>
-      <outputTables activateExpressionFilter="true" name="cOut_4" sizeState="INTERMEDIATE">
+      <outputTables activateExpressionFilter="true" expressionFilter="Var.isAlert == &quot;1&quot;" name="cOut_4" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="row9.InstrCode " name="InstrCode" type="id_String"/>
         <mapperTableEntries expression="row9.TradePrice " name="TradePrice" nullable="true" type="id_Double"/>
         <mapperTableEntries expression="row9.MidPrice " name="MidPrice" nullable="true" type="id_Double"/>
         <mapperTableEntries expression="row9.PreviousDayClosePrice " name="PreviousDayClosePrice" nullable="true" type="id_Double"/>
-        <mapperTableEntries expression="row9.EventTime " name="EventTime" type="id_Date"/>
         <mapperTableEntries expression="row9.BasePrice " name="BasePrice" nullable="true" type="id_Double"/>
         <mapperTableEntries expression="Double.parseDouble(Var.thresholdValue) " name="ThresholdValue" nullable="true" type="id_Double"/>
         <mapperTableEntries expression="Double.parseDouble(Var.thresholdDelay) " name="ThresholdDelay" nullable="true" type="id_Double"/>
+        <mapperTableEntries expression="row9.EventTime " name="EventTime" type="id_Date"/>
+        <mapperTableEntries expression="row10.RuleID " name="RuleID" nullable="true" type="id_Integer"/>
+        <mapperTableEntries expression="row10.RuleName " name="RuleName" nullable="true" type="id_String"/>
       </outputTables>
       <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="row9" sizeState="INTERMEDIATE">
         <mapperTableEntries name="InstrCode" type="id_String"/>
@@ -702,13 +706,17 @@
       <elementValue elementRef="LENGTH" value="10"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="PreviousDayClosePrice"/>
       <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="EventTime"/>
-      <elementValue elementRef="LENGTH" value="10"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="BasePrice"/>
       <elementValue elementRef="LENGTH" value="10"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="ThresholdValue"/>
       <elementValue elementRef="LENGTH" value="10"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="ThresholdDelay"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="EventTime"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="RuleID"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="RuleName"/>
       <elementValue elementRef="LENGTH" value="10"/>
     </elementParameter>
     <elementParameter field="CHECK" name="PRINT_CONTENT_WITH_LOG4J" value="true"/>
@@ -719,10 +727,12 @@
       <column comment="" key="false" length="-1" name="TradePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="MidPrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="EventTime" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="BasePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ThresholdValue" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ThresholdDelay" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="EventTime" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="RuleID" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="RuleName" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1248" posY="576">
@@ -862,6 +872,12 @@
       <elementValue elementRef="TRACE_COLUMN" value="newColumn222"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="RuleID"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="RuleName"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cOut_4"/>
@@ -912,13 +928,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_c28f765a-0686-4d9a-af37-e0429445fe24"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>djh0XQemww6baCgZhXYb1+7+2Yf+saMz1gn+Zce9QWwEsjcrXoVm18e2WzWImTUKNWZHjUc1r57s
-8xXSC49ROQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_a83ba3e6-b801-4c21-9ce7-7bb65ac94d7b"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>SN08Vr94ZECZO7S3qj4RjJ8IbJIIChlIHZ70uhalzevYWayU/riRCMcvUw7scc2l+j0nJr53ErxM
-/lCvDzoA0Q==</DigestValue></Reference></SignedInfo><SignatureValue>fkzUeSMHC/YtZFnVYDwGXvpKz/MwQKws+7A7e7+PBqVW8KZnQtSIn8V8wy9Inw5pH6xRaK7xYyFW
-QGICxO3txqugm31rQwm+pzcp7rSQh0Z3nYs0V83B38Nay69WvsVLDTEtUR6DJvvl3AnQu0PRJgzT
-FRgg7I1J00Uf79oY9olwjqKrP1QoM3UWqQhGWZOuD7eN62/j/iCnEWd8YMyLZZ5FubV9H34cUPU3
-vx2G4OxkOuRfJlau9Lr+0SromPrrwZsoJSVj+71Iv3kHrCuun5T1945n+zCdjFRkEwjvfKRfZ2Go
-goccbA2GPkYz7ZY1coQdC7F6WDta/f0Qpz9PkA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_b8202a7b-6216-4d8a-b901-e0c6535baecc"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>NFFemiizHvE5zrc247yoCddBlngCGEtIoXqJWylOicBH07m6TXQCDmI41uF/GDKh681cY1fCvkOx
+Z38jHzAkxw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_8fc30fb5-14df-40da-a177-89c23d6081ad"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>vtV3iEgnhQ/aGPu4TzrdZWqCiKjkbiR4Z4n0MR1e3dfTYzXSjPKl0K9Xo2WRqYIXp0S0EaMkdhmQ
+N0ucvCoFXQ==</DigestValue></Reference></SignedInfo><SignatureValue>UdFe4mEsWcfBEza808llhHQC/9WnwVTFX7SxFhH5kGF4Ux7EsmK/JC8Pji13DjYobBuPoEtxlGJE
+csefnLbakeKc5xEVuplBz0aIWAOgZfOrAMAUHdyHD2pBN4UCWlhpjsQTKU4E9bxXHCs4wG/PNf5J
+swEz5tRf9BELBLXqU1JpjNhBhp0kU8LFVm9JSmOlo2W0I60EzDAdzV+xlRhZ2ZWZBoFzvlBtfX0k
+rrIkmkjpMe6inO7xp6/qMko+XgDqhc8ddJButGd3cBIGu1o0SOfjuo8w0aWkO8OxER4agAAAUqE+
+zzdXXOdzOAZJJmzKUfpQEO+oltE2cVxT9LII5w==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -942,4 +958,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_a83ba3e6-b801-4c21-9ce7-7bb65ac94d7b" Target="#_c28f765a-0686-4d9a-af37-e0429445fe24"><Timestamp>2019-01-17 21:48:37</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_8fc30fb5-14df-40da-a177-89c23d6081ad" Target="#_b8202a7b-6216-4d8a-b901-e0c6535baecc"><Timestamp>2019-01-17 21:50:21</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
