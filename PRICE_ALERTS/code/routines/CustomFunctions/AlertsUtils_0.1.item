@@ -83,17 +83,17 @@ public class AlertsUtils {
 	
 	
 
-	public static String[] getThresholds(double oldPrice, double newPrice, String thresholdsValue, String thresholdsDelay ) {
+	public static String[] getThresholds(Double oldPrice, Double newPrice, String thresholdsValue, String thresholdsDelay ) {
     	
 		String[] result = new String[] { "0", "0", "0"};
     	
-		double priceChange = getPriceChange(oldPrice, newPrice);
+		Double priceChange = Math.abs(getPriceChange(oldPrice, newPrice));
     	if (priceChange != 0) {
 	    	String[] tmpThresValue = thresholdsValue.split(",");
 	    	String[] tmpThresDelay = thresholdsDelay.split(",");
 	    	for (int i = tmpThresValue.length - 1; i >= 0; i--) {
-	    		double thresValue = Double.valueOf(tmpThresValue[i]);
-	    		if (Math.abs(priceChange) >= thresValue) {
+	    		Double thresValue = Double.valueOf(tmpThresValue[i]);
+	    		if (priceChange >= thresValue) {
 	    			result[1] = Double.toString(thresValue);
 	    			result[2] = tmpThresDelay[i];
 	    			if (priceChange > 0) {
