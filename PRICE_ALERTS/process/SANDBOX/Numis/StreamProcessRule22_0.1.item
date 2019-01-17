@@ -518,7 +518,7 @@
       <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="EventTime" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="BasePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="BasePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="IsBasePriceAlert" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Boolean" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
@@ -533,7 +533,7 @@
         <mapperTableEntries expression="row3.PreviousDayClosePrice " name="PreviousDayClosePrice" nullable="true" type="id_Double"/>
         <mapperTableEntries expression="row3.ClosePrice " name="ClosePrice" nullable="true" type="id_Double"/>
         <mapperTableEntries expression="row3.EventTime " name="EventTime" type="id_Date"/>
-        <mapperTableEntries expression="Var.isBasePriceAlert ? row3.MidPrice : row5.BasePrice " name="BasePrice" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="Var.isBasePriceAlert ? row3.MidPrice : row5.BasePrice " name="BasePrice" nullable="true" type="id_Double"/>
         <mapperTableEntries expression="Var.IsBasePriceAlert" name="IsBasePriceAlert" nullable="true" type="id_Boolean"/>
       </outputTables>
       <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="row3" sizeState="INTERMEDIATE">
@@ -612,7 +612,7 @@
       <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="EventTime" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="BasePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="BasePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="IsBasePriceAlert" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Boolean" usefulColumn="true"/>
     </metadata>
   </node>
@@ -696,13 +696,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_b8bb89af-4321-4247-a039-9cf2b39783fd"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>oLFdRP9GvJpwkjcVqzuEb+MufZdosUJA32jTPwUv9Nxvg+k34zbpewkSx0OC1ynlHEkfyKybChXD
-iZpcQrfu0w==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_dc26acbf-c9a7-45fa-84de-6a24792d2286"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>lptx0HmYBYhG7liny19fSFVVZxG+VT0gkV0QidakAD0gFizyxgh9Yz3IT/Gc0UtVL2QCsa8HLgIh
-WmvlnSyr4g==</DigestValue></Reference></SignedInfo><SignatureValue>o2AGh/hZe7Zbs2FvaqsZoIygIhjxbNhb7J+PgD8q/vsj7WAk70cTbuDQE6W8M+Py6g+CjWaURk2q
-x6bbX6LJshFK5W2kPIkl9RjIcbe+Da0ZhCyzHuzj0OpfMIEg757lMJAfCES2Zg/RPSCbpGb8kAWx
-532RkmkV7Hf9gFD9QiCMpp+U86YzHF18qJ0FPT0Og1M6hr6U2MQpR8pdu8qOYG/3qkL4a1uP6Q8v
-3YqqXmoAKHLrhpQO/H8iCs0MGKK9nZTrtNN0/McSbmCdYQr/n/KwNMaBzZinQ1gKUvhZ+HpW5XHg
-+Q4wZdpJWfcxNspD1d9SOmovVzg1EPips7yQNA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_81636d8d-dd88-4b60-a603-a600e00c343f"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>ZKd3ii/EEpS60Vr6alAW8tPMgVB0R7VR9tIpwErArUXwoUTKrD02+QXvR9974XISc110n4kDOoh6
+QpvsJIqb0Q==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_f1b59f26-7b48-48ea-95cb-0ee87b607b59"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>EMC8tUSzXBC8u0EVk2GEzOg/HxgaaQsrU1mG+hY5ZIIJr1pjaY64v2F1w2wEMzHNaw+bFEOG509C
+1vDcHXI9pg==</DigestValue></Reference></SignedInfo><SignatureValue>n2tPPuvBE89QnfeKg1nwxSbodpK9RkLI8HFlXtQsX0azBDRDSO55OE0/dtWoNtxdMPKTtmqz25yx
+CnssA2hqHUDwFmdka5dLmxEo/no4lKv/hXeD3PguTA4IJu7I3DT+6BNiEca2k1VlRl58T+aO0EgV
+uIYzbUdbawfFu3UsIHziS+j/wFJjCIWeYMKnV7gx3qs/gajlugMmOxFPxCk+lmYZS0aH1Tj/NZ9K
+IaiVTJ+P0v3DcoGRlq0j1gGDhSrQvD0vlq31b1ul9MIPet9G6S/Uv/0li6Ie/K06/UciWqi0Mw/C
+dkBztpGqqccapKi828jxZ/OIx9U72/oH4ypOUw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -726,4 +726,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_dc26acbf-c9a7-45fa-84de-6a24792d2286" Target="#_b8bb89af-4321-4247-a039-9cf2b39783fd"><Timestamp>2019-01-17 14:18:29</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_f1b59f26-7b48-48ea-95cb-0ee87b607b59" Target="#_81636d8d-dd88-4b60-a603-a600e00c343f"><Timestamp>2019-01-17 14:19:05</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
