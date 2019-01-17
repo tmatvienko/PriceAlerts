@@ -424,6 +424,7 @@
       <elementValue elementRef="KEY" value="&quot;cEventTime&quot;"/>
       <elementValue elementRef="VALUE" value="EventTime"/>
     </elementParameter>
+    <elementParameter field="TEXT" name="LABEL" value="Foreach Message"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tFlowToIterate_1"/>
   </node>
@@ -451,6 +452,7 @@
     <elementParameter field="TEXT" name="ROWSEPARATOR" show="false" value="&quot;\n&quot;"/>
     <elementParameter field="TEXT" name="FIELDSEPARATOR" show="false" value="&quot;;&quot;"/>
     <elementParameter field="MEMO" name="INLINECONTENT" show="false" value=""/>
+    <elementParameter field="TEXT" name="LABEL" value="Set Message Flow"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tFixedFlowInput_1">
       <column comment="" key="false" length="-1" name="InstrCode" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
@@ -595,8 +597,9 @@
       </inputTables>
     </nodeData>
   </node>
-  <node componentName="tReplicate" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1024" posY="416">
+  <node componentName="tReplicate" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1120" posY="416">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tReplicate_1"/>
+    <elementParameter field="TEXT" name="LABEL" value="Replicate Flow"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tReplicate_1">
       <column comment="" key="false" length="-1" name="InstrCode" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
@@ -625,7 +628,7 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tJavaFlex_3"/>
   </node>
-  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="1184" posY="352">
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="1184" posY="320">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_1"/>
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
@@ -639,26 +642,20 @@
     <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
     <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="true"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata name="cOut_3">
+    <metadata name="cOut_vsBasePrice">
       <column comment="" key="false" length="-1" name="InstrCode" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="TradePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="MidPrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="EventTime" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="BasePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
       <uiProperties shellMaximized="true"/>
-      <varTables name="Var" sizeState="INTERMEDIATE">
-        <mapperTableEntries expression="AlertsUtils.getThresholdChanges(row9.MidPrice, row9.BasePrice, row10.ThresholdValue).isAlert " name="var1" type="id_Boolean"/>
-      </varTables>
-      <outputTables name="cOut_3" sizeState="INTERMEDIATE">
+      <varTables minimized="true" name="Var" sizeState="INTERMEDIATE"/>
+      <outputTables activateExpressionFilter="true" name="cOut_vsBasePrice" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="row9.InstrCode " name="InstrCode" type="id_String"/>
         <mapperTableEntries expression="row9.TradePrice " name="TradePrice" nullable="true" type="id_Double"/>
         <mapperTableEntries expression="row9.MidPrice " name="MidPrice" nullable="true" type="id_Double"/>
-        <mapperTableEntries expression="row9.PreviousDayClosePrice " name="PreviousDayClosePrice" nullable="true" type="id_Double"/>
-        <mapperTableEntries expression="row9.ClosePrice " name="ClosePrice" nullable="true" type="id_Double"/>
         <mapperTableEntries expression="row9.EventTime " name="EventTime" type="id_Date"/>
         <mapperTableEntries expression="row9.BasePrice " name="BasePrice" nullable="true" type="id_Double"/>
       </outputTables>
@@ -674,16 +671,9 @@
         <mapperTableEntries name="TradePriceLastMin" nullable="true" type="id_Double"/>
         <mapperTableEntries name="IsTradePriceAlert" nullable="true" type="id_Boolean"/>
       </inputTables>
-      <inputTables activateCondensedTool="true" innerJoin="true" lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="row10" sizeState="INTERMEDIATE">
-        <mapperTableEntries name="RuleID" type="id_Integer"/>
-        <mapperTableEntries name="RuleName" type="id_String"/>
-        <mapperTableEntries expression="row9.InstrCode " name="InstrCode" operator="=" type="id_String"/>
-        <mapperTableEntries name="ThresholdValue" type="id_String"/>
-        <mapperTableEntries name="ThresholdDelay" type="id_String"/>
-      </inputTables>
     </nodeData>
   </node>
-  <node componentName="tHashInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1216" posY="448">
+  <node componentName="tHashInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1568" posY="576">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tHashInput_1"/>
     <elementParameter field="CHECK" name="LINK_WITH" value="true"/>
     <elementParameter field="COMPONENT_LIST" name="LIST" value="tHashOutput_1"/>
@@ -767,27 +757,6 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row9"/>
   </connection>
-  <connection connectorName="FLOW" label="row10" lineStyle="8" metaname="tHashInput_1" offsetLabelX="0" offsetLabelY="0" source="tHashInput_1" target="tMap_1">
-    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
-      <elementValue elementRef="TRACE_COLUMN" value="InstrCode"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="ThresholdValue"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="RuleID"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="RuleName"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="ThresholdDelay"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-    </elementParameter>
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row10"/>
-  </connection>
   <subjob>
     <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBInput_1"/>
@@ -813,13 +782,18 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_35c96dab-4efa-462d-bc2d-d9cfd2eb4ece"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>1hjjuX5Dy+SeYMaA4kwb4XPmQRdtpYJ5zPIrciSEJAMoEL4hn5z3UG1dMB02Y7EgAwExJRrDeS7R
-pNY52vXGfA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_0b893239-3a3a-4813-bcc8-2309ed567eeb"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>Zsr8IOrQ6iza92tAAS2HF7yvC4iRLDE1yaKfK27iLXtPdXHRcbI70h/5NWbrCxYz1QkMHVAqe2c+
-D/8G88rcyQ==</DigestValue></Reference></SignedInfo><SignatureValue>11dryHoDVylpMfGaYa4TdkpZQxuCHCzb3vMwOZ0U1m2lO5DzDccqj7KBjQyQJazZarjHUwGdUBTr
-cHazhk8tDO25Q/5Bf0/bX6V4hqlNM8A5jMbf+Tggh5ezprqXeoRijN6+7FqM+j9HpS7myVfLMvMu
-m888ZmLXikKK2cTSezitwStDSMtDEujO51BQUOpAwQ6UUZB+3KXliay/QxY/y/MtnRjsuA00S49T
-zsk+nm+nW0NfO4oZbPx9c8wwCjXnFHkEXn0Dj5RybUjnxfCIt/6aUp3U+ghQvEZccQkbR0G6oq3T
-MHZqvUd8gfTJdxkA1CxQx7oUU+Vb0lIcqG8ZLg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tHashInput_1"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_8a8fedc4-5371-4772-bb20-3b1fc1344e50"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>rhvypuJerh1jNAZaNL2mpVyRKtyszMQ7HeanBlwf1Baarfux8LPkoZSJS2dokkDbeilKO0xna6RW
+ilXVwys6sQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_ec6ff12d-2ab6-4ec4-b487-4d2e7c812502"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>psceCypDReKetE9y3k3JJYb/c1+4OUYE4R5UD0L6XhMIVZsswYGL52GaFwVQJKkxv18roKiN8uSG
+GeMWcwIq5Q==</DigestValue></Reference></SignedInfo><SignatureValue>fRGAKYrOhSsawP4qCCVuy0Uayjts1AiUep1a3X2VnxC6dtoCPuGgZf4db2SAt60fTn1Hagywhiw3
+RXk9m5AuhcBaT7X8uXPs2LN2aNVV7OfceppbLQXwI4aFfrGgOfSWvZ9zaICY/ecJIVcDqezUya1I
+8qy3WXzQKNVZjfbQ5nRgUncklOXvoa7TUnMqBDhAXCYTLLNG4w4mk2kHmkyPydBAK7050zumqNPP
+M7Sh/Jztu5aOBUc/qqtVxaYS4fTZpWH/QE0HYN7ZTHfN9vTTaBqpGi7mjViE71I4+k6na4Zu0GiC
+eJOKJ1KR1dGrTInaor0f3bhzJYDI0zDAKarxag==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -843,4 +817,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_0b893239-3a3a-4813-bcc8-2309ed567eeb" Target="#_35c96dab-4efa-462d-bc2d-d9cfd2eb4ece"><Timestamp>2019-01-17 16:36:55</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_ec6ff12d-2ab6-4ec4-b487-4d2e7c812502" Target="#_8a8fedc4-5371-4772-bb20-3b1fc1344e50"><Timestamp>2019-01-17 16:48:54</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
