@@ -305,12 +305,12 @@
   </node>
   <node componentName="tExtractJSONFields" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="768" posY="192">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tExtractJSONFields_1"/>
-    <elementParameter field="CLOSED_LIST" name="READ_BY" value="JSONPATH"/>
-    <elementParameter field="CLOSED_LIST" name="JSON_PATH_VERSION" value="2_1_0"/>
+    <elementParameter field="CLOSED_LIST" name="READ_BY" value="XPATH"/>
+    <elementParameter field="CLOSED_LIST" name="JSON_PATH_VERSION" show="false" value="2_1_0"/>
     <elementParameter field="PREV_COLUMN_LIST" name="JSONFIELD" value="MessageId"/>
-    <elementParameter field="TEXT" name="LOOP_QUERY" show="false" value="&quot;/&quot;"/>
-    <elementParameter field="TEXT" name="JSON_LOOP_QUERY" value="&quot;$.bills.bill.line[*]&quot;"/>
-    <elementParameter field="TABLE" name="MAPPING" show="false">
+    <elementParameter field="TEXT" name="LOOP_QUERY" value="&quot;/&quot;"/>
+    <elementParameter field="TEXT" name="JSON_LOOP_QUERY" show="false" value="&quot;$.bills.bill.line[*]&quot;"/>
+    <elementParameter field="TABLE" name="MAPPING">
       <elementValue elementRef="SCHEMA_COLUMN" value="InstrCode"/>
       <elementValue elementRef="QUERY" value="&quot;m_FIM&quot;"/>
       <elementValue elementRef="NODECHECK" value="false"/>
@@ -336,25 +336,25 @@
       <elementValue elementRef="NODECHECK" value="false"/>
       <elementValue elementRef="ISARRAY" value="false"/>
     </elementParameter>
-    <elementParameter field="TABLE" name="MAPPING_4_JSONPATH">
+    <elementParameter field="TABLE" name="MAPPING_4_JSONPATH" show="false">
       <elementValue elementRef="SCHEMA_COLUMN" value="InstrCode"/>
-      <elementValue elementRef="QUERY" value="&quot;m_FIM&quot;"/>
+      <elementValue elementRef="QUERY" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="TradePrice"/>
-      <elementValue elementRef="QUERY" value="&quot;m_TRD_PRICE&quot;"/>
+      <elementValue elementRef="QUERY" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="MidPrice"/>
-      <elementValue elementRef="QUERY" value="&quot;m_MID&quot;"/>
+      <elementValue elementRef="QUERY" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="PreviousDayClosePrice"/>
-      <elementValue elementRef="QUERY" value="&quot;m_LAST_CLOSE&quot;"/>
+      <elementValue elementRef="QUERY" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="ClosePrice"/>
-      <elementValue elementRef="QUERY" value="&quot;m_CLOSE&quot;"/>
+      <elementValue elementRef="QUERY" value=""/>
       <elementValue elementRef="SCHEMA_COLUMN" value="EventTime"/>
-      <elementValue elementRef="QUERY" value="&quot;m_EVENT_TIME&quot;"/>
+      <elementValue elementRef="QUERY" value=""/>
     </elementParameter>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
     <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" show="false" value="100"/>
     <elementParameter field="TEXT" name="DESTINATION" show="false" value="tExtractJSONFields_1"/>
-    <elementParameter field="ENCODING_TYPE" name="ENCODING" show="false" value="&quot;UTF-8&quot;"/>
-    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" show="false" value="UTF-8"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;UTF-8&quot;"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="UTF-8"/>
     <elementParameter field="CHECK" name="SPLIT_LIST" show="false" value="true"/>
     <elementParameter field="TEXT" name="LABEL" value="Parse Messages"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
@@ -435,7 +435,7 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tJavaFlex_2"/>
     <elementParameter field="CHECK" name="DATA_AUTO_PROPAGATE" value="true"/>
     <elementParameter field="MEMO_JAVA" name="CODE_START" value="ConcurrentHashMap&lt;String, AlertsUtils.StockCache&gt; list = (ConcurrentHashMap&lt;String, AlertsUtils.StockCache&gt;)globalMap.get(&quot;rulesCache&quot;);&#10;&#10;&#10;Set&lt;Map.Entry&lt;String, AlertsUtils.StockCache&gt;&gt; entrySet = list.entrySet();&#10;Iterator&lt;Map.Entry&lt;String, AlertsUtils.StockCache&gt;&gt; itr = entrySet.iterator();&#10;&#10;&#10;while (itr.hasNext()) {"/>
-    <elementParameter field="MEMO_JAVA" name="CODE_MAIN" value="Map.Entry&lt;String, AlertsUtils.StockCache&gt; entry = itr.next();&#10;&#10;&#10;row3.InstrCode = entry.getKey();&#10;AlertsUtils.StockCache ruleValues = entry.getValue();&#10;row3.BasePrice = ruleValues.basePrice;&#10;row3.PreviousDayClosePrice = ruleValues.previousDayClosePrice;&#10;row3.TradePriceLastMin = ruleValues.tradePriceLastMin;"/>
+    <elementParameter field="MEMO_JAVA" name="CODE_MAIN" value="Map.Entry&lt;String, AlertsUtils.StockCache&gt; entry = itr.next();&#10;&#10;&#10;row3.InstrCode = entry.getKey();&#10;AlertsUtils.RuleCache ruleValues = entry.getValue();&#10;row3.BasePrice = ruleValues.basePrice;&#10;row3.PreviousDayClosePrice = ruleValues.previousDayClosePrice;&#10;row3.TradePriceLastMin = ruleValues.tradePriceLastMin;"/>
     <elementParameter field="MEMO_JAVA" name="CODE_END" value="}"/>
     <elementParameter field="CHECK" name="Version_V2_0" show="false" value="false"/>
     <elementParameter field="CHECK" name="Version_V3_2" show="false" value="false"/>
@@ -477,16 +477,16 @@
   <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1344" posY="192">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tLogRow_1"/>
     <elementParameter field="RADIO" name="BASIC_MODE" value="false"/>
-    <elementParameter field="RADIO" name="TABLE_PRINT" value="true"/>
+    <elementParameter field="RADIO" name="TABLE_PRINT" value="false"/>
     <elementParameter field="RADIO" name="VERTICAL" value="false"/>
     <elementParameter field="RADIO" name="PRINT_UNIQUE" show="false" value="true"/>
     <elementParameter field="RADIO" name="PRINT_LABEL" show="false" value="false"/>
     <elementParameter field="RADIO" name="PRINT_UNIQUE_LABEL" show="false" value="false"/>
-    <elementParameter field="TEXT" name="FIELDSEPARATOR" show="false" value="&quot;|&quot;"/>
-    <elementParameter field="CHECK" name="PRINT_HEADER" show="false" value="false"/>
-    <elementParameter field="CHECK" name="PRINT_UNIQUE_NAME" show="false" value="false"/>
-    <elementParameter field="CHECK" name="PRINT_COLNAMES" show="false" value="false"/>
-    <elementParameter field="CHECK" name="USE_FIXED_LENGTH" show="false" value="false"/>
+    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;|&quot;"/>
+    <elementParameter field="CHECK" name="PRINT_HEADER" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_UNIQUE_NAME" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_COLNAMES" value="false"/>
+    <elementParameter field="CHECK" name="USE_FIXED_LENGTH" value="false"/>
     <elementParameter field="TABLE" name="LENGTHS" show="false">
       <elementValue elementRef="SCHEMA_COLUMN" value="InstrCode"/>
       <elementValue elementRef="LENGTH" value="10"/>
@@ -603,13 +603,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_d4f8da21-1708-4522-bab4-5f63e942e599"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>XctSOdIhTpkwgr7iVFP5qmTz8pmUkSI3Amr4jgvCd0QxLp/n3nm+fX/31Wz8CKMkI1hgxu+UuTGl
-nkmT74X/pg==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_7bc3fce8-b336-4012-a4c6-d993c989c49e"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>t1hMmWVgGcv5FcXbBYRZfYUjmaTALIeMOS6Lzbt9d1mY5ciSvdMDl02xXYDUzkZY94scXyKUCnV6
-+PfgfXi2yQ==</DigestValue></Reference></SignedInfo><SignatureValue>pVPq4RWT0Z/gvZwedLPt1m6MWOy00kKTJ+qRP3arvDhb0wYxezZhHCZZIdpoIm+W41TFWFr//dPX
-U18zBbI1KQlBSF2zeUxDksD7vS1AirHNZtCgiow/10PAkcZLOGkjzlGIBGRO+Q1Qk7ZbBWVVsaBe
-UP8DuprNfduhbFdbLkPECUIVzvghIzM2cYQu3olBFUJMxXqUu+IlRlzXf4DT3GBVckyII4xVFVMt
-8B+R0ShVXN93vVoiGPWtIO9r8JOKZpCyL7dR18wFhJ1wcTqtkiRzX4eAMXOHf7hC4f1Mk7g1JqHj
-/qWHL70Uwfa9VWv8zfsXd798d/jvxBWPIcDBIA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_980fc539-30c6-4320-8b50-e2ea5cc07f2a"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>2DPwa1Q6cL9JX1xODcTbUnBRrDm08w1KNu8D5bNgWfA7T/5wiUxX0Qf6dPB/XAS8FBWepmS7x2ty
+X1Y130FJ4g==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_a14a191b-dabd-4718-b4cc-a746beccb27b"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>Xo2OnaOaQAHtfR5WUmX+Y6NhT67Dd7iMrFTjbDknS9dwkM8YauL+SPu3LHfkuVgaRZzW+V7Yh8B/
+Up3pqYHluw==</DigestValue></Reference></SignedInfo><SignatureValue>p9bQxRJ5fzgWrATZIHTVGZOTnn0FvScdbAb2blzn3ZodFsmWEQxhaXsdrmlCgXeKdOA4WwNuIARZ
+lQllNy5s2KCREKFLbVDkQOfVM8rtOhTw3f7NfxrkJzH4ut0/rEbZ0vusbGv7Q41w6OdZvRfNqAZ2
+vbEHp6xJeEWPbyO+Mv1o/zAV6NcJ0d90M37ToOunw27RygX7PzIlAgOWVAH1N4Vw5cEuq/0ec5Bi
+10okr58rz/9nlpRpQc20rhgXfsCQ5yGPT+CJ66lYXMY8kqsBLNxJsuNSF9L6syac3NmaGxcQXu75
+VUSaCpzV1BvqYFk8eq5ZQ5H9O/epVvCsCPrDEg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -633,4 +633,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_7bc3fce8-b336-4012-a4c6-d993c989c49e" Target="#_d4f8da21-1708-4522-bab4-5f63e942e599"><Timestamp>2019-01-17 13:26:48</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_a14a191b-dabd-4718-b4cc-a746beccb27b" Target="#_980fc539-30c6-4320-8b50-e2ea5cc07f2a"><Timestamp>2019-01-17 13:27:22</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
