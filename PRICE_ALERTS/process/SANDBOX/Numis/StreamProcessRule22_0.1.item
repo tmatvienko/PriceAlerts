@@ -627,6 +627,7 @@
       <column comment="" key="false" length="-1" name="ThresholdValue" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ThresholdDelay" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="newcolumn" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="newColumn" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
       <uiProperties shellMaximized="true"/>
@@ -645,6 +646,7 @@
         <mapperTableEntries expression="Double.parseDouble(Var.thresholdValue) " name="ThresholdValue" nullable="true" type="id_Double"/>
         <mapperTableEntries expression="Double.parseDouble(Var.thresholdDelay) " name="ThresholdDelay" nullable="true" type="id_Double"/>
         <mapperTableEntries expression="AlertsUtils.getThresholds(1000.0, 600.0, row10.ThresholdValue, row10.ThresholdDelay)[1] " name="newcolumn" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="AlertsUtils.getPriceChange(100.00, 600.00)" name="newColumn" nullable="true" type="id_Double"/>
       </outputTables>
       <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="row9" sizeState="INTERMEDIATE">
         <mapperTableEntries name="InstrCode" type="id_String"/>
@@ -714,6 +716,8 @@
       <elementValue elementRef="LENGTH" value="10"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="newcolumn"/>
       <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="newColumn"/>
+      <elementValue elementRef="LENGTH" value="10"/>
     </elementParameter>
     <elementParameter field="CHECK" name="PRINT_CONTENT_WITH_LOG4J" value="true"/>
     <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" show="false" value="100"/>
@@ -728,6 +732,7 @@
       <column comment="" key="false" length="-1" name="ThresholdValue" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ThresholdDelay" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="newcolumn" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="newColumn" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1248" posY="576">
@@ -864,6 +869,9 @@
       <elementValue elementRef="TRACE_COLUMN" value="newcolumn"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="newColumn"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cOut_4"/>
@@ -914,13 +922,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_d4259227-1d9d-4ed7-9f3e-e69543bfc3db"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>ES0SIqj1sksO/ta0Qbbu4+sMVD2yx9bMK+9y+JrKyJDPzErWk8zu2TyDAE9sJ09XOXWgV01ZP5P8
-0Ri1Xj8OzQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_60b6de26-f38c-43fc-8e31-56868eeb8ee0"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>StQ1IWLNJDQnZXIojT5LndioALMPhxsPFyfMUwsTHGhwrpsU4Bdta03iNHf7GtYczFk2gGnIGfwk
-UDZvcOZuiA==</DigestValue></Reference></SignedInfo><SignatureValue>GqZv9tmLef5+ByWY7/s60T2pyKFKcS+zfEGCGKasC3PZbm7db2cV9Qn+JIiRiX9Yr5WwkVKkRcw2
-fl+Jm1NbAqLFTbh8pgK61B1+PFVwJHpvgO39Yns6NuPWM5+0uo5+7pRjf+oNZrw5aM068hQDDCtO
-bRQKggjd3E8uSs/IvPNgWgDCM59fnbYgRgbPlvsdZW2NWcfmS25jYT73uHTi97pPyvkL4liqEcHF
-FE5pMlQCAxKG3qiVAnl4k7CxB3BHJMNXefx5fRSuIObM1Qh2DJwX7TfLIgegb73wwd477PSBhmSh
-oO7oGLm+ZCKc0YPL4GQrJ7Q5aFL81qLaaDR1Ew==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_83843746-d015-48bf-bdf4-c1656bb4663a"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>hI+mzdfjn8v3KqfN/8Lb7Ry2GOs1QbjKzMWZx/ruDThlDMWueflc8KOWzLbEiz3gHNR+2ETOtW3G
+s1nPOjvwYQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_eae14aa3-bd76-4ee2-9d75-59be3ecfea74"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>1E8wvP3J20Vf3Qo6JZcLHsDWNgDkFxpNC3ENnFbPokGKAI4sJewd2TtQ96XcAhRcSyg1zXQ6Aks4
+rjwJUmvbIw==</DigestValue></Reference></SignedInfo><SignatureValue>21B05eoh9ldzD9zjj7UWt6HNu1I+x7tboqfyFHZpesrVC99sfQWzjXWlFbAXextIdksu7gRYdYUJ
+Xzwg1OVTdlAKCPHdr2NtMp+FDy/yAMcbSfWYktHONV7S3TpeFcgsw3ZlmuuTgc0ogPC6CrhZltv1
+vqdYBppnw62rEDboZFm+G4KZF2J54COJw9j/ml+pGQFDSJZZyqCK/RwoYiJkvWtNOrjRwa2hk+pQ
+e14eFAmI/hlP4JBGh4yN3Vi+BxOrSXPXI9AKaAS4tcvDa2yYHyG5qQ6SRbZEF6jtRn7/eimB0KiG
+Ouhrk012Bn1694RpshAqbwaVsgPPjscVGCnulQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -944,4 +952,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_60b6de26-f38c-43fc-8e31-56868eeb8ee0" Target="#_d4259227-1d9d-4ed7-9f3e-e69543bfc3db"><Timestamp>2019-01-17 21:22:37</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_eae14aa3-bd76-4ee2-9d75-59be3ecfea74" Target="#_83843746-d015-48bf-bdf4-c1656bb4663a"><Timestamp>2019-01-17 21:24:32</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
