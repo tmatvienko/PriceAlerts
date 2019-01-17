@@ -111,8 +111,13 @@ public class AlertsUtils {
     	       
     }
 
-	public static double getPriceChange(double priceNum, double priceDenum) {
-		return ((priceNum - priceDenum) / priceNum) * 100;
+	public static Double getPriceChange(Double priceNum, Double priceDenum) {
+		if (priceNum == null || priceDenum == null){
+			return 0.00;
+		}
+		else {
+			return ((priceNum - priceDenum) / priceNum) * 100;
+		}
 	}
 	
 	
