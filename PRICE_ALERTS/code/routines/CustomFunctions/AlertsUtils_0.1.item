@@ -58,13 +58,13 @@ public class AlertsUtils {
     	
 		RuleThreshold result = new RuleThreshold(false, 0);
     	
-    	double priceChange = getPriceChange(oldPrice, newPrice);
+    	double priceChange = Math.abs(getPriceChange(oldPrice, newPrice));
     	
     	if (priceChange != 0) {
 	    	String[] tmpArr = thresholds.split(",");
 	    	for (int i = tmpArr.length - 1; i >= 0; i--) {
 	    		double thresValue = Double.valueOf(tmpArr[i]);
-	    		if (Math.abs(priceChange) >= thresValue) {
+	    		if (priceChange >= thresValue) {
 	    			result.thresholdValue = thresValue;
 	    			if (priceChange > 0) {
 	    				result.isAlert = true;
