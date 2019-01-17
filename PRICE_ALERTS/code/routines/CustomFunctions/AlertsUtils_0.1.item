@@ -56,7 +56,7 @@ public class AlertsUtils {
 	
 	public static RuleThreshold getThresholdChanges(double oldPrice, double newPrice, String thresholds ) {
     	
-		RuleThreshold result = new RuleThreshold(true, 0);
+		RuleThreshold result = new RuleThreshold(false, 0);
     	
     	double priceChange = getPriceChange(oldPrice, newPrice);
     	
