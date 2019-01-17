@@ -80,6 +80,13 @@ public class AlertsUtils {
     	return result;
     	       
     }
+	
+	
+	public static String[] getThresholds(double oldPrice, double newPrice, String thresholds ) {
+    	
+		return new String[] { "0", "0"};
+    	       
+    }
 
 	public static double getPriceChange(double priceNum, double priceDenum) {
 		return ((priceNum - priceDenum) / priceNum) * 100;
