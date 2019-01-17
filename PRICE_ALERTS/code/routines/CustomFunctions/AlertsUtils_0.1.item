@@ -88,7 +88,6 @@ public class AlertsUtils {
 		String[] result = new String[] { "0", "0", "0"};
     	
 		double priceChange = getPriceChange(oldPrice, newPrice);
-    	System.out.println(Double.toString(priceChange));
     	if (priceChange != 0) {
 	    	String[] tmpThresValue = thresholdsValue.split(",");
 	    	String[] tmpThresDelay = thresholdsDelay.split(",");
