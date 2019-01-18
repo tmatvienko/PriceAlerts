@@ -472,7 +472,7 @@
       <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables name="Var" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="row3.MidPrice == null ? false : (row3.MidPrice &lt; row5.BasePrice ? true : false) " name="isBasePriceAlert" type="id_Boolean"/>
       </varTables>
@@ -546,7 +546,7 @@
       <column comment="" key="false" length="-1" name="IsTradePriceAlert" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Boolean" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables name="Var" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="cOut_1.TradePrice == null ? false : ( cOut_1.TradePriceLastMin != null ? ( cOut_1.TradePrice &lt; cOut_1.TradePriceLastMin &amp;&amp; cOut_1.TradePrice &lt; cOut_1.BasePrice ? true : false ) : (cOut_1.TradePrice &lt; cOut_1.BasePrice ? true : false ) ) " name="isTradePriceAlert" type="id_Boolean"/>
       </varTables>
@@ -636,7 +636,7 @@
         <mapperTableEntries expression="row10.RuleName.toLowerCase().trim().equalsIgnoreCase(&quot;mid-price vs. base price&quot;) ? AlertsUtils.getThresholds(row9.MidPrice, row9.BasePrice, row10.ThresholdValue, row10.ThresholdDelay)[1]  : ( row10.RuleName.toLowerCase().trim().equalsIgnoreCase(&quot;trade price vs. base price&quot;) ? AlertsUtils.getThresholds(row9.TradePrice, row9.BasePrice, row10.ThresholdValue, row10.ThresholdDelay)[1] : (row10.RuleName.toLowerCase().trim().equalsIgnoreCase(&quot;mid-price vs. previous day close&quot;) ? AlertsUtils.getThresholds(row9.MidPrice, row9.PreviousDayClosePrice, row10.ThresholdValue, row10.ThresholdDelay)[1] : (row10.RuleName.toLowerCase().trim().equalsIgnoreCase(&quot;trade price vs. previous day close&quot;) ? AlertsUtils.getThresholds(row9.TradePrice, row9.PreviousDayClosePrice, row10.ThresholdValue, row10.ThresholdDelay)[1] : &quot;0&quot; ))) " name="thresholdValue" type="id_String"/>
         <mapperTableEntries expression="row10.RuleName.toLowerCase().trim().equalsIgnoreCase(&quot;mid-price vs. base price&quot;) ? AlertsUtils.getThresholds(row9.MidPrice, row9.BasePrice, row10.ThresholdValue, row10.ThresholdDelay)[2]  : ( row10.RuleName.toLowerCase().trim().equalsIgnoreCase(&quot;trade price vs. base price&quot;) ? AlertsUtils.getThresholds(row9.TradePrice, row9.BasePrice, row10.ThresholdValue, row10.ThresholdDelay)[2] : (row10.RuleName.toLowerCase().trim().equalsIgnoreCase(&quot;mid-price vs. previous day close&quot;) ? AlertsUtils.getThresholds(row9.MidPrice, row9.PreviousDayClosePrice, row10.ThresholdValue, row10.ThresholdDelay)[2] : (row10.RuleName.toLowerCase().trim().equalsIgnoreCase(&quot;trade price vs. previous day close&quot;) ? AlertsUtils.getThresholds(row9.TradePrice, row9.PreviousDayClosePrice, row10.ThresholdValue, row10.ThresholdDelay)[2] : &quot;0&quot; ))) " name="thresholdDelay" type="id_String"/>
       </varTables>
-      <outputTables activateExpressionFilter="true" expressionFilter="Var.isAlert == &quot;1&quot;" name="cOut_4" sizeState="INTERMEDIATE">
+      <outputTables activateExpressionFilter="true" expressionFilter="Var.isAlert == &quot;1&quot; || Var.isAlert == &quot;-1&quot;" name="cOut_4" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="row9.InstrCode " name="InstrCode" type="id_String"/>
         <mapperTableEntries expression="row9.TradePrice " name="TradePrice" nullable="true" type="id_Double"/>
         <mapperTableEntries expression="row9.MidPrice " name="MidPrice" nullable="true" type="id_Double"/>
@@ -928,13 +928,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_b8202a7b-6216-4d8a-b901-e0c6535baecc"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>NFFemiizHvE5zrc247yoCddBlngCGEtIoXqJWylOicBH07m6TXQCDmI41uF/GDKh681cY1fCvkOx
-Z38jHzAkxw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_8fc30fb5-14df-40da-a177-89c23d6081ad"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>vtV3iEgnhQ/aGPu4TzrdZWqCiKjkbiR4Z4n0MR1e3dfTYzXSjPKl0K9Xo2WRqYIXp0S0EaMkdhmQ
-N0ucvCoFXQ==</DigestValue></Reference></SignedInfo><SignatureValue>UdFe4mEsWcfBEza808llhHQC/9WnwVTFX7SxFhH5kGF4Ux7EsmK/JC8Pji13DjYobBuPoEtxlGJE
-csefnLbakeKc5xEVuplBz0aIWAOgZfOrAMAUHdyHD2pBN4UCWlhpjsQTKU4E9bxXHCs4wG/PNf5J
-swEz5tRf9BELBLXqU1JpjNhBhp0kU8LFVm9JSmOlo2W0I60EzDAdzV+xlRhZ2ZWZBoFzvlBtfX0k
-rrIkmkjpMe6inO7xp6/qMko+XgDqhc8ddJButGd3cBIGu1o0SOfjuo8w0aWkO8OxER4agAAAUqE+
-zzdXXOdzOAZJJmzKUfpQEO+oltE2cVxT9LII5w==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_a8304239-690c-4292-80c0-c119ebf07923"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>SDIcB21Xc89GuPtlhNR9IMNtgnpX+zC030QadwzpfWV4+B+l4d2F8SnnwAja/2lCptYnogIWoDmU
+NX1kauFbIw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_d743fdda-7b4f-4827-8ba6-ce1371521685"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>E+6nvcYoSi2EaUgN85ryWsOLs3LZmvAKuyE05C/FJD6c/qH5XAOjsEgdoWBrzudjM+sNtAd4ICw6
+bijIQtOlgA==</DigestValue></Reference></SignedInfo><SignatureValue>LsfOV04TXtZEwVVtgk+dBJWx9Hn7HLfDRCF1ofV1w0/G7Lh5dl+gsPPvAZU4v85b8Sg1JrtRKDFb
+WE+drczVf8mEE5MiaCo5as3Ma6IfBcntSc31Fz8xabi9ry3xfzBeI62PWNaAGAZ41kDoqoukwjul
+zyS8BuQ9pUxgoQh47VWKtNIHNOQ6s/WrKLf8Q5r/IKXreuVt8YsjfzoyuYA1nkm3XGNj1Wh+J8MC
+tVtrnxuOHBfY9AfYcUDUr8qjB9X7GOt0K4ufoRvp3OKsyQgzKMZiIAWBt0hwARZTKTRP55SnnlDx
+njDiBunkcZyiqGYnahM6TwsSOAzi7PXxP+N3SQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -958,4 +958,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_8fc30fb5-14df-40da-a177-89c23d6081ad" Target="#_b8202a7b-6216-4d8a-b901-e0c6535baecc"><Timestamp>2019-01-17 21:50:21</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_d743fdda-7b4f-4827-8ba6-ce1371521685" Target="#_a8304239-690c-4292-80c0-c119ebf07923"><Timestamp>2019-01-18 06:44:20</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
