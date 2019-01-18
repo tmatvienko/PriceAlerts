@@ -133,7 +133,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" show="false" value=""/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#10;&#10;SELECT r.RuleID&#10;     , r.RuleName&#10;     , ssa.InstrViewCode AS InstrCode&#10;     , oa.ThresholdValue&#10;     , oa.ThresholdDelay&#10;FROM dbo.[Rule] AS r&#10;    INNER JOIN dbo.RuleGroupRule AS rgr&#10;        ON ( r.RuleID = rgr.RuleID )&#10;    INNER JOIN dbo.RuleGroup AS rg&#10;        ON ( rg.RuleGroupID = rgr.RuleGroupID )&#10;    CROSS APPLY&#10;        (&#10;            SELECT STUFF(&#10;                        (SELECT ',' + CONVERT(VARCHAR(20), rt.ThresholdValue)&#10;                         FROM dbo.RulesThreshold AS rt&#10;                         WHERE rt.RuleID = r.RuleID&#10;                            AND rt.ThresholdValue &lt;&gt; 0&#10;                        ORDER BY rt.ThresholdValue&#10;                         FOR XML PATH('')&#10;             ), 1, 1, '') AS ThresholdValue&#10;             , STUFF(&#10;                        (SELECT ',' + CONVERT(VARCHAR(20), rt.TimeThreshold_Seconds)&#10;                         FROM dbo.RulesThreshold AS rt&#10;                         WHERE rt.RuleID = r.RuleID&#10;                            AND rt.ThresholdValue &lt;&gt; 0&#10;                        ORDER BY rt.ThresholdValue&#10;                         FOR XML PATH('')&#10;             ), 1, 1, '') AS ThresholdDelay&#10;         ) AS oa&#10;    INNER JOIN dbo.StockAlertSetup AS ssa&#10;        ON ( ssa.RuleGroupID = rgr.RuleGroupID )&#10;WHERE oa.ThresholdValue IS NOT NULL&#10;&#10;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#10;&#10;SELECT ac.InstrumentID&#10;     , i.InstrViewCode&#10;     , r.ID AS RuleID&#10;     , r.Name AS RuleName&#10;     , ca.ThresholdID&#10;     , ca.ThresholdValue&#10;     , ca.ThresholdDelay &#10;FROM dev.AlertConfiguration AS ac&#10;    INNER JOIN dev.[RuleGroup] AS rg&#10;        ON ( ac.RuleGroupID = rg.ID )&#10;    INNER JOIN dev.[Rule] AS r&#10;        ON ( r.RuleGroupID = rg.ID )&#10;    INNER JOIN dev.Instrument AS i&#10;        ON ( i.ID = ac.InstrumentID )&#10;    CROSS APPLY&#10;        (&#10;            SELECT STUFF(&#10;                        (SELECT ',' + CONVERT(VARCHAR(20), rt.ThresholdValue)&#10;                         FROM dev.RuleThreshold AS rt&#10;                         WHERE rt.RuleID = r.ID&#10;                            AND rt.ThresholdValue &lt;&gt; 0&#10;                        ORDER BY rt.ThresholdValue&#10;                         FOR XML PATH('')&#10;             ), 1, 1, '') AS ThresholdValue&#10;             , STUFF(&#10;                        (SELECT ',' + CONVERT(VARCHAR(20), rt.ThresholdTime)&#10;                         FROM dev.RuleThreshold AS rt&#10;                         WHERE rt.RuleID = r.ID&#10;                            AND rt.ThresholdValue &lt;&gt; 0&#10;                        ORDER BY rt.ThresholdValue&#10;                         FOR XML PATH('')&#10;             ), 1, 1, '') AS ThresholdDelay&#10;             , STUFF(&#10;                        (SELECT ',' + CONVERT(VARCHAR(20), rt.ID)&#10;                         FROM dev.RuleThreshold AS rt&#10;                         WHERE rt.RuleID = r.ID&#10;                            AND rt.ThresholdValue &lt;&gt; 0&#10;                        ORDER BY rt.ThresholdValue&#10;                         FOR XML PATH('')&#10;             ), 1, 1, '') AS ThresholdID&#10;         ) AS ca&#10;&#10;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" show="false" value="&quot;&quot;"/>
@@ -143,11 +143,15 @@
     <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
     <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="false"/>
     <elementParameter field="TABLE" name="TRIM_COLUMN">
+      <elementValue elementRef="SCHEMA_COLUMN" value="InstrumentID"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="InstrViewCode"/>
+      <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="RuleID"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="RuleName"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="InstrCode"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ThresholdID"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="ThresholdValue"/>
       <elementValue elementRef="TRIM" value="false"/>
@@ -157,11 +161,13 @@
     <elementParameter field="TEXT" name="LABEL" value="Rules Configuration"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tDBInput_1">
+      <column comment="" defaultValue="" key="false" length="10" name="InstrumentID" nullable="false" originalLength="-1" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="20" name="InstrViewCode" nullable="false" originalLength="-1" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="10" name="RuleID" nullable="false" originalLength="-1" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="150" name="RuleName" nullable="false" originalLength="-1" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="20" name="InstrCode" nullable="false" originalLength="-1" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="1073741823" name="ThresholdValue" nullable="false" originalLength="-1" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="1073741823" name="ThresholdDelay" nullable="false" originalLength="-1" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="1073741823" name="ThresholdID" nullable="true" originalLength="-1" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="1073741823" name="ThresholdValue" nullable="true" originalLength="-1" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="1073741823" name="ThresholdDelay" nullable="true" originalLength="-1" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tHashOutput" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="352" posY="160">
@@ -1077,13 +1083,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_150b5dd2-b7db-4b25-8981-fa7a302b73e5"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>GcCelqXdTzZHkqukWM7AJQyZEaM6T8HA2z93QBrom3e4AQDZ6r5KKh/YF8WhP5/2C4yruq9z0doP
-Jiehis18Lw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_6e411b22-13c7-41b4-981e-480c00b56a0e"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>KT1vkS6bVIN41H92sKOD7KtV5XK7jH7huurDoBAKbpIoqEc1N6W86E+Dpcr4JmwTcYszxFkanADT
-9bvp6bFQnw==</DigestValue></Reference></SignedInfo><SignatureValue>1XOanZdejjoODmJuBZtSIXnVhJP84bmbtWlExtHOUeyQZXPdV63berr2tk8QjPh3pm1QRB+tA1kE
-5+c+QorvUbbW7iiurn3b2yiM1HRsbTY15tIzztIfHXnL/r1bxSZhk/zLhyVlY+85ojNNj1GUfgMR
-Sy0IfP26kbUUV5ssyhGJnpvGLsR9jS9psF8ofepKx9wVw7jmPiTcM+YyG+sueuAIRa9iKqjExk0e
-ZqFYfUYLeAkEd/qlzINtw2Tg+eS+i7XWlSO8vzOlB1sp603iYSDekNID+sS0nCuoLahNeO43oOud
-dRFKi+7Gj4O2K34jFMXydGouD8cq19ofgQOWaA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_de395f2f-4733-4f47-9c21-a0cb78344e4b"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>wSen1I2DhforGnHpjL9ISJB0gJjG3+aM1GEklVymlnfr/I07kw26JT3uedSRPG3QGhu4cUIi5kTD
+Y6IuUiMTjA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_61974d3f-348b-46ea-aeed-b4bdd3328c02"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>oMtgDRgishUoH5wer/PtDyE3u0PwiPt2eABRM8EBXXeAm7UvcdVTPvZWGprcZS9eMSTopZvVcSch
+M3o5rbtWHg==</DigestValue></Reference></SignedInfo><SignatureValue>TgWvkneWmi67lQvwhxvr9TMCgqWYA63r2OV547IiZdarh8/wB82vrJVX1jtBvEyk6mhHMAnk1J8X
+Ac/e05oiJW3qbk7mn3J25z6IBUjvFLOTAX/5ftSc0SDFBQukx83ytgVW8zwcVH+jNyM5O2vexSLU
+KOyyrrx6wvP2Futag0vKhrnZie6hwdHpCcwdWPNunHfyIUU5hEU98SlHNnD/0wtuu9hBdoVbYZI2
++fCEZSMV4EaTEfe//PjVcJ9k3BHBfcqJnZRIXHr53ajhVEPMXvTrWcBI0pvC0qTld9Ouv8Q8qREW
+/jJ+AIPAKHzhd7mY3nZ5Ged0GDNMHRGmOb9E5A==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -1107,4 +1113,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_6e411b22-13c7-41b4-981e-480c00b56a0e" Target="#_150b5dd2-b7db-4b25-8981-fa7a302b73e5"><Timestamp>2019-01-18 09:46:34</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_61974d3f-348b-46ea-aeed-b4bdd3328c02" Target="#_de395f2f-4733-4f47-9c21-a0cb78344e4b"><Timestamp>2019-01-18 09:55:14</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
