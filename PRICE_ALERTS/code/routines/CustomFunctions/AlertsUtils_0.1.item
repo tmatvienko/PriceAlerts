@@ -36,7 +36,8 @@ public class AlertsUtils {
 		
 	}
 	
-	public static ConcurrentHashMap<Integer, AlertsUtils.StockCache> stockCacheMap;
+	public static ConcurrentHashMap<Integer, AlertsUtils.StockCache> stockCacheMap = new ConcurrentHashMap<Integer, AlertsUtils.StockCache>();
+	
 	public static class StockCache {
 		
 		public Integer instrumentID;
