@@ -1,4 +1,6 @@
 package routines;
+import java.util.List;
+import java.util.concurrent.*;
 
 /*
  * user specification: the function's comment should contain keys as follows: 1. write about the function's comment.but
@@ -34,6 +36,7 @@ public class AlertsUtils {
 		
 	}
 	
+	public static ConcurrentHashMap<Integer, AlertsUtils.StockCache> stockCacheMap;
 	public static class StockCache {
 		
 		public Integer instrumentID;
