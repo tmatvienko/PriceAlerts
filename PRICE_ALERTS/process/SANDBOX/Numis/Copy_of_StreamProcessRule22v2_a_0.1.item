@@ -938,36 +938,16 @@
         <mapperTableEntries name="InstrumentID" type="id_Integer"/>
         <mapperTableEntries name="AlertConfigurationID" type="id_Integer"/>
       </inputTables>
-      <inputTables activateCondensedTool="true" activateExpressionFilter="true" expressionFilter="row15.RuleNumber == 1" innerJoin="true" lookupMode="LOAD_ONCE" matchingMode="ALL_MATCHES" name="row15" sizeState="INTERMEDIATE">
+      <inputTables activateCondensedTool="true" innerJoin="true" lookupMode="LOAD_ONCE" matchingMode="ALL_MATCHES" name="row15" sizeState="INTERMEDIATE">
         <mapperTableEntries name="InstrumentID" type="id_Integer"/>
         <mapperTableEntries expression="row14.InstrCode " name="InstrCode" operator="=" type="id_String"/>
-        <mapperTableEntries expression="" name="RuleID" type="id_Integer"/>
-        <mapperTableEntries expression="" name="RuleNumber" type="id_Integer"/>
+        <mapperTableEntries name="RuleID" type="id_Integer"/>
+        <mapperTableEntries name="RuleNumber" type="id_Integer"/>
         <mapperTableEntries name="ThresholdID" nullable="true" type="id_Integer"/>
         <mapperTableEntries name="ThresholdValue" nullable="true" type="id_Double"/>
         <mapperTableEntries name="ThresholdDelay" nullable="true" type="id_Integer"/>
       </inputTables>
     </nodeData>
-  </node>
-  <node componentName="tHashInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1568" posY="224">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tHashInput_1"/>
-    <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
-    <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" show="false" value="_c5G9ABstEemtUeD7yhu38A - metadata"/>
-    <elementParameter field="CHECK" name="LINK_WITH" value="true"/>
-    <elementParameter field="COMPONENT_LIST" name="LIST" value="tHashOutput_1"/>
-    <elementParameter field="FILE" name="BASE_FILE_PATH" show="false" value="&quot;/Users/cmars/Documents/Talend/Talend-Studio-20181026_1147-V7.1.1/workspace/in.hash&quot;"/>
-    <elementParameter field="CHECK" name="RELEASE_CACHE" value="false"/>
-    <elementParameter field="TEXT" name="LABEL" value="Rules Cache"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" label="metadata" name="tHashInput_1">
-      <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="0" name="InstrCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="RuleID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="RuleNumber" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ThresholdID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ThresholdValue" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ThresholdDelay" nullable="true" pattern="" precision="0" sourceType="SMALLINT" type="id_Integer" usefulColumn="true"/>
-    </metadata>
   </node>
   <node componentName="tSortRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1824" posY="320">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tSortRow_2"/>
@@ -1153,6 +1133,25 @@
       <column comment="" key="false" length="-1" name="ThresholdDelay" nullable="true" pattern="" precision="0" sourceType="SMALLINT" type="id_Integer" usefulColumn="true"/>
     </metadata>
   </node>
+  <node componentName="tHashInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1600" posY="192">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tHashInput_1"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" show="false" value="_c5G9ABstEemtUeD7yhu38A - metadata"/>
+    <elementParameter field="CHECK" name="LINK_WITH" value="true"/>
+    <elementParameter field="COMPONENT_LIST" name="LIST" value="tHashOutput_1"/>
+    <elementParameter field="FILE" name="BASE_FILE_PATH" show="false" value="&quot;/Users/cmars/Documents/Talend/Talend-Studio-20181026_1147-V7.1.1/workspace/in.hash&quot;"/>
+    <elementParameter field="CHECK" name="RELEASE_CACHE" value="false"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="metadata" name="tHashInput_1">
+      <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="InstrCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="RuleID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="RuleNumber" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ThresholdID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ThresholdValue" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ThresholdDelay" nullable="true" pattern="" precision="0" sourceType="SMALLINT" type="id_Integer" usefulColumn="true"/>
+    </metadata>
+  </node>
   <connection connectorName="FLOW" label="row7" lineStyle="0" metaname="tDBInput_1" offsetLabelX="0" offsetLabelY="0" source="tDBInput_1" target="tHashOutput_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row7"/>
@@ -1286,10 +1285,6 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cOut_4"/>
   </connection>
-  <connection connectorName="FLOW" label="row15" lineStyle="8" metaname="tHashInput_1" offsetLabelX="0" offsetLabelY="0" source="tHashInput_1" target="tMap_1">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row15"/>
-  </connection>
   <connection connectorName="FLOW" label="row16" lineStyle="0" metaname="tSortRow_2" offsetLabelX="0" offsetLabelY="0" source="tSortRow_2" target="tUniqRow_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row16"/>
@@ -1297,6 +1292,10 @@
   <connection connectorName="UNIQUE" label="row17" lineStyle="0" metaname="UNIQUE" offsetLabelX="6" offsetLabelY="3" source="tUniqRow_1" target="tLogRow_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row17"/>
+  </connection>
+  <connection connectorName="FLOW" label="row15" lineStyle="8" metaname="tHashInput_1" offsetLabelX="0" offsetLabelY="0" source="tHashInput_1" target="tMap_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row15"/>
   </connection>
   <subjob>
     <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true"/>
@@ -1323,13 +1322,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_31000d5e-e7f7-4f82-afe4-7ecf3e7aeabf"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>W31Dzk3LAIIVXJHrxpHNEmsRnXvLMpynElv1ATjzKPJZgpJZmlV7lxbW/aSRQgEBqvigPzqfwy4Q
-WaCB3uej5Q==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_54def61f-fdd1-4157-a20e-140541337bc5"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>2g2kYJmj5q/FRFyyZgB1k0I7Hemydu1Eb3neP0XeMfSGGwShTybnvB52mrZf+U4zU/SOk7olPq3V
-IHjFZixw4w==</DigestValue></Reference></SignedInfo><SignatureValue>YAxWCTCpoUTGaiS7FZvrFzOe3X8r1LtDek4a722g2a3XGjn6Vh8hI1nrePePCUdyoKJhcnBlXGTQ
-GyPsDS+X/Y0C5Q/Wy4nXtnvFT2Y+LRDPUDPEgVs28jyNA/9zM/yyUS89VaqDIxfKgtRIBk3y/bza
-d8L8kdMJr31jr4Yvsihv/ehiSZaKACnK0v8/iz9+tsl8azwWo4tGAXOor0naz8tl9CRQBkqpXf4S
-ByUCFmE4go7eZWbyuHrcd+kpsMlThsJqOGkOxS0laGpDCDGu/4WXBrhbFoYalDH7olPYadhIytBj
-emmTrehf/UqU6fLMyjga1fl1EZCTpzck13PT3g==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_9ea9db61-d673-44a4-b88b-4d11b8fa1452"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>LtHASHMBnSvYVJHrGPBOv5WKbCDK5NME/zUA49kLEPQNiD2LiYaxonVSSQC+mFxRO+ELn7NcmfER
+PXcWPAAUmA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_b2f1e07f-734d-40ee-902a-e05ed362b430"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>/tNhRsvR/T5aePfmFGIGFXerWwrS056ubWebhPu5KzX0K+8OOsv4csQqgabfHsRMLbKU9FL1s7Um
+p7gELSU/yw==</DigestValue></Reference></SignedInfo><SignatureValue>kW4Vx7eI6yoenXplkHZPQ2lSKAl5TF14d94rWPTW2wpPvC6EXpCnN+SXFYV/bpl/VKH/LWfb/fSw
+KMVHtLLHtIiKy6Rmj9OtKZKmmIMqK06V1I3oTV4Z/FYEvZs5bzQtrWRCs39gAj5hNJJ/puF0uvPJ
+cnZz4kaDa5iuSy2xlSa7iDa+l09wl0rXQtTakkd7iqhkly2w5Uan7uNxqLe5bSAnd9mkG7xzzsie
+f8ieDZCv5PuPY7NznIgx67NGa5Scgeh8S1Mu0MGgZEDjSHH8HMn9yp0+HmBylcOsvLrg+Iej3d0u
++MuA2gif8y/enpSNn3gXprzZsfIF9ajL/rrdGQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -1353,4 +1352,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_54def61f-fdd1-4157-a20e-140541337bc5" Target="#_31000d5e-e7f7-4f82-afe4-7ecf3e7aeabf"><Timestamp>2019-01-21 10:08:25</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_b2f1e07f-734d-40ee-902a-e05ed362b430" Target="#_9ea9db61-d673-44a4-b88b-4d11b8fa1452"><Timestamp>2019-01-21 10:10:35</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
