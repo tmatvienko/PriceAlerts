@@ -908,17 +908,17 @@
     <nodeData xsi:type="TalendMapper:MapperData">
       <uiProperties shellMaximized="true"/>
       <varTables name="Var" sizeState="INTERMEDIATE">
-        <mapperTableEntries expression="(row13.MidPrice - row13.BasePrice) / row13.MidPrice &gt;= row10.ThresholdValue ? true : false " name="IsAlert" type="id_Boolean"/>
+        <mapperTableEntries expression="(row14.MidPrice - row14.BasePrice) / row14.MidPrice &gt;= row15.ThresholdValue ? true : false " name="IsAlert" type="id_Boolean"/>
       </varTables>
       <outputTables activateExpressionFilter="true" expressionFilter="Var.IsAlert" name="cOut_4" sizeState="INTERMEDIATE">
-        <mapperTableEntries expression="row13.AlertConfigurationID " name="AlertConfigurationID" type="id_Integer"/>
-        <mapperTableEntries expression="row13.InstrumentID " name="InstrumentID" type="id_Integer"/>
-        <mapperTableEntries expression="row13.InstrCode " name="InstrCode" type="id_String"/>
-        <mapperTableEntries expression="row13.BasePrice " name="BasePrice" nullable="true" type="id_Double"/>
-        <mapperTableEntries expression="row13.TradePrice " name="TradePrice" nullable="true" type="id_Double"/>
-        <mapperTableEntries expression="row13.MidPrice " name="MidPrice" nullable="true" type="id_Double"/>
-        <mapperTableEntries expression="row13.PreviousDayClosePrice " name="PreviousDayClosePrice" nullable="true" type="id_Double"/>
-        <mapperTableEntries expression="row13.EventTime " name="EventTime" type="id_Date"/>
+        <mapperTableEntries expression="row14.AlertConfigurationID " name="AlertConfigurationID" type="id_Integer"/>
+        <mapperTableEntries expression="row14.InstrumentID " name="InstrumentID" type="id_Integer"/>
+        <mapperTableEntries expression="row14.InstrCode " name="InstrCode" type="id_String"/>
+        <mapperTableEntries expression="row14.BasePrice " name="BasePrice" nullable="true" type="id_Double"/>
+        <mapperTableEntries expression="row14.TradePrice " name="TradePrice" nullable="true" type="id_Double"/>
+        <mapperTableEntries expression="row14.MidPrice " name="MidPrice" nullable="true" type="id_Double"/>
+        <mapperTableEntries expression="row14.PreviousDayClosePrice " name="PreviousDayClosePrice" nullable="true" type="id_Double"/>
+        <mapperTableEntries expression="row14.EventTime " name="EventTime" type="id_Date"/>
         <mapperTableEntries expression="row15.RuleID " name="RuleID" type="id_Integer"/>
         <mapperTableEntries expression="row15.RuleNumber " name="RuleNumber" type="id_Integer"/>
         <mapperTableEntries expression="row15.ThresholdID " name="ThresholdID" nullable="true" type="id_Integer"/>
@@ -938,11 +938,11 @@
         <mapperTableEntries name="InstrumentID" type="id_Integer"/>
         <mapperTableEntries name="AlertConfigurationID" type="id_Integer"/>
       </inputTables>
-      <inputTables activateExpressionFilter="true" expressionFilter="row15.RuleNumber == 1" lookupMode="LOAD_ONCE" matchingMode="ALL_ROWS" name="row15" sizeState="INTERMEDIATE">
+      <inputTables activateCondensedTool="true" activateExpressionFilter="true" expressionFilter="row15.RuleNumber == 1" innerJoin="true" lookupMode="LOAD_ONCE" matchingMode="ALL_MATCHES" name="row15" sizeState="INTERMEDIATE">
         <mapperTableEntries name="InstrumentID" type="id_Integer"/>
-        <mapperTableEntries name="InstrCode" type="id_String"/>
-        <mapperTableEntries name="RuleID" type="id_Integer"/>
-        <mapperTableEntries name="RuleNumber" type="id_Integer"/>
+        <mapperTableEntries expression="row14.InstrCode " name="InstrCode" operator="=" type="id_String"/>
+        <mapperTableEntries expression="" name="RuleID" type="id_Integer"/>
+        <mapperTableEntries expression="" name="RuleNumber" type="id_Integer"/>
         <mapperTableEntries name="ThresholdID" nullable="true" type="id_Integer"/>
         <mapperTableEntries name="ThresholdValue" nullable="true" type="id_Double"/>
         <mapperTableEntries name="ThresholdDelay" nullable="true" type="id_Integer"/>
@@ -1323,13 +1323,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_bcea45f6-104f-47cb-8fb0-62c214c14188"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>vQ+ZJwtLTw7pr90l3ihmznGgwwQ9JFMbAng/5WFfHDCDRWBFjA4MP9nwJT4cmKJBtTZkiwgYrrb1
-p/LSi0En4Q==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_90229a13-7c19-4d8a-8bc6-23297cc6e93b"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>ocS/jU9aJsNCZW240zuLcRxslQ0xwmfTzzHoVktbljInt2+HCTRB+SZo221tXlWwcRbzCMd1xO9/
-wTwoIiAR6g==</DigestValue></Reference></SignedInfo><SignatureValue>GKtUGe9qG0MkpGTnRISmggdDMZEf8/vC6KbF6KUz7qXjMlvhTIedi1guIUrUS1pwLSq5lBsB6O42
-UHfI9qPvjLTASRXedqmQA9iT67kRnTqNad0ztRJzbYuGk6kMyqhDIcCpc1RzgYIwJUwur4C6zeUT
-ywEo5NwVmpovOMaoTOi283hXbRaYospr7XGTAw3qq5XKuNPim7u4GlzsiQqsEMM+v+lS5HJz+Wjw
-553GAk2me7tBkl6gG0Vf44kQYYN7SI+IUUERvBpwzZNoY8mvoy0wA3gdFHNSwnmS1ZY/UNqnfYLj
-LQ7DIw95bCUilCfhBTNVbfAKF6POtHQ6EQZtGQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_31000d5e-e7f7-4f82-afe4-7ecf3e7aeabf"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>W31Dzk3LAIIVXJHrxpHNEmsRnXvLMpynElv1ATjzKPJZgpJZmlV7lxbW/aSRQgEBqvigPzqfwy4Q
+WaCB3uej5Q==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_54def61f-fdd1-4157-a20e-140541337bc5"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>2g2kYJmj5q/FRFyyZgB1k0I7Hemydu1Eb3neP0XeMfSGGwShTybnvB52mrZf+U4zU/SOk7olPq3V
+IHjFZixw4w==</DigestValue></Reference></SignedInfo><SignatureValue>YAxWCTCpoUTGaiS7FZvrFzOe3X8r1LtDek4a722g2a3XGjn6Vh8hI1nrePePCUdyoKJhcnBlXGTQ
+GyPsDS+X/Y0C5Q/Wy4nXtnvFT2Y+LRDPUDPEgVs28jyNA/9zM/yyUS89VaqDIxfKgtRIBk3y/bza
+d8L8kdMJr31jr4Yvsihv/ehiSZaKACnK0v8/iz9+tsl8azwWo4tGAXOor0naz8tl9CRQBkqpXf4S
+ByUCFmE4go7eZWbyuHrcd+kpsMlThsJqOGkOxS0laGpDCDGu/4WXBrhbFoYalDH7olPYadhIytBj
+emmTrehf/UqU6fLMyjga1fl1EZCTpzck13PT3g==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -1353,4 +1353,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_90229a13-7c19-4d8a-8bc6-23297cc6e93b" Target="#_bcea45f6-104f-47cb-8fb0-62c214c14188"><Timestamp>2019-01-21 10:06:59</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_54def61f-fdd1-4157-a20e-140541337bc5" Target="#_31000d5e-e7f7-4f82-afe4-7ecf3e7aeabf"><Timestamp>2019-01-21 10:08:25</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
