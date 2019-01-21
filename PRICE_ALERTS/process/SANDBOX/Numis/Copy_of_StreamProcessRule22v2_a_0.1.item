@@ -2147,146 +2147,6 @@
       <column comment="" key="false" length="-1" name="ThresholdDelay" nullable="true" pattern="" precision="0" sourceType="SMALLINT" type="id_Integer" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tMSSqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="2304" posY="288">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBOutput_1"/>
-    <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
-    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_5maPMBM7Eemj7pEqlrI1Zg"/>
-    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="false"/>
-    <elementParameter field="COMPONENT_LIST" name="CONNECTION" show="false" value=""/>
-    <elementParameter field="CLOSED_LIST" name="DRIVER" value="JTDS"/>
-    <elementParameter field="TEXT" name="HOST" value="&quot;numis-stockalerts.database.windows.net&quot;"/>
-    <elementParameter field="TEXT" name="PORT" value="&quot;1433&quot;"/>
-    <elementParameter field="TEXT" name="DB_SCHEMA" value="&quot;dev&quot;"/>
-    <elementParameter field="TEXT" name="DBNAME" value="&quot;StockAlerts&quot;"/>
-    <elementParameter field="TEXT" name="TYPE" show="false" value="MSSQL"/>
-    <elementParameter field="TEXT" name="USER" value="&quot;softserve_admin&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS" value="acj50ZPCWR9em04MIlhFU+Cr0lgObOel"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;AlertLog&quot;"/>
-    <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="NONE"/>
-    <elementParameter field="CHECK" name="IDENTITY_INSERT" value="false"/>
-    <elementParameter field="CLOSED_LIST" name="DATA_ACTION" value="INSERT"/>
-    <elementParameter field="LABEL" name="NOTE" show="false" value="NOTE: batch size must be less than or equal to total number of parameter markers divided by number of columns"/>
-    <elementParameter field="CHECK" name="SPECIFY_IDENTITY_FIELD" show="false" value="false"/>
-    <elementParameter field="COLUMN_LIST" name="IDENTITY_FIELD" show="false" value="AlertConfigurationID"/>
-    <elementParameter field="TEXT" name="START_VALUE" show="false" value="1"/>
-    <elementParameter field="TEXT" name="STEP" show="false" value="1"/>
-    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
-    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
-    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" show="false" value="&quot;&quot;"/>
-    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
-    <elementParameter field="MAPPING_TYPE" name="MAPPING" show="false" value="id_MSSQL"/>
-    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;"/>
-    <elementParameter field="ENCODING_TYPE" name="ENCODING" show="false" value="&quot;ISO-8859-15&quot;"/>
-    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
-    <elementParameter field="TEXT" name="COMMIT_EVERY" value="10000"/>
-    <elementParameter field="TABLE" name="ADD_COLS"/>
-    <elementParameter field="CHECK" name="USE_FIELD_OPTIONS" value="false"/>
-    <elementParameter field="TABLE" name="FIELD_OPTIONS" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="AlertConfigurationID"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="InstrumentID"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="InstrCode"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="BasePrice"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="TradePrice"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="MidPrice"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="PreviousDayClosePrice"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="EventTime"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="RuleID"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="RuleNumber"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ThresholdID"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ThresholdValue"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ThresholdDelay"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
-    </elementParameter>
-    <elementParameter field="CHECK" name="IGNORE_DATE_OUTOF_RANGE" value="false"/>
-    <elementParameter field="CHECK" name="ENABLE_DEBUG_MODE" value="false"/>
-    <elementParameter field="CHECK" name="SUPPORT_NULL_WHERE" value="false"/>
-    <elementParameter field="CHECK" name="USE_BATCH_SIZE" value="true"/>
-    <elementParameter field="TEXT" name="BATCH_SIZE" value="10000"/>
-    <elementParameter field="TEXT" name="LABEL" value="DB Commit Alert"/>
-    <metadata connector="FLOW" name="tDBOutput_1">
-      <column comment="" key="false" length="-1" name="AlertConfigurationID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="InstrCode" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="BasePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="TradePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="MidPrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="EventTime" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="RuleID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="RuleNumber" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ThresholdID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ThresholdValue" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ThresholdDelay" nullable="true" pattern="" precision="0" sourceType="SMALLINT" type="id_Integer" usefulColumn="true"/>
-    </metadata>
-    <metadata connector="REJECT" name="REJECT">
-      <column comment="" key="false" length="-1" name="AlertConfigurationID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="InstrCode" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="BasePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="TradePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="MidPrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="EventTime" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="RuleID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="RuleNumber" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ThresholdID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ThresholdValue" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ThresholdDelay" nullable="true" pattern="" precision="0" sourceType="SMALLINT" type="id_Integer" usefulColumn="true"/>
-      <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" originalLength="-1" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" originalLength="-1" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-    </metadata>
-  </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="1184" posY="576">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_7"/>
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
@@ -2303,20 +2163,20 @@
     <elementParameter field="TEXT" name="LABEL" value="Filter Base Price Alert"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="cOut_7">
-      <column comment="" key="false" length="-1" name="AlertConfigurationID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="RuleID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="AlertConfigurationID" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="RuleID" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ThresholdID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="Price" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="PriceType" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="AlertTimestamp" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="CreatedOn" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="Price" nullable="false" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="PriceType" nullable="false" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="AlertTimestamp" nullable="false" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="CreatedOn" nullable="false" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
     </metadata>
     <metadata connector="FLOW" name="cOut_8">
       <column comment="" key="false" length="-1" name="AlertConfigurationID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="RuleID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ThresholdID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ThresholdID" nullable="false" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="Price" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="PriceType" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="AlertTimestamp" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
@@ -2363,19 +2223,21 @@
       </inputTables>
     </nodeData>
   </node>
-  <node componentName="tMSSqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1248" posY="640">
+  <node componentName="tMSSqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1280" posY="640">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBOutput_2"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_5maPMBM7Eemj7pEqlrI1Zg"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="false"/>
     <elementParameter field="COMPONENT_LIST" name="CONNECTION" show="false" value=""/>
     <elementParameter field="CLOSED_LIST" name="DRIVER" value="JTDS"/>
-    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="HOST" value="&quot;numis-stockalerts.database.windows.net&quot;"/>
     <elementParameter field="TEXT" name="PORT" value="&quot;1433&quot;"/>
-    <elementParameter field="TEXT" name="DB_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="TEXT" name="DBNAME" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="DB_SCHEMA" value="&quot;dev&quot;"/>
+    <elementParameter field="TEXT" name="DBNAME" value="&quot;StockAlerts&quot;"/>
     <elementParameter field="TEXT" name="TYPE" show="false" value="MSSQL"/>
-    <elementParameter field="TEXT" name="USER" value="&quot;&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE="/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="USER" value="&quot;softserve_admin&quot;"/>
+    <elementParameter field="PASSWORD" name="PASS" value="acj50ZPCWR9em04MIlhFU+Cr0lgObOel"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;metadata&quot;"/>
     <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="NONE"/>
     <elementParameter field="CHECK" name="IDENTITY_INSERT" value="false"/>
     <elementParameter field="CLOSED_LIST" name="DATA_ACTION" value="INSERT"/>
@@ -2384,6 +2246,8 @@
     <elementParameter field="COLUMN_LIST" name="IDENTITY_FIELD" show="false" value="AlertConfigurationID"/>
     <elementParameter field="TEXT" name="START_VALUE" show="false" value="1"/>
     <elementParameter field="TEXT" name="STEP" show="false" value="1"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA_FLOW:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA_FLOW:REPOSITORY_SCHEMA_TYPE" show="false" value="_nxY3gB2FEemLKJKht-Lg-A - metadata"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" show="false" value="&quot;&quot;"/>
@@ -2444,42 +2308,44 @@
     <elementParameter field="TEXT" name="BATCH_SIZE" value="10000"/>
     <elementParameter field="TEXT" name="LABEL" value="DB Insert Alert"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tDBOutput_2">
-      <column comment="" key="false" length="-1" name="AlertConfigurationID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="RuleID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+    <metadata connector="FLOW" label="metadata" name="tDBOutput_2">
+      <column comment="" key="false" length="-1" name="AlertConfigurationID" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="RuleID" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ThresholdID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="Price" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="PriceType" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="AlertTimestamp" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="CreatedOn" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="Price" nullable="true" pattern="" precision="-1" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="PriceType" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="AlertTimestamp" nullable="false" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="CreatedOn" nullable="false" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
     </metadata>
-    <metadata connector="REJECT" name="REJECT">
-      <column comment="" key="false" length="-1" name="AlertConfigurationID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="RuleID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+    <metadata connector="REJECT" label="metadata" name="REJECT">
+      <column comment="" key="false" length="-1" name="AlertConfigurationID" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="RuleID" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ThresholdID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="Price" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="PriceType" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="AlertTimestamp" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="CreatedOn" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="Price" nullable="true" pattern="" precision="-1" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="PriceType" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="AlertTimestamp" nullable="false" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="CreatedOn" nullable="false" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" originalLength="-1" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" originalLength="-1" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tMSSqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1248" posY="512">
+  <node componentName="tMSSqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1280" posY="512">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBOutput_3"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_5maPMBM7Eemj7pEqlrI1Zg"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="false"/>
     <elementParameter field="COMPONENT_LIST" name="CONNECTION" show="false" value=""/>
     <elementParameter field="CLOSED_LIST" name="DRIVER" value="JTDS"/>
-    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="HOST" value="&quot;numis-stockalerts.database.windows.net&quot;"/>
     <elementParameter field="TEXT" name="PORT" value="&quot;1433&quot;"/>
-    <elementParameter field="TEXT" name="DB_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="TEXT" name="DBNAME" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="DB_SCHEMA" value="&quot;dev&quot;"/>
+    <elementParameter field="TEXT" name="DBNAME" value="&quot;StockAlerts&quot;"/>
     <elementParameter field="TEXT" name="TYPE" show="false" value="MSSQL"/>
-    <elementParameter field="TEXT" name="USER" value="&quot;&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE="/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="USER" value="&quot;softserve_admin&quot;"/>
+    <elementParameter field="PASSWORD" name="PASS" value="acj50ZPCWR9em04MIlhFU+Cr0lgObOel"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;AlertLog&quot;"/>
     <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="NONE"/>
     <elementParameter field="CHECK" name="IDENTITY_INSERT" value="false"/>
     <elementParameter field="CLOSED_LIST" name="DATA_ACTION" value="INSERT"/>
@@ -2488,6 +2354,8 @@
     <elementParameter field="COLUMN_LIST" name="IDENTITY_FIELD" show="false" value="AlertConfigurationID"/>
     <elementParameter field="TEXT" name="START_VALUE" show="false" value="1"/>
     <elementParameter field="TEXT" name="STEP" show="false" value="1"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA_FLOW:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA_FLOW:REPOSITORY_SCHEMA_TYPE" show="false" value="_nxY3gB2FEemLKJKht-Lg-A - metadata"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" show="false" value="&quot;&quot;"/>
@@ -2548,25 +2416,25 @@
     <elementParameter field="TEXT" name="BATCH_SIZE" value="10000"/>
     <elementParameter field="TEXT" name="LABEL" value="DB Insert Alert"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tDBOutput_3">
-      <column comment="" key="false" length="-1" name="AlertConfigurationID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="RuleID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+    <metadata connector="FLOW" label="metadata" name="tDBOutput_3">
+      <column comment="" key="false" length="-1" name="AlertConfigurationID" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="RuleID" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ThresholdID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="Price" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="PriceType" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="AlertTimestamp" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="CreatedOn" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="Price" nullable="true" pattern="" precision="-1" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="PriceType" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="AlertTimestamp" nullable="false" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="CreatedOn" nullable="false" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
     </metadata>
-    <metadata connector="REJECT" name="REJECT">
-      <column comment="" key="false" length="-1" name="AlertConfigurationID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="RuleID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+    <metadata connector="REJECT" label="metadata" name="REJECT">
+      <column comment="" key="false" length="-1" name="AlertConfigurationID" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="RuleID" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ThresholdID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="Price" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="PriceType" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="AlertTimestamp" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="CreatedOn" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="Price" nullable="true" pattern="" precision="-1" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="PriceType" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="AlertTimestamp" nullable="false" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="CreatedOn" nullable="false" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" originalLength="-1" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" originalLength="-1" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
     </metadata>
@@ -2826,10 +2694,6 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row33"/>
   </connection>
-  <connection connectorName="FLOW" label="row34" lineStyle="0" metaname="tLogRow_1" offsetLabelX="0" offsetLabelY="0" source="tLogRow_1" target="tDBOutput_1">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row34"/>
-  </connection>
   <connection connectorName="FLOW" label="cOut_7" lineStyle="0" metaname="cOut_7" offsetLabelX="0" offsetLabelY="0" outputId="1" source="tMap_7" target="tDBOutput_2">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cOut_7"/>
@@ -2863,13 +2727,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_85a18845-8dfd-4358-ba86-0a0f4f9ef170"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>sxAlGsX+M603/rOQxqttc2gZQ4dGWcfTitUQLiG7/roOjd46BSVexAi6bzRw9dkPkagy3aPr1UfW
-/UBmqILahw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_adcf6b78-ac55-4c90-b5e1-a04e47abb25a"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>YW2HJ8GHl9YbB3ALKBIeZSm1hX6iEkhUX3dio/mFR9hloerBH7BlsglBc5wR0IwBtZM4LfrCEYnx
-PAqqMfoElg==</DigestValue></Reference></SignedInfo><SignatureValue>YR9QnleqPBC+0iYcnZdvB7J6Vbl3Q9ECSMzXRo/CyuBTAG2Gn0oQ3E7XTUCg1hOhmLdJKweFcwrd
-oDvtfJf+zAxeUdF1wdxv0HpsVCyLagz9VevejQjHKIs6KaZcDtUyp3BZH/KsroHBjrQOMDAtDOtj
-CrDbGpkkLbvz0xJzeeJdNnkS0PYdcw5A2sYvHFl382vzTfj/ul57IQHCEQuldv+eods1lhs2VIOW
-JzkuyxeMoXoB9BtfAFnEDcs4WdDyXJ3vsC4xphieq9wD+xIsave8IDvodJllC4jn3vFloiinrG5y
-krHCSOvniPCZ4QOFqme+/ZZBEEVWE50b8GlQ+Q==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_b97cd8d1-2b8d-486a-b847-017fc618de63"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>sL9/HVX8mBCShk9/dWh7aPtPXs5fbJKfEPK/4LkP/Fj9Nd9ov7vRn10MzkoDs1LJtYJr6PtKkDkK
+Ba8C74ZH7g==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_84a34215-9a56-4188-9265-0792a6ff899b"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>mTtrrACwpQzg9aueqylEMSfh4LrW2DdrjoMYYyP3nbEmHZP5XYiYeHnJnGpiH1qw58g7/SdXv+Tm
+AQD+ytu2uQ==</DigestValue></Reference></SignedInfo><SignatureValue>ef275uhxmDtIX8CZ0wFrCTyIvo9OmiynQPj2VpGaJNWlYvjyc+ye8tv//WG5+WaUQBnr0ICkPMKM
+bH0QqmVyLAY151LDWV2wq3kwfRc9gsQNpKg7Fw0AGyvQxotjnkMmaUQJ2hHcEUCQE1OQzIxE4jbw
+d1Crsok75BfBeubtuRBKTGA39xQSepbz8LQWyKqNgEsxyleRKftwA3zTKona3OhPncq9z88Ozz1v
+f9Fw+qFHFNOqIC2pd33yA0cZN9rkXvoe9nhw1GZIkyZ0MVwOr6IUdfnIIL3svpewtwlmdWeOcpg6
+eJANNkFcME57IIFJJadQ45zHEZRvn8YQlQkfMQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -2893,4 +2757,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_adcf6b78-ac55-4c90-b5e1-a04e47abb25a" Target="#_85a18845-8dfd-4358-ba86-0a0f4f9ef170"><Timestamp>2019-01-21 14:02:49</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_84a34215-9a56-4188-9265-0792a6ff899b" Target="#_b97cd8d1-2b8d-486a-b847-017fc618de63"><Timestamp>2019-01-21 14:11:07</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
