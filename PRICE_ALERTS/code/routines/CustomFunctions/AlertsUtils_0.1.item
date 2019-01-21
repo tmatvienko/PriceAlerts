@@ -57,6 +57,18 @@ public class AlertsUtils {
 		
 	}
 	
+	public static synchronized void setStockCacheValue(Integer alertConfigurationID, StockCache stockCache)
+	{
+		stockCacheMap.put(alertConfigurationID, stockCache);
+	}
+	
+	public static synchronized void updateStockCacheValue(Integer alertConfigurationID, StockCache stockCache)
+	{
+		AlertsUtils.StockCache pValue = stockCacheMap.get(alertConfigurationID);
+		if (pValue != null) {
+			stockCacheMap.computeIfPresent(alertConfigurationID, (k, v) -> stockCache);
+		}
+	}
 
 	public static boolean isNullOrBlank(String s)
 	{
