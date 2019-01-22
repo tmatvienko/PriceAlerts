@@ -1515,7 +1515,7 @@
     <nodeData xsi:type="TalendMapper:MapperData">
       <uiProperties shellMaximized="true"/>
       <varTables name="Var" sizeState="INTERMEDIATE">
-        <mapperTableEntries expression="row11.RuleNumber == 1 ? ((cOut_Rule22_2.TradePrice - cOut_Rule22_2.BasePrice) / cOut_Rule22_2.TradePrice * 100.00 &gt;= row11.ThresholdValue ? true : false ) : false " name="IsAlert" type="id_Boolean"/>
+        <mapperTableEntries expression="row11.RuleNumber == 2 ? ((cOut_Rule22_2.TradePrice - cOut_Rule22_2.BasePrice) / cOut_Rule22_2.TradePrice * 100.00 &gt;= row11.ThresholdValue ? true : false ) : false " name="IsAlert" type="id_Boolean"/>
       </varTables>
       <outputTables activateExpressionFilter="true" expressionFilter="Var.IsAlert " name="cOut_5" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="cOut_Rule22_2.AlertConfigurationID " name="AlertConfigurationID" type="id_Integer"/>
@@ -1709,7 +1709,6 @@
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="1632" posY="672">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_5"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
@@ -1742,7 +1741,7 @@
     <nodeData xsi:type="TalendMapper:MapperData">
       <uiProperties shellMaximized="true"/>
       <varTables name="Var" sizeState="INTERMEDIATE">
-        <mapperTableEntries expression="row13.RuleNumber == 1 ? ((cOut_Rule22_4.TradePrice - cOut_Rule22_4.PreviousDayClosePrice) / cOut_Rule22_4.TradePrice * 100.00 &gt;= row13.ThresholdValue ? true : false ) : false " name="IsAlert" type="id_Boolean"/>
+        <mapperTableEntries expression="row13.RuleNumber == 4 ? ((cOut_Rule22_4.TradePrice - cOut_Rule22_4.PreviousDayClosePrice) / cOut_Rule22_4.TradePrice * 100.00 &gt;= row13.ThresholdValue ? true : false ) : false " name="IsAlert" type="id_Boolean"/>
       </varTables>
       <outputTables activateExpressionFilter="true" expressionFilter="Var.IsAlert " name="cOut_9" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="cOut_Rule22_4.AlertConfigurationID " name="AlertConfigurationID" type="id_Integer"/>
@@ -1784,7 +1783,6 @@
   </node>
   <node componentName="tHashInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1536" posY="608">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tHashInput_4"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" show="false" value="_c5G9ABstEemtUeD7yhu38A - metadata"/>
     <elementParameter field="CHECK" name="LINK_WITH" value="true"/>
@@ -1805,7 +1803,6 @@
   </node>
   <node componentName="tSortRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1792" posY="672">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tSortRow_5"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TABLE" name="CRITERIA">
       <elementValue elementRef="COLNAME" value="ThresholdValue"/>
       <elementValue elementRef="SORT" value="num"/>
@@ -1836,7 +1833,6 @@
   </node>
   <node componentName="tUniqRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1952" posY="672">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tUniqRow_4"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TABLE" name="UNIQUE_KEY">
       <elementValue elementRef="SCHEMA_COLUMN" value="AlertConfigurationID"/>
       <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
@@ -1939,7 +1935,6 @@
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="1632" posY="544">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_4"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
@@ -1972,7 +1967,7 @@
     <nodeData xsi:type="TalendMapper:MapperData">
       <uiProperties shellMaximized="true"/>
       <varTables name="Var" sizeState="INTERMEDIATE">
-        <mapperTableEntries expression="row12.RuleNumber == 1 ? ((cOut_Rule22_3.MidPrice - cOut_Rule22_3.PreviousDayClosePrice) / cOut_Rule22_3.MidPrice * 100.00 &gt;= row12.ThresholdValue ? true : false ) : false " name="IsAlert" type="id_Boolean"/>
+        <mapperTableEntries expression="row12.RuleNumber == 3 ? ((cOut_Rule22_3.MidPrice - cOut_Rule22_3.PreviousDayClosePrice) / cOut_Rule22_3.MidPrice * 100.00 &gt;= row12.ThresholdValue ? true : false ) : false " name="IsAlert" type="id_Boolean"/>
       </varTables>
       <outputTables activateExpressionFilter="true" expressionFilter="Var.IsAlert " name="cOut_6" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="cOut_Rule22_3.AlertConfigurationID " name="AlertConfigurationID" type="id_Integer"/>
@@ -2014,7 +2009,6 @@
   </node>
   <node componentName="tHashInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1536" posY="480">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tHashInput_3"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" show="false" value="_c5G9ABstEemtUeD7yhu38A - metadata"/>
     <elementParameter field="CHECK" name="LINK_WITH" value="true"/>
@@ -2035,7 +2029,6 @@
   </node>
   <node componentName="tSortRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1792" posY="544">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tSortRow_4"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TABLE" name="CRITERIA">
       <elementValue elementRef="COLNAME" value="ThresholdValue"/>
       <elementValue elementRef="SORT" value="num"/>
@@ -2066,7 +2059,6 @@
   </node>
   <node componentName="tUniqRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1952" posY="544">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tUniqRow_3"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TABLE" name="UNIQUE_KEY">
       <elementValue elementRef="SCHEMA_COLUMN" value="AlertConfigurationID"/>
       <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
@@ -2373,12 +2365,10 @@
   </connection>
   <connection connectorName="FLOW" label="cOut_Rule22_3" lineStyle="0" metaname="cOut_Rule22_3" offsetLabelX="0" offsetLabelY="0" outputId="3" source="tMap_8" target="tMap_4">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cOut_Rule22_3"/>
   </connection>
   <connection connectorName="FLOW" label="cOut_Rule22_4" lineStyle="0" metaname="cOut_Rule22_4" offsetLabelX="0" offsetLabelY="0" outputId="4" source="tMap_8" target="tMap_5">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cOut_Rule22_4"/>
   </connection>
   <connection connectorName="FLOW" label="cOut_4" lineStyle="0" metaname="cOut_4" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tSortRow_2">
@@ -2436,32 +2426,26 @@
   </connection>
   <connection connectorName="FLOW" label="cOut_9" lineStyle="0" metaname="cOut_9" offsetLabelX="0" offsetLabelY="0" source="tMap_5" target="tSortRow_5">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cOut_9"/>
   </connection>
   <connection connectorName="FLOW" label="row13" lineStyle="8" metaname="tHashInput_4" offsetLabelX="0" offsetLabelY="0" source="tHashInput_4" target="tMap_5">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row13"/>
   </connection>
   <connection connectorName="FLOW" label="row30" lineStyle="0" metaname="tSortRow_5" offsetLabelX="0" offsetLabelY="0" source="tSortRow_5" target="tUniqRow_4">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row30"/>
   </connection>
   <connection connectorName="FLOW" label="cOut_6" lineStyle="0" metaname="cOut_6" offsetLabelX="0" offsetLabelY="0" source="tMap_4" target="tSortRow_4">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cOut_6"/>
   </connection>
   <connection connectorName="FLOW" label="row12" lineStyle="8" metaname="tHashInput_3" offsetLabelX="0" offsetLabelY="0" source="tHashInput_3" target="tMap_4">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row12"/>
   </connection>
   <connection connectorName="FLOW" label="row25" lineStyle="0" metaname="tSortRow_4" offsetLabelX="0" offsetLabelY="0" source="tSortRow_4" target="tUniqRow_3">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row25"/>
   </connection>
   <subjob>
@@ -2489,23 +2473,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-  <subjob>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_5"/>
-    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
-    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
-  </subjob>
-  <subjob>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_4"/>
-    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
-    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
-  </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_60063296-5629-4701-aba5-9e3af2e3021d"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>5RHVtNFEISxp4ssNxwsEdAbDwJZ/vW0NNYNHtJk77pawD5oHbjn68wSb9/w0aFygi2gTXbiDH6UH
-K75noUPNNA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_0a567074-c015-4d02-82ff-91f6f8889232"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>Cyc6RnMZb7zqfpeMM0Bqdop8j4PeXmre9hI1mvguRoMcsgGRjljwBKg23cGkM5xh8neFzs1Mq3wC
-Cw27Tfs0Ug==</DigestValue></Reference></SignedInfo><SignatureValue>LAbxquSpaT13kbvc4paLZk4WLb6dJGlICFC6JAk/PyC5bg7CQcbAGWflQ/76qYGCGcbv/Rmyjh+a
-PeX5a+1nFgk6GZzhn4kMMfhaKIMrWiMTYwL7enQigEdXseK5d9h2HqZtlhdz3lh9bPNRKHiwJbNV
-ynmT7SzQ0594O834dZaU9oegjHcOnHmmlKcPnP2ieo3aUPja5TlBTljpFKIDm0IaZkJwPLvuq2FK
-lekVMvrKSq3ZjQW6k6/5xqjVCp/71W4em9DVkglZYctLcvm/cUsa8UAf4WK8bExgaNFe0wDhzbbt
-Atqf8kZeR1mIcRrFdGJVIBxFBy/3+DlVxYzJTQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_6013a274-486d-4ee0-aa75-5365e5c69eae"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>mncOBKAoI30C9z9/RkhVvxp3Hw6/YpMe8L9b/FbwxGGry2wmcz7JTPx+FzkTGLqZ92CroXqt+Ddb
+MYymVGwdzw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_43292fc2-c5db-4708-bd57-dade29b2521e"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>Ag/bEIZ7OLmpTDyFJb/LfjJQ82nq3459UM1Fm9U1naNBF2PgiI9UhJx/hRl7hhD4iraD9aVNl9XX
+VLYXKHOxcA==</DigestValue></Reference></SignedInfo><SignatureValue>WUz7oUqDsLVSLqPly7hxjSsBEpM3hYuF+RxeDCgVHsotUxVFlJvB76Uj2P9xfSNnDquhi0oE99cO
+ETeXSpJyLKJQd4pwxLmyS98Ey72wZDsb+q87SwCHTjjaObcX+PBvXt/eMca3NcML+Gzom/7dXYiB
+2/N+Ld2/XGyj56BVffxYUQiyp8bvf997YySf95GENqm+DZlBD+4n9ezvv9S0r7fxAaSIUl6edNxS
+rgI9rO1sJkoLrjpbWWV4Ny94mlt8rkDHSkrhmbPO229EnD4zScDCIrDBp7w4F6ea0QmSB0jKRQvJ
+4+OHpID/jAor58FfZr0ko2VydAugEjyx288XJg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -2529,4 +2503,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_0a567074-c015-4d02-82ff-91f6f8889232" Target="#_60063296-5629-4701-aba5-9e3af2e3021d"><Timestamp>2019-01-22 07:15:44</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_43292fc2-c5db-4708-bd57-dade29b2521e" Target="#_6013a274-486d-4ee0-aa75-5365e5c69eae"><Timestamp>2019-01-22 07:17:13</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
