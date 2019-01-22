@@ -1707,233 +1707,6 @@
       <column comment="" key="false" length="-1" name="ThresholdValue" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="1632" posY="544">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_4"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
-    <elementParameter field="EXTERNAL" name="MAP" value=""/>
-    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
-    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="__cPXUB1FEemLKJKht-Lg-A-tMap_4-PREVIEW.bmp"/>
-    <elementParameter field="CHECK" name="DIE_ON_ERROR" show="false" value="true"/>
-    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" show="false" value="false"/>
-    <elementParameter field="TEXT" name="LEVENSHTEIN" show="false" value="0"/>
-    <elementParameter field="TEXT" name="JACCARD" show="false" value="0"/>
-    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" show="false" value="false"/>
-    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
-    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="true"/>
-    <elementParameter field="TEXT" name="LABEL" value="Calculate Rule Number 3"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="cOut_6">
-      <column comment="" key="false" length="-1" name="AlertConfigurationID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="RuleID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ThresholdID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="PriceType" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="BasePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="BasePricePrevious" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="MidPrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="TradePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="AlertTimestamp" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="CreatedOn" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ThresholdValue" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
-    </metadata>
-    <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties shellMaximized="true"/>
-      <varTables name="Var" sizeState="INTERMEDIATE">
-        <mapperTableEntries expression="row12.RuleNumber == 1 ? ((cOut_Rule22_3.MidPrice - cOut_Rule22_3.PreviousDayClosePrice) / cOut_Rule22_3.MidPrice * 100.00 &gt;= row12.ThresholdValue ? true : false ) : false " name="IsAlert" type="id_Boolean"/>
-      </varTables>
-      <outputTables activateExpressionFilter="true" expressionFilter="Var.IsAlert " name="cOut_6" sizeState="INTERMEDIATE">
-        <mapperTableEntries expression="cOut_Rule22_3.AlertConfigurationID " name="AlertConfigurationID" type="id_Integer"/>
-        <mapperTableEntries expression="row12.RuleID " name="RuleID" type="id_Integer"/>
-        <mapperTableEntries expression="row12.ThresholdID " name="ThresholdID" type="id_Integer"/>
-        <mapperTableEntries expression="cOut_Rule22_3.InstrumentID " name="InstrumentID" type="id_Integer"/>
-        <mapperTableEntries expression="&quot;MidPrice&quot;" name="PriceType" type="id_String"/>
-        <mapperTableEntries expression="cOut_Rule22_3.BasePrice " name="BasePrice" nullable="true" type="id_Double"/>
-        <mapperTableEntries expression="cOut_Rule22_3.BasePricePrevious " name="BasePricePrevious" nullable="true" type="id_Double"/>
-        <mapperTableEntries expression="cOut_Rule22_3.MidPrice " name="MidPrice" nullable="true" type="id_Double"/>
-        <mapperTableEntries expression="cOut_Rule22_3.TradePrice " name="TradePrice" nullable="true" type="id_Double"/>
-        <mapperTableEntries expression="cOut_Rule22_3.PreviousDayClosePrice " name="PreviousDayClosePrice" nullable="true" type="id_Double"/>
-        <mapperTableEntries expression="" name="ClosePrice" nullable="true" type="id_String"/>
-        <mapperTableEntries expression="cOut_Rule22_3.EventTime " name="AlertTimestamp" type="id_Date"/>
-        <mapperTableEntries expression="TalendDate.getCurrentDate()" name="CreatedOn" type="id_Date"/>
-        <mapperTableEntries expression="row12.ThresholdValue " name="ThresholdValue" nullable="true" type="id_Double"/>
-      </outputTables>
-      <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="cOut_Rule22_3" sizeState="INTERMEDIATE">
-        <mapperTableEntries name="AlertConfigurationID" type="id_Integer"/>
-        <mapperTableEntries name="InstrumentID" type="id_Integer"/>
-        <mapperTableEntries name="InstrCode" type="id_String"/>
-        <mapperTableEntries name="BasePricePrevious" nullable="true" type="id_Double"/>
-        <mapperTableEntries name="BasePrice" nullable="true" type="id_Double"/>
-        <mapperTableEntries name="TradePrice" nullable="true" type="id_Double"/>
-        <mapperTableEntries name="MidPrice" nullable="true" type="id_Double"/>
-        <mapperTableEntries name="PreviousDayClosePrice" nullable="true" type="id_Double"/>
-        <mapperTableEntries name="EventTime" type="id_Date"/>
-      </inputTables>
-      <inputTables activateCondensedTool="true" innerJoin="true" lookupMode="LOAD_ONCE" matchingMode="ALL_MATCHES" name="row12" sizeState="INTERMEDIATE">
-        <mapperTableEntries name="InstrumentID" type="id_Integer"/>
-        <mapperTableEntries expression="cOut_Rule22_3.InstrCode " name="InstrCode" operator="=" type="id_String"/>
-        <mapperTableEntries name="RuleID" type="id_Integer"/>
-        <mapperTableEntries name="RuleNumber" type="id_Integer"/>
-        <mapperTableEntries name="ThresholdID" nullable="true" type="id_Integer"/>
-        <mapperTableEntries name="ThresholdValue" nullable="true" type="id_Double"/>
-        <mapperTableEntries name="ThresholdDelay" nullable="true" type="id_Integer"/>
-      </inputTables>
-    </nodeData>
-  </node>
-  <node componentName="tHashInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1536" posY="480">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tHashInput_3"/>
-    <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
-    <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" show="false" value="_c5G9ABstEemtUeD7yhu38A - metadata"/>
-    <elementParameter field="CHECK" name="LINK_WITH" value="true"/>
-    <elementParameter field="COMPONENT_LIST" name="LIST" value="tHashOutput_1"/>
-    <elementParameter field="FILE" name="BASE_FILE_PATH" show="false" value="&quot;/Users/cmars/Documents/Talend/Talend-Studio-20181026_1147-V7.1.1/workspace/in.hash&quot;"/>
-    <elementParameter field="CHECK" name="RELEASE_CACHE" value="false"/>
-    <elementParameter field="TEXT" name="LABEL" value="Rules Cache"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" label="metadata" name="tHashInput_3">
-      <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="0" name="InstrCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="RuleID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="RuleNumber" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ThresholdID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ThresholdValue" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ThresholdDelay" nullable="true" pattern="" precision="0" sourceType="SMALLINT" type="id_Integer" usefulColumn="true"/>
-    </metadata>
-  </node>
-  <node componentName="tSortRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1792" posY="544">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tSortRow_4"/>
-    <elementParameter field="TABLE" name="CRITERIA">
-      <elementValue elementRef="COLNAME" value="ThresholdValue"/>
-      <elementValue elementRef="SORT" value="num"/>
-      <elementValue elementRef="ORDER" value="desc"/>
-    </elementParameter>
-    <elementParameter field="CHECK" name="EXTERNAL" value="false"/>
-    <elementParameter field="DIRECTORY" name="TEMPFILE" show="false" value="&quot;/Users/cmars/Documents/Talend/Talend-Studio-20181026_1147-V7.1.1/workspace/temp&quot;"/>
-    <elementParameter field="CHECK" name="CREATEDIR" show="false" value="true"/>
-    <elementParameter field="TEXT" name="EXTERNAL_SORT_BUFFERSIZE" show="false" value="1000000"/>
-    <elementParameter field="TEXT" name="LABEL" value="Sort ThresholdValue Desc"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tSortRow_4">
-      <column comment="" key="false" length="-1" name="AlertConfigurationID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="RuleID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ThresholdID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="PriceType" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="BasePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="BasePricePrevious" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="MidPrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="TradePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="AlertTimestamp" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="CreatedOn" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ThresholdValue" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
-    </metadata>
-  </node>
-  <node componentName="tUniqRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1952" posY="544">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tUniqRow_3"/>
-    <elementParameter field="TABLE" name="UNIQUE_KEY">
-      <elementValue elementRef="SCHEMA_COLUMN" value="AlertConfigurationID"/>
-      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
-      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="RuleID"/>
-      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
-      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ThresholdID"/>
-      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
-      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="InstrumentID"/>
-      <elementValue elementRef="KEY_ATTRIBUTE" value="true"/>
-      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="PriceType"/>
-      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
-      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="BasePrice"/>
-      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
-      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="BasePricePrevious"/>
-      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
-      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="MidPrice"/>
-      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
-      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="TradePrice"/>
-      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
-      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="PreviousDayClosePrice"/>
-      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
-      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ClosePrice"/>
-      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
-      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="AlertTimestamp"/>
-      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
-      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="CreatedOn"/>
-      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
-      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ThresholdValue"/>
-      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
-      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
-    </elementParameter>
-    <elementParameter field="CHECK" name="ONLY_ONCE_EACH_DUPLICATED_KEY" value="false"/>
-    <elementParameter field="CHECK" name="IS_VIRTUAL_COMPONENT" value="false"/>
-    <elementParameter field="OPENED_LIST" name="BUFFER_SIZE" show="false" value="M"/>
-    <elementParameter field="DIRECTORY" name="TEMP_DIRECTORY" show="false" value=""/>
-    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
-    <elementParameter field="TEXT" name="LABEL" value="Get Highest Threshold"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tUniqRow_3">
-      <column comment="" key="false" length="-1" name="AlertConfigurationID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="RuleID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ThresholdID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="PriceType" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="BasePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="BasePricePrevious" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="MidPrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="TradePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="AlertTimestamp" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="CreatedOn" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ThresholdValue" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
-    </metadata>
-    <metadata connector="UNIQUE" name="UNIQUE">
-      <column comment="" key="false" length="-1" name="AlertConfigurationID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="RuleID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ThresholdID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="PriceType" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="BasePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="BasePricePrevious" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="MidPrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="TradePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="AlertTimestamp" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="CreatedOn" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ThresholdValue" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
-    </metadata>
-    <metadata connector="DUPLICATE" name="DUPLICATE">
-      <column comment="" key="false" length="-1" name="AlertConfigurationID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="RuleID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ThresholdID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="PriceType" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="BasePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="BasePricePrevious" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="MidPrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="TradePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="AlertTimestamp" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="CreatedOn" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ThresholdValue" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
-    </metadata>
-  </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="1632" posY="672">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_5"/>
     <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
@@ -2011,6 +1784,7 @@
   </node>
   <node componentName="tHashInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1536" posY="608">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tHashInput_4"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" show="false" value="_c5G9ABstEemtUeD7yhu38A - metadata"/>
     <elementParameter field="CHECK" name="LINK_WITH" value="true"/>
@@ -2031,6 +1805,7 @@
   </node>
   <node componentName="tSortRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1792" posY="672">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tSortRow_5"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TABLE" name="CRITERIA">
       <elementValue elementRef="COLNAME" value="ThresholdValue"/>
       <elementValue elementRef="SORT" value="num"/>
@@ -2061,6 +1836,7 @@
   </node>
   <node componentName="tUniqRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1952" posY="672">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tUniqRow_4"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TABLE" name="UNIQUE_KEY">
       <elementValue elementRef="SCHEMA_COLUMN" value="AlertConfigurationID"/>
       <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
@@ -2113,6 +1889,236 @@
     <elementParameter field="TEXT" name="LABEL" value="Get Highest Threshold"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tUniqRow_4">
+      <column comment="" key="false" length="-1" name="AlertConfigurationID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="RuleID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ThresholdID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="PriceType" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="BasePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="BasePricePrevious" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="MidPrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TradePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="AlertTimestamp" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="CreatedOn" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ThresholdValue" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
+    </metadata>
+    <metadata connector="UNIQUE" name="UNIQUE">
+      <column comment="" key="false" length="-1" name="AlertConfigurationID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="RuleID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ThresholdID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="PriceType" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="BasePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="BasePricePrevious" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="MidPrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TradePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="AlertTimestamp" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="CreatedOn" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ThresholdValue" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
+    </metadata>
+    <metadata connector="DUPLICATE" name="DUPLICATE">
+      <column comment="" key="false" length="-1" name="AlertConfigurationID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="RuleID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ThresholdID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="PriceType" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="BasePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="BasePricePrevious" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="MidPrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TradePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="AlertTimestamp" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="CreatedOn" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ThresholdValue" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="1632" posY="544">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_4"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
+    <elementParameter field="EXTERNAL" name="MAP" value=""/>
+    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
+    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="__cPXUB1FEemLKJKht-Lg-A-tMap_4-PREVIEW.bmp"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" show="false" value="true"/>
+    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" show="false" value="false"/>
+    <elementParameter field="TEXT" name="LEVENSHTEIN" show="false" value="0"/>
+    <elementParameter field="TEXT" name="JACCARD" show="false" value="0"/>
+    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" show="false" value="false"/>
+    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
+    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="true"/>
+    <elementParameter field="TEXT" name="LABEL" value="Calculate Rule Number 3"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="cOut_6">
+      <column comment="" key="false" length="-1" name="AlertConfigurationID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="RuleID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ThresholdID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="PriceType" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="BasePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="BasePricePrevious" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="MidPrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TradePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="AlertTimestamp" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="CreatedOn" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ThresholdValue" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
+    </metadata>
+    <nodeData xsi:type="TalendMapper:MapperData">
+      <uiProperties shellMaximized="true"/>
+      <varTables name="Var" sizeState="INTERMEDIATE">
+        <mapperTableEntries expression="row12.RuleNumber == 1 ? ((cOut_Rule22_3.MidPrice - cOut_Rule22_3.PreviousDayClosePrice) / cOut_Rule22_3.MidPrice * 100.00 &gt;= row12.ThresholdValue ? true : false ) : false " name="IsAlert" type="id_Boolean"/>
+      </varTables>
+      <outputTables activateExpressionFilter="true" expressionFilter="Var.IsAlert " name="cOut_6" sizeState="INTERMEDIATE">
+        <mapperTableEntries expression="cOut_Rule22_3.AlertConfigurationID " name="AlertConfigurationID" type="id_Integer"/>
+        <mapperTableEntries expression="row12.RuleID " name="RuleID" type="id_Integer"/>
+        <mapperTableEntries expression="row12.ThresholdID " name="ThresholdID" type="id_Integer"/>
+        <mapperTableEntries expression="cOut_Rule22_3.InstrumentID " name="InstrumentID" type="id_Integer"/>
+        <mapperTableEntries expression="&quot;MidPrice&quot;" name="PriceType" type="id_String"/>
+        <mapperTableEntries expression="cOut_Rule22_3.BasePrice " name="BasePrice" nullable="true" type="id_Double"/>
+        <mapperTableEntries expression="cOut_Rule22_3.BasePricePrevious " name="BasePricePrevious" nullable="true" type="id_Double"/>
+        <mapperTableEntries expression="cOut_Rule22_3.MidPrice " name="MidPrice" nullable="true" type="id_Double"/>
+        <mapperTableEntries expression="cOut_Rule22_3.TradePrice " name="TradePrice" nullable="true" type="id_Double"/>
+        <mapperTableEntries expression="cOut_Rule22_3.PreviousDayClosePrice " name="PreviousDayClosePrice" nullable="true" type="id_Double"/>
+        <mapperTableEntries expression="" name="ClosePrice" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="cOut_Rule22_3.EventTime " name="AlertTimestamp" type="id_Date"/>
+        <mapperTableEntries expression="TalendDate.getCurrentDate()" name="CreatedOn" type="id_Date"/>
+        <mapperTableEntries expression="row12.ThresholdValue " name="ThresholdValue" nullable="true" type="id_Double"/>
+      </outputTables>
+      <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="cOut_Rule22_3" sizeState="INTERMEDIATE">
+        <mapperTableEntries name="AlertConfigurationID" type="id_Integer"/>
+        <mapperTableEntries name="InstrumentID" type="id_Integer"/>
+        <mapperTableEntries name="InstrCode" type="id_String"/>
+        <mapperTableEntries name="BasePricePrevious" nullable="true" type="id_Double"/>
+        <mapperTableEntries name="BasePrice" nullable="true" type="id_Double"/>
+        <mapperTableEntries name="TradePrice" nullable="true" type="id_Double"/>
+        <mapperTableEntries name="MidPrice" nullable="true" type="id_Double"/>
+        <mapperTableEntries name="PreviousDayClosePrice" nullable="true" type="id_Double"/>
+        <mapperTableEntries name="EventTime" type="id_Date"/>
+      </inputTables>
+      <inputTables activateCondensedTool="true" innerJoin="true" lookupMode="LOAD_ONCE" matchingMode="ALL_MATCHES" name="row12" sizeState="INTERMEDIATE">
+        <mapperTableEntries name="InstrumentID" type="id_Integer"/>
+        <mapperTableEntries expression="cOut_Rule22_3.InstrCode " name="InstrCode" operator="=" type="id_String"/>
+        <mapperTableEntries name="RuleID" type="id_Integer"/>
+        <mapperTableEntries name="RuleNumber" type="id_Integer"/>
+        <mapperTableEntries name="ThresholdID" nullable="true" type="id_Integer"/>
+        <mapperTableEntries name="ThresholdValue" nullable="true" type="id_Double"/>
+        <mapperTableEntries name="ThresholdDelay" nullable="true" type="id_Integer"/>
+      </inputTables>
+    </nodeData>
+  </node>
+  <node componentName="tHashInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1536" posY="480">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tHashInput_3"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" show="false" value="_c5G9ABstEemtUeD7yhu38A - metadata"/>
+    <elementParameter field="CHECK" name="LINK_WITH" value="true"/>
+    <elementParameter field="COMPONENT_LIST" name="LIST" value="tHashOutput_1"/>
+    <elementParameter field="FILE" name="BASE_FILE_PATH" show="false" value="&quot;/Users/cmars/Documents/Talend/Talend-Studio-20181026_1147-V7.1.1/workspace/in.hash&quot;"/>
+    <elementParameter field="CHECK" name="RELEASE_CACHE" value="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="Rules Cache"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="metadata" name="tHashInput_3">
+      <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="InstrCode" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="RuleID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="RuleNumber" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ThresholdID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ThresholdValue" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ThresholdDelay" nullable="true" pattern="" precision="0" sourceType="SMALLINT" type="id_Integer" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tSortRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1792" posY="544">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tSortRow_4"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
+    <elementParameter field="TABLE" name="CRITERIA">
+      <elementValue elementRef="COLNAME" value="ThresholdValue"/>
+      <elementValue elementRef="SORT" value="num"/>
+      <elementValue elementRef="ORDER" value="desc"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="EXTERNAL" value="false"/>
+    <elementParameter field="DIRECTORY" name="TEMPFILE" show="false" value="&quot;/Users/cmars/Documents/Talend/Talend-Studio-20181026_1147-V7.1.1/workspace/temp&quot;"/>
+    <elementParameter field="CHECK" name="CREATEDIR" show="false" value="true"/>
+    <elementParameter field="TEXT" name="EXTERNAL_SORT_BUFFERSIZE" show="false" value="1000000"/>
+    <elementParameter field="TEXT" name="LABEL" value="Sort ThresholdValue Desc"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tSortRow_4">
+      <column comment="" key="false" length="-1" name="AlertConfigurationID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="RuleID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ThresholdID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="PriceType" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="BasePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="BasePricePrevious" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="MidPrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TradePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="AlertTimestamp" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="CreatedOn" nullable="false" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ThresholdValue" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tUniqRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1952" posY="544">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tUniqRow_3"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
+    <elementParameter field="TABLE" name="UNIQUE_KEY">
+      <elementValue elementRef="SCHEMA_COLUMN" value="AlertConfigurationID"/>
+      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
+      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="RuleID"/>
+      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
+      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ThresholdID"/>
+      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
+      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="InstrumentID"/>
+      <elementValue elementRef="KEY_ATTRIBUTE" value="true"/>
+      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PriceType"/>
+      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
+      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="BasePrice"/>
+      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
+      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="BasePricePrevious"/>
+      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
+      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="MidPrice"/>
+      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
+      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TradePrice"/>
+      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
+      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PreviousDayClosePrice"/>
+      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
+      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ClosePrice"/>
+      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
+      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="AlertTimestamp"/>
+      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
+      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CreatedOn"/>
+      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
+      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ThresholdValue"/>
+      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
+      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="ONLY_ONCE_EACH_DUPLICATED_KEY" value="false"/>
+    <elementParameter field="CHECK" name="IS_VIRTUAL_COMPONENT" value="false"/>
+    <elementParameter field="OPENED_LIST" name="BUFFER_SIZE" show="false" value="M"/>
+    <elementParameter field="DIRECTORY" name="TEMP_DIRECTORY" show="false" value=""/>
+    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="Get Highest Threshold"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tUniqRow_3">
       <column comment="" key="false" length="-1" name="AlertConfigurationID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="RuleID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ThresholdID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
@@ -2365,15 +2371,15 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cOut_Rule22_2"/>
   </connection>
-  <connection connectorName="FLOW" label="cOut_Rule22_4" lineStyle="0" metaname="cOut_Rule22_4" offsetLabelX="0" offsetLabelY="0" outputId="3" source="tMap_8" target="tMap_5">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cOut_Rule22_4"/>
-  </connection>
-  <connection connectorName="FLOW" label="cOut_Rule22_3" lineStyle="0" metaname="cOut_Rule22_3" offsetLabelX="0" offsetLabelY="0" outputId="4" source="tMap_8" target="tMap_4">
+  <connection connectorName="FLOW" label="cOut_Rule22_3" lineStyle="0" metaname="cOut_Rule22_3" offsetLabelX="0" offsetLabelY="0" outputId="3" source="tMap_8" target="tMap_4">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cOut_Rule22_3"/>
+  </connection>
+  <connection connectorName="FLOW" label="cOut_Rule22_4" lineStyle="0" metaname="cOut_Rule22_4" offsetLabelX="0" offsetLabelY="0" outputId="4" source="tMap_8" target="tMap_5">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cOut_Rule22_4"/>
   </connection>
   <connection connectorName="FLOW" label="cOut_4" lineStyle="0" metaname="cOut_4" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tSortRow_2">
     <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
@@ -2428,20 +2434,6 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row20"/>
   </connection>
-  <connection connectorName="FLOW" label="cOut_6" lineStyle="0" metaname="cOut_6" offsetLabelX="0" offsetLabelY="0" source="tMap_4" target="tSortRow_4">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cOut_6"/>
-  </connection>
-  <connection connectorName="FLOW" label="row12" lineStyle="8" metaname="tHashInput_3" offsetLabelX="0" offsetLabelY="0" source="tHashInput_3" target="tMap_4">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row12"/>
-  </connection>
-  <connection connectorName="FLOW" label="row25" lineStyle="0" metaname="tSortRow_4" offsetLabelX="0" offsetLabelY="0" source="tSortRow_4" target="tUniqRow_3">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row25"/>
-  </connection>
   <connection connectorName="FLOW" label="cOut_9" lineStyle="0" metaname="cOut_9" offsetLabelX="0" offsetLabelY="0" source="tMap_5" target="tSortRow_5">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
@@ -2454,7 +2446,23 @@
   </connection>
   <connection connectorName="FLOW" label="row30" lineStyle="0" metaname="tSortRow_5" offsetLabelX="0" offsetLabelY="0" source="tSortRow_5" target="tUniqRow_4">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row30"/>
+  </connection>
+  <connection connectorName="FLOW" label="cOut_6" lineStyle="0" metaname="cOut_6" offsetLabelX="0" offsetLabelY="0" source="tMap_4" target="tSortRow_4">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cOut_6"/>
+  </connection>
+  <connection connectorName="FLOW" label="row12" lineStyle="8" metaname="tHashInput_3" offsetLabelX="0" offsetLabelY="0" source="tHashInput_3" target="tMap_4">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row12"/>
+  </connection>
+  <connection connectorName="FLOW" label="row25" lineStyle="0" metaname="tSortRow_4" offsetLabelX="0" offsetLabelY="0" source="tSortRow_4" target="tUniqRow_3">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row25"/>
   </connection>
   <subjob>
     <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true"/>
@@ -2482,32 +2490,22 @@
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
   <subjob>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_4"/>
-    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
-    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
-  </subjob>
-  <subjob>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tSortRow_4"/>
-    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
-    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
-  </subjob>
-  <subjob>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_5"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
   <subjob>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tSortRow_5"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_4"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_cf1d80a6-758b-4574-9058-f312390f0ed5"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>FCM9iunEF1BUHNCR/OpKyVTKERX9raIGc7zR7tStfala0Ux0qRpOUK7lwSci2afsXouqMaUzZ1oi
-zEzp67JwKw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_c9ca1811-bd50-4298-84dd-cd55148948b9"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>H/qd27UnaahJV/P4LejtVLk2ynqwZqK41d5MdhmcRRiY2VwkurmF7Ifl8heAofEWG/7QFW42S4+h
-xszh353uqQ==</DigestValue></Reference></SignedInfo><SignatureValue>ynTz8XhSxACsMhJWWwTdhh7L05cQ+K0j2K757aPVrghB9MXOnMQJ4bZ8eycEVngpyJClDVvYR/hG
-GEVAlNuVUFWH+aQCal46Xw62I7D3yWc92yEzQchwhs1jVElDKVvxTdOaU6+58pcZZx03wFMfzHQU
-XB8PtuLAdzNKOqMXfzsLM9NszB4qqHf6ZbqGPpHX/sm1FR8sp0wmwjUg5DPq2aGh8oVUdQDAtENA
-BD0gglSlXaDdX0snEwM4Gqh0hHqMvhr7JtutCRSkKTd/aIfjx9OXrmoufxZX7YZ0601AdygIWiop
-q1mApHw76GWBuSN86xbvuhc5E0X6j1m9KLWYLA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_60063296-5629-4701-aba5-9e3af2e3021d"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>5RHVtNFEISxp4ssNxwsEdAbDwJZ/vW0NNYNHtJk77pawD5oHbjn68wSb9/w0aFygi2gTXbiDH6UH
+K75noUPNNA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_0a567074-c015-4d02-82ff-91f6f8889232"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>Cyc6RnMZb7zqfpeMM0Bqdop8j4PeXmre9hI1mvguRoMcsgGRjljwBKg23cGkM5xh8neFzs1Mq3wC
+Cw27Tfs0Ug==</DigestValue></Reference></SignedInfo><SignatureValue>LAbxquSpaT13kbvc4paLZk4WLb6dJGlICFC6JAk/PyC5bg7CQcbAGWflQ/76qYGCGcbv/Rmyjh+a
+PeX5a+1nFgk6GZzhn4kMMfhaKIMrWiMTYwL7enQigEdXseK5d9h2HqZtlhdz3lh9bPNRKHiwJbNV
+ynmT7SzQ0594O834dZaU9oegjHcOnHmmlKcPnP2ieo3aUPja5TlBTljpFKIDm0IaZkJwPLvuq2FK
+lekVMvrKSq3ZjQW6k6/5xqjVCp/71W4em9DVkglZYctLcvm/cUsa8UAf4WK8bExgaNFe0wDhzbbt
+Atqf8kZeR1mIcRrFdGJVIBxFBy/3+DlVxYzJTQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -2531,4 +2529,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_c9ca1811-bd50-4298-84dd-cd55148948b9" Target="#_cf1d80a6-758b-4574-9058-f312390f0ed5"><Timestamp>2019-01-22 07:15:19</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_0a567074-c015-4d02-82ff-91f6f8889232" Target="#_60063296-5629-4701-aba5-9e3af2e3021d"><Timestamp>2019-01-22 07:15:44</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
