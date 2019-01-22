@@ -1190,8 +1190,8 @@
     <nodeData xsi:type="TalendMapper:MapperData">
       <uiProperties shellMaximized="true"/>
       <varTables name="Var" sizeState="INTERMEDIATE">
-        <mapperTableEntries expression="true " name="IsMidPricePositive" type="id_Boolean"/>
-        <mapperTableEntries expression="true " name="IsTradePricePositive" type="id_Boolean"/>
+        <mapperTableEntries expression="row10.MidPrice.compareTo(0.00) &gt; 0 ? true : false " name="IsMidPricePositive" type="id_Boolean"/>
+        <mapperTableEntries expression="row10.TradePrice.compareTo(0.00) &gt; 0 ? true : false " name="IsTradePricePositive" type="id_Boolean"/>
       </varTables>
       <outputTables activateExpressionFilter="true" expressionFilter="Var.IsMidPricePositive" name="cOut_Rule22_1" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="row10.AlertConfigurationID " name="AlertConfigurationID" type="id_Integer"/>
@@ -1709,6 +1709,7 @@
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="1632" posY="544">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_4"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
@@ -1935,6 +1936,7 @@
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="1632" posY="672">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_5"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
@@ -2363,13 +2365,15 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cOut_Rule22_2"/>
   </connection>
-  <connection connectorName="FLOW" label="cOut_Rule22_3" lineStyle="0" metaname="cOut_Rule22_3" offsetLabelX="0" offsetLabelY="0" outputId="3" source="tMap_8" target="tMap_4">
+  <connection connectorName="FLOW" label="cOut_Rule22_4" lineStyle="0" metaname="cOut_Rule22_4" offsetLabelX="0" offsetLabelY="0" outputId="3" source="tMap_8" target="tMap_5">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cOut_Rule22_3"/>
-  </connection>
-  <connection connectorName="FLOW" label="cOut_Rule22_4" lineStyle="0" metaname="cOut_Rule22_4" offsetLabelX="0" offsetLabelY="0" outputId="4" source="tMap_8" target="tMap_5">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cOut_Rule22_4"/>
+  </connection>
+  <connection connectorName="FLOW" label="cOut_Rule22_3" lineStyle="0" metaname="cOut_Rule22_3" offsetLabelX="0" offsetLabelY="0" outputId="4" source="tMap_8" target="tMap_4">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cOut_Rule22_3"/>
   </connection>
   <connection connectorName="FLOW" label="cOut_4" lineStyle="0" metaname="cOut_4" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tSortRow_2">
     <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
@@ -2426,10 +2430,12 @@
   </connection>
   <connection connectorName="FLOW" label="cOut_6" lineStyle="0" metaname="cOut_6" offsetLabelX="0" offsetLabelY="0" source="tMap_4" target="tSortRow_4">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cOut_6"/>
   </connection>
   <connection connectorName="FLOW" label="row12" lineStyle="8" metaname="tHashInput_3" offsetLabelX="0" offsetLabelY="0" source="tHashInput_3" target="tMap_4">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row12"/>
   </connection>
   <connection connectorName="FLOW" label="row25" lineStyle="0" metaname="tSortRow_4" offsetLabelX="0" offsetLabelY="0" source="tSortRow_4" target="tUniqRow_3">
@@ -2438,10 +2444,12 @@
   </connection>
   <connection connectorName="FLOW" label="cOut_9" lineStyle="0" metaname="cOut_9" offsetLabelX="0" offsetLabelY="0" source="tMap_5" target="tSortRow_5">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cOut_9"/>
   </connection>
   <connection connectorName="FLOW" label="row13" lineStyle="8" metaname="tHashInput_4" offsetLabelX="0" offsetLabelY="0" source="tHashInput_4" target="tMap_5">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row13"/>
   </connection>
   <connection connectorName="FLOW" label="row30" lineStyle="0" metaname="tSortRow_5" offsetLabelX="0" offsetLabelY="0" source="tSortRow_5" target="tUniqRow_4">
@@ -2473,13 +2481,33 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_41ecb229-5a73-4847-b2d9-4280a45fcd18"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>g1K/NOxzxgzyzPQq1NXRUdxHhqAQ/PDjN08YOhw4tplOFd8OQCrQhmkKF2IRJFw75KgtP6qwrGlU
-Ak3BMqabdQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_9b5bc068-ae30-431e-bb7a-74319d9356a6"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>/ZtmZHlWjyFkMFXKnArx2K6wRKYMZM9sH8Uc/5ZXLNNeruL4jO68FWNBLGakSowZe5W7rL14FLOc
-Wv9H94Ww5g==</DigestValue></Reference></SignedInfo><SignatureValue>zrrgm5kTPofer7X6+ld8PrnKZQaCOk3F1byWwFQut4KCt8D3VjjnBF5a08fB4/I5+pCPYJq3Q/ru
-wRUsfsfxESuwGlVzQEBB4l8Fg5PMKE+yb1KeHRs0UcF8YzFWLTiln5DZf1gBHm6e0gGYikjUVmOL
-0V8Ww/KUa/4hO/fm9xQj7K+SRyBqvmhn9ozmb2dpbgH5hqMfgVZLpOoaA4jazsDYZJhQXQs6/p/C
-xlJfiJHQ2mv+LmcFRi6Tcm+2YOWhTBW8ypdO5ADUYn8jjLC1FcX2oDiT/X8gx6aXfKRTGprUPOES
-uh7qkEe6CJoitCOvuDCzjEuQwVOM2wNjyEgWTw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_4"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tSortRow_4"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_5"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tSortRow_5"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_cf1d80a6-758b-4574-9058-f312390f0ed5"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>FCM9iunEF1BUHNCR/OpKyVTKERX9raIGc7zR7tStfala0Ux0qRpOUK7lwSci2afsXouqMaUzZ1oi
+zEzp67JwKw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_c9ca1811-bd50-4298-84dd-cd55148948b9"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>H/qd27UnaahJV/P4LejtVLk2ynqwZqK41d5MdhmcRRiY2VwkurmF7Ifl8heAofEWG/7QFW42S4+h
+xszh353uqQ==</DigestValue></Reference></SignedInfo><SignatureValue>ynTz8XhSxACsMhJWWwTdhh7L05cQ+K0j2K757aPVrghB9MXOnMQJ4bZ8eycEVngpyJClDVvYR/hG
+GEVAlNuVUFWH+aQCal46Xw62I7D3yWc92yEzQchwhs1jVElDKVvxTdOaU6+58pcZZx03wFMfzHQU
+XB8PtuLAdzNKOqMXfzsLM9NszB4qqHf6ZbqGPpHX/sm1FR8sp0wmwjUg5DPq2aGh8oVUdQDAtENA
+BD0gglSlXaDdX0snEwM4Gqh0hHqMvhr7JtutCRSkKTd/aIfjx9OXrmoufxZX7YZ0601AdygIWiop
+q1mApHw76GWBuSN86xbvuhc5E0X6j1m9KLWYLA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -2503,4 +2531,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_9b5bc068-ae30-431e-bb7a-74319d9356a6" Target="#_41ecb229-5a73-4847-b2d9-4280a45fcd18"><Timestamp>2019-01-22 07:13:48</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_c9ca1811-bd50-4298-84dd-cd55148948b9" Target="#_cf1d80a6-758b-4574-9058-f312390f0ed5"><Timestamp>2019-01-22 07:15:19</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
