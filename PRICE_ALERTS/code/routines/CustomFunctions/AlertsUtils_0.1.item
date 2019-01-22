@@ -23,17 +23,7 @@ import java.util.concurrent.*;
 
 public class AlertsUtils {
 	
-	public static class RuleThreshold {
-		
-		public boolean isAlert;
-		public double thresholdValue;
-		
-		public RuleThreshold(boolean isAlert, double thresholdValue) {
-			this.isAlert = isAlert;
-			this.thresholdValue = thresholdValue;
-		}
-		
-	}
+
 	
 	public static ConcurrentHashMap<Integer, AlertsUtils.StockCache> stockCacheMap = new ConcurrentHashMap<Integer, AlertsUtils.StockCache>();
 	
@@ -69,6 +59,24 @@ public class AlertsUtils {
 		}
 	}
 
+	
+	
+	
+	
+	/*
+	 * 
+	 * 	public static class RuleThreshold {
+		
+		public boolean isAlert;
+		public double thresholdValue;
+		
+		public RuleThreshold(boolean isAlert, double thresholdValue) {
+			this.isAlert = isAlert;
+			this.thresholdValue = thresholdValue;
+		}
+		
+	}
+	
 	public static boolean isNullOrBlank(String s)
 	{
 	  return (s==null || s.trim().equals(""));
@@ -140,6 +148,7 @@ public class AlertsUtils {
 		}
 	}
 	
+	*/
 	
 	
 }
