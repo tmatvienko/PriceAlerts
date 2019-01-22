@@ -171,13 +171,13 @@
     <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
     <elementParameter field="TEXT" name="COMMIT_EVERY" value="10000"/>
     <metadata connector="FLOW" name="tDBRow_1">
-      <column comment="" key="false" length="-1" name="ID" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ID" nullable="true" originalDbColumnName="" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Object" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="newColumn" nullable="true" originalDbColumnName="" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="newColumn1" nullable="true" originalDbColumnName="" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="newColumn2" nullable="true" originalDbColumnName="" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
     </metadata>
     <metadata connector="REJECT" name="REJECT">
-      <column comment="" key="false" length="-1" name="ID" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ID" nullable="true" originalDbColumnName="" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Object" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="newColumn" nullable="true" originalDbColumnName="" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="newColumn1" nullable="true" originalDbColumnName="" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="newColumn2" nullable="true" originalDbColumnName="" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
@@ -200,7 +200,7 @@
     </elementParameter>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tParseRecordSet_1">
-      <column comment="" key="false" length="-1" name="ID" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ID" nullable="true" originalDbColumnName="" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Object" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="newColumn" nullable="true" originalDbColumnName="" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="newColumn1" nullable="true" originalDbColumnName="" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="newColumn2" nullable="true" originalDbColumnName="" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
@@ -233,7 +233,7 @@
     <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" show="false" value="100"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tLogRow_1">
-      <column comment="" key="false" length="-1" name="ID" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ID" nullable="true" originalDbColumnName="" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Object" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="newColumn" nullable="true" originalDbColumnName="" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="newColumn1" nullable="true" originalDbColumnName="" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="newColumn2" nullable="true" originalDbColumnName="" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
@@ -264,13 +264,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_a070d336-1a35-4d32-a63c-a6721710cfb3"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>pblpH1Ry1ClOxOHs8Q/NUXWvfOTQUT/K8E2NdU6a0XM2Nvj9QwvG3uRQHkFgIdKPIMCr2KHKRQDk
-qqIY78JL1A==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_8d9b5597-b378-434e-ae38-7dabad9e1379"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>2jmrWlO/ThWeKJKnWuRctEkMgyRfsrd/skPU8wfOJWxBtltPD+5Z16JkU1yaRTr6nRTZcfCAoNGR
-/Bs34g7+1g==</DigestValue></Reference></SignedInfo><SignatureValue>wmV2ZgPzY4jic39Jr0qsy5Wul/z9LA6ONoHYMqEE3GJNa0CS0Dn7KOJgzWm+ul0jYfL8uFQJTnX9
-7DpQYyInwx6vh45dmbCerGXk1YMBwWrvbAoOOjV97dRiWS91559ChdJQ7y6C8kEli/MX+omnU3Iu
-TUNkkLQscokT4mjkTk21UWWvNPGmBTlFr3uY0obw9jOIMxEJ0pOzHKhWUA4ZgolgmSYXjDt2TN61
-pTfOqsJSIG8wTbeCWv7SeuUkUiBgVfYYJZVtv7v4J/5Tto944SzctE3CIJFtn9hzWxaMabLXj59Q
-qJGMERfv1fmdseuzGlDM3WvVfyqOFhEPTy8EBQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_4cf713b1-890d-4229-96e5-36bc71daa850"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>IFWMo5scEr14fayEV7rDi1hoz9976KtoEzEOAZ9h4xC9LVLnpYM00Nd+mDhQBqzvZGtKk6zLCN2j
+eS4thMZIoQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_4f373c3d-3b70-4102-bd9a-0ac68498ef6d"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>0NPHkEJEtHeubLhb3iOebEp3SgXrMxGOVucZR+sjczVSNoKi8L0Vu9bX8XnWH+ur+ZPjsAOihezY
+12KRabVQhw==</DigestValue></Reference></SignedInfo><SignatureValue>LPB0prv9EZFsb51QwjqH1eNDTJVZMU8OFCzbsId5XLhAjK3ZvcfBx8hz2Yqd/jcUeJ2JIx9mohHo
+49J9W3rKbl3JUbs2MHq/6qPdgDZOGCOjIF+lwJvptM9x/+eibYnWVlJ8iMiz7KIcoaMKjEb2rt6L
+9ctqCKnpgi8kudBua89uRIsFTfXuAONvebTZ+RrBd+7HZ0StJRJckr8ns+yiZO0Hfy2QJdyjOYFj
+gPUxTsg3IVcWjtYfw81xCqR2Spt/+PVrWWp1FAEnesRo3asKePTHgnkM4IZN2o0nOWaq5RFpQnVT
+zfStU7KZuNwpiOhIoQA3uNQ5FczifvNGmOe1ug==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -294,4 +294,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_8d9b5597-b378-434e-ae38-7dabad9e1379" Target="#_a070d336-1a35-4d32-a63c-a6721710cfb3"><Timestamp>2019-01-22 17:08:35</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_4f373c3d-3b70-4102-bd9a-0ac68498ef6d" Target="#_4cf713b1-890d-4229-96e5-36bc71daa850"><Timestamp>2019-01-22 17:09:23</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
