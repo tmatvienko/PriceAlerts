@@ -2657,21 +2657,6 @@
       <column comment="" key="false" length="-1" name="CreatedOn" nullable="false" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tJavaFlex" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1152" posY="896">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tJavaFlex_4"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
-    <elementParameter field="CHECK" name="DATA_AUTO_PROPAGATE" value="true"/>
-    <elementParameter field="MEMO_JAVA" name="CODE_START" value="// start part of your Java code&#10;      "/>
-    <elementParameter field="MEMO_JAVA" name="CODE_MAIN" value="AlertsUtils.AlertLog alert = new AlertsUtils.AlertLog(row17.AlertConfigurationID, row17.RuleID, row17.ThresholdID&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;, row17.InstrumentID, row17.PriceType, row17.BasePrice, row17.BasePricePrevious, row17.midPrice&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;, row17.TradePrice, row17.PreviousDayClosePrice, row17.ClosePrice, row17.AlertTimestamp, row17.CreatedOn);&#10;&#10;AlertsUtils.alertLog.add(alert)"/>
-    <elementParameter field="MEMO_JAVA" name="CODE_END" value="// end of the component, outside/closing the loop&#10;      "/>
-    <elementParameter field="CHECK" name="Version_V2_0" show="false" value="false"/>
-    <elementParameter field="CHECK" name="Version_V3_2" show="false" value="false"/>
-    <elementParameter field="CHECK" name="Version_V4.0" show="false" value="true"/>
-    <elementParameter field="MEMO_IMPORT" name="IMPORT" value="import java.util.List;&#10;import java.util.concurrent.*;"/>
-    <elementParameter field="TEXT" name="LABEL" value="Insert Alert to Alerts Cache"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tJavaFlex_4"/>
-  </node>
   <node componentName="tInfiniteLoop" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="320" posY="992">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tInfiniteLoop_1"/>
     <elementParameter field="TEXT" name="WAIT_MS" value="4000"/>
@@ -2692,7 +2677,7 @@
     <elementParameter field="PASSWORD" name="PASS" show="false" value="0RMsyjmybrE="/>
     <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" show="false" value="_7FFSsB5qEem6uaGtz2lT7w - metadata"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;metadata&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;&quot;"/>
     <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" show="false" value=""/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
@@ -3048,11 +3033,6 @@
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tDBOutput_2" offsetLabelX="0" offsetLabelY="0" source="tDBOutput_2" target="tDBCommit_2">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnComponentOk5"/>
   </connection>
-  <connection connectorName="FLOW" label="row17" lineStyle="0" metaname="tDBOutput_2" offsetLabelX="0" offsetLabelY="0" source="tDBOutput_2" target="tJavaFlex_4">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row17"/>
-  </connection>
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tDBOutput_1" offsetLabelX="0" offsetLabelY="0" source="tDBOutput_1" target="tDBCommit_2">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnComponentOk4"/>
   </connection>
@@ -3129,22 +3109,17 @@
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
   <subjob>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tJavaFlex_4"/>
-    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
-    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
-  </subjob>
-  <subjob>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tInfiniteLoop_1"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_30d07d58-0954-4d13-9f52-49df6f7fd3e1"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>PAYP5ZNl0s6aZBlQcEiuIaGUt74fd++mnKEOHamn99B4l6EIeYPeIFYlifLmhUlgT5UULimuClbT
-bYBAXxgC1A==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_b6c477f7-3c19-4edc-b5a8-792e8a85a589"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>GFBUL2bTSCFtzUNVXtpiOKGaUlFgHFuAt8fBdV+WMXIaqJUMoVhd0xzrWd97AzvMkNrf1dENOXc1
-c/nLQWPN0g==</DigestValue></Reference></SignedInfo><SignatureValue>Tx3+8NRCXDNjK99s5jVwm5oY4K57zmlCcEknD9Y5HazoKG87oCW77P6OUECnwXJRen2TtzxN/428
-hv4ve1DoOlHOwFu9muDecTC4NRMsAcODZtQawR/3hpR1ok7qomhIs39AlU3vaQ4NdOhRsP17uCpC
-ijfpOQgG6TYScPB8QUEmQzFb+4e2eMiqu0HmiTjzmZsGJqOn853DFcKu/UQZFZbapchIr3F6Anpq
-Qw5/h5XbZr/BoEK4QmTg7edoIDqY3yQcVPOK3rQrqS/UqXab3cIuwIJ1piTbBnG8mKUaHffZp6S4
-/13IUqGfLuCgVlQWWxbD1sx+QyzVXibpHOZe3g==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_61b43079-3cb9-4036-8a42-03d7ff4023ed"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>imZih5S958YCTsUBN9MjwSdpz90Kxke8P2LimFeYdfCidp49+ZT3jd6jZmThq7DB+ffqiBpwmUVt
+oDiCTOgN+A==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_99fb0196-8bc1-43e2-ab77-16250b06c094"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>IAv6QqIGOiiQyjZPthxHqn4PYcZ6Ah7sL27tP9n2MbZgKjACLPM5ZHpJy901qVpCNQ1frcMkBrIV
+DrPZUx/KTQ==</DigestValue></Reference></SignedInfo><SignatureValue>24zzcdw0ECOM3GjBraBksDeZKAghQPNowp+bA7ziUhktLXqc5fgXhHEKGrraVmU09DoHQkxWe5JG
+JwrOhwoxXTORE16wS3M9IJW3GVTH36Fgx4oh4N9NpFnWxI0bM5Up6HS1K+RJO58Aw9MUHNQCmMS9
+Zv1LdV+IKnOrX+EursGQpoTvp+KzbYRUFVCx591GVg/Q+W7cLoQ+PI9Gy7q4P5mkeDXRJnYFdb1Q
+60/CrRFVx0rQa+4Jxusr24UEwXDKnVeBP73/R0dVRUMwbrp9EfxBJTZfxZDH7uzQnoDkUtyNwmhZ
+WK9qxfsQUgX0vyWTBBY6nCERI/0Ib6ppVESsYA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -3168,4 +3143,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_b6c477f7-3c19-4edc-b5a8-792e8a85a589" Target="#_30d07d58-0954-4d13-9f52-49df6f7fd3e1"><Timestamp>2019-01-22 18:23:12</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_99fb0196-8bc1-43e2-ab77-16250b06c094" Target="#_61b43079-3cb9-4036-8a42-03d7ff4023ed"><Timestamp>2019-01-22 18:24:41</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
