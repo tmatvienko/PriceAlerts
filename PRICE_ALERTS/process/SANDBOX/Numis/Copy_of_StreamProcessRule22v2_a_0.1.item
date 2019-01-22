@@ -2484,7 +2484,7 @@
     <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" show="false" value=""/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;INSERT INTO dev.AlertLog&#10;(&#10;  &#9;    ID&#10;      ,AlertConfigurationID&#10;      ,RuleID&#10;      ,RuleThresholdID&#10;      ,InstrumentID&#10;      ,PriceType&#10;      ,BasePrice&#10;      ,BasePricePrevious&#10;      ,MidPrice&#10;      ,TradePrice&#10;      ,PreviousDayClosePrice&#10;      ,ClosePrice&#10;      ,AlertTimestamp&#10;      ,CreatedOn&#10;      ,IsSent&#10;)&#10;VALUES&#10;(&#10;       ?&#10;      ,?&#10;      ,?&#10;      ,?&#10;      ,?&#10;      ,?&#10;      ,?&#10;      ,?&#10;      ,?&#10;      ,?&#10;      ,?&#10;      ,?&#10;      ,?&#10;      ,?&#10;      ,?&#10;);&#10;SELECT SCOPE_IDENTITY() AS ID;&#10;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;INSERT INTO dev.AlertLog&#10;(&#10;  &#9;    ID&#10;      ,AlertConfigurationID&#10;      ,RuleID&#10;      ,RuleThresholdID&#10;      ,InstrumentID&#10;      ,PriceType&#10;      ,BasePrice&#10;      ,BasePricePrevious&#10;      ,MidPrice&#10;      ,TradePrice&#10;      ,PreviousDayClosePrice&#10;      ,ClosePrice&#10;      ,AlertTimestamp&#10;      ,CreatedOn&#10;)&#10;VALUES&#10;(&#10;       ?&#10;      ,?&#10;      ,?&#10;      ,?&#10;      ,?&#10;      ,?&#10;      ,?&#10;      ,?&#10;      ,?&#10;      ,?&#10;      ,?&#10;      ,?&#10;      ,?&#10;      ,?&#10;);&#10;SELECT SCOPE_IDENTITY() AS ID;&#10;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" show="false" value="This option only applies when deploying and running in the Talend Runtime"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" show="false" value="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" show="false" value="&quot;&quot;"/>
@@ -2533,9 +2533,6 @@
       <elementValue elementRef="PARAMETER_INDEX" value="13"/>
       <elementValue elementRef="PARAMETER_TYPE" value="Date"/>
       <elementValue elementRef="PARAMETER_VALUE" value="cOut_TradePriceAlert.CreatedOn"/>
-      <elementValue elementRef="PARAMETER_INDEX" value="14"/>
-      <elementValue elementRef="PARAMETER_TYPE" value="Boolean"/>
-      <elementValue elementRef="PARAMETER_VALUE" value="false"/>
     </elementParameter>
     <elementParameter field="ENCODING_TYPE" name="ENCODING" show="false" value="&quot;ISO-8859-15&quot;"/>
     <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
@@ -3039,13 +3036,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_bb09e508-aaa4-440e-ab4a-9647056ceea4"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>9R9uUATZRyIYFGrcrxew3pLe/Jg8qT8fpHu1i1ymg2uP0jCMVjZnhhy5jln2hG6bQ1UjUZzydUZc
-HaKtZHxO3Q==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_34273e66-3872-4cfc-bf02-661bbc631d06"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>PdLz6b7jkG5rvaVGzpzwvYEVBZBIpjnnReaQKBzUO8ic9Rw+hZp1+1DU96wNS3ZTDfxvUFJCvcTm
-G+PJQF5z/A==</DigestValue></Reference></SignedInfo><SignatureValue>e2Qsky78c6SxFR2myKxAMEFOvpu09mJBbk9nboAcyUE5ZJ9XpnzrNbZr8UEewerTsgiG4qoOliFS
-QyzV3cBlPNlZHo6urgTeVY2yBdFC8RIUlQICZZ0oNS5rrlaQaxcJWefBqKzl5hS1hkqt7trWE+BA
-qlNbsds8hpXBH5+2wtcn+mxpuXpBPyBOec4nNZio/nYkZeIsQYafFBN2r3/l+dcwpjYUhQEGDKy2
-5HZuEVOQPNomPImwtJLXvAl/jynVGhxnE84MWXqUDEEKLTJpPg2mkADDibISiFO7hUo1yQ4piYpa
-RDs7KOBgh1aalIoTRglFmJSwbGmKg4gpqWEx7A==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_a9e6c6ee-7bb9-486c-beee-0b726c59465b"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>I2xdGrsecKgxl5f1CWpszqJqTGGMxWiYViiRX7nbMZpvwSDJ9ySGHo+Cu0SiuiLQKCYvVZAwrK6k
+L7m0jbOUew==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_702935f8-9e25-4e28-883d-579b916e7bbb"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>yC3hFJF9qprs7zswnHJkC+EAkZef+84SQoMK+4UZ/hTQ+w54Wnup4KNmwqK9upeeCUmiTqpcKjaV
+WN8BeJ+B+w==</DigestValue></Reference></SignedInfo><SignatureValue>NM8DxIzhhx9zs5AUSYycnKoDIIHMkzekMz/kyCYTa8TorX8upG9UZiR9AbLolGYafjqf2OXUcRT3
+kefUEPVK62G0U8hSYjDxIEnzQnv628p2D9SW6i4hTaAA9nN3N4P2Ggobwxoqm0hdOJM50nanQmB3
+DY1nvC6D2MtbKRB9EcBVpqnYQHObrRdWB/KML3qEn23kJ/5oAeEYszS8CxBhcUVVSD6b/iqe4Ctu
+Eqtzo6AxkdSkj8DlQe4w8Bg7C63U+H7keHX61pW/DDNpT1df7qbKx8lfYBqJR4wLx9enbEhTNVjg
+ryBl6WO+FnuGyjuk8RQJG8Ncq8fg/W36n0SF8w==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -3069,4 +3066,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_34273e66-3872-4cfc-bf02-661bbc631d06" Target="#_bb09e508-aaa4-440e-ab4a-9647056ceea4"><Timestamp>2019-01-22 17:42:31</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_702935f8-9e25-4e28-883d-579b916e7bbb" Target="#_a9e6c6ee-7bb9-486c-beee-0b726c59465b"><Timestamp>2019-01-22 17:43:05</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
