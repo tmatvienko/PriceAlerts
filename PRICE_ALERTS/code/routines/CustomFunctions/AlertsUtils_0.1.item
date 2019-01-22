@@ -1,5 +1,6 @@
 package routines;
 import java.util.concurrent.*;
+import java.time.Instant;
 
 /*
  * user specification: the function's comment should contain keys as follows: 1. write about the function's comment.but
@@ -43,6 +44,44 @@ public class AlertsUtils {
 			this.tradePriceLastMin = tradePriceLastMin;
 			
 		}
+		
+	}
+	
+	
+	public static class AlertLog {
+		public Integer alertConfigurationID;
+		public Integer ruleID;
+		public Integer ruleThresholdID;
+		public Integer instrumentID;
+		public String priceType;
+		public Double basePrice;
+		public Double basePricePrevious;
+		public Double midPrice;
+		public Double tradePrice;
+		public Double previousDayClosePrice;
+		public Double closePrice;
+		public Instant alertTimestamp;
+		public Instant createdOn;
+		
+		public AlertLog(Integer alertConfigurationID, Integer ruleID, Integer ruleThresholdID
+								, Integer instrumentID, String priceType, Double basePrice, Double basePricePrevious
+								, Double midPrice, Double tradePrice, Double previousDayClosePrice, Double closePrice
+								, Instant alertTimestamp, Instant createdOn){
+			this.alertConfigurationID = alertConfigurationID;
+			this.ruleID = ruleID;
+			this.ruleThresholdID = ruleThresholdID;
+			this.instrumentID = instrumentID;
+			this.priceType = priceType;
+			this.basePrice = basePrice;
+			this.basePricePrevious = basePricePrevious;
+			this.midPrice = midPrice;
+			this.tradePrice = tradePrice;
+			this.previousDayClosePrice = previousDayClosePrice;
+			this.closePrice = closePrice;
+			this.alertTimestamp = alertTimestamp;
+			this.createdOn = createdOn;
+		}
+		
 		
 	}
 	
