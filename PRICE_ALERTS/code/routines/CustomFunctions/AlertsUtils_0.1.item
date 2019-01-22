@@ -1,4 +1,5 @@
 package routines;
+import java.util.List;
 import java.util.concurrent.*;
 import java.time.Instant;
 
@@ -27,6 +28,8 @@ public class AlertsUtils {
 
 	
 	public static ConcurrentHashMap<Integer, AlertsUtils.StockCache> stockCacheMap = new ConcurrentHashMap<Integer, AlertsUtils.StockCache>();
+	
+	public static List<AlertLog> alertLog = new CopyOnWriteArrayList<AlertLog>();
 	
 	public static class StockCache {
 		
