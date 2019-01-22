@@ -2048,21 +2048,19 @@
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" originalLength="-1" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tMSSqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="2080" posY="352">
+  <node componentName="tMSSqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1920" posY="160">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBOutput_1"/>
-    <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" show="false" value="REPOSITORY"/>
-    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_5maPMBM7Eemj7pEqlrI1Zg"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
     <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tDBConnection_1"/>
     <elementParameter field="CLOSED_LIST" name="DRIVER" show="false" value="JTDS"/>
-    <elementParameter field="TEXT" name="HOST" show="false" value="&quot;numis-stockalerts.database.windows.net&quot;"/>
+    <elementParameter field="TEXT" name="HOST" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="PORT" show="false" value="&quot;1433&quot;"/>
-    <elementParameter field="TEXT" name="DB_SCHEMA" show="false" value="&quot;dev&quot;"/>
-    <elementParameter field="TEXT" name="DBNAME" show="false" value="&quot;StockAlerts&quot;"/>
+    <elementParameter field="TEXT" name="DB_SCHEMA" show="false" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="DBNAME" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="TYPE" show="false" value="MSSQL"/>
-    <elementParameter field="TEXT" name="USER" show="false" value="&quot;softserve_admin&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS" show="false" value="acj50ZPCWR9em04MIlhFU+Cr0lgObOel"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;AlertLog&quot;"/>
+    <elementParameter field="TEXT" name="USER" show="false" value="&quot;&quot;"/>
+    <elementParameter field="PASSWORD" name="PASS" show="false" value="0RMsyjmybrE="/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;metadata&quot;"/>
     <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="NONE"/>
     <elementParameter field="CHECK" name="IDENTITY_INSERT" value="false"/>
     <elementParameter field="CLOSED_LIST" name="DATA_ACTION" value="INSERT"/>
@@ -2156,8 +2154,6 @@
     <elementParameter field="CHECK" name="SUPPORT_NULL_WHERE" value="false"/>
     <elementParameter field="CHECK" name="USE_BATCH_SIZE" value="true"/>
     <elementParameter field="TEXT" name="BATCH_SIZE" value="10000"/>
-    <elementParameter field="TEXT" name="LABEL" value="DB Insert Alert"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" label="metadata" name="tDBOutput_1">
       <column comment="" key="false" length="-1" name="AlertConfigurationID" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="RuleID" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
@@ -2464,13 +2460,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_0a587bb7-5e82-4d5c-b0f5-e805ca04a548"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>I4J3/PwkhCWBpPQj8p3C4TUjbc8U8A6Gcdk71Kl8t5uQDstCPReT5zQ/uBgkHOhLBsuIadsLs1VN
-83MGQjb7eA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_93662ed9-7386-4812-aa92-84e399b3d1e9"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>dlTjbLNQAUztnPUDTrFQS8vTHILd6Qm41B5UlYS2adKaJtV3YLkYReBcs58fQyYFvsDMU8o3UheJ
-NXfCd5mAUA==</DigestValue></Reference></SignedInfo><SignatureValue>gkJ0C+aKidzqZMIRRH8OZkvwA4AnszXeazUZr1be1CLfGp0umKYYqqx9WD7Kpv8NI7cffmM6aklJ
-vWYrsNbPAe7ZX2mRGKUOsxJhTgc1ceiRcyVt+wcMSRa1nop61WmU/2Y/DKadtpXeyRk3B3m7xyvF
-e/5r12hnLXM1nv63pCZ9pGGAK+SBfEajyKBgMGiEzwoND0d0UGRcYeTLhpJrby8zC5BLXbyXgSGa
-xB2IaknfAPNfbbiSu/A6laBqQmgZtUEc+STVlo83GEui2LWAV3IuMuNDU2pbjZA+OBkRazV/zK+Z
-y/SN90btqLAsem4HbWZpg6Em8vyI0WdGD8R1LQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_4f29e833-abc4-45d9-a77e-1779833d7008"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>kHuAdMBdIENaHJlQyU29/oMjRIc24Bg/4QOeyxap2FSaqGN7NP/ylsBG4GXVcNfhoR7jKgjGxwax
+gXoOoMdX+g==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_ff0ce082-56b5-4dae-a5f9-4b5d7be3c492"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>PcD35bwS0WEwaMRQlj9tAVeWYTUJJmWhtm+Jpl23JAk5pAnnXA3rkqrrrO9ANFuOOeGP5oAC5v64
+E76rriOcdA==</DigestValue></Reference></SignedInfo><SignatureValue>cM3tMhZfhprozKP1JcvvIdBBeLZ+ekit6SGnka6ylk/dwrK8nM7uIwi1eTzWAVAYOMBtS104hPFs
+6nwG0DdFmjp8CIHCzDF2Q+sPp4L/ijrwm1HXbPsrCSm1Sa4oPq58hb8bTTe3uSV2ChI47Ug1O9oM
+30189nDNv4GefC4ZYdVOHi+BbmQ+60hGBJrh8TE9+aeYGrrgZdPTXfMZPjhxl9Iqlm1DVlGlNP0w
+BiI2aV6lMBf1A73VelDZ6XYKwm7GZQapQnENK1xI19uiwcgzjW5HzNov5MPPLs2aI+GQocyjcAah
+hPYv6PoykDGnL6W4/1Q4uFIQEEr91WWZAUgBgg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -2494,4 +2490,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_93662ed9-7386-4812-aa92-84e399b3d1e9" Target="#_0a587bb7-5e82-4d5c-b0f5-e805ca04a548"><Timestamp>2019-01-22 08:48:33</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_ff0ce082-56b5-4dae-a5f9-4b5d7be3c492" Target="#_4f29e833-abc4-45d9-a77e-1779833d7008"><Timestamp>2019-01-22 08:51:50</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
