@@ -590,7 +590,7 @@
       <column comment="" key="false" length="-1" name="ThresholdID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="BasePricePrevious" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
     </metadata>
-    <metadata name="cOut_PriceCache">
+    <metadata connector="FLOW" name="cOut_PriceCache">
       <column comment="" key="false" length="-1" name="AlertConfigurationID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="InstrCode" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
@@ -686,20 +686,6 @@
       <column comment="" key="false" length="-1" name="ThresholdID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="BasePricePrevious" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
     </metadata>
-  </node>
-  <node componentName="tJavaFlex" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="960" posY="640">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tJavaFlex_3"/>
-    <elementParameter field="CHECK" name="DATA_AUTO_PROPAGATE" value="true"/>
-    <elementParameter field="MEMO_JAVA" name="CODE_START" value=""/>
-    <elementParameter field="MEMO_JAVA" name="CODE_MAIN" value="Integer alertConfigurationID = row8.AlertConfigurationID;&#10;AlertsUtils.StockCache pObject = new AlertsUtils.StockCache(row8.InstrumentID, row8.InstrCode, row8.BasePrice,row8.PreviousDayClosePrice, row8.LastMinTradePrice);&#10;&#10;&#10;AlertsUtils.updateStockCacheValue(alertConfigurationID, pObject);"/>
-    <elementParameter field="MEMO_JAVA" name="CODE_END" value=""/>
-    <elementParameter field="CHECK" name="Version_V2_0" show="false" value="false"/>
-    <elementParameter field="CHECK" name="Version_V3_2" show="false" value="false"/>
-    <elementParameter field="CHECK" name="Version_V4.0" show="false" value="true"/>
-    <elementParameter field="MEMO_IMPORT" name="IMPORT" value="import java.util.List;&#10;import java.util.concurrent.*;&#10;import java.util.Iterator;&#10;import java.util.Map;&#10;import java.util.Set;"/>
-    <elementParameter field="TEXT" name="LABEL" value="Update Price Cache"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tJavaFlex_3"/>
   </node>
   <node componentName="tHashInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="864" posY="448">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tHashInput_5"/>
@@ -2134,6 +2120,20 @@
       <column comment="" key="false" length="-1" name="ThresholdValue" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
     </metadata>
   </node>
+  <node componentName="tJavaFlex" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="928" posY="640">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tJavaFlex_3"/>
+    <elementParameter field="CHECK" name="DATA_AUTO_PROPAGATE" value="true"/>
+    <elementParameter field="MEMO_JAVA" name="CODE_START" value=""/>
+    <elementParameter field="MEMO_JAVA" name="CODE_MAIN" value="Integer alertConfigurationID = cOut_PriceCache.AlertConfigurationID;&#10;AlertsUtils.StockCache pObject = new AlertsUtils.StockCache(cOut_PriceCache.InstrumentID, cOut_PriceCache.InstrCode, cOut_PriceCache.BasePrice,cOut_PriceCache.PreviousDayClosePrice, cOut_PriceCache.LastMinTradePrice);&#10;&#10;&#10;AlertsUtils.updateStockCacheValue(alertConfigurationID, pObject);"/>
+    <elementParameter field="MEMO_JAVA" name="CODE_END" value=""/>
+    <elementParameter field="CHECK" name="Version_V2_0" show="false" value="false"/>
+    <elementParameter field="CHECK" name="Version_V3_2" show="false" value="false"/>
+    <elementParameter field="CHECK" name="Version_V4.0" show="false" value="true"/>
+    <elementParameter field="MEMO_IMPORT" name="IMPORT" value="import java.util.List;&#10;import java.util.concurrent.*;&#10;import java.util.Iterator;&#10;import java.util.Map;&#10;import java.util.Set;"/>
+    <elementParameter field="TEXT" name="LABEL" value="Update Price Cache"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tJavaFlex_3"/>
+  </node>
   <connection connectorName="FLOW" label="row7" lineStyle="0" metaname="tDBInput_1" offsetLabelX="0" offsetLabelY="0" source="tDBInput_1" target="tHashOutput_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row7"/>
@@ -2224,7 +2224,7 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row5"/>
   </connection>
-  <connection connectorName="FLOW" label="cOut_2" lineStyle="0" metaname="cOut_2" offsetLabelX="0" offsetLabelY="0" source="tMap_3" target="tReplicate_1">
+  <connection connectorName="FLOW" label="cOut_2" lineStyle="0" metaname="cOut_2" offsetLabelX="0" offsetLabelY="0" outputId="1" source="tMap_3" target="tReplicate_1">
     <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
       <elementValue elementRef="TRACE_COLUMN" value="AlertConfigurationID"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
@@ -2248,23 +2248,15 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cOut_2"/>
   </connection>
-  <connection connectorName="FLOW" label="row8" lineStyle="0" metaname="tReplicate_1" offsetLabelX="0" offsetLabelY="0" outputId="1" source="tReplicate_1" target="tJavaFlex_3">
-    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
-      <elementValue elementRef="TRACE_COLUMN" value="AlertConfigurationID"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="InstrumentID"/>
-      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
-      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-    </elementParameter>
+  <connection connectorName="FLOW" label="cOut_PriceCache" lineStyle="0" metaname="cOut_PriceCache" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tMap_3" target="tJavaFlex_3">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row8"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cOut_PriceCache"/>
   </connection>
-  <connection connectorName="FLOW" label="row35" lineStyle="0" metaname="tReplicate_1" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tReplicate_1" target="tMap_7">
+  <connection connectorName="FLOW" label="row35" lineStyle="0" metaname="tReplicate_1" offsetLabelX="0" offsetLabelY="0" outputId="1" source="tReplicate_1" target="tMap_7">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row35"/>
   </connection>
-  <connection connectorName="FLOW" label="row10" lineStyle="0" metaname="tReplicate_1" offsetLabelX="0" offsetLabelY="0" outputId="3" source="tReplicate_1" target="tMap_8">
+  <connection connectorName="FLOW" label="row10" lineStyle="0" metaname="tReplicate_1" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tReplicate_1" target="tMap_8">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row10"/>
   </connection>
@@ -2444,13 +2436,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_19c74ad3-0a5d-4dd9-bcd9-f58153c8504e"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>BwszZGxAgjnxeSp0soXzihmjZncwH0/oUj0mMH0FuxU4m9CosKHvMdYGZroPxlqYoWxEvwL2uBmv
-7Zqwegl4wg==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_f4f4eb1b-4b2e-428a-9b27-db029c5d00ac"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>0hKonUpgo2pjZ7VoiWahmy1ZH4cOp3saOEbWXI8z3dZhosmDcX9ts7pwFr/TlaS0ztHzcQQ83svB
-ESxRGo9ZGQ==</DigestValue></Reference></SignedInfo><SignatureValue>Z8pYs5tOAKVMM7/BwehLpN/01ypcBEJHBu0I5xrv5UtvpSy4cwoiIn9rBi8yAoLOl8dAUBAQ9lbj
-/IYBE+8QLgS05LpwcpNy422WPSMoqh/P90JSZuRtJ4GVrmjd5T2Tsuu4Qb6m3IsPyZsBdZMqeaWi
-QPIzYPRTTriIppKN7Ib23WM2Z6hMYx+K5sbd8HubMCDuLmMrf0uLv6Tk7KRfEtMVzr4Rl0b8aoUC
-CII18xYS2qDLXytCpTYFssltfdZ/3pe0SWKFMdyJg8PrGbuYAsdk3n4yZS0KtIi8uZ60g75gcIp+
-T7AYemylv9olAKxDpAtiR0PARd3FCwALGq2ZEQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_93fb62af-b43f-4d05-89bf-25bb5014f0ec"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>FtvW8rO42x42IUeBAAvxLSrtjXwi4npSWHVi4tFDo6unaRJLWO6W+CYvH01Zy8UwbdH+X/FD7lbn
+ke8+8DikMQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_f01bd704-65e7-4343-8be6-55561a5c8946"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>Jb3WWkfXUSGAJj8hGy+Zmr+/puW+PFi2HfY8MXsBzRP6d/bSKKdfEDaBsXwbJ4weYxVGkq5a9X6q
+4VuGjn5BqA==</DigestValue></Reference></SignedInfo><SignatureValue>zxolvsEhFE9512WGDyYiNScuB1oQqYnXse7UIOOOQfgmfDwti1NVyI8P02bqgtQq/Ei7xdn6hIEb
+97Gy3aFpennrU1hw7s27ZkTeyTOuHiRoU/AWMwhKevTiVd3wNfc/ulNzP4gd+07k3ytj6xRAij9S
+siRMjKy7T9TQ8eFLMEkiJpLtnDWZt1HZX1WZVzojHIArzjqH/Ct/attien5XBP5OsiCow9015MRx
+XFSNa+BiaTuEEPRu8p+vQFXGNeA+P2mOOxa7k+DaTlMI60/ST7PFiupJsXQ+g3R658lyUiKHmKzt
+V1khbHNQa6vZZAjt7T400buOYuZdXqLdB7O7tg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -2474,4 +2466,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_f4f4eb1b-4b2e-428a-9b27-db029c5d00ac" Target="#_19c74ad3-0a5d-4dd9-bcd9-f58153c8504e"><Timestamp>2019-01-22 07:49:50</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_f01bd704-65e7-4343-8be6-55561a5c8946" Target="#_93fb62af-b43f-4d05-89bf-25bb5014f0ec"><Timestamp>2019-01-22 07:51:27</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
