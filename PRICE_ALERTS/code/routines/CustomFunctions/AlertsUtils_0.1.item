@@ -30,6 +30,7 @@ public class AlertsUtils {
 	
 	public static ConcurrentHashMap<Integer, AlertsUtils.StockCache> stockCacheMap = new ConcurrentHashMap<Integer, AlertsUtils.StockCache>();
 	
+	
 	public static List<AlertLog> alertLog = new CopyOnWriteArrayList<AlertLog>();
 	
 	public static class StockCache {
@@ -56,8 +57,6 @@ public class AlertsUtils {
 	
 	public static class AlertLog {
 		
-		private static AtomicInteger alertSequence = new AtomicInteger(0);
-		
 		public Integer alertLogID;
 		public Integer alertConfigurationID;
 		public Integer ruleID;
@@ -77,7 +76,6 @@ public class AlertsUtils {
 								, Integer instrumentID, String priceType, Double basePrice, Double basePricePrevious
 								, Double midPrice, Double tradePrice, Double previousDayClosePrice, Double closePrice
 								, Instant alertTimestamp, Instant createdOn){
-			this.alertLogID = alertSequence.incrementAndGet();
 			this.alertConfigurationID = alertConfigurationID;
 			this.ruleID = ruleID;
 			this.ruleThresholdID = ruleThresholdID;
