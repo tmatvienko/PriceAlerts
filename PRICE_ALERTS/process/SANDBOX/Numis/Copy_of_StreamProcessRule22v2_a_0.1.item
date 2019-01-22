@@ -2043,6 +2043,27 @@
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" originalLength="-1" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
     </metadata>
   </node>
+  <node componentName="tMSSqlCommit" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1312" posY="768">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBCommit_2"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tDBConnection_1"/>
+    <elementParameter field="CHECK" name="CLOSE" value="false"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="metadata" name="tDBCommit_2">
+      <column comment="" key="false" length="-1" name="AlertConfigurationID" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="RuleID" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ThresholdID" nullable="false" originalDbColumnName="RuleThresholdID" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" pattern="" precision="-1" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="18" name="BasePrice" nullable="true" pattern="" precision="2" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="50" name="PriceType" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="18" name="BasePricePrevious" nullable="true" pattern="" precision="2" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="18" name="MidPrice" nullable="true" pattern="" precision="2" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="18" name="TradePrice" nullable="true" pattern="" precision="2" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="18" name="PreviousDayClosePrice" nullable="true" pattern="" precision="2" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="18" name="ClosePrice" nullable="true" pattern="" precision="2" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="AlertTimestamp" nullable="false" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="CreatedOn" nullable="false" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
+    </metadata>
+  </node>
   <node componentName="tMSSqlConnection" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="128" posY="32">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBConnection_1"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
@@ -2274,6 +2295,10 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row25"/>
   </connection>
+  <connection connectorName="FLOW" label="row8" lineStyle="0" metaname="tDBOutput_1" offsetLabelX="0" offsetLabelY="0" source="tDBOutput_1" target="tDBCommit_2">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row8"/>
+  </connection>
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tDBConnection_1" offsetLabelX="0" offsetLabelY="0" source="tDBConnection_1" target="tDBInput_1">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnSubjobOk2"/>
   </connection>
@@ -2312,13 +2337,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_f5d06d1f-6ea9-445e-8a72-ed2c0e496be6"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>NTeI02hK43l/BbFjPMzoVfudlDFuaPxpcGAHQZ4cA+/J3puHK+5vBrBatiiXPXDiLRwWKcE/NPJj
-4y1Zm6ONlw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_86e57b65-c258-406d-8de3-919815417c66"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>dDD1bY0oIkcnJvCLbBhvKypmdF3QSIRRY2Joy0bxsSjsCPznGiCS6Pv9+mX+roFAJPosySgMPGxs
-/w/HR/B1TQ==</DigestValue></Reference></SignedInfo><SignatureValue>0UnvA6CV9Kf2aEUY0qtRMQ7iPhi5OF/gFLEEu9M8E6ghb5odTYFyLpNYEk91vq29tKyOVaJoAKry
-2gtAByDFwvOStxDStasRKEaMn9KqTWkPWULrBXZPo05gqLFkrQrBT7uFjmZjUaeZlq9KKpXp17nN
-LqzKQwDlOuXTTCy5JdIVD0WjySD3qKO1Bm0ICN8YD+OyJ4bIce/9yHMWkZLqVSVcAZD8XoYxQfQF
-4XHe17qIl2i6+bfpoUFWs8JYLyfw1ga2FdJwTIYgpxMOsE/SISA7JxQdYwr5U0Ci54MC21ClYNmw
-EwwGDC/ibcK/C/doJa8D9nSffi+3o8HRGVEauw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_5bb6e03d-330e-4a5d-936e-2de95ed1b773"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>py/aphTLTS09WW7Ze1v9c63V5rOYohbkjcRSgVEw9Zea5gur8BLt2IZgaXZiqdRV5w+EefhNOPcu
+Qv/usOKZAg==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_c476e398-27e9-44aa-9848-44ab7b8c3fae"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>xmV3TZsNpPYIOR3cmapewK1iMoDkcYlORW/lmBR9cjoax1Zm+nJJKm6StdzUj1+ZGbZIG2uxoXjm
+xfXWE67Opw==</DigestValue></Reference></SignedInfo><SignatureValue>lATGuraCuMRXdW6a+YDW1PsYr88GomWs2dLsPOW19D8VX+J3YbFiHQvM9yaYOeunCAwXT7qQMh6a
+HVBppWhIojixaNngED9BF8Bqacx5h+i2FRNl01P1jLaCxcNvj2Q227Hq/SpoKbXeAJ/3C2Bna+oH
+JztKft+bl4ManPrALlWyneDP4kP4KKBwLjnMNbE3NW+fKTy2FBvYSS3e7dWD+Th+G7N/OvcErL1V
+SfH8Z+HNKyeYmZKrgIYOkp6HbPoQqKL9VY7ijAbcLLtrz02SLHr1s5Y3KP4PbHrP5YmtOY45CKWZ
+9wTEgqQJVHEp1PxeuNzmD5lek+0cfNHa3qZ4Vg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -2342,4 +2367,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_86e57b65-c258-406d-8de3-919815417c66" Target="#_f5d06d1f-6ea9-445e-8a72-ed2c0e496be6"><Timestamp>2019-01-22 09:18:59</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_c476e398-27e9-44aa-9848-44ab7b8c3fae" Target="#_5bb6e03d-330e-4a5d-936e-2de95ed1b773"><Timestamp>2019-01-22 09:19:27</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
