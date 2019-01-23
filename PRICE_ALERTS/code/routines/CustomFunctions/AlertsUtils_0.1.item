@@ -29,6 +29,7 @@ public class AlertsUtils {
 	
 	public static ConcurrentHashMap<Integer, AlertsUtils.StockCache> stockCacheMap = new ConcurrentHashMap<Integer, AlertsUtils.StockCache>();
 	
+	public static Integer testInt = 0;
 	
 	public static List<AlertLog> alertLog = new CopyOnWriteArrayList<AlertLog>();
 	
