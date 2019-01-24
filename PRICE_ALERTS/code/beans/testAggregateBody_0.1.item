@@ -41,7 +41,7 @@ public class testAggregateBody {
 		}
 		String oldBody = oldEx.getIn().getBody(String.class);
 		String newBody = newEx.getIn().getBody(String.class);
-		newEx.getIn().setBody(oldBody+newBody);
+		newEx.getIn().setBody(oldBody + "###" + newBody);
 		return newEx;
 	}
 }
