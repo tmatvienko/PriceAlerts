@@ -57,10 +57,10 @@
             </goals>
             <configuration>
               <groupId>org.example.price_alerts.job</groupId>
-              <artifactId>routePriceAlerts_reloadPriceCache</artifactId>
+              <artifactId>routePriceAlerts_routeCallJob1</artifactId>
               <version>0.1.0</version>
               <packaging>jar</packaging>
-              <file>../../process/SANDBOX/Numis/reloadpricecache_0.1/target/reloadpricecache_0_1.jar</file>
+              <file>../../process/SANDBOX/Numis/routecalljob1_0.1/target/routecalljob1_0_1.jar</file>
               <generatePom>true</generatePom>
             </configuration>
           </execution>
@@ -132,15 +132,15 @@
                 </configuration>
               </execution>
               <execution>
-                <id>deploy-routePriceAlerts_reloadPriceCache</id>
+                <id>deploy-routePriceAlerts_routeCallJob1</id>
                 <phase>deploy</phase>
                 <goals>
                   <goal>deploy-file</goal>
                 </goals>
                 <configuration>
-                  <file>../../process/SANDBOX/Numis/reloadpricecache_0.1/target/reloadpricecache_0_1.jar</file>
+                  <file>../../process/SANDBOX/Numis/routecalljob1_0.1/target/routecalljob1_0_1.jar</file>
                   <groupId>org.example.price_alerts.job</groupId>
-                  <artifactId>routePriceAlerts_reloadPriceCache</artifactId>
+                  <artifactId>routePriceAlerts_routeCallJob1</artifactId>
                   <version>0.1.0</version>
                   <packaging>jar</packaging>
                   <repositoryId>${project.distributionManagement.repository.id}</repositoryId>
