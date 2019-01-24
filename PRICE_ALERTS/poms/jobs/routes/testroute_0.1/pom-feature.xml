@@ -67,6 +67,27 @@
         </executions>
       </plugin>
       <plugin>
+        <artifactId>maven-install-plugin</artifactId>
+        <version>2.5.1</version>
+        <executions>
+          <execution>
+            <id>install-jar-lib-1</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>install-file</goal>
+            </goals>
+            <configuration>
+              <groupId>org.example.price_alerts.job</groupId>
+              <artifactId>testRoute_reloadPriceCache</artifactId>
+              <version>0.1.0</version>
+              <packaging>jar</packaging>
+              <file>../../process/SANDBOX/Numis/reloadpricecache_0.1/target/reloadpricecache_0_1.jar</file>
+              <generatePom>true</generatePom>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
         <groupId>org.apache.karaf.tooling</groupId>
         <artifactId>features-maven-plugin</artifactId>
         <version>2.2.9</version>
@@ -141,6 +162,22 @@
                   <file>../../process/SANDBOX/Numis/routecalljob1_0.1/target/routecalljob1_0_1.jar</file>
                   <groupId>org.example.price_alerts.job</groupId>
                   <artifactId>testRoute_routeCallJob1</artifactId>
+                  <version>0.1.0</version>
+                  <packaging>jar</packaging>
+                  <repositoryId>${project.distributionManagement.repository.id}</repositoryId>
+                  <url>${project.distributionManagement.repository.url}</url>
+                </configuration>
+              </execution>
+              <execution>
+                <id>deploy-testRoute_reloadPriceCache</id>
+                <phase>deploy</phase>
+                <goals>
+                  <goal>deploy-file</goal>
+                </goals>
+                <configuration>
+                  <file>../../process/SANDBOX/Numis/reloadpricecache_0.1/target/reloadpricecache_0_1.jar</file>
+                  <groupId>org.example.price_alerts.job</groupId>
+                  <artifactId>testRoute_reloadPriceCache</artifactId>
                   <version>0.1.0</version>
                   <packaging>jar</packaging>
                   <repositoryId>${project.distributionManagement.repository.id}</repositoryId>
