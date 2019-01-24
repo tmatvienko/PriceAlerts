@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><talendfile:ProcessType xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" xmlns:xmi="http://www.omg.org/XMI" defaultContext="Default" jobType="Standard" xmi:version="2.0">
   <context confirmationNeeded="false" name="Default">
-    <contextParameter comment="" name="DDD_folder_name" prompt="DDD_folder_name?" promptNeeded="false" repositoryContextId="_ISvDkBRWEem75Nv5YVtscQ" type="id_String" value=""/>
-    <contextParameter comment="" name="FTP_host" prompt="FTP_host?" promptNeeded="false" repositoryContextId="_ISvDkBRWEem75Nv5YVtscQ" type="id_String" value=""/>
-    <contextParameter comment="" name="FTP_login" prompt="FTP_login?" promptNeeded="false" repositoryContextId="_ISvDkBRWEem75Nv5YVtscQ" type="id_String" value=""/>
-    <contextParameter comment="" name="FTP_pass" prompt="FTP_pass?" promptNeeded="false" repositoryContextId="_ISvDkBRWEem75Nv5YVtscQ" type="id_String" value=""/>
-    <contextParameter comment="" name="PG_db" prompt="PG_db?" promptNeeded="false" repositoryContextId="_vPE8YBRWEem75Nv5YVtscQ" type="id_String" value=""/>
-    <contextParameter comment="" name="PG_host" prompt="PG_host?" promptNeeded="false" repositoryContextId="_vPE8YBRWEem75Nv5YVtscQ" type="id_String" value=""/>
-    <contextParameter comment="" name="PG_pass" prompt="PG_pass?" promptNeeded="false" repositoryContextId="_vPE8YBRWEem75Nv5YVtscQ" type="id_String" value=""/>
-    <contextParameter comment="" name="PG_port" prompt="PG_port?" promptNeeded="false" repositoryContextId="_vPE8YBRWEem75Nv5YVtscQ" type="id_String" value=""/>
-    <contextParameter comment="" name="PG_user" prompt="PG_user?" promptNeeded="false" repositoryContextId="_vPE8YBRWEem75Nv5YVtscQ" type="id_String" value=""/>
+    <contextParameter comment="" name="DDD_folder_name" prompt="DDD_folder_name?" promptNeeded="false" type="id_String" value=""/>
+    <contextParameter comment="" name="FTP_host" prompt="FTP_host?" promptNeeded="false" type="id_String" value=""/>
+    <contextParameter comment="" name="FTP_login" prompt="FTP_login?" promptNeeded="false" type="id_String" value=""/>
+    <contextParameter comment="" name="FTP_pass" prompt="FTP_pass?" promptNeeded="false" type="id_String" value=""/>
+    <contextParameter comment="" name="PG_db" prompt="PG_db?" promptNeeded="false" type="id_String" value=""/>
+    <contextParameter comment="" name="PG_host" prompt="PG_host?" promptNeeded="false" type="id_String" value=""/>
+    <contextParameter comment="" name="PG_pass" prompt="PG_pass?" promptNeeded="false" type="id_String" value=""/>
+    <contextParameter comment="" name="PG_port" prompt="PG_port?" promptNeeded="false" type="id_String" value=""/>
+    <contextParameter comment="" name="PG_user" prompt="PG_user?" promptNeeded="false" type="id_String" value=""/>
   </context>
   <parameters>
     <elementParameter field="TEXT" name="SCREEN_OFFSET_X" show="false" value="0"/>
@@ -31,6 +31,7 @@
     <elementParameter field="CHECK" name="IMPLICITCONTEXT_USE_PROJECT_SETTINGS" show="false" value="true"/>
     <elementParameter field="CHECK" name="STATANDLOG_USE_PROJECT_SETTINGS" show="false" value="true"/>
     <elementParameter field="CHECK" name="MULTI_THREAD_EXECATION" value="false"/>
+    <elementParameter field="TEXT" name="PARALLELIZE_UNIT_SIZE" value="25000"/>
     <elementParameter field="CHECK" name="IMPLICIT_TCONTEXTLOAD" value="false"/>
     <elementParameter field="RADIO" name="FROM_FILE_FLAG_IMPLICIT_CONTEXT" show="false" value="false"/>
     <elementParameter field="RADIO" name="FROM_DATABASE_FLAG_IMPLICIT_CONTEXT" show="false" value="false"/>
@@ -63,7 +64,7 @@
     <elementParameter field="CHECK" name="ON_METERCATCHER_FLAG" value="false"/>
     <elementParameter field="CHECK" name="ON_CONSOLE_FLAG" show="false" value="false"/>
     <elementParameter field="CHECK" name="ON_FILES_FLAG" show="false" value="false"/>
-    <elementParameter field="DIRECTORY" name="FILE_PATH" show="false" value="&quot;/home/esdev/Downloads/Studio/workspace/.metadata&quot;"/>
+    <elementParameter field="DIRECTORY" name="FILE_PATH" show="false" value="&quot;/Users/tmatv/Documents/development/Talend-Studio-20181026_1147-V7.1.1/Talend-Studio-macosx-cocoa.app/Contents/MacOS/workspace/.metadata&quot;"/>
     <elementParameter field="TEXT" name="FILENAME_STATS" show="false" value="&quot;stats_file.txt&quot;"/>
     <elementParameter field="TEXT" name="FILENAME_LOGS" show="false" value="&quot;logs_file.txt&quot;"/>
     <elementParameter field="TEXT" name="FILENAME_METTER" show="false" value="&quot;meter_file.txt&quot;"/>
@@ -111,12 +112,18 @@
     <routinesParameter id="_aA6ncBRUEem75Nv5YVtscQ" name="TalendDataGenerator"/>
     <routinesParameter id="_aBz_UBRUEem75Nv5YVtscQ" name="Relational"/>
     <routinesParameter id="_aCAMkBRUEem75Nv5YVtscQ" name="TalendString"/>
+    <routinesParameter id="_9Jg0oP1lEeiRe7Uy-ZeN5w" name="DQTechnical"/>
+    <routinesParameter id="_9JuQAP1lEeiRe7Uy-ZeN5w" name="DataMasking"/>
+    <routinesParameter id="_9JpXgP1lEeiRe7Uy-ZeN5w" name="DataQualityDependencies"/>
+    <routinesParameter id="_9IEDIP1lEeiRe7Uy-ZeN5w" name="DataQuality"/>
+    <routinesParameter id="_9JltIP1lEeiRe7Uy-ZeN5w" name="DqStringHandling"/>
+    <routinesParameter id="_9KMKEP1lEeiRe7Uy-ZeN5w" name="SQLike"/>
   </parameters>
-  <node componentName="tPrejob" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="128" posY="96">
+  <node componentName="tPrejob" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="96" posY="96">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tPrejob_1"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
   </node>
-  <node componentName="tPostjob" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="704" posY="96">
+  <node componentName="tPostjob" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="128" posY="352">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tPostjob_1"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
   </node>
@@ -188,7 +195,7 @@
       <column defaultValue="" key="false" length="255" name="value" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tContextDump" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="672" posY="192">
+  <node componentName="tContextDump" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="288" posY="352">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tContextDump_1"/>
     <elementParameter field="CHECK" name="HIDE_PASSWORD" value="true"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
@@ -197,7 +204,7 @@
       <column defaultValue="" key="false" length="255" name="value" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="800" posY="192">
+  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="416" posY="352">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tLogRow_1"/>
     <elementParameter field="RADIO" name="BASIC_MODE" value="false"/>
     <elementParameter field="RADIO" name="TABLE_PRINT" value="true"/>
@@ -244,6 +251,123 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tRunJob_1"/>
   </node>
+  <node componentName="tJobInstanceEnd" componentVersion="7.1" offsetLabelX="0" offsetLabelY="0" posX="576" posY="384">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tJobInstanceEnd_1"/>
+    <elementParameter field="CHECK" name="USE_SEPARATE_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="USE_DATA_SOURCE" show="false" value="false"/>
+    <elementParameter field="TEXT" name="DATA_SOURCE_ALIAS" show="false" value="&quot;dwh_meta&quot;"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" show="false" value=""/>
+    <elementParameter field="COMPONENT_LIST" name="JOB_START_COMP" value=""/>
+    <elementParameter field="TEXT" name="JOB_RESULT" value=""/>
+    <elementParameter field="TEXT" name="TIME_RANGE_START" value=""/>
+    <elementParameter field="TEXT" name="TIME_RANGE_END" value=""/>
+    <elementParameter field="TEXT" name="VALUE_RANGE_START" value=""/>
+    <elementParameter field="TEXT" name="VALUE_RANGE_END" value=""/>
+    <elementParameter field="CHECK" name="SAVE_NAMED_COUNTERS" value="false"/>
+    <elementParameter field="CHECK" name="DO_NOT_SAVE_PASSWORDS" show="false" value="true"/>
+    <elementParameter field="CHECK" name="CLEANUP_BY_WORKITEM" value="false"/>
+    <elementParameter field="CHECK" name="CLOSE_CONNECTION" value="true"/>
+    <elementParameter field="CHECK" name="CHECK_ALL_COMPONENTS_FINISHED" value="true"/>
+    <elementParameter field="TABLE" name="INPUTS"/>
+    <elementParameter field="TABLE" name="OUTPUTS"/>
+    <elementParameter field="TABLE" name="UPDATES"/>
+    <elementParameter field="TABLE" name="REJECTS"/>
+    <elementParameter field="TABLE" name="DELETES"/>
+    <elementParameter field="LABEL" name="RELEASE_LABEL_20181030" value="Release: 7.1 build at: 20181030"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+  </node>
+  <node componentName="tJobInstanceStart" componentVersion="7.1" offsetLabelX="0" offsetLabelY="0" posX="928" posY="224">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tJobInstanceStart_1"/>
+    <elementParameter field="CHECK" name="USE_DATA_SOURCE" value="false"/>
+    <elementParameter field="TEXT" name="DATA_SOURCE_ALIAS" show="false" value="&quot;dwh_meta&quot;"/>
+    <elementParameter field="CHECK" name="USE_DATA_SOURCE_ALIAS_AS_DBNAME" show="false" value="true"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tDBConnection_1"/>
+    <elementParameter field="CHECK" name="CLOSE_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="JOB_NAME" value="jobName"/>
+    <elementParameter field="TEXT" name="TASK_NAME" value="jobName"/>
+    <elementParameter field="TEXT" name="JOB_WORK_ITEM" value=""/>
+    <elementParameter field="CHECK" name="EMPTY_WORK_ITEM_IS_NULL" value="false"/>
+    <elementParameter field="TEXT" name="TIME_RANGE_START" value=""/>
+    <elementParameter field="TEXT" name="TIME_RANGE_END" value=""/>
+    <elementParameter field="TEXT" name="VALUE_RANGE_START" value=""/>
+    <elementParameter field="TEXT" name="VALUE_RANGE_END" value=""/>
+    <elementParameter field="CHECK" name="READ_CONTEXT_PARAMETERS" value="false"/>
+    <elementParameter field="TEXT" name="CONTEXT_VAR_JOB_INSTANCE_ID" value=""/>
+    <elementParameter field="TEXT" name="CONTEXT_VAR_PROCESS_INSTANCE_ID" value=""/>
+    <elementParameter field="CHECK" name="SINGLETON_JOB_INSTANCE" value="false"/>
+    <elementParameter field="CHECK" name="SINGLETON_JOB_INSTANCE_FOR_WORKITEM" show="false" value="false"/>
+    <elementParameter field="LABEL" name="NOTE1" show="false" value="Note: You can use the an if trigger with the return value JOB_RUNS_ALONE (boolean) to trigger the process in case no other instance is running or let the process die by triggering a tDie"/>
+    <elementParameter field="CHECK" name="SINGLETON_JOB_INSTANCE_AVOID_JOB_STATUS" show="false" value="false"/>
+    <elementParameter field="LABEL" name="NOTE2" show="false" value="Note: You can avoid a register entry for a job which should actually not run."/>
+    <elementParameter field="CHECK" name="RETRIEVE_LAST_RUN_DATA" value="false"/>
+    <elementParameter field="CHECK" name="RETRIEVE_LAST_RUN_DATA_SUCCESSFUL" show="false" value="false"/>
+    <elementParameter field="CHECK" name="RETRIEVE_LAST_RUN_DATA_WITH_DATA" show="false" value="false"/>
+    <elementParameter field="CHECK" name="RETRIEVE_LAST_RUN_DATA_WITH_INPUT" show="false" value="false"/>
+    <elementParameter field="CHECK" name="RETRIEVE_LAST_RUN_DATA_FOR_WORKITEM" show="false" value="false"/>
+    <elementParameter field="CHECK" name="RETRIEVE_LAST_RUN_DATA_WITHIN_SAME_ROOT" show="false" value="false"/>
+    <elementParameter field="CHECK" name="COLLECT_SOURCE_INSTANCE_IDS" show="false" value="false"/>
+    <elementParameter field="TABLE" name="SOURCE_JOB_NAMES" show="false"/>
+    <elementParameter field="TEXT" name="OK_RESULT_CODES" show="false" value="&quot;0&quot;"/>
+    <elementParameter field="TEXT" name="INITIAL_PREV_JOB_INSTANCE_ID" show="false" value="0l"/>
+    <elementParameter field="TEXT" name="INITIAL_PREV_JOB_START_DATE" show="false" value="TalendDate.parseDate(&quot;yyyy-MM-dd&quot;, &quot;1970-01-01&quot;)"/>
+    <elementParameter field="TEXT" name="INITIAL_PREV_TIME_RANGE_END" show="false" value="TalendDate.parseDate(&quot;yyyy-MM-dd&quot;, &quot;1970-01-01&quot;)"/>
+    <elementParameter field="TEXT" name="INITIAL_PREV_VALUE_RANGE_END" show="false" value="&quot;0&quot;"/>
+    <elementParameter field="TEXT" name="INITIAL_PREV_RESULT_ITEM" show="false" value="&quot;0&quot;"/>
+    <elementParameter field="CHECK" name="SET_UTC_TIMEZONE" value="false"/>
+    <elementParameter field="CHECK" name="MEASURE_MEMORY_USAGE" value="false"/>
+    <elementParameter field="CHECK" name="USE_LOG4J" value="true"/>
+    <elementParameter field="FILE" name="LOG4J_CONFIG_FILE" value="&quot;/var/log/talend/log4j.xml&quot;"/>
+    <elementParameter field="CHECK" name="USE_LOG_FILE" value="false"/>
+    <elementParameter field="FILE" name="LOG_FILE_PATH" show="false" value="&quot;/var/log/talend/jobs/{project}/{jobName}_{jobInstanceId}.log&quot;"/>
+    <elementParameter field="TEXT" name="LOG_FILE_LAYOUT" show="false" value="&quot;%-6r [%15.15t] %-5p %30.30c %x - [%X{origin}] %m%n&quot;"/>
+    <elementParameter field="CHECK" name="ADD_CONTEXT_TO_MDC" value="true"/>
+    <elementParameter field="TEXT" name="HELPER_NAME" value=""/>
+    <elementParameter field="CHECK" name="USE_DB_APPENDER" value="false"/>
+    <elementParameter field="TEXT" name="PATTEN_LAYOUT" show="false" value="&quot;[%X{origin}] %m&quot;"/>
+    <elementParameter field="TEXT" name="LOG_BATCH_UPDATE_MILLIS" show="false" value="5000"/>
+    <elementParameter field="TEXT" name="LOG_BATCH_SIZE" show="false" value="100"/>
+    <elementParameter field="LABEL" name="CATCH_SYSOUT_HINT" value="This setting affects this job and all further jobs in the same VM!"/>
+    <elementParameter field="CHECK" name="CATCH_SYSOUT" value="true"/>
+    <elementParameter field="CHECK" name="FORWARD_TO_CONSOLE" value="true"/>
+    <elementParameter field="CHECK" name="SYSOUT_JOB_INSTANCE_ID" value="false"/>
+    <elementParameter field="TEXT" name="SYSOUT_JOB_INSTANCE_ID_EXPRESSION" show="false" value="&quot;Job: &quot; + jobName + &quot; job_instance_id: &quot; + ((Long) globalMap.get(&quot;tJobInstanceStart_1_JOB_INSTANCE_ID&quot;))"/>
+    <elementParameter field="CHECK" name="DEBUG" value="false"/>
+    <elementParameter field="TEXT" name="SCHEMA_NAME" show="false" value=""/>
+    <elementParameter field="TEXT" name="MAX_MESSAGE_LENGTH" value="1000"/>
+    <elementParameter field="CHECK" name="USE_GENERATED_JID" value="false"/>
+    <elementParameter field="TEXT" name="HOST_INDEX" show="false" value="0"/>
+    <elementParameter field="CHECK" name="IS_AUTO_INCREMENT" value="true"/>
+    <elementParameter field="TEXT" name="SEQUENCE_EXPRESSION" show="false" value="&quot;nextval('b17_management.seq_job_instance_id')&quot;"/>
+    <elementParameter field="CHECK" name="REDUCE_RESUME_LOGS" value="true"/>
+    <elementParameter field="CHECK" name="ACTIVATE_JMX" value="false"/>
+    <elementParameter field="LABEL" name="RELEASE_LABEL_20181030" value="Release: 7.1 build at: 20181030"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+  </node>
+  <node componentName="tMSSqlConnection" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="640" posY="192">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBConnection_1"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_5maPMBM7Eemj7pEqlrI1Zg"/>
+    <elementParameter field="CLOSED_LIST" name="DRIVER" value="JTDS"/>
+    <elementParameter field="TEXT" name="HOST" value="&quot;numis-stockalerts.database.windows.net&quot;"/>
+    <elementParameter field="TEXT" name="TYPE" show="false" value="MSSQL"/>
+    <elementParameter field="TEXT" name="PORT" value="&quot;1433&quot;"/>
+    <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;dev&quot;"/>
+    <elementParameter field="TEXT" name="DBNAME" value="&quot;StockAlerts&quot;"/>
+    <elementParameter field="TEXT" name="USER" value="&quot;softserve_admin&quot;"/>
+    <elementParameter field="PASSWORD" name="PASS" value="acj50ZPCWR9em04MIlhFU+Cr0lgObOel"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" show="false" value="&quot;ISO-8859-15&quot;"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;"/>
+    <elementParameter field="CHECK" name="USE_SHARED_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="SHARED_CONNECTION_NAME" show="false" value=""/>
+    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
+    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
+    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" show="false" value="&quot;&quot;"/>
+    <elementParameter field="CHECK" name="AUTO_COMMIT" value="false"/>
+    <elementParameter field="CHECK" name="SHARE_IDENTITY_SETTING" value="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="Azure DB Connection"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+  </node>
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tPrejob_1" offsetLabelX="0" offsetLabelY="0" source="tPrejob_1" target="tFileInputDelimited_1">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnComponentOk1"/>
   </connection>
@@ -268,9 +392,15 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row1"/>
   </connection>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tFileInputDelimited_1" offsetLabelX="0" offsetLabelY="0" source="tFileInputDelimited_1" target="tDBConnection_1">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnSubjobOk1"/>
+  </connection>
   <connection connectorName="FLOW" label="row2" lineStyle="0" metaname="tContextDump_1" offsetLabelX="0" offsetLabelY="0" source="tContextDump_1" target="tLogRow_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row2"/>
+  </connection>
+  <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tDBConnection_1" offsetLabelX="0" offsetLabelY="0" source="tDBConnection_1" target="tJobInstanceStart_1">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnComponentOk4"/>
   </connection>
   <subjob>
     <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" show="false" value="true"/>
@@ -299,13 +429,28 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_cff755ff-f14d-41e9-8afe-e1faa9ec6bc9"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>rBkNAWJR/9eQ9LcivkiHpH/d2N8pdWJ4SLdU2csuXu7HLikldV7wzFkpn8M0moknx+Os3SBCZJZ6
-+DQM/26+jg==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_de21585d-e68e-4555-b0e7-86ffa1a65e28"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>moRCUEzCyhjBlag4+pyx6jbt0c7FxZZqOQNMqJZ34JEBLfjEa454e/dWwZMKvsUnnrtolvbNdu1d
-Qvidx/r7bw==</DigestValue></Reference></SignedInfo><SignatureValue>PtYNxkuvyi3D12mADneBE1O2LP76SXVlAk7cjczBmRu7etXcblwYJwjayWlVyafFzMCaeQhQqOhg
-liMFIeNq657YvgRsrLw/6YZA0jo2ze2p1kWp2WHMjTCO8+Ra0jHqOqSFhNdmEMCHXWbEBIK3tDx7
-Y76QHueEyRj6tNBv/m2YZanoRnjH138MkutaJ6IfihOQlYi0uM1ws3X7bkn5S9sYHa/VPoTrl1Zr
-VSEa/iU5zlANJ5fMTeja4DRxSa1QemIZBYTdWHqJnjUqwyy8DGrpbow+jL2zEbnyS9Gk4QAGK/Hm
-ygdpU5B/vH7o+dpnb9xUrqePi+V/zyK+TvPOBg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tJobInstanceEnd_1"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tJobInstanceStart_1"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBConnection_1"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_247c5433-258d-4f12-a74c-793dd8c3897c"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>exUko8L+GI8RwESdtu2LuTdSOXRPZ4SDY4zEhpvCO7y0T0X8upoY7FbLiNRbcVGDwZ2ZPM4g3YQV
+D/LwN8gJ3Q==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_b8b6e285-3757-45c4-834d-ee80a810f87e"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>KNnBUjS3dwgXhRu/kwuQOKgqq+DTOFiEJXhd6ZGonv3zqy2jaksvVRXRsU8MbJx2QHXp+ATYyxuF
+sXBxjAUGDw==</DigestValue></Reference></SignedInfo><SignatureValue>1x/OOTRTvtY9yK8rTqN0iAPlU5bwgg5nnWnjgnoIZDqu+guH6cRcB6Plfx+d8xnrraqfEidHkpFY
+mOKchw3TA+E/ahczY61huq/pfQHU2GEeIonALGQfmpFU+7hP18aWPKZaZ2oe0xtg/7p0904sxsIP
+/qQmQhOAIMW9UXWnkJdJVSZj/bPACojJx/uiYN6REKeTFyrRpu7eu9Qc6gY0OgjrfyUVCldTgPOn
+lSGZTCR2iLVbatcf611LaL98wqkqZ0fXZIcAogMVIayuhTDdZAs1WNQcxb/2KFzBgun0Q+T3Cuge
+uKXSuG549PIGlmY9BAnozcQgxCX/QQKxrRo16w==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -329,4 +474,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_de21585d-e68e-4555-b0e7-86ffa1a65e28" Target="#_cff755ff-f14d-41e9-8afe-e1faa9ec6bc9"><Timestamp>2019-01-24 11:31:56</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_b8b6e285-3757-45c4-834d-ee80a810f87e" Target="#_247c5433-258d-4f12-a74c-793dd8c3897c"><Timestamp>2019-01-24 11:43:30</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
