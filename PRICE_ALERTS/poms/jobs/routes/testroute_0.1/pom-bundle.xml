@@ -84,11 +84,6 @@
       <version>6.0.0-SNAPSHOT</version>
     </dependency>
     <dependency>
-      <groupId>org.talend.libraries</groupId>
-      <artifactId>camel-talendjob-7.1.1</artifactId>
-      <version>6.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-pool2</artifactId>
       <version>2.4.2</version>
@@ -237,6 +232,16 @@
       <groupId>org.example.price_alerts.bean</groupId>
       <artifactId>beans</artifactId>
       <version>7.1.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.example.price_alerts.job</groupId>
+      <artifactId>routeCallJob1</artifactId>
+      <version>0.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.example.price_alerts.job</groupId>
+      <artifactId>reloadPriceCache</artifactId>
+      <version>0.1.0</version>
     </dependency>
   </dependencies>
   <build>
