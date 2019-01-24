@@ -3,15 +3,15 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.example.price_alerts.route</groupId>
-    <artifactId>testRoute-Kar</artifactId>
+    <groupId>org.example.price_alerts.job</groupId>
+    <artifactId>reloadPriceCache-Kar</artifactId>
     <version>0.1.0</version>
     <relativePath>/</relativePath>
   </parent>
-  <groupId>org.example.price_alerts.route</groupId>
-  <artifactId>testRoute</artifactId>
+  <groupId>org.example.price_alerts.job</groupId>
+  <artifactId>reloadPriceCache</artifactId>
   <version>0.1.0</version>
-  <name>PRICE_ALERTS testRoute-0.1.0 (0.1,Routes) Bundle</name>
+  <name>PRICE_ALERTS reloadPriceCache-0.1.0 (0.1,Job Designs) Bundle</name>
   <properties>
     <output.resources.dir>${talend.job.name}/src/main/resources</output.resources.dir>
     <talend.job.applyContextToChildren>false</talend.job.applyContextToChildren>
@@ -20,12 +20,12 @@
     <talend.job.version>0.1</talend.job.version>
     <cloud.publisher.skip>true</cloud.publisher.skip>
     <talend.project.name.lowercase>price_alerts</talend.project.name.lowercase>
-    <talend.job.path>price_alerts/testroute_0_1</talend.job.path>
+    <talend.job.path>price_alerts/reloadpricecache_0_1</talend.job.path>
     <project.distribution-management.repository.id>${project.distributionManagement.repository.id}</project.distribution-management.repository.id>
     <maven.build.timestamp.format>yyyy-MM-dd HHmmssSSS</maven.build.timestamp.format>
     <talend.project.name>PRICE_ALERTS</talend.project.name>
     <talend.product.version>7.1.1.20181026_1147</talend.product.version>
-    <talend.job.finalName>testroute_0_1</talend.job.finalName>
+    <talend.job.finalName>reloadpricecache_0_1</talend.job.finalName>
     <talend.pigudf.groupid>org.example.price_alerts.pigudf</talend.pigudf.groupid>
     <talend.routine.groupid>org.example.price_alerts.code</talend.routine.groupid>
     <current.bundle.resources.dir>${basedir}/src/main/bundle-resources</current.bundle.resources.dir>
@@ -34,12 +34,12 @@
     <talend.job.stat>true</talend.job.stat>
     <talend.job.date>${maven.build.timestamp}</talend.job.date>
     <current.resources.dir>${basedir}/src/main/ext-resources</current.resources.dir>
-    <talend.job.name>testRoute</talend.job.name>
-    <talend.job.id>__IEV0B8AEem3Trg5a253iQ</talend.job.id>
+    <talend.job.name>reloadPriceCache</talend.job.name>
+    <talend.job.id>_r2IbwB-oEemx0KSniyKPwg</talend.job.id>
     <talend.project.id>0</talend.project.id>
     <project.distribution-management.repository.url>${project.distributionManagement.repository.url}</project.distribution-management.repository.url>
     <talend.job.framework></talend.job.framework>
-    <talend.job.folder></talend.job.folder>
+    <talend.job.folder>sandbox/numis/</talend.job.folder>
     <talend.job.type>Standard</talend.job.type>
   </properties>
   <dependencies>
@@ -49,54 +49,9 @@
       <version>6.0.0</version>
     </dependency>
     <dependency>
-      <groupId>aopalliance</groupId>
-      <artifactId>aopalliance</artifactId>
-      <version>1.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.talend.libraries</groupId>
-      <artifactId>camel-amqp-2.21.2</artifactId>
-      <version>6.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.talend.libraries</groupId>
-      <artifactId>camel-blueprint-2.21.2</artifactId>
-      <version>6.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
       <groupId>org.talend.libraries</groupId>
       <artifactId>camel-core-2.21.2</artifactId>
       <version>6.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.talend.libraries</groupId>
-      <artifactId>camel-cxf-2.21.2-TESB</artifactId>
-      <version>6.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.talend.libraries</groupId>
-      <artifactId>camel-jms-2.21.2</artifactId>
-      <version>6.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.talend.libraries</groupId>
-      <artifactId>camel-spring-2.21.2</artifactId>
-      <version>6.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.talend.libraries</groupId>
-      <artifactId>camel-talendjob-7.1.1</artifactId>
-      <version>6.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-pool2</artifactId>
-      <version>2.4.2</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.cxf</groupId>
-      <artifactId>cxf-core</artifactId>
-      <version>3.2.6</version>
     </dependency>
     <dependency>
       <groupId>dom4j</groupId>
@@ -105,53 +60,13 @@
     </dependency>
     <dependency>
       <groupId>org.talend.libraries</groupId>
-      <artifactId>geronimo-jms_1.1_spec-1.1.1</artifactId>
-      <version>6.3.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.talend.libraries</groupId>
-      <artifactId>javax.ws.rs-api-2.1</artifactId>
-      <version>6.0.0-SNAPSHOT</version>
+      <artifactId>jtds-1.3.1-patch</artifactId>
+      <version>6.1.1</version>
     </dependency>
     <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
       <version>1.2.17</version>
-    </dependency>
-    <dependency>
-      <groupId>org.talend.libraries</groupId>
-      <artifactId>netty-buffer-4.0.52.Final</artifactId>
-      <version>6.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.talend.libraries</groupId>
-      <artifactId>netty-codec-4.0.52.Final</artifactId>
-      <version>6.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.talend.libraries</groupId>
-      <artifactId>netty-codec-http-4.0.52.Final</artifactId>
-      <version>6.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.talend.libraries</groupId>
-      <artifactId>netty-common-4.0.52.Final</artifactId>
-      <version>6.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.talend.libraries</groupId>
-      <artifactId>netty-handler-4.0.52.Final</artifactId>
-      <version>6.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.talend.libraries</groupId>
-      <artifactId>netty-transport-4.0.52.Final</artifactId>
-      <version>6.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.talend.libraries</groupId>
-      <artifactId>org.apache.commons.logging_1.2.0</artifactId>
-      <version>6.0.0-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.talend.libraries</groupId>
@@ -165,16 +80,6 @@
     </dependency>
     <dependency>
       <groupId>org.talend.libraries</groupId>
-      <artifactId>proton-j-0.14.0</artifactId>
-      <version>6.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.talend.libraries</groupId>
-      <artifactId>qpid-jms-client-0.11.1</artifactId>
-      <version>6.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.talend.libraries</groupId>
       <artifactId>slf4j-api-1.7.5</artifactId>
       <version>6.0.0</version>
     </dependency>
@@ -185,43 +90,8 @@
     </dependency>
     <dependency>
       <groupId>org.talend.libraries</groupId>
-      <artifactId>spring-aop-4.3.18.RELEASE</artifactId>
-      <version>6.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.talend.libraries</groupId>
-      <artifactId>spring-beans-4.3.18.RELEASE</artifactId>
-      <version>6.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.talend.libraries</groupId>
-      <artifactId>spring-context-4.3.18.RELEASE</artifactId>
-      <version>6.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.talend.libraries</groupId>
-      <artifactId>spring-core-4.3.18.RELEASE</artifactId>
-      <version>6.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.talend.libraries</groupId>
-      <artifactId>spring-expression-4.3.18.RELEASE</artifactId>
-      <version>6.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.talend.libraries</groupId>
-      <artifactId>spring-jms-4.3.18.RELEASE</artifactId>
-      <version>6.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.talend.libraries</groupId>
-      <artifactId>spring-messaging-4.3.18.RELEASE</artifactId>
-      <version>6.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.talend.libraries</groupId>
-      <artifactId>spring-tx-4.3.18.RELEASE</artifactId>
-      <version>6.0.0-SNAPSHOT</version>
+      <artifactId>talend_DB_mssqlUtil-1.2-20171017</artifactId>
+      <version>6.0.0</version>
     </dependency>
     <dependency>
       <groupId>org.talend.libraries</groupId>
@@ -231,11 +101,6 @@
     <dependency>
       <groupId>org.example.price_alerts.code</groupId>
       <artifactId>routines</artifactId>
-      <version>7.1.1</version>
-    </dependency>
-    <dependency>
-      <groupId>org.example.price_alerts.bean</groupId>
-      <artifactId>beans</artifactId>
       <version>7.1.1</version>
     </dependency>
   </dependencies>
