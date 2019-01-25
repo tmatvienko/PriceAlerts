@@ -735,12 +735,6 @@
       <column comment="" key="false" length="-1" name="EmailSubject" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="EmailMessage" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
     </metadata>
-    <metadata connector="FLOW" name="cOut_mail_rule5tp">
-      <column comment="" defaultValue="" key="false" length="10" name="ID" nullable="false" originalLength="-1" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="0" name="SubscriberEmail" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="EmailSubject" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="EmailMessage" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-    </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
       <uiProperties shellMaximized="true"/>
       <varTables name="Var" sizeState="INTERMEDIATE">
@@ -752,12 +746,6 @@
         <mapperTableEntries expression="row4.SubscriberEmail " name="SubscriberEmail" type="id_String"/>
         <mapperTableEntries expression="Var.isBasePriceAlert ? ((String)globalMap.get(&quot;emailSubjectRule5BasePrice&quot;)).replace(&quot;@InstrumentCode@&quot;, row5.InstrCode) : ((String)globalMap.get(&quot;emailSubjectRule5TradePrice&quot;)).replace(&quot;@InstrumentCode@&quot;, row5.InstrCode) " name="EmailSubject" type="id_String"/>
         <mapperTableEntries expression="Var.isBasePriceAlert ? globalMap.get(&quot;emailMessageRule5BasePrice&quot;).toString().replace(&quot;@InstrumentCode@&quot;, row5.InstrCode).replace(&quot;@BasePricePrevious@&quot;, String.valueOf(cOut_single_alerts.BasePricePrevious)).replace(&quot;@BasePrice@&quot;, String.valueOf(cOut_single_alerts.BasePrice)).replace(&quot;@AlertTimestamp@&quot;, TalendDate.formatDate(&quot;yyyy-MM-dd HH:mm:ss&quot;, cOut_single_alerts.AlertTimestamp)) : globalMap.get(&quot;emailMessageRule5BasePrice&quot;).toString().replace(&quot;@InstrumentCode@&quot;, row5.InstrCode).replace(&quot;@TradePrice@&quot;, String.valueOf(cOut_single_alerts.TradePrice)).replace(&quot;@BasePrice@&quot;, String.valueOf(cOut_single_alerts.BasePrice)).replace(&quot;@AlertTimestamp@&quot;, TalendDate.formatDate(&quot;yyyy-MM-dd HH:mm:ss&quot;, cOut_single_alerts.AlertTimestamp)) " name="EmailMessage" type="id_String"/>
-      </outputTables>
-      <outputTables activateExpressionFilter="true" expressionFilter="Var.isTradePriceAlert" name="cOut_mail_rule5tp" sizeState="INTERMEDIATE">
-        <mapperTableEntries expression="cOut_single_alerts.ID " name="ID" type="id_Integer"/>
-        <mapperTableEntries expression="row4.SubscriberEmail " name="SubscriberEmail" type="id_String"/>
-        <mapperTableEntries expression="((String)globalMap.get(&quot;emailSubjectRule5TradePrice&quot;)).replace(&quot;@InstrumentCode@&quot;, row5.InstrCode) " name="EmailSubject" type="id_String"/>
-        <mapperTableEntries expression="globalMap.get(&quot;emailMessageRule5BasePrice&quot;).toString().replace(&quot;@InstrumentCode@&quot;, row5.InstrCode).replace(&quot;@TradePrice@&quot;, String.valueOf(cOut_single_alerts.TradePrice)).replace(&quot;@BasePrice@&quot;, String.valueOf(cOut_single_alerts.BasePrice)).replace(&quot;@AlertTimestamp@&quot;, TalendDate.formatDate(&quot;yyyy-MM-dd HH:mm:ss&quot;, cOut_single_alerts.AlertTimestamp)) " name="EmailMessage" type="id_String"/>
       </outputTables>
       <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="cOut_single_alerts" sizeState="INTERMEDIATE">
         <mapperTableEntries name="ID" type="id_Integer"/>
@@ -832,33 +820,36 @@
       <column comment="" key="false" length="-1" name="ThresholdDelay" nullable="true" pattern="" precision="0" sourceType="SMALLINT" type="id_Integer" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1280" posY="640">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tLogRow_1"/>
-    <elementParameter field="RADIO" name="BASIC_MODE" value="true"/>
-    <elementParameter field="RADIO" name="TABLE_PRINT" value="false"/>
-    <elementParameter field="RADIO" name="VERTICAL" value="false"/>
-    <elementParameter field="RADIO" name="PRINT_UNIQUE" show="false" value="true"/>
-    <elementParameter field="RADIO" name="PRINT_LABEL" show="false" value="false"/>
-    <elementParameter field="RADIO" name="PRINT_UNIQUE_LABEL" show="false" value="false"/>
-    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;|&quot;"/>
-    <elementParameter field="CHECK" name="PRINT_HEADER" value="false"/>
-    <elementParameter field="CHECK" name="PRINT_UNIQUE_NAME" value="false"/>
-    <elementParameter field="CHECK" name="PRINT_COLNAMES" value="false"/>
-    <elementParameter field="CHECK" name="USE_FIXED_LENGTH" value="false"/>
-    <elementParameter field="TABLE" name="LENGTHS" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="AlertLogID"/>
-      <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="SubscriberEmail"/>
-      <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="EmailSubject"/>
-      <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="EmailMessage"/>
-      <elementValue elementRef="LENGTH" value="10"/>
-    </elementParameter>
-    <elementParameter field="CHECK" name="PRINT_CONTENT_WITH_LOG4J" value="true"/>
-    <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" show="false" value="100"/>
+  <node componentName="tSendMail" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1344" posY="640">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tSendMail_1"/>
+    <elementParameter field="TEXT" name="TO" value="out1.SubscriberEmail"/>
+    <elementParameter field="TEXT" name="FROM" value="context.mailEmail"/>
+    <elementParameter field="CHECK" name="NEED_PERSONAL_NAME" value="false"/>
+    <elementParameter field="TEXT" name="PERSONAL_NAME" show="false" value="&quot;sender&quot;"/>
+    <elementParameter field="TEXT" name="CC" value=""/>
+    <elementParameter field="TEXT" name="BCC" value=""/>
+    <elementParameter field="TEXT" name="SUBJECT" value="out1.EmailSubject"/>
+    <elementParameter field="MEMO_MESSAGE" name="MESSAGE" value="out1.EmailMessage"/>
+    <elementParameter field="CHECK" name="CHECK_ATTACHMENT" value="false"/>
+    <elementParameter field="TABLE" name="ATTACHMENTS"/>
+    <elementParameter field="TABLE" name="HEADERS"/>
+    <elementParameter field="TEXT" name="SMTP_HOST" value="context.mailSmtpServer"/>
+    <elementParameter field="TEXT" name="SMTP_PORT" value="context.mailPort"/>
+    <elementParameter field="CHECK" name="SSL" value="true"/>
+    <elementParameter field="CHECK" name="STARTTLS" value="false"/>
+    <elementParameter field="CLOSED_LIST" name="IMPORTANCE" value="Normal"/>
+    <elementParameter field="CHECK" name="NEED_AUTH" value="true"/>
+    <elementParameter field="TEXT" name="AUTH_USERNAME" value="context.mailUsername"/>
+    <elementParameter field="PASSWORD" name="AUTH_PASSWORD" value="8pW6Nmy2kucXCHbHAyFLLh4q8gHh/0KD"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true"/>
+    <elementParameter field="CLOSED_LIST" name="TEXT_SUBTYPE" value="plain"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="CHECK" name="SET_LOCALHOST" value="false"/>
+    <elementParameter field="TEXT" name="LOCALHOST" show="false" value="&quot;localhost&quot;"/>
+    <elementParameter field="TEXT" name="LABEL" value="Send Base Price Alerts"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tLogRow_1">
+    <metadata connector="FLOW" name="tSendMail_1">
       <column comment="" defaultValue="" key="false" length="10" name="AlertLogID" nullable="false" originalLength="-1" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="0" name="SubscriberEmail" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="EmailSubject" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
@@ -1232,7 +1223,7 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row18"/>
   </connection>
-  <connection connectorName="FLOW" label="out1" lineStyle="0" metaname="out1" offsetLabelX="0" offsetLabelY="0" source="tMap_3" target="tLogRow_1">
+  <connection connectorName="FLOW" label="out1" lineStyle="0" metaname="out1" offsetLabelX="0" offsetLabelY="0" source="tMap_3" target="tSendMail_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="out1"/>
   </connection>
@@ -1360,13 +1351,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_484b69e9-ebae-40d9-8746-5322f481a0af"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>gOX2R2RjEwPIh3Z2aSIKUXnYpPd51CqA2kmDjwvJH5AIe4Zw7+07ldZMep7m0rB8yvxf3u22dMb1
-1F/0S/51uQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_1105d508-0979-44a7-ac37-cbf38fa50732"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>6cSKQ5UEeSIm+8oY5vGQDih5xRJhVmHJ0aA7NyGoue3SQJR5gngwM2Tf+6KOVjn94CXYpE/drRLG
-VVQMIsiSPQ==</DigestValue></Reference></SignedInfo><SignatureValue>NoIWQkvntwzE29/KYqY/0NpYMCjENbEJ8H78Aue5Tisht9FROxY6xZ6QKL+Yu9TjLcSjOFlwMg6t
-Y4l50YvdFKpWrVxuI18Pqywru+Z97wfOO2IZ4tOwFEBQo0zjP8Xg2XcwPMgIiF3xtIbWLmE8CSOB
-GxZ8iHggbSx9b0fc5dh48MU6FfR3RKUib+xz/1aoD2plsxQ0d1x3lw+vlUKY6KiLnklYLYcZLCJS
-Iaw+op1NupyrSzYWLdsZ9Lz6iJRGdnaJ61QdZeCqTsyDoyqrma0DJl1yavvfZZhLPGJFGREcP6h6
-RUqDWpDCSYIia/rY8OWDdUlzJQ2jhVImGZ5X0g==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_aace75ad-5120-442f-99e8-55f105becbb0"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>8L8kJj/1k4C9VodbxP5W+7yDpjaKu5sR01vuDaGK7yCeOPjiFTq06p8CSlxYeshMMx1repK3zRoT
+e/YKkO8Vfw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_9c2eb911-4d80-445c-83b0-86f6d9574297"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>O7Y4af1Y/leTgY/rP3iFeJrIUXUoNpUua2estSHVhV/23djLFA15rEzTKDsXaYSLWIwpXbFBB9gD
+e3mBby2+gg==</DigestValue></Reference></SignedInfo><SignatureValue>myvZD0KxzdDb5sR7yHYEWMZqSvLmVoatnP3XNKwWqyDATZVoJjJkqgSmzyzwikysBOU++Yj6SqdT
+a0IXxum2H9geC8o8EamD6bPRP/Zpv2J1YxuFLx4D94PPn0BR7L21Jb927oFXDzRxIsOrSb49larO
+0kJks3RnckP+uvxjf5l6QkHv9UEMGTJPZS4xe407vJQjbCjJpDMWeuQqirDTLUwCW6O6fqfkKsKr
+27GwL8VAwX4LF8TjwPCX8ieJfS4sDtr34uDpULgyUioBI1uS1gOM7s/DUQf9LY774Cm6rLnhjrLZ
+cTvdp/BrppQ6R07be9HdN2hcgQnFPKkCqJ9aWg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -1390,4 +1381,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_1105d508-0979-44a7-ac37-cbf38fa50732" Target="#_484b69e9-ebae-40d9-8746-5322f481a0af"><Timestamp>2019-01-25 11:20:59</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_9c2eb911-4d80-445c-83b0-86f6d9574297" Target="#_aace75ad-5120-442f-99e8-55f105becbb0"><Timestamp>2019-01-25 11:24:18</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
