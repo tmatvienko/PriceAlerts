@@ -57,10 +57,31 @@
             </goals>
             <configuration>
               <groupId>org.example.price_alerts.job</groupId>
-              <artifactId>routePriceAlertsClient_priceAlertsClient</artifactId>
+              <artifactId>routePriceAlertsClient_priceAlertsRulesService</artifactId>
               <version>0.1.0</version>
               <packaging>jar</packaging>
-              <file>../../process/SANDBOX/Numis/pricealertsclient_0.1/target/pricealertsclient_0_1.jar</file>
+              <file>../../process/SANDBOX/Numis/pricealertsrulesservice_0.1/target/pricealertsrulesservice_0_1.jar</file>
+              <generatePom>true</generatePom>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-install-plugin</artifactId>
+        <version>2.5.1</version>
+        <executions>
+          <execution>
+            <id>install-jar-lib-1</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>install-file</goal>
+            </goals>
+            <configuration>
+              <groupId>org.example.price_alerts.job</groupId>
+              <artifactId>routePriceAlertsClient_priceAlertsMailService</artifactId>
+              <version>0.1.0</version>
+              <packaging>jar</packaging>
+              <file>../../process/SANDBOX/Numis/pricealertsmailservice_0.1/target/pricealertsmailservice_0_1.jar</file>
               <generatePom>true</generatePom>
             </configuration>
           </execution>
@@ -132,15 +153,31 @@
                 </configuration>
               </execution>
               <execution>
-                <id>deploy-routePriceAlertsClient_priceAlertsClient</id>
+                <id>deploy-routePriceAlertsClient_priceAlertsRulesService</id>
                 <phase>deploy</phase>
                 <goals>
                   <goal>deploy-file</goal>
                 </goals>
                 <configuration>
-                  <file>../../process/SANDBOX/Numis/pricealertsclient_0.1/target/pricealertsclient_0_1.jar</file>
+                  <file>../../process/SANDBOX/Numis/pricealertsrulesservice_0.1/target/pricealertsrulesservice_0_1.jar</file>
                   <groupId>org.example.price_alerts.job</groupId>
-                  <artifactId>routePriceAlertsClient_priceAlertsClient</artifactId>
+                  <artifactId>routePriceAlertsClient_priceAlertsRulesService</artifactId>
+                  <version>0.1.0</version>
+                  <packaging>jar</packaging>
+                  <repositoryId>${project.distributionManagement.repository.id}</repositoryId>
+                  <url>${project.distributionManagement.repository.url}</url>
+                </configuration>
+              </execution>
+              <execution>
+                <id>deploy-routePriceAlertsClient_priceAlertsMailService</id>
+                <phase>deploy</phase>
+                <goals>
+                  <goal>deploy-file</goal>
+                </goals>
+                <configuration>
+                  <file>../../process/SANDBOX/Numis/pricealertsmailservice_0.1/target/pricealertsmailservice_0_1.jar</file>
+                  <groupId>org.example.price_alerts.job</groupId>
+                  <artifactId>routePriceAlertsClient_priceAlertsMailService</artifactId>
                   <version>0.1.0</version>
                   <packaging>jar</packaging>
                   <repositoryId>${project.distributionManagement.repository.id}</repositoryId>
