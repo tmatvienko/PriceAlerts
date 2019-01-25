@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><talendfile:ProcessType xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" xmlns:xmi="http://www.omg.org/XMI" defaultContext="Default" jobType="Standard" xmi:id="_HnaDECCVEemV5N-vyiAwng" xmi:version="2.0">
+  <context confirmationNeeded="false" name="Default" xmi:id="_HnaDESCVEemV5N-vyiAwng"/>
+  <parameters xmi:id="_HnaDEiCVEemV5N-vyiAwng">
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_X" show="false" value="0" xmi:id="_HnaDEyCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" show="false" value="0" xmi:id="_HnaDFCCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="REPOSITORY_CONNECTION_ID" show="false" value="" xmi:id="_HnaDFSCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="OOZIE_PROPERTY_TYPENAME" show="false" value="" xmi:id="_HnaDFiCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="OOZIE_HADOOP_DISTRIBUTION" show="false" value="" xmi:id="_HnaDFyCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="OOZIE_HADOOP_VERSION" show="false" value="" xmi:id="_HnaDGCCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="OOZIE_ENABLE_KERBEROS" show="false" value="" xmi:id="_HnaDGSCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="OOZIE_NAME_NODE_PRINCIPAL" show="false" value="" xmi:id="_HnaDGiCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="OOZIE_USERNAME" show="false" value="" xmi:id="_HnaDGyCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="OOZIE_GROUP" show="false" value="" xmi:id="_HnaDHCCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="OOZIE_USE_KEYTAB" show="false" value="" xmi:id="_HnaDHSCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="OOZIE_KT_PRINCIPAL" show="false" value="" xmi:id="_HnaDHiCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="OOZIE_KEY_TAB" show="false" value="" xmi:id="_HnaDHyCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="OOZIE_ENABLE_OO_KERBEROS" show="false" value="" xmi:id="_HnaDICCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="OOZIE_NAME_NODE_END_POINT" show="false" value="" xmi:id="_HnaDISCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="OOZIE_JOB_TRACKER_ENDPOINT" show="false" value="" xmi:id="_HnaDIiCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="OOZIE_END_POINT" show="false" value="" xmi:id="_HnaDIyCVEemV5N-vyiAwng"/>
+    <routinesParameter id="_9Jg0oP1lEeiRe7Uy-ZeN5w" name="DQTechnical" xmi:id="_GG0DRCAKEemKKuhQe_dy2g"/>
+    <routinesParameter id="_9JuQAP1lEeiRe7Uy-ZeN5w" name="DataMasking" xmi:id="_GG0DRSAKEemKKuhQe_dy2g"/>
+    <routinesParameter id="_9J85gP1lEeiRe7Uy-ZeN5w" name="DataOperation" xmi:id="_GG0DRiAKEemKKuhQe_dy2g"/>
+    <routinesParameter id="_9JpXgP1lEeiRe7Uy-ZeN5w" name="DataQualityDependencies" xmi:id="_GG0DRyAKEemKKuhQe_dy2g"/>
+    <routinesParameter id="_9IEDIP1lEeiRe7Uy-ZeN5w" name="DataQuality" xmi:id="_GG0DSCAKEemKKuhQe_dy2g"/>
+    <routinesParameter id="_9JltIP1lEeiRe7Uy-ZeN5w" name="DqStringHandling" xmi:id="_GG0DSSAKEemKKuhQe_dy2g"/>
+    <routinesParameter id="_9KJGwP1lEeiRe7Uy-ZeN5w" name="Mathematical" xmi:id="_GG0DSiAKEemKKuhQe_dy2g"/>
+    <routinesParameter id="_9J0WoP1lEeiRe7Uy-ZeN5w" name="Numeric" xmi:id="_GG0DSyAKEemKKuhQe_dy2g"/>
+    <routinesParameter id="_9KDnMP1lEeiRe7Uy-ZeN5w" name="Relational" xmi:id="_GG0DTCAKEemKKuhQe_dy2g"/>
+    <routinesParameter id="_9KMKEP1lEeiRe7Uy-ZeN5w" name="SQLike" xmi:id="_GG0DTSAKEemKKuhQe_dy2g"/>
+    <routinesParameter id="_9KGDcP1lEeiRe7Uy-ZeN5w" name="StringHandling" xmi:id="_GG0DTiAKEemKKuhQe_dy2g"/>
+    <routinesParameter id="_9JxTUP1lEeiRe7Uy-ZeN5w" name="TalendDataGenerator" xmi:id="_GG0DTyAKEemKKuhQe_dy2g"/>
+    <routinesParameter id="_9J_80P1lEeiRe7Uy-ZeN5w" name="TalendDate" xmi:id="_GG0DUCAKEemKKuhQe_dy2g"/>
+    <routinesParameter id="_9J52MP1lEeiRe7Uy-ZeN5w" name="TalendStringUtil" xmi:id="_GG0DUSAKEemKKuhQe_dy2g"/>
+    <routinesParameter id="_9J3Z8P1lEeiRe7Uy-ZeN5w" name="TalendString" xmi:id="_GG0DUiAKEemKKuhQe_dy2g"/>
+    <routinesParameter id="_wnh2YBNAEemj7pEqlrI1Zg" name="AlertsUtils" xmi:id="_GG0DUyAKEemKKuhQe_dy2g"/>
+  </parameters>
+  <node componentName="cMQConnectionFactory" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="512" posY="128" xmi:id="_HnaDJCCVEemV5N-vyiAwng">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cMQConnectionFactory_1" xmi:id="_HnaDJSCVEemV5N-vyiAwng"/>
+    <elementParameter field="CLOSED_LIST" name="MQ_TYPE" value="AMQP" xmi:id="_HnaDJiCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="USE_TRANSACTION" show="false" value="false" xmi:id="_HnaDJyCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="AMQ_BROKER_URI" show="false" value="&quot;vm://localhost?broker.persistent=false&quot;" xmi:id="_HnaDKCCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="IS_AMQ_HTTP_BROKER" show="false" value="false" xmi:id="_HnaDKSCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="AMQ_POOL" show="false" value="false" xmi:id="_HnaDKiCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="AMQ_POOL_MAX_CONNECTIONS" show="false" value="1" xmi:id="_HnaDKyCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="AMQ_POOL_MAX_ACTIVE" show="false" value="500" xmi:id="_HnaDLCCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="AMQ_POOL_IDLE_TIMEOUT" show="false" value="30000" xmi:id="_HnaDLSCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="AMQ_POOL_EXPIRY_TIMEOUT" show="false" value="60000" xmi:id="_HnaDLiCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="AMQ_AUTH" show="false" value="false" xmi:id="_HnaDLyCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="AMQ_USERNAME" show="false" value="&quot;&quot;" xmi:id="_HnaDMCCVEemV5N-vyiAwng"/>
+    <elementParameter field="PASSWORD" name="AMQ_PASSWORD" show="false" value="0RMsyjmybrE=" xmi:id="_HnaDMSCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="AMQ_USE_RETROACTIVE_CONSUMER" show="false" value="false" xmi:id="_HnaDMiCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="WQM_SEVER" show="false" value="&quot;localhost&quot;" xmi:id="_HnaDMyCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="WMQ_PORT" show="false" value="1414" xmi:id="_HnaDNCCVEemV5N-vyiAwng"/>
+    <elementParameter field="CLOSED_LIST" name="WMQ_TRANSPORT_TYPE" show="false" value="1" xmi:id="_HnaDNSCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="WMQ_QUEUE_MANAGER" show="false" value="&quot;mq.queue.manager&quot;" xmi:id="_HnaDNiCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="WMQ_CHANNEL" show="false" value="&quot;SYSTEM.DEF.SVRCONN&quot;" xmi:id="_HnaDNyCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="WMQ_AUTH" show="false" value="false" xmi:id="_HnaDOCCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="WMQ_USERNAME" show="false" value="&quot;&quot;" xmi:id="_HnaDOSCVEemV5N-vyiAwng"/>
+    <elementParameter field="PASSWORD" name="WMQ_PASSWORD" show="false" value="0RMsyjmybrE=" xmi:id="_HnaDOiCVEemV5N-vyiAwng"/>
+    <elementParameter field="LABEL" name="WMA_JAR_LABEL" show="false" value="(Note:Need add com.ibm.mq.jar, com.ibm.mq.jmqi.jar,com.ibm.mqjms.jar, dhbcore.jar, connector.jar)" xmi:id="_HnaDOyCVEemV5N-vyiAwng"/>
+    <elementParameter field="TABLE" name="WMQ_DRIVER_JAR" show="false" xmi:id="_HnaDPCCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="WMQ_N_SEVER" show="false" value="&quot;localhost&quot;" xmi:id="_HnaDPSCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="WMQ_N_PORT" show="false" value="&quot;1414&quot;" xmi:id="_HnaDPiCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="WMQ_N_CHANNEL" show="false" value="&quot;channel.name&quot;" xmi:id="_HnaDPyCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="WMQ_N_NAME" show="false" value="&quot;default&quot;" xmi:id="_HnaDQCCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="WMQ_N_AUTH" show="false" value="false" xmi:id="_HnaDQSCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="WMQ_N_CCSID" show="false" value="&quot;&quot;" xmi:id="_HnaDQiCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="WMQ_N_USERNAME" show="false" value="&quot;&quot;" xmi:id="_HnaDQyCVEemV5N-vyiAwng"/>
+    <elementParameter field="PASSWORD" name="WMQ_N_PASSWORD" show="false" value="0RMsyjmybrE=" xmi:id="_HnaDRCCVEemV5N-vyiAwng"/>
+    <elementParameter field="LABEL" name="WMQ_N_JAR_LABEL" show="false" value="(Note:Need add com.ibm.mq.jar, com.ibm.mq.commonservices.jar, com.ibm.mq.headers.jar, com.ibm.mq.jmqi.jar, connector.jar)" xmi:id="_HnaDRSCVEemV5N-vyiAwng"/>
+    <elementParameter field="TABLE" name="WMQ_N_DRIVER_JAR" show="false" xmi:id="_HnaDRiCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="AMQP_BROKER_URI" value="&quot;devnumissb.servicebus.windows.net&quot;" xmi:id="_HnaDRyCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="AMQP_PORT" value="&quot;5671&quot;" xmi:id="_HnaDSCCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="AMQP_SSL" value="true" xmi:id="_HnaDSSCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="AMQP_USE_AUTH" value="true" xmi:id="_HnaDSiCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="AMQP_USERNAME" value="&quot;RootManageSharedAccessKey&quot;" xmi:id="_HnaDSyCVEemV5N-vyiAwng"/>
+    <elementParameter field="PASSWORD" name="AMQP_PASSWORD" value="xopH9bI3Nj49RusMV12ZHT0BuBe7sePUyM2BSfOga7vfpmBo1SdWEKlW1cQ2N/DQ" xmi:id="_HnaDTCCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="MQTT_HOST" show="false" value="&quot;127.0.0.1&quot;" xmi:id="_HnaDTSCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="MQTT_PORT" show="false" value="1883" xmi:id="_HnaDTiCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="MQTT_SSL" show="false" value="false" xmi:id="_HnaDTyCVEemV5N-vyiAwng"/>
+    <elementParameter field="FILE" name="MQTT_SSL_TRUST_STORE" show="false" value="" xmi:id="_HnaDUCCVEemV5N-vyiAwng"/>
+    <elementParameter field="PASSWORD" name="MQTT_SSL_TRUST_STORE_PASSWORD" show="false" value="" xmi:id="_HnaDUSCVEemV5N-vyiAwng"/>
+    <elementParameter field="FILE" name="MQTT_SSL_KEY_STORE" show="false" value="" xmi:id="_HnaDUiCVEemV5N-vyiAwng"/>
+    <elementParameter field="PASSWORD" name="MQTT_SSL_KEY_STORE_PASSWORD" show="false" value="" xmi:id="_HnaDUyCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="MQTT_CONNECT_ATTEMPTS" show="false" value="-1" xmi:id="_HnaDVCCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="MQTT_RECONNECT_ATTEMPTS" show="false" value="-1" xmi:id="_HnaDVSCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="MQTT_RECONNECT_DELAY" show="false" value="10" xmi:id="_HnaDViCVEemV5N-vyiAwng"/>
+    <elementParameter field="CLOSED_LIST" name="MQTT_QOS" show="false" value="AtLeastOnce" xmi:id="_HnaDVyCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="MQTT_CONNECT_WAIT_IN_SECONDS" show="false" value="10" xmi:id="_HnaDWCCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="MQTT_DISCONNECT_WAIT_IN_SECONDS" show="false" value="5" xmi:id="_HnaDWSCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="MQTT_SEND_WAIT_IN_SECONDS" show="false" value="5" xmi:id="_HnaDWiCVEemV5N-vyiAwng"/>
+    <elementParameter field="MEMO_JAVA" name="OTHER_CODE" show="false" value="&#10;&#9;&#9;&#9;&#9;/*&#10;&#9;&#9;&#9;&#9;* Please specify &quot;jmsConnectionFactory&quot; here&#10;&#9;&#9;&#9;&#9;*/&#10;&#9;&#9;&#9;&#9;//jmsConnectionFactory = new org.apache.activemq.ActiveMQConnectionFactory(&quot;vm://localhost?broker.persistent=false&quot;);&#10;&#9;&#9;&#9;" xmi:id="_HnaDWyCVEemV5N-vyiAwng"/>
+    <elementParameter field="TABLE" name="OTHER_DRIVER_JAR" show="false" xmi:id="_HnaDXCCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="MQTT_AUTH" show="false" value="false" xmi:id="_HnaDXSCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="MQTT_USERNAME" show="false" value="&quot;&quot;" xmi:id="_HnaDXiCVEemV5N-vyiAwng"/>
+    <elementParameter field="PASSWORD" name="MQTT_PASSWORD" show="false" value="0RMsyjmybrE=" xmi:id="_HnaDXyCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="LABEL" value="Service Bus Connection" xmi:id="_HnaDYCCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row" xmi:id="_HnaDYSCVEemV5N-vyiAwng"/>
+  </node>
+  <node componentName="cAMQP" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="288" posY="256" xmi:id="_HnaDYiCVEemV5N-vyiAwng">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cAMQP_1" xmi:id="_HnaDYyCVEemV5N-vyiAwng"/>
+    <elementParameter field="CLOSED_LIST" name="TYPE" value="queue" xmi:id="_HnaDZCCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="DESTINATION" value="&quot;devqueue2&quot;" xmi:id="_HnaDZSCVEemV5N-vyiAwng"/>
+    <elementParameter field="ROUTE_COMPONENT_TYPE" name="CONNECTION_FACOTRY_CONFIGURATION" value="cMQConnectionFactory_1" xmi:id="_HnaDZiCVEemV5N-vyiAwng"/>
+    <elementParameter field="TABLE" name="URI_OPTIONS" xmi:id="_HnaDZyCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="LABEL" value="Receive Messages" xmi:id="_HnaDaCCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row" xmi:id="_HnaDaSCVEemV5N-vyiAwng"/>
+  </node>
+  <node componentName="cAggregate" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="512" posY="256" xmi:id="_HnaDaiCVEemV5N-vyiAwng">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cAggregate_1" xmi:id="_HnaDayCVEemV5N-vyiAwng"/>
+    <elementParameter field="CLOSED_LIST" name="LANGUAGES" value="simple" xmi:id="_HnaDbCCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="EXPRESSION" value="&quot;getBody(String.class)&quot;" xmi:id="_HnaDbSCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="USE_NAMESPACES" show="false" value="false" xmi:id="_HnaDbiCVEemV5N-vyiAwng"/>
+    <elementParameter field="TABLE" name="NAMESPACES" show="false" xmi:id="_HnaDbyCVEemV5N-vyiAwng"/>
+    <elementParameter field="LABEL" name="WARNING" show="false" value="*Note: For Bean Language, the Expression should be a qualified class name without quotes.&#10;*Note: For None Language, the Value should be a full expression, instead of a plain text.&#10;*Note: For XPath Language, the Namespaces will be used automatically if it's checked." xmi:id="_HnaDcCCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="AGGREGATION_STRATEGY" value="beans.testAggregateBody" xmi:id="_HnaDcSCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="USE_COMPLETION_SIZE" value="false" xmi:id="_HnaDciCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="SIZE" show="false" value="2" xmi:id="_HnaDcyCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="USE_COMPLETION_TIMEOUT" value="false" xmi:id="_HnaDdCCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="TIMEOUT" show="false" value="1000" xmi:id="_HnaDdSCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="USE_COMPLETION_INTERVAL" value="true" xmi:id="_HnaDdiCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="INTERVAL" value="1000" xmi:id="_HnaDdyCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="USE_COMPLETION_PREDICATE" value="false" xmi:id="_HnaDeCCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="PREDICATE" show="false" value="&quot;&quot;" xmi:id="_HnaDeSCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="USE_COMPLETION_BATCH" value="false" xmi:id="_HnaDeiCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="EAGER_CHECK_COMPLETION" value="false" xmi:id="_HnaDeyCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="CLOSE_CORRELATION" value="false" xmi:id="_HnaDfCCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="MAXIMUM_BOUND" show="false" value="1" xmi:id="_HnaDfSCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="IGNORE_INVALID_KEY" value="false" xmi:id="_HnaDfiCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="GROUP_EXCHANGES" value="false" xmi:id="_HnaDfyCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="USE_PERSISTENCE" value="false" xmi:id="_HnaDgCCVEemV5N-vyiAwng"/>
+    <elementParameter field="CLOSED_LIST" name="REPOSITORY" show="false" value="AGGREGATION" xmi:id="_HnaDgSCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="CUSTOM_REPOSITORY" show="false" value="&quot;&quot;" xmi:id="_HnaDgiCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="USE_PERSISTENT_FILE" show="false" value="false" xmi:id="_HnaDgyCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="PERSISTENT_FILENAME" show="false" value="&quot;data/repo.dat&quot;" xmi:id="_HnaDhCCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="USE_RECOVERY" show="false" value="false" xmi:id="_HnaDhSCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="RECOVERY_INTERVAL" show="false" value="5000" xmi:id="_HnaDhiCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="DEAD_LETTER_URI" show="false" value="&quot;mock:dead&quot;" xmi:id="_HnaDhyCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="MAXIMUM_REDELIVERIES" show="false" value="4" xmi:id="_HnaDiCCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="LABEL" value="Aggregate Messages" xmi:id="_HnaDiSCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row" xmi:id="_HnaDiiCVEemV5N-vyiAwng"/>
+  </node>
+  <node componentName="cTalendJob" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="736" posY="256" xmi:id="_HnaDiyCVEemV5N-vyiAwng">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cTalendJob_1" xmi:id="_HnaDjCCVEemV5N-vyiAwng"/>
+    <elementParameter field="RADIO" name="FROM_REPOSITORY_JOB" value="true" xmi:id="_HnaDjSCVEemV5N-vyiAwng"/>
+    <elementParameter field="RADIO" name="FROM_EXTERNAL_JAR" value="false" xmi:id="_HnaDjiCVEemV5N-vyiAwng"/>
+    <elementParameter field="RADIO" name="USE_SELECTED_CONTEXT" value="true" xmi:id="_HnaDjyCVEemV5N-vyiAwng"/>
+    <elementParameter field="RADIO" name="USE_ROUTE_CONTEXT" value="false" xmi:id="_HnaDkCCVEemV5N-vyiAwng"/>
+    <elementParameter field="RADIO" name="USE_JOB_CONTEXT" value="false" xmi:id="_HnaDkSCVEemV5N-vyiAwng"/>
+    <elementParameter field="ROUTE_INPUT_PROCESS_TYPE" name="SELECTED_JOB_NAME" value="priceAlertsClient" xmi:id="_HnaDkiCVEemV5N-vyiAwng"/>
+    <elementParameter field="TECHNICAL" name="SELECTED_JOB_NAME:PROCESS_TYPE_CONTEXT" value="Default" xmi:id="_HnaDkyCVEemV5N-vyiAwng"/>
+    <elementParameter field="TECHNICAL" name="SELECTED_JOB_NAME:PROCESS_TYPE_PROCESS" value="_YSD8MB_JEemquONB3hih0g" xmi:id="_HnaDlCCVEemV5N-vyiAwng"/>
+    <elementParameter field="TECHNICAL" name="SELECTED_JOB_NAME:PROCESS_TYPE_VERSION" value="0.1" xmi:id="_HnaDlSCVEemV5N-vyiAwng"/>
+    <elementParameter field="MODULE_LIST" name="LIBRARY" show="false" value="" xmi:id="_HnaDliCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="JOB" show="false" value="&quot;&quot;" xmi:id="_HnaDlyCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="CONTEXT" show="false" value="&quot;Default&quot;" xmi:id="_HnaDmCCVEemV5N-vyiAwng"/>
+    <elementParameter field="TABLE" name="CONTEXTPARAMS" xmi:id="_HnaDmSCVEemV5N-vyiAwng"/>
+    <elementParameter field="TABLE" name="EXTERNAL_JAR_CONTEXTPARAMS" show="false" xmi:id="_HnaDmiCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="PROPAGATE_HEADER" value="false" xmi:id="_HnaDmyCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="STICKY_JOB" value="false" xmi:id="_HnaDnCCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="LABEL" value="Run Job priceAlertsClient" xmi:id="_HnaDnSCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row" xmi:id="_HnaDniCVEemV5N-vyiAwng"/>
+  </node>
+  <node componentName="cTimer" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="416" posY="416" xmi:id="_HnaDnyCVEemV5N-vyiAwng">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cTimer_1" xmi:id="_HnaDoCCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="PERIOD" value="2000" xmi:id="_HnaDoSCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="REPEATCOUNT" value="0" xmi:id="_HnaDoiCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="DELAY" value="2000" xmi:id="_HnaDoyCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="FIXEDRATE" value="false" xmi:id="_HnaDpCCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="DAEMON" value="true" xmi:id="_HnaDpSCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="SET_TIME" value="false" xmi:id="_HnaDpiCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="TIME" show="false" value="&quot;&quot;" xmi:id="_HnaDpyCVEemV5N-vyiAwng"/>
+    <elementParameter field="LABEL" name="NOTE" show="false" value="(yyyy-MM-dd HH:mm:ss | yyyy-MM-dd'T'HH:mm:ss)" xmi:id="_HnaDqCCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="LABEL" value="Dummy Timer" xmi:id="_HnaDqSCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row" xmi:id="_HnaDqiCVEemV5N-vyiAwng"/>
+  </node>
+  <node componentName="cTalendJob" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="608" posY="416" xmi:id="_HnaDqyCVEemV5N-vyiAwng">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cTalendJob_2" xmi:id="_HnaDrCCVEemV5N-vyiAwng"/>
+    <elementParameter field="RADIO" name="FROM_REPOSITORY_JOB" value="true" xmi:id="_HnaDrSCVEemV5N-vyiAwng"/>
+    <elementParameter field="RADIO" name="FROM_EXTERNAL_JAR" value="false" xmi:id="_HnaDriCVEemV5N-vyiAwng"/>
+    <elementParameter field="RADIO" name="USE_SELECTED_CONTEXT" value="true" xmi:id="_HnaDryCVEemV5N-vyiAwng"/>
+    <elementParameter field="RADIO" name="USE_ROUTE_CONTEXT" value="false" xmi:id="_HnaDsCCVEemV5N-vyiAwng"/>
+    <elementParameter field="RADIO" name="USE_JOB_CONTEXT" value="false" xmi:id="_HnaDsSCVEemV5N-vyiAwng"/>
+    <elementParameter field="ROUTE_INPUT_PROCESS_TYPE" name="SELECTED_JOB_NAME" value="priceAlertsClient" xmi:id="_HnaDsiCVEemV5N-vyiAwng"/>
+    <elementParameter field="TECHNICAL" name="SELECTED_JOB_NAME:PROCESS_TYPE_CONTEXT" value="Default" xmi:id="_HnaDsyCVEemV5N-vyiAwng"/>
+    <elementParameter field="TECHNICAL" name="SELECTED_JOB_NAME:PROCESS_TYPE_PROCESS" value="_YSD8MB_JEemquONB3hih0g" xmi:id="_HnaDtCCVEemV5N-vyiAwng"/>
+    <elementParameter field="TECHNICAL" name="SELECTED_JOB_NAME:PROCESS_TYPE_VERSION" value="0.1" xmi:id="_HnaDtSCVEemV5N-vyiAwng"/>
+    <elementParameter field="MODULE_LIST" name="LIBRARY" show="false" value="" xmi:id="_HnaDtiCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="JOB" show="false" value="&quot;&quot;" xmi:id="_HnaDtyCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="CONTEXT" show="false" value="&quot;Default&quot;" xmi:id="_HnaDuCCVEemV5N-vyiAwng"/>
+    <elementParameter field="TABLE" name="CONTEXTPARAMS" xmi:id="_HnaDuSCVEemV5N-vyiAwng"/>
+    <elementParameter field="TABLE" name="EXTERNAL_JAR_CONTEXTPARAMS" show="false" xmi:id="_HnaDuiCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="PROPAGATE_HEADER" value="false" xmi:id="_HnaDuyCVEemV5N-vyiAwng"/>
+    <elementParameter field="CHECK" name="STICKY_JOB" value="false" xmi:id="_HnaDvCCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="LABEL" value="Send Emails" xmi:id="_HnaDvSCVEemV5N-vyiAwng"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row" xmi:id="_HnaDviCVEemV5N-vyiAwng"/>
+  </node>
+  <connection connectorName="ROUTE" label="route1" lineStyle="14" offsetLabelX="0" offsetLabelY="0" source="cAMQP_1" target="cAggregate_1" xmi:id="_HnaDvyCVEemV5N-vyiAwng">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="route1" xmi:id="_HnaDwCCVEemV5N-vyiAwng"/>
+  </connection>
+  <connection connectorName="AGGREGATE" label="aggregate1" lineStyle="14" offsetLabelX="0" offsetLabelY="0" source="cAggregate_1" target="cTalendJob_1" xmi:id="_HnaDwSCVEemV5N-vyiAwng">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="aggregate1" xmi:id="_HnaDwiCVEemV5N-vyiAwng"/>
+  </connection>
+  <connection connectorName="ROUTE" label="route2" lineStyle="14" offsetLabelX="0" offsetLabelY="0" source="cTimer_1" target="cTalendJob_2" xmi:id="_HnaDwyCVEemV5N-vyiAwng">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="route2" xmi:id="_HnaDxCCVEemV5N-vyiAwng"/>
+  </connection>
+  <subjob xmi:id="_HnaDxSCVEemV5N-vyiAwng">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cMQConnectionFactory_1" xmi:id="_HnaDxiCVEemV5N-vyiAwng"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150" xmi:id="_HnaDxyCVEemV5N-vyiAwng"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236" xmi:id="_HnaDyCCVEemV5N-vyiAwng"/>
+  </subjob>
+  <subjob xmi:id="_HnaDySCVEemV5N-vyiAwng">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cAMQP_1" xmi:id="_HnaDyiCVEemV5N-vyiAwng"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150" xmi:id="_HnaDyyCVEemV5N-vyiAwng"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236" xmi:id="_HnaDzCCVEemV5N-vyiAwng"/>
+  </subjob>
+  <subjob xmi:id="_HnaDzSCVEemV5N-vyiAwng">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cAggregate_1" xmi:id="_HnaDziCVEemV5N-vyiAwng"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150" xmi:id="_HnaDzyCVEemV5N-vyiAwng"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236" xmi:id="_HnaD0CCVEemV5N-vyiAwng"/>
+  </subjob>
+  <subjob xmi:id="_HnaD0SCVEemV5N-vyiAwng">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cTalendJob_1" xmi:id="_HnaD0iCVEemV5N-vyiAwng"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150" xmi:id="_HnaD0yCVEemV5N-vyiAwng"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236" xmi:id="_HnaD1CCVEemV5N-vyiAwng"/>
+  </subjob>
+  <subjob xmi:id="_HnaD1SCVEemV5N-vyiAwng">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cTimer_1" xmi:id="_HnaD1iCVEemV5N-vyiAwng"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150" xmi:id="_HnaD1yCVEemV5N-vyiAwng"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236" xmi:id="_HnaD2CCVEemV5N-vyiAwng"/>
+  </subjob>
+  <subjob xmi:id="_HnaD2SCVEemV5N-vyiAwng">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="cTalendJob_2" xmi:id="_HnaD2iCVEemV5N-vyiAwng"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150" xmi:id="_HnaD2yCVEemV5N-vyiAwng"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236" xmi:id="_HnaD3CCVEemV5N-vyiAwng"/>
+  </subjob>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_39410ab0-61c8-4050-ae42-191e87c921b5"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>RDfAdJFxhejnu27/RUQ69TS84e56X3Xyd9OKmdR6E9aQc7tSqlpd0oVJMnxFTSg5SZnwnKwMoJWC
+MbMDaCJiWg==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_839e4d35-135b-4bc7-91a3-5c5c180aeb07"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>5Vvo/OXk0WwL45iRp1sTCRKBZJs1XcRupW5FJpcZd8VoY0+ECHO9fnoYO5Aq+n4kNVXy6APTMDuQ
+9/8AcWphXg==</DigestValue></Reference></SignedInfo><SignatureValue>LQUo7sDyKav5r2IwHjRHckGsWtjyyYHoAhEDIS5JmnzHHbtxaNiNAuMY1Sa38XgXUKduKC2Tykfv
+lt9zGED0juYozdNXGeJRQpQY+nDyG2ESCcqbckyYunylFOrNArmKh3mXzMBochCk8a/RZeZvwOYs
+/QjvR9RB0ipX5XYCkNboaLtIYE0GrxI5olJ102NrbtkM//WhG0aKyCsyq/eeLG66UdTKcrZPfdg0
+uO7/aRRJnK4ok+gCS2xIT5EPVnbQgffCsf5bau/FhC6pJgOP8atbRNmTwXnSrI4ft17SUnXw6kmT
+bhvx3F92fUZB6jd8bnGWntZJa3MMwxeZMFeI/g==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
+RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
+LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
+VQQIDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1ImRDEpMCcGA1UEAwwg
+RGVmYXVsdCBjb2RlLXNpZ25pbmcgY2VydGlmaWNhdGUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw
+ggEKAoIBAQDiCz1II/o6hDUWu/ygxTCT2o/fYxVzPW23AoONQC/Vuiqh0COyLIgaMTjBPmQdTQFq
+rmM5tD64gi4TEQF+Z3iYt3daLdQUfaW9SzaMlY+XVNz5xnMBVDuiSHJSFE9lKnhgbKAHvOeoJo46
+UgWwb1za0WpRckDtjKcntwEK1orZCgrcIo1nDvFXyB5n0KfpLyktEOa0bSHde50MPbvQeB66XlEb
+lhjfs5S9WnAUja9RgqdwqZoI0ss+x/pjkQygDT8f17MktM21HOtg09lJlhMGJckhgD7jUF5tfYGM
+sv/O27g5CToFhxOnutDtsrDw7AkEQIml8KJp97bQLAFlLnh1AgMBAAGjge0wgeowHQYDVR0OBBYE
+FFzdy6ZfpUX8JwkM/SUrqkwLNqWAMB8GA1UdIwQYMBaAFOd9C3L8tYGZxoAr2SzsgnMytaj3MAsG
+A1UdDwQEAwIHgDATBgNVHSUEDDAKBggrBgEFBQcDAzAJBgNVHRMEAjAAMHsGCWCGSAGG+EIBDQRu
+FmxEZWZhdWx0IHRoaXJkIHBhcnR5IGNvZGUtc2lnbmluZyBjZXJ0aWZpY2F0ZS4gTm8gY29tbWl0
+bWVudCBpcyBtYWRlIG9uIHRoZSBjb250ZW50IHNpZ25lZCBieSB0aGUgdGhpcmQgcGFydHkwDQYJ
+KoZIhvcNAQELBQADggIBAKzYdnzoFgrRtDLSSzWtwuOrGo5+1RPoDHm/1dlbVnB7oZzUwfRGwZT5
+ser0V7OZyt9wWR8iQ2ka30fHWrNAosNtlIkF88s5YZw7OOIMxR+qYA99BnWLa79DZVIuukI2f5qJ
+Cr9nw6Oygo8CWeNMWhtXcvV4gqROhb2QMBrvWBw9QvNK1XMdtPShfWiXwyPzzRKgwqrN2meXtOY3
+S+MXu6u+RUD9EYeElp9M+9Yp+zRySl5/s+0sbvo7qz369dlsw8XhKXT+s4YQQe3Sx14Kg3SDFXKn
+QcVgycaZMOw4YUxOeP2hKOHnNuOMORfu3qlYkN/0RMGjn6r4PU4+yL276TiWI5b8J06y4leng2as
+r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
+EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
+BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
+6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_839e4d35-135b-4bc7-91a3-5c5c180aeb07" Target="#_39410ab0-61c8-4050-ae42-191e87c921b5"><Timestamp>2019-01-25 11:35:34</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
