@@ -743,14 +743,17 @@
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
       <uiProperties shellMaximized="true"/>
-      <varTables minimized="true" name="Var" sizeState="INTERMEDIATE"/>
-      <outputTables activateExpressionFilter="true" expressionFilter="row5.RuleNumber == 5 &amp;&amp; cOut_single_alerts.PriceType.compareTo(&quot;BasePrice&quot;)" name="out1" sizeState="INTERMEDIATE">
+      <varTables name="Var" sizeState="INTERMEDIATE">
+        <mapperTableEntries expression="row5.RuleNumber == 5 &amp;&amp; cOut_single_alerts.PriceType.compareTo(&quot;TradePrice&quot;) " name="isTradePriceAlert" type="id_Boolean"/>
+        <mapperTableEntries expression="row5.RuleNumber == 5 &amp;&amp; cOut_single_alerts.PriceType.compareTo(&quot;BasePrice&quot;) " name="isBasePriceAlert" type="id_Boolean"/>
+      </varTables>
+      <outputTables activateExpressionFilter="true" expressionFilter="Var.isBasePriceAlert" name="out1" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="cOut_single_alerts.ID " name="AlertLogID" type="id_Integer"/>
         <mapperTableEntries expression="row4.SubscriberEmail " name="SubscriberEmail" type="id_String"/>
         <mapperTableEntries expression="((String)globalMap.get(&quot;emailSubjectRule5BasePrice&quot;)).replace(&quot;@InstrumentCode@&quot;, row5.InstrCode) " name="EmailSubject" type="id_String"/>
         <mapperTableEntries expression="globalMap.get(&quot;emailMessageRule5BasePrice&quot;).toString().replace(&quot;@InstrumentCode@&quot;, row5.InstrCode).replace(&quot;@BasePricePrevious@&quot;, String.valueOf(cOut_single_alerts.BasePricePrevious)).replace(&quot;@BasePrice@&quot;, String.valueOf(cOut_single_alerts.BasePrice)).replace(&quot;@AlertTimestamp@&quot;, TalendDate.formatDate(&quot;yyyy-MM-dd HH:mm:ss&quot;, cOut_single_alerts.AlertTimestamp)) " name="EmailMessage" type="id_String"/>
       </outputTables>
-      <outputTables activateExpressionFilter="true" expressionFilter="row5.RuleNumber == 5 &amp;&amp; cOut_single_alerts.PriceType.compareTo(&quot;TradePrice&quot;)" name="cOut_mail_rule5tp" sizeState="INTERMEDIATE">
+      <outputTables activateExpressionFilter="true" expressionFilter="Var.isTradePriceAlert" name="cOut_mail_rule5tp" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="cOut_single_alerts.ID " name="ID" type="id_Integer"/>
         <mapperTableEntries expression="row4.SubscriberEmail " name="SubscriberEmail" type="id_String"/>
         <mapperTableEntries expression="((String)globalMap.get(&quot;emailSubjectRule5TradePrice&quot;)).replace(&quot;@InstrumentCode@&quot;, row5.InstrCode) " name="EmailSubject" type="id_String"/>
@@ -1409,13 +1412,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_aaacf68d-b5ec-4206-b284-b61f130e3305"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>hcg676BCwzMhL7LoSbMn1r216upHihE1PSvjDnl2QMrQQ6KkOSxuSqV3Kn9weVuD5X9ClvvsQA6u
-f43aUTGQTw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_e0d41a4d-d52c-4206-aa8a-d3da40aac64a"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>IFz4GS4/13PnKzygUMNHMrbPD5piOJrdLhdIBzV21vXylqsEpM6cKvz3qsx55L3Fp5Ei4uIOhH0C
-jwu5GbwzwA==</DigestValue></Reference></SignedInfo><SignatureValue>2ylvQfBZrtCMENHpl2+xPmg9lz1PQJHpn7+HReSj9+l8MxxUXzXy4WtDpw0JOLBtbSSp0rNjqBcZ
-zsFwTdBLninRpH4xxAjqmZSuj5Ss9A6trC8dTzN8sOumf6BFPET0v/JsHSlaUyETGznyuD3SK4+d
-dNX1FIhM+enQG4PTgl/MoPatk6Ph8/rYSBNt6yFwq5dsIkKB49RXHAxpKNa55cp5rLxA5h7Vh3fd
-92OhIRQPb/dx3bZOfux+6V11ESlXOhhb0HThqSKcFZuioaYoDKpGb4JKpU8br2ntO/iIXvCx+VmU
-fkBEqVQ3J9VnV8nRJzYkE85QFcXlNNbe6z+aCQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_f1580b90-ae0f-498e-9c79-f537fd56eeb7"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>TMQbE9y1Ific3m6DjbF5tcQca9B7bhRC3IodFkkpHOlLaEY8IqWR16WH0kR0HJXTgAw5aDUQFMMg
+ExQrvCi1nw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_687d0ec2-049a-45c9-8237-4985611255b4"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>ruYNf9XnF0myjJVVcKpBZ4PGmv/hDnRpl2vDN11WsYF+N/y2RbODwf6tWb8h2GGGML81IyNTZCMq
+JAlzLNnpNQ==</DigestValue></Reference></SignedInfo><SignatureValue>trU3udgbTu9mKmH6qWaEfivc5hpf+3qd2fQgKpgbLwDp+T8FJNFrXy9ypAOKxJekeu3MSAfhHCcX
+Jze8xcqwOwz5ZR14hI70/CArycXSCl0BSNph2cYPnvMv3o87w3Z9dKpHUz6R4odPbQUdMnsDe0qm
+xq0KnXIzBMM2QY98y+8QgpRyLc0fiPo0F42q7v/AXBMbYJ00bPe/SVof/9kdY1VBmQxlQm3rAo3z
+4Ox/UVTZVelnj0QZbVnneSBodmERPgGKDUH78pU3uRVTCupAKqY9veejiXa3VPo7pK/FZO2TKuCo
+rM7C69eIg1vYmwy2H+EihN5EkWpHPQWT88X02A==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -1439,4 +1442,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_e0d41a4d-d52c-4206-aa8a-d3da40aac64a" Target="#_aaacf68d-b5ec-4206-b284-b61f130e3305"><Timestamp>2019-01-25 11:03:00</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_687d0ec2-049a-45c9-8237-4985611255b4" Target="#_f1580b90-ae0f-498e-9c79-f537fd56eeb7"><Timestamp>2019-01-25 11:06:07</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
