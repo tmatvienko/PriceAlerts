@@ -575,8 +575,8 @@
       <column comment="" defaultValue="" key="false" length="18" name="TradePrice" nullable="true" originalLength="-1" pattern="" precision="2" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="18" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="2" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="18" name="ClosePrice" nullable="true" originalLength="-1" pattern="" precision="2" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="19" name="AlertTimestamp" nullable="false" originalLength="-1" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="19" name="CreatedOn" nullable="false" originalLength="-1" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="19" name="AlertTimestamp" nullable="false" originalLength="-1" pattern="&quot;yyyy-MM-dd HH:mm:ss.SSS&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="19" name="CreatedOn" nullable="false" originalLength="-1" pattern="&quot;yyyy-MM-dd HH:mm:ss.SSS&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="1" name="IsSent" nullable="true" originalLength="-1" pattern="" precision="0" sourceType="BIT" type="id_Boolean" usefulColumn="true"/>
     </metadata>
   </node>
@@ -608,8 +608,8 @@
       <column comment="" defaultValue="" key="false" length="18" name="TradePrice" nullable="true" originalLength="-1" pattern="" precision="2" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="18" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="2" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="18" name="ClosePrice" nullable="true" originalLength="-1" pattern="" precision="2" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="19" name="AlertTimestamp" nullable="false" originalLength="-1" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="19" name="CreatedOn" nullable="false" originalLength="-1" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="19" name="AlertTimestamp" nullable="false" originalLength="-1" pattern="&quot;yyyy-MM-dd HH:mm:ss.SSS&quot;" precision="0" sourceType="VARCHAR" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="19" name="CreatedOn" nullable="false" originalLength="-1" pattern="&quot;yyyy-MM-dd HH:mm:ss.SSS&quot;" precision="0" sourceType="VARCHAR" type="id_Date" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="1" name="IsSent" nullable="true" originalLength="-1" pattern="" precision="0" sourceType="BIT" type="id_Boolean" usefulColumn="true"/>
     </metadata>
     <metadata connector="FLOW" name="cOut_single_alerts">
@@ -625,12 +625,12 @@
       <column comment="" defaultValue="" key="false" length="18" name="TradePrice" nullable="true" originalLength="-1" pattern="" precision="2" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="18" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="2" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="18" name="ClosePrice" nullable="true" originalLength="-1" pattern="" precision="2" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="19" name="AlertTimestamp" nullable="false" originalLength="-1" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="19" name="CreatedOn" nullable="false" originalLength="-1" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="19" name="AlertTimestamp" nullable="false" originalLength="-1" pattern="&quot;yyyy-MM-dd HH:mm:ss.SSS&quot;" precision="0" sourceType="VARCHAR" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="19" name="CreatedOn" nullable="false" originalLength="-1" pattern="&quot;yyyy-MM-dd HH:mm:ss.SSS&quot;" precision="0" sourceType="VARCHAR" type="id_Date" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="1" name="IsSent" nullable="true" originalLength="-1" pattern="" precision="0" sourceType="BIT" type="id_Boolean" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables minimized="true" name="Var" sizeState="INTERMEDIATE"/>
       <outputTables name="cOut_aggr_alerts" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="row17.ID " name="ID" type="id_Integer"/>
@@ -645,8 +645,8 @@
         <mapperTableEntries expression="row17.TradePrice " name="TradePrice" nullable="true" type="id_Double"/>
         <mapperTableEntries expression="row17.PreviousDayClosePrice " name="PreviousDayClosePrice" nullable="true" type="id_Double"/>
         <mapperTableEntries expression="row17.ClosePrice " name="ClosePrice" nullable="true" type="id_Double"/>
-        <mapperTableEntries expression="row17.AlertTimestamp " name="AlertTimestamp" type="id_String"/>
-        <mapperTableEntries expression="row17.CreatedOn " name="CreatedOn" type="id_String"/>
+        <mapperTableEntries expression="row17.AlertTimestamp " name="AlertTimestamp" type="id_Date"/>
+        <mapperTableEntries expression="row17.CreatedOn " name="CreatedOn" type="id_Date"/>
         <mapperTableEntries expression="row17.IsSent " name="IsSent" nullable="true" type="id_Boolean"/>
       </outputTables>
       <outputTables activateExpressionFilter="true" expressionFilter="row18.ThresholdDelay == 0.00" name="cOut_single_alerts" sizeState="INTERMEDIATE">
@@ -662,8 +662,8 @@
         <mapperTableEntries expression="row17.TradePrice " name="TradePrice" nullable="true" type="id_Double"/>
         <mapperTableEntries expression="row17.PreviousDayClosePrice " name="PreviousDayClosePrice" nullable="true" type="id_Double"/>
         <mapperTableEntries expression="row17.ClosePrice " name="ClosePrice" nullable="true" type="id_Double"/>
-        <mapperTableEntries expression="row17.AlertTimestamp " name="AlertTimestamp" type="id_String"/>
-        <mapperTableEntries expression="row17.CreatedOn " name="CreatedOn" type="id_String"/>
+        <mapperTableEntries expression="row17.AlertTimestamp " name="AlertTimestamp" type="id_Date"/>
+        <mapperTableEntries expression="row17.CreatedOn " name="CreatedOn" type="id_Date"/>
         <mapperTableEntries expression="row17.IsSent " name="IsSent" nullable="true" type="id_Boolean"/>
       </outputTables>
       <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="row17" sizeState="INTERMEDIATE">
@@ -679,8 +679,8 @@
         <mapperTableEntries name="TradePrice" nullable="true" type="id_Double"/>
         <mapperTableEntries name="PreviousDayClosePrice" nullable="true" type="id_Double"/>
         <mapperTableEntries name="ClosePrice" nullable="true" type="id_Double"/>
-        <mapperTableEntries name="AlertTimestamp" type="id_String"/>
-        <mapperTableEntries name="CreatedOn" type="id_String"/>
+        <mapperTableEntries name="AlertTimestamp" type="id_Date"/>
+        <mapperTableEntries name="CreatedOn" type="id_Date"/>
         <mapperTableEntries name="IsSent" nullable="true" type="id_Boolean"/>
       </inputTables>
       <inputTables activateCondensedTool="true" innerJoin="true" lookupMode="LOAD_ONCE" matchingMode="ALL_MATCHES" name="row18" sizeState="INTERMEDIATE">
@@ -729,20 +729,32 @@
     <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="true"/>
     <elementParameter field="TEXT" name="LABEL" value="Single Alerts"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata name="out1">
+    <metadata connector="FLOW" name="out1">
       <column comment="" defaultValue="" key="false" length="10" name="AlertLogID" nullable="false" originalLength="-1" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="0" name="SubscriberEmail" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="EmailSubject" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="EmailMessage" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="EmailSubject" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="EmailMessage" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+    </metadata>
+    <metadata name="cOut_mail_rule5tp">
+      <column comment="" defaultValue="" key="false" length="10" name="ID" nullable="false" originalLength="-1" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="SubscriberEmail" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="EmailSubject" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="EmailMessage" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
       <uiProperties shellMaximized="true"/>
       <varTables minimized="true" name="Var" sizeState="INTERMEDIATE"/>
-      <outputTables name="out1" sizeState="INTERMEDIATE">
+      <outputTables activateExpressionFilter="true" expressionFilter="row5.RuleNumber == 5 &amp;&amp; cOut_single_alerts.PriceType.compareTo(&quot;BasePrice&quot;)" name="out1" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="cOut_single_alerts.ID " name="AlertLogID" type="id_Integer"/>
         <mapperTableEntries expression="row4.SubscriberEmail " name="SubscriberEmail" type="id_String"/>
-        <mapperTableEntries name="EmailSubject" nullable="true" type="id_String"/>
-        <mapperTableEntries name="EmailMessage" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="((String)globalMap.get(&quot;emailSubjectRule5BasePrice&quot;)).replace(&quot;@InstrumentCode@&quot;, row5.InstrCode) " name="EmailSubject" type="id_String"/>
+        <mapperTableEntries expression="globalMap.get(&quot;emailMessageRule5BasePrice&quot;).toString().replace(&quot;@InstrumentCode@&quot;, row5.InstrCode).replace(&quot;@BasePricePrevious@&quot;, String.valueOf(cOut_single_alerts.BasePricePrevious)).replace(&quot;@BasePrice@&quot;, String.valueOf(cOut_single_alerts.BasePrice)).replace(&quot;@AlertTimestamp@&quot;, TalendDate.formatDate(&quot;yyyy-MM-dd HH:mm:ss&quot;, cOut_single_alerts.AlertTimestamp)) " name="EmailMessage" type="id_String"/>
+      </outputTables>
+      <outputTables activateExpressionFilter="true" expressionFilter="row5.RuleNumber == 5 &amp;&amp; cOut_single_alerts.PriceType.compareTo(&quot;TradePrice&quot;)" name="cOut_mail_rule5tp" sizeState="INTERMEDIATE">
+        <mapperTableEntries expression="cOut_single_alerts.ID " name="ID" type="id_Integer"/>
+        <mapperTableEntries expression="row4.SubscriberEmail " name="SubscriberEmail" type="id_String"/>
+        <mapperTableEntries expression="((String)globalMap.get(&quot;emailSubjectRule5TradePrice&quot;)).replace(&quot;@InstrumentCode@&quot;, row5.InstrCode) " name="EmailSubject" type="id_String"/>
+        <mapperTableEntries expression="globalMap.get(&quot;emailMessageRule5BasePrice&quot;).toString().replace(&quot;@InstrumentCode@&quot;, row5.InstrCode).replace(&quot;@TradePrice@&quot;, String.valueOf(cOut_single_alerts.TradePrice)).replace(&quot;@BasePrice@&quot;, String.valueOf(cOut_single_alerts.BasePrice)).replace(&quot;@AlertTimestamp@&quot;, TalendDate.formatDate(&quot;yyyy-MM-dd HH:mm:ss&quot;, cOut_single_alerts.AlertTimestamp)) " name="EmailMessage" type="id_String"/>
       </outputTables>
       <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="cOut_single_alerts" sizeState="INTERMEDIATE">
         <mapperTableEntries name="ID" type="id_Integer"/>
@@ -757,8 +769,8 @@
         <mapperTableEntries name="TradePrice" nullable="true" type="id_Double"/>
         <mapperTableEntries name="PreviousDayClosePrice" nullable="true" type="id_Double"/>
         <mapperTableEntries name="ClosePrice" nullable="true" type="id_Double"/>
-        <mapperTableEntries name="AlertTimestamp" type="id_String"/>
-        <mapperTableEntries name="CreatedOn" type="id_String"/>
+        <mapperTableEntries name="AlertTimestamp" type="id_Date"/>
+        <mapperTableEntries name="CreatedOn" type="id_Date"/>
         <mapperTableEntries name="IsSent" nullable="true" type="id_Boolean"/>
       </inputTables>
       <inputTables activateCondensedTool="true" innerJoin="true" lookupMode="LOAD_ONCE" matchingMode="ALL_MATCHES" name="row4" sizeState="INTERMEDIATE">
@@ -815,6 +827,39 @@
       <column comment="" key="false" length="-1" name="ThresholdID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ThresholdValue" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ThresholdDelay" nullable="true" pattern="" precision="0" sourceType="SMALLINT" type="id_Integer" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1376" posY="640">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tLogRow_1"/>
+    <elementParameter field="RADIO" name="BASIC_MODE" value="true"/>
+    <elementParameter field="RADIO" name="TABLE_PRINT" value="false"/>
+    <elementParameter field="RADIO" name="VERTICAL" value="false"/>
+    <elementParameter field="RADIO" name="PRINT_UNIQUE" show="false" value="true"/>
+    <elementParameter field="RADIO" name="PRINT_LABEL" show="false" value="false"/>
+    <elementParameter field="RADIO" name="PRINT_UNIQUE_LABEL" show="false" value="false"/>
+    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;|&quot;"/>
+    <elementParameter field="CHECK" name="PRINT_HEADER" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_UNIQUE_NAME" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_COLNAMES" value="false"/>
+    <elementParameter field="CHECK" name="USE_FIXED_LENGTH" value="false"/>
+    <elementParameter field="TABLE" name="LENGTHS" show="false">
+      <elementValue elementRef="SCHEMA_COLUMN" value="AlertLogID"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SubscriberEmail"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="EmailSubject"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="EmailMessage"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="PRINT_CONTENT_WITH_LOG4J" value="true"/>
+    <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" show="false" value="100"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tLogRow_1">
+      <column comment="" defaultValue="" key="false" length="10" name="AlertLogID" nullable="false" originalLength="-1" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="SubscriberEmail" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="EmailSubject" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="EmailMessage" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tMSSqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="384" posY="992">
@@ -890,8 +935,8 @@
       <column comment="" defaultValue="" key="false" length="18" name="TradePrice" nullable="true" originalLength="-1" pattern="" precision="2" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="18" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="2" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="18" name="ClosePrice" nullable="true" originalLength="-1" pattern="" precision="2" sourceType="FLOAT" type="id_Double" usefulColumn="true"/>
-      <column comment="" key="false" length="19" name="AlertTimestamp" nullable="false" originalLength="-1" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="19" name="CreatedOn" nullable="false" originalLength="-1" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="19" name="AlertTimestamp" nullable="false" originalLength="-1" pattern="&quot;yyyy-MM-dd HH:mm:ss.SSS&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="19" name="CreatedOn" nullable="false" originalLength="-1" pattern="&quot;yyyy-MM-dd HH:mm:ss.SSS&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="1" name="IsSent" nullable="true" originalLength="-1" pattern="" precision="0" sourceType="BIT" type="id_Boolean" usefulColumn="true"/>
     </metadata>
   </node>
@@ -960,8 +1005,8 @@
         <mapperTableEntries name="TradePrice" nullable="true" type="id_Double"/>
         <mapperTableEntries name="PreviousDayClosePrice" nullable="true" type="id_Double"/>
         <mapperTableEntries name="ClosePrice" nullable="true" type="id_Double"/>
-        <mapperTableEntries name="AlertTimestamp" type="id_String"/>
-        <mapperTableEntries name="CreatedOn" type="id_String"/>
+        <mapperTableEntries name="AlertTimestamp" type="id_Date"/>
+        <mapperTableEntries name="CreatedOn" type="id_Date"/>
         <mapperTableEntries name="IsSent" nullable="true" type="id_Boolean"/>
       </inputTables>
       <inputTables activateCondensedTool="true" innerJoin="true" lookupMode="LOAD_ONCE" matchingMode="ALL_MATCHES" name="row2" sizeState="INTERMEDIATE">
@@ -1035,8 +1080,9 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tJava_1"/>
   </node>
-  <node componentName="tSendMail" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1760" posY="608">
+  <node componentName="tSendMail" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1504" posY="512">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tSendMail_1"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TEXT" name="TO" value="&quot;receiver@example.com&quot;"/>
     <elementParameter field="TEXT" name="FROM" value="&quot;send@example.com&quot;"/>
     <elementParameter field="CHECK" name="NEED_PERSONAL_NAME" value="false"/>
@@ -1230,6 +1276,10 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row18"/>
   </connection>
+  <connection connectorName="FLOW" label="out1" lineStyle="0" metaname="out1" offsetLabelX="0" offsetLabelY="0" source="tMap_3" target="tLogRow_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="out1"/>
+  </connection>
   <connection connectorName="FLOW" label="row4" lineStyle="8" metaname="tHashInput_4" offsetLabelX="0" offsetLabelY="0" source="tHashInput_4" target="tMap_3">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row4"/>
@@ -1359,13 +1409,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_f8f37294-2d9f-4133-a70e-580d811949d5"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>vxMt+gvm3hnL7/GJ2C/zJ4Nngtka8O6tQH4OJ92crsSGsEYDl8KiHNCzqx+PN68CNgmHt/MlZUED
-U5d7zyo0Tg==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_265a9592-fff2-4856-b567-e2214179286a"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>Cl8cfEX/K5tzIqAtGxBZckofy+6czodop/PHt1CfxPnUK46WpGUROhLSRtHjK8iSmuabJ84/hTvG
-7O0L5odV4w==</DigestValue></Reference></SignedInfo><SignatureValue>VR3/hegg95dIGa0pH2Fp4w9Bxa5YfpM+GacrKjq9RJBSqh/lE98qlAW3+3orBmFSZbylkN1FHrve
-xS8s/MLvAWGNqRuVSqw+vG7llryeWWvZI8PJ0qWRj0yK8yxGBXd2ZIQVTZHQ5lcXsDfBblsJgEcX
-JwV+b4DXrf884LRqbnEKHRAc9V/UWjKrCRuP+L72iVwZEzpzy1qZU2Jj4UowAOLgEk9HbzqsVj1L
-c16UICD6OE8G8vatqkFeHRBtgYgtBwZWxtUtO80EGqlcLQGcvAfxlogrt2/DwIz5wunllAV15J+d
-o3vHZbEY8oR4Lui4cL0+NLGmwayU5M1n35Lwgw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_aaacf68d-b5ec-4206-b284-b61f130e3305"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>hcg676BCwzMhL7LoSbMn1r216upHihE1PSvjDnl2QMrQQ6KkOSxuSqV3Kn9weVuD5X9ClvvsQA6u
+f43aUTGQTw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_e0d41a4d-d52c-4206-aa8a-d3da40aac64a"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>IFz4GS4/13PnKzygUMNHMrbPD5piOJrdLhdIBzV21vXylqsEpM6cKvz3qsx55L3Fp5Ei4uIOhH0C
+jwu5GbwzwA==</DigestValue></Reference></SignedInfo><SignatureValue>2ylvQfBZrtCMENHpl2+xPmg9lz1PQJHpn7+HReSj9+l8MxxUXzXy4WtDpw0JOLBtbSSp0rNjqBcZ
+zsFwTdBLninRpH4xxAjqmZSuj5Ss9A6trC8dTzN8sOumf6BFPET0v/JsHSlaUyETGznyuD3SK4+d
+dNX1FIhM+enQG4PTgl/MoPatk6Ph8/rYSBNt6yFwq5dsIkKB49RXHAxpKNa55cp5rLxA5h7Vh3fd
+92OhIRQPb/dx3bZOfux+6V11ESlXOhhb0HThqSKcFZuioaYoDKpGb4JKpU8br2ntO/iIXvCx+VmU
+fkBEqVQ3J9VnV8nRJzYkE85QFcXlNNbe6z+aCQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -1389,4 +1439,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_265a9592-fff2-4856-b567-e2214179286a" Target="#_f8f37294-2d9f-4133-a70e-580d811949d5"><Timestamp>2019-01-25 10:28:41</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_e0d41a4d-d52c-4206-aa8a-d3da40aac64a" Target="#_aaacf68d-b5ec-4206-b284-b61f130e3305"><Timestamp>2019-01-25 11:03:00</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
