@@ -3,21 +3,22 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.example.price_alerts</groupId>
-    <artifactId>code.Master</artifactId>
-    <version>7.1.1</version>
-    <relativePath>../../../../../</relativePath>
+    <groupId>org.example.price_alerts.job</groupId>
+    <artifactId>priceAlertsMailClient-Kar</artifactId>
+    <version>0.1.0</version>
+    <relativePath>/</relativePath>
   </parent>
   <groupId>org.example.price_alerts.job</groupId>
   <artifactId>priceAlertsMailClient</artifactId>
   <version>0.1.0</version>
-  <name>PRICE_ALERTS priceAlertsMailClient-0.1.0 (0.1,Job Designs)</name>
+  <name>PRICE_ALERTS priceAlertsMailClient-0.1.0 (0.1,Job Designs) Bundle</name>
   <properties>
     <output.resources.dir>${talend.job.name}/src/main/resources</output.resources.dir>
     <talend.job.applyContextToChildren>false</talend.job.applyContextToChildren>
     <current.test.resources.dir>${basedir}/src/test/resources</current.test.resources.dir>
     <current.int-resources.dir>${basedir}/src/main/resources</current.int-resources.dir>
     <talend.job.version>0.1</talend.job.version>
+    <cloud.publisher.skip>true</cloud.publisher.skip>
     <talend.project.name.lowercase>price_alerts</talend.project.name.lowercase>
     <talend.job.path>price_alerts/pricealertsmailclient_0_1</talend.job.path>
     <project.distribution-management.repository.id>${project.distributionManagement.repository.id}</project.distribution-management.repository.id>
@@ -184,6 +185,9 @@
                   <tarLongFileMode>gnu</tarLongFileMode>
                   <appendAssemblyId>false</appendAssemblyId>
                   <finalName>${talend.job.finalName}</finalName>
+                  <archive>
+                    <manifestFile>${current.bundle.resources.dir}/META-INF/MANIFEST.MF</manifestFile>
+                  </archive>
                 </configuration>
               </execution>
             </executions>
