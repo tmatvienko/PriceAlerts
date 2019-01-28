@@ -1048,7 +1048,7 @@
   <node componentName="tJavaRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1344" posY="1440">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tJavaRow_1"/>
     <elementParameter field="MEMO_JAVA" name="CODE" value="//Code generated according to input schema and output schema&#10;output_row.ID = input_row.ID;&#10;output_row.AlertConfigurationID = input_row.AlertConfigurationID;&#10;output_row.RuleID = input_row.RuleID;&#10;output_row.ThresholdID = input_row.ThresholdID;&#10;output_row.InstrumentID = input_row.InstrumentID;&#10;output_row.PriceType = input_row.PriceType;&#10;output_row.BasePrice = input_row.BasePrice;&#10;output_row.BasePricePrevious = input_row.BasePricePrevious;&#10;output_row.MidPrice = input_row.MidPrice;&#10;output_row.TradePrice = input_row.TradePrice;&#10;output_row.PreviousDayClosePrice = input_row.PreviousDayClosePrice;&#10;output_row.ClosePrice = input_row.ClosePrice;&#10;output_row.AlertTimestamp = input_row.AlertTimestamp;&#10;output_row.CreatedOn = input_row.CreatedOn;&#10;output_row.IsSent = input_row.IsSent;&#10;output_row.RuleNumber = input_row.RuleNumber;&#10;output_row.ThresholdValue = input_row.ThresholdValue;&#10;output_row.ThresholdDelay = input_row.ThresholdDelay;&#10;output_row.InstrCode = input_row.InstrCode;&#10;&#10;&#10;String prevArtificialID = ((String[]) globalMap.get(&quot;tMemorizeRows_1_ArtificialID&quot;))[1];&#10;&#10;output_row.ToSend = false;&#10;&#10;&#10;//first row for each alert group&#10;if ( !(input_row.ArtificialID.equals(prevArtificialID)) ) {&#10;&#9;&#9;&#10;&#9;if ( input_row.AlertTimestampFirst == null ) {&#10;&#9;&#9;output_row.IsSingle = true;&#10;&#9;&#9;globalMap.put(&quot;AlertTimestampFirstSingle&quot;, input_row.AlertTimestamp);&#10;&#9;&#9;output_row.AlertTimestampFirst = input_row.AlertTimestamp;&#10;&#9;&#9;output_row.ToSend = true;&#10;&#9;}&#10;&#9;else {&#10;&#9;&#9;output_row.IsSingle = false;&#10;&#9;&#9;output_row.AlertTimestampFirst = input_row.AlertTimestampFirst;&#10;&#9;}&#10;&#9;globalMap.put(&quot;IsSingle&quot;, output_row.IsSingle);&#10;&#10;}&#10;else {&#10;&#10;&#9;if ( (Boolean)globalMap.get(&quot;IsSingle&quot;) ) {&#10;&#9;&#9;output_row.AlertTimestampFirst = (Date)globalMap.get(&quot;AlertTimestampFirstSingle&quot;);&#10;&#9;&#9;output_row.IsSingle = false;&#10;&#9;}&#10;&#9;else {&#10;&#9;&#9;output_row.IsSingle = false;&#10;&#9;&#9;output_row.AlertTimestampFirst = input_row.AlertTimestampFirst;&#10;&#9;}&#10;}&#10;"/>
-    <elementParameter field="MEMO_IMPORT" name="IMPORT" value="//import java.util.List;"/>
+    <elementParameter field="MEMO_IMPORT" name="IMPORT" value="//import java.util.List;&#10;import java.text.SimpleDateFormat;&#10;import java.util.Date;"/>
     <elementParameter field="TEXT" name="LABEL" value="Enumerate Alerts"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tJavaRow_1">
@@ -1074,6 +1074,7 @@
       <column comment="" key="false" length="-1" name="AlertTimestampFirst" nullable="true" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="IsSingle" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Boolean" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ToSend" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Boolean" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TimestampDiff" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1536" posY="1440">
@@ -1134,6 +1135,8 @@
       <elementValue elementRef="LENGTH" value="10"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="ToSend"/>
       <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TimestampDiff"/>
+      <elementValue elementRef="LENGTH" value="10"/>
     </elementParameter>
     <elementParameter field="CHECK" name="PRINT_CONTENT_WITH_LOG4J" value="true"/>
     <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" show="false" value="100"/>
@@ -1161,6 +1164,7 @@
       <column comment="" key="false" length="-1" name="AlertTimestampFirst" nullable="true" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="IsSingle" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Boolean" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ToSend" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Boolean" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TimestampDiff" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="128" posY="800">
@@ -1590,6 +1594,9 @@
       <elementValue elementRef="TRACE_COLUMN" value="ToSend"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="TimestampDiff"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row15"/>
@@ -1705,13 +1712,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_ce9b92c0-38f2-41d9-9080-adeabbc1844b"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>8O97M2/MkuHFv8e7VGkMOI33tcTD4G8VvPNcKOWnYYwqMqgcikcUwG4Hztc9/onYqyy1Pr+/0m2b
-secucn1Aug==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_d9d2d4a2-7ec7-4c31-8574-ef563535b5ee"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>Bmyp+B8jWpN8MMoHHxOSFDE332kFkIN7t17eBm0gEwSOALR/KE1rNWr92joq9RLcDgEr1dGCb6bs
-lThEplZ4hg==</DigestValue></Reference></SignedInfo><SignatureValue>c04FsKwvUrVjtihd6NeaYXx8xlcRzFB0up3/pEaE1+D37yk5SjSGj1UxzuUx6Vu4HWMDCFv7hGX6
-46KHIiGErvAlvaKJhBkETSheSbx9vlHbzKhzx2efcwxV+x6NTNLR8lOVuer1zNjLwKYDiEaWkY7s
-SICWpHYktCjRGACxVFsKEcsnP2EVSSO41LcIK0f9tpnPUJhRUtBQ2tyEzkfNeYzmlJl+c5AmtWLK
-Zfz0Lia/W/4/00sHY6V8fCcOeDGODlqapI8QGFDTUsh8pMsbQd+pS9U/4cVhu4Ia7iYO/oEG7CdH
-ID8itWZ8Vax8JijX11d5iUyVaTbbfG2Zn9Kysw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_e3ba97a6-aece-49fa-8ef9-09dfb0a0c71e"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>+q8TZVe5ANmeVvpOhiISBeTdL3K6DyhWbf48kJ8J102m4K1gOolJG35nBRLttnc3ubmXZa3aHEc6
+9tjs1G52XQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_c74763f5-e66b-47b5-95ad-f88941aa813b"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>x33MfcZ4Iw8LrsKhMQINpi4PHklAuDkYClC74DXAdbddAcexro8ofs80vma1/FaR/GkxeJDjKmNV
+6JkFWFVdkQ==</DigestValue></Reference></SignedInfo><SignatureValue>Ej2mcIYyxncG/1P0MyPk33fxw8lLpVvgPTuSftZMIk4c2sqirEuAXR44PR8yBzlcPzKwSGiSdwra
+/C6u8L4XB+8ZqVSitBx2LLZblTX7uBB6Pn2frEzV7g6jIqcjt4Lij4AlnbIheNXMFcfvLn+ojKfr
+QtvoM15phhA4cyO0nHWHuVtzTKyaB8e71CseF/d+ADxUPh/67tGz5piibvIV5QTO+fZMU46bsclb
+tIIB6GfIK93E7XsyNLfM7EKWGXE0mXlRCveoFQw0IwoJp9OaBXmnEliaCBSfbvKEhv4WeQhHidSa
+vYzFbTBK3AFU3pMUdrv7eIVKBYjKDLmKgh+QCQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -1735,4 +1742,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_d9d2d4a2-7ec7-4c31-8574-ef563535b5ee" Target="#_ce9b92c0-38f2-41d9-9080-adeabbc1844b"><Timestamp>2019-01-28 20:10:47</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_c74763f5-e66b-47b5-95ad-f88941aa813b" Target="#_e3ba97a6-aece-49fa-8ef9-09dfb0a0c71e"><Timestamp>2019-01-28 20:27:02</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
