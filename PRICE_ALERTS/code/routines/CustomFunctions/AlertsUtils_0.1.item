@@ -31,6 +31,7 @@ public class AlertsUtils {
 	public static ConcurrentHashMap<Integer, AlertsUtils.StockCache> stockCacheMap = new ConcurrentHashMap<Integer, AlertsUtils.StockCache>();
 	
 	public static Integer dummyIncrementInt = 0;
+	public static Integer dumyIncrementIntMail = 0;
 	
 	public static ConcurrentHashMap<Integer, AlertsUtils.AlertLog> alertLogMap = new ConcurrentHashMap<Integer, AlertsUtils.AlertLog>();
 	
