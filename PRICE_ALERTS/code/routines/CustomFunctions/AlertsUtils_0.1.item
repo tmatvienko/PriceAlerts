@@ -132,6 +132,18 @@ public class AlertsUtils {
 		}
 	}
 
+	public static synchronized void setAlertLogCache(Integer id, AlertLog alertLogCache)
+	{
+		alertLogMap.put(id, alertLogCache);
+	}
+	
+	public static synchronized void updateAlertLogCache(Integer id, AlertLog alertLogCache)
+	{
+		AlertsUtils.AlertLog pValue = alertLogMap.get(id);
+		if (pValue != null) {
+			alertLogMap.computeIfPresent(id, (k, v) -> alertLogCache);
+		}
+	}
 
 	
 	
