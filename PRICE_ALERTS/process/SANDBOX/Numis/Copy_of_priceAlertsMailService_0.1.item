@@ -1076,7 +1076,7 @@
       <column comment="" key="false" length="-1" name="ToSend" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Boolean" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ToSend2" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Boolean" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="AlertSequence" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="newColumn" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TimestampDiff" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Long" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1536" posY="1440">
@@ -1141,7 +1141,7 @@
       <elementValue elementRef="LENGTH" value="10"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="AlertSequence"/>
       <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="newColumn"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TimestampDiff"/>
       <elementValue elementRef="LENGTH" value="10"/>
     </elementParameter>
     <elementParameter field="CHECK" name="PRINT_CONTENT_WITH_LOG4J" value="true"/>
@@ -1172,7 +1172,7 @@
       <column comment="" key="false" length="-1" name="ToSend" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Boolean" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ToSend2" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Boolean" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="AlertSequence" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="newColumn" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TimestampDiff" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Long" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="128" posY="800">
@@ -1611,7 +1611,7 @@
       <elementValue elementRef="TRACE_COLUMN" value="AlertSequence"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="newColumn"/>
+      <elementValue elementRef="TRACE_COLUMN" value="TimestampDiff"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
@@ -1729,13 +1729,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_eef12a81-47aa-4dff-84b4-1e3be449dd3a"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>8uhre7scQMXmNHwumagVLq0HbX6xlp9Vlt1epHTWKCnkSOqE/QB3VNsjdzGsKCCQ8u09/mWw35Q2
-N+bGyhZkbA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_4f0cabc2-d6d4-44c1-b06b-1e7a77b3ff51"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>jTNvjNq/mbFaE6Xs73cF7p+Z/NGNZM3AVoEb7Ayb5NKl81CGji1RyZtMaVkAhusuLJZuQtqfU3A6
-Raq6te9lTg==</DigestValue></Reference></SignedInfo><SignatureValue>rlA7uL7m04459/mHbBzO4oCV1KtTN3+A4bnEWTYbj0B+4hdgwc2mCbEXYSgh8mbausNAEup1KhtB
-1q5pV6YtsaT/jU9hO8lf61H+yvW5u4g5UkbLzGEGtzqLaeS6fKqj9/P168Dj5gbZSWS/WR6UWA4g
-FRXxnkpVtnngLp245Y+Yu4MgMLqRZ8GjsXPHr180aKleY7twW2FkXzG3Pq7VfklTbykCsENiI9Ai
-MGW9NkoA1jXlCa+kpPyujonJ1A2MH22ls83060nerhiQu34mMNUk2N9XaGjQsT3LuFX38qwYAfAf
-IwJbOu0ANyNHgX1q3mK0crOs9qHFNbfnR80ERw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_5f922fc5-0146-486e-9027-7a3e0206ae48"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>cDZc67rAy3ENVDfTr/wv+ifPtasLTp280bonA+3VC+y/LEy+d2wyHWWG00U/pZsMEnYZRZYJxQKK
+nHG0iJ8VOg==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_9f338860-769b-442e-b42f-dc0db0391b67"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>MZt3ONg2aJY3D+MjL5b5qC1KmfQ8hq0IT+gKeicoMWG/Ri6mDqjO4K+XjVfGktR3e3D+/84Z1wZ7
+KzlE7P6K1Q==</DigestValue></Reference></SignedInfo><SignatureValue>WfNanAVfr5eMr92SLvQ2uZpXGV52IMA6r9Pwc5+FHksOE3tX3DOlIb37GoGmqW95md1nZDEcA3MW
+UCtAfybs0b/zHYCfBhLiWhtnoJXrKPYV/52Fed2hk71/Cp3e4XDJX832eM5zSLhFb7VJjJsoD8ao
+EEIppGrK4DIh7ABUgIO/WINkTgN4j3VXM9zuEDKrAAhlCQBSNKKGOoeGadne3/DfYfTTEWG2jiTy
+rRyTH4xdkwbMaCl5Lo1V283el6uONTp26FIxOfJYf94Nmwjhj5JEb+qZ3z4qy9bUi124V7hKizM5
+GmdNu21EIdCpvvDYjk4K943cMHBLkkGKO1+XSg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -1759,4 +1759,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_4f0cabc2-d6d4-44c1-b06b-1e7a77b3ff51" Target="#_eef12a81-47aa-4dff-84b4-1e3be449dd3a"><Timestamp>2019-01-28 21:26:28</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_9f338860-769b-442e-b42f-dc0db0391b67" Target="#_5f922fc5-0146-486e-9027-7a3e0206ae48"><Timestamp>2019-01-28 21:26:54</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
