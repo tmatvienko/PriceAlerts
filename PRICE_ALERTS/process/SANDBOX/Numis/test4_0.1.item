@@ -138,8 +138,10 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBRow_1"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="false"/>
     <elementParameter field="COMPONENT_LIST" name="CONNECTION" show="false" value=""/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_5maPMBM7Eemj7pEqlrI1Zg"/>
     <elementParameter field="CLOSED_LIST" name="DRIVER" value="JTDS"/>
-    <elementParameter field="TEXT" name="HOST" value="&quot;https://numis-stockalerts.database.windows.net&quot;"/>
+    <elementParameter field="TEXT" name="HOST" value="&quot;numis-stockalerts.database.windows.net&quot;"/>
     <elementParameter field="TEXT" name="PORT" value="&quot;1433&quot;"/>
     <elementParameter field="TEXT" name="DB_SCHEMA" value="&quot;dev&quot;"/>
     <elementParameter field="TEXT" name="DBNAME" value="&quot;StockAlerts&quot;"/>
@@ -158,7 +160,7 @@
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;"/>
     <elementParameter field="CHECK" name="PROPAGATE_RECORD_SET" value="false"/>
-    <elementParameter field="COLUMN_LIST" name="RECORD_SET_COLUMN" show="false" value=""/>
+    <elementParameter field="COLUMN_LIST" name="RECORD_SET_COLUMN" show="false" value="newColumn"/>
     <elementParameter field="CHECK" name="USE_PREPAREDSTATEMENT" value="true"/>
     <elementParameter field="TABLE" name="SET_PREPAREDSTATEMENT_PARAMETERS">
       <elementValue elementRef="PARAMETER_INDEX" value="1"/>
@@ -169,8 +171,15 @@
     <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
     <elementParameter field="TEXT" name="COMMIT_EVERY" value="10000"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tDBRow_1"/>
+    <metadata connector="FLOW" name="tDBRow_1">
+      <column comment="" key="false" length="-1" name="newColumn" nullable="true" originalDbColumnName="" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="newColumn1" nullable="true" originalDbColumnName="" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="newColumn2" nullable="true" originalDbColumnName="" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+    </metadata>
     <metadata connector="REJECT" name="REJECT">
+      <column comment="" key="false" length="-1" name="newColumn" nullable="true" originalDbColumnName="" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="newColumn1" nullable="true" originalDbColumnName="" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="newColumn2" nullable="true" originalDbColumnName="" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
     </metadata>
@@ -184,13 +193,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_bc8e1de5-ab13-4f4d-a8d5-6873c71e777d"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>iPjOWFigzfqKxO8uj/hb69ZZNC8tG89TJGIRuOaKeTgUjp1OKJRLWLTOuToqf/eJmLOvBDa9CuqC
-rNIh6eraEA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_81eab2f8-50c8-4fef-b981-514425566a8e"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>a+AVRkN5dOxlAWtTuQdUpWfJKqUQ0DrO5gHn9xERrxMs+rt5TzC7m+ycFTwmfvOCqIyfxs+dMiWA
-otqOoFkXig==</DigestValue></Reference></SignedInfo><SignatureValue>HQJRbKY8ris/m21PKF3ErvExDBRe2JIXOSlpFellTAeEHn2a5F/MaIzaSV/QnIyVtGeqMFDyk0sz
-GmtE7kndjJuetamnTfPiE1HteQWNVz9GedfnphpFDYgy+8lEVG7kd0pYFgX2KhZrSm7emzg3bxmM
-dq6f/3wUlt3eY94+J1uDYDOpl9MI+oMjBuU9mkgmL7WvVHT8a8o9W/Lij6kwviRvqgskCcQuYoeY
-Uxh0PaF1iVGsaHHYNGYUt4KyA1BLqcdsPpkOV0HurqY+KB4sNEtYrJkqUgDmV/fZWCkLaSVEzh/I
-h9Ezj27hFqbQURn49ep+yYcttHVlFZn7Kw85Xw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_48167f7a-8f4f-4759-86aa-4903b3982dbc"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>AGqUNlAa/j5l/swXQrAKXjKCpUx/jk7cf8Zc86X49HYwQkeu3lXQr1Vqf9dio/v99sB1w+OHFTLg
+/SpgY+BleA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_2df1d07b-0f8a-4aae-b6f4-0647f7392e37"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>GJzCGei7b9drTgs61xr2KS2l2ax86bI/stN+EDx0lvMdGBnRZfYnQt44Cxa6hc+mAMdT7GFBE0AU
+KBwLXuHU5A==</DigestValue></Reference></SignedInfo><SignatureValue>gJD7cnXb0tGsgTkqPIz2dYFdD1+JQcr1sld/+YwICNcmBJKRIOmtnxPxC06uAKbviC3Y7ovp/9cN
+dsAPEURdoJy40AzcqfL1CoR0nmktBhVblSvSdYevLGyfjywHECkGBMf19ljpxpdac2iGh7i1hZdn
+dsdOHKrqIH+ZtWwz/b83GRTQF3RBd0fwoVI0L6Psql92cp5bGkvXj/m3VvZiMEhnVfXKNpMFN8PE
+HcvKPmGtQElTcmF3IhAbN5gQohk/nMdfaVCu1tLm/g9wmtUWDA05VF8btgql8Fp42rKj2W24kGD1
+BjN14dMglut+TuvUekZ0v42AuljF6fD4RHlb7w==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -214,4 +223,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_81eab2f8-50c8-4fef-b981-514425566a8e" Target="#_bc8e1de5-ab13-4f4d-a8d5-6873c71e777d"><Timestamp>2019-01-28 08:01:56</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_2df1d07b-0f8a-4aae-b6f4-0647f7392e37" Target="#_48167f7a-8f4f-4759-86aa-4903b3982dbc"><Timestamp>2019-01-28 08:02:29</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
