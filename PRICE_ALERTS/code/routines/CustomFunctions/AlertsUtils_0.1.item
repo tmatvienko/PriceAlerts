@@ -2,7 +2,7 @@ package routines;
 import java.util.List;
 import java.util.concurrent.*;
 import java.time.Instant;
-
+import java.util.ArrayList;
 /*
  * user specification: the function's comment should contain keys as follows: 1. write about the function's comment.but
  * it must be before the "{talendTypes}" key.
@@ -32,6 +32,8 @@ public class AlertsUtils {
 	public static Integer dummyIncrementInt = 0;
 	
 	public static ConcurrentHashMap<Integer, AlertsUtils.AlertLog> alertLogMap = new ConcurrentHashMap<Integer, AlertsUtils.AlertLog>();
+	
+	public static List<AlertsUtils.RulesCache> rulesCache = new ArrayList<>();
 	
 	public static class StockCache {
 		
