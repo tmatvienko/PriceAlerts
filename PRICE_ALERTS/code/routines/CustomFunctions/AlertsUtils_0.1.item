@@ -52,6 +52,27 @@ public class AlertsUtils {
 		
 	}
 	
+	public static class RulesCache {
+		
+		public Integer instrumentID;
+		public String InstrCode;
+		public Integer ruleID;
+		public Integer ruleNumber;
+		public Integer thresholdID;
+		public Double thresholdValue;
+		public Integer thresholdDelay;
+		
+		public RulesCache(Integer instrumentID, String instrCode, Integer ruleID, Integer ruleNumber, Integer thresholdID, Double thresholdValue, Integer thresholdDelay) {
+			this.instrumentID = instrumentID;
+			this.InstrCode = instrCode;
+			this.ruleID = ruleID;
+			this.ruleNumber = ruleNumber;
+			this.thresholdID = thresholdID;
+			this.thresholdValue = thresholdValue;
+			this.thresholdDelay = thresholdDelay;
+		}
+	}
+	
 	
 	
 	
