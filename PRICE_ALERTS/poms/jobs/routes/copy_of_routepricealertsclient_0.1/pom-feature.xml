@@ -67,27 +67,6 @@
         </executions>
       </plugin>
       <plugin>
-        <artifactId>maven-install-plugin</artifactId>
-        <version>2.5.1</version>
-        <executions>
-          <execution>
-            <id>install-jar-lib-1</id>
-            <phase>validate</phase>
-            <goals>
-              <goal>install-file</goal>
-            </goals>
-            <configuration>
-              <groupId>org.example.price_alerts.job</groupId>
-              <artifactId>Copy_of_routePriceAlertsClient_priceAlertsMailService</artifactId>
-              <version>0.1.0</version>
-              <packaging>jar</packaging>
-              <file>../../process/SANDBOX/Numis/pricealertsmailservice_0.1/target/pricealertsmailservice_0_1.jar</file>
-              <generatePom>true</generatePom>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
         <groupId>org.apache.karaf.tooling</groupId>
         <artifactId>features-maven-plugin</artifactId>
         <version>2.2.9</version>
@@ -162,22 +141,6 @@
                   <file>../../process/SANDBOX/Numis/pricealertsrulesservice_0.1/target/pricealertsrulesservice_0_1.jar</file>
                   <groupId>org.example.price_alerts.job</groupId>
                   <artifactId>Copy_of_routePriceAlertsClient_priceAlertsRulesService</artifactId>
-                  <version>0.1.0</version>
-                  <packaging>jar</packaging>
-                  <repositoryId>${project.distributionManagement.repository.id}</repositoryId>
-                  <url>${project.distributionManagement.repository.url}</url>
-                </configuration>
-              </execution>
-              <execution>
-                <id>deploy-Copy_of_routePriceAlertsClient_priceAlertsMailService</id>
-                <phase>deploy</phase>
-                <goals>
-                  <goal>deploy-file</goal>
-                </goals>
-                <configuration>
-                  <file>../../process/SANDBOX/Numis/pricealertsmailservice_0.1/target/pricealertsmailservice_0_1.jar</file>
-                  <groupId>org.example.price_alerts.job</groupId>
-                  <artifactId>Copy_of_routePriceAlertsClient_priceAlertsMailService</artifactId>
                   <version>0.1.0</version>
                   <packaging>jar</packaging>
                   <repositoryId>${project.distributionManagement.repository.id}</repositoryId>
