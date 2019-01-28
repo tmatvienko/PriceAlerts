@@ -1047,7 +1047,7 @@
   </node>
   <node componentName="tJavaRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1344" posY="1440">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tJavaRow_1"/>
-    <elementParameter field="MEMO_JAVA" name="CODE" value="//Code generated according to input schema and output schema&#10;output_row.ID = input_row.ID;&#10;output_row.AlertConfigurationID = input_row.AlertConfigurationID;&#10;output_row.RuleID = input_row.RuleID;&#10;output_row.ThresholdID = input_row.ThresholdID;&#10;output_row.InstrumentID = input_row.InstrumentID;&#10;output_row.PriceType = input_row.PriceType;&#10;output_row.BasePrice = input_row.BasePrice;&#10;output_row.BasePricePrevious = input_row.BasePricePrevious;&#10;output_row.MidPrice = input_row.MidPrice;&#10;output_row.TradePrice = input_row.TradePrice;&#10;output_row.PreviousDayClosePrice = input_row.PreviousDayClosePrice;&#10;output_row.ClosePrice = input_row.ClosePrice;&#10;output_row.AlertTimestamp = input_row.AlertTimestamp;&#10;output_row.CreatedOn = input_row.CreatedOn;&#10;output_row.IsSent = input_row.IsSent;&#10;output_row.RuleNumber = input_row.RuleNumber;&#10;output_row.ThresholdValue = input_row.ThresholdValue;&#10;output_row.ThresholdDelay = input_row.ThresholdDelay;&#10;output_row.InstrCode = input_row.InstrCode;&#10;&#10;&#10;String prevArtificialID = ((String[]) globalMap.get(&quot;tMemorizeRows_1_ArtificialID&quot;))[1];&#10;&#10;//first row for each alert group&#10;if ( !(input_row.ArtificialID.equals(prevArtificialID)) ) {&#10;&#9;&#9;&#10;&#9;if ( input_row.AlertTimestampFirst == null ) {&#10;&#9;&#9;output_row.IsSingle = true;&#10;&#9;&#9;globalMap.put(&quot;AlertTimestampFirstSingle&quot;, input_row.AlertTimestamp);&#10;&#9;&#9;output_row.AlertTimestampFirst = input_row.AlertTimestamp;&#10;&#9;}&#10;&#9;else {&#10;&#9;&#9;output_row.IsSingle = false;&#10;&#9;&#9;output_row.AlertTimestampFirst = input_row.AlertTimestampFirst;&#10;&#9;}&#10;&#9;globalMap.put(&quot;IsSingle&quot;, output_row.IsSingle);&#10;&#10;}&#10;else {&#10;&#10;&#9;if ( (Boolean)globalMap.get(&quot;IsSingle&quot;) ) {&#10;&#9;&#9;output_row.AlertTimestampFirst = (Date)globalMap.get(&quot;AlertTimestampFirstSingle&quot;);&#10;&#9;&#9;output_row.IsSingle = false;&#10;&#9;}&#10;&#9;else {&#10;&#9;&#9;output_row.IsSingle = false;&#10;&#9;&#9;output_row.AlertTimestampFirst = input_row.AlertTimestampFirst;&#10;&#9;}&#10;}&#10;"/>
+    <elementParameter field="MEMO_JAVA" name="CODE" value="//Code generated according to input schema and output schema&#10;output_row.ID = input_row.ID;&#10;output_row.AlertConfigurationID = input_row.AlertConfigurationID;&#10;output_row.RuleID = input_row.RuleID;&#10;output_row.ThresholdID = input_row.ThresholdID;&#10;output_row.InstrumentID = input_row.InstrumentID;&#10;output_row.PriceType = input_row.PriceType;&#10;output_row.BasePrice = input_row.BasePrice;&#10;output_row.BasePricePrevious = input_row.BasePricePrevious;&#10;output_row.MidPrice = input_row.MidPrice;&#10;output_row.TradePrice = input_row.TradePrice;&#10;output_row.PreviousDayClosePrice = input_row.PreviousDayClosePrice;&#10;output_row.ClosePrice = input_row.ClosePrice;&#10;output_row.AlertTimestamp = input_row.AlertTimestamp;&#10;output_row.CreatedOn = input_row.CreatedOn;&#10;output_row.IsSent = input_row.IsSent;&#10;output_row.RuleNumber = input_row.RuleNumber;&#10;output_row.ThresholdValue = input_row.ThresholdValue;&#10;output_row.ThresholdDelay = input_row.ThresholdDelay;&#10;output_row.InstrCode = input_row.InstrCode;&#10;&#10;&#10;String prevArtificialID = ((String[]) globalMap.get(&quot;tMemorizeRows_1_ArtificialID&quot;))[1];&#10;&#10;//first row for each alert group&#10;if ( !(input_row.ArtificialID.equals(prevArtificialID)) ) {&#10;&#9;&#9;&#10;&#9;if ( input_row.AlertTimestampFirst == null ) {&#10;&#9;&#9;output_row.IsSingle = true;&#10;&#9;&#9;globalMap.put(&quot;AlertTimestampFirstSingle&quot;, input_row.AlertTimestamp);&#10;&#9;&#9;output_row.AlertTimestampFirst = input_row.AlertTimestamp;&#10;&#9;&#9;output_row.ToSend = true;&#10;&#9;}&#10;&#9;else {&#10;&#9;&#9;output_row.IsSingle = false;&#10;&#9;&#9;output_row.AlertTimestampFirst = input_row.AlertTimestampFirst;&#10;&#9;}&#10;&#9;globalMap.put(&quot;IsSingle&quot;, output_row.IsSingle);&#10;&#10;}&#10;else {&#10;&#10;&#9;if ( (Boolean)globalMap.get(&quot;IsSingle&quot;) ) {&#10;&#9;&#9;output_row.AlertTimestampFirst = (Date)globalMap.get(&quot;AlertTimestampFirstSingle&quot;);&#10;&#9;&#9;output_row.IsSingle = false;&#10;&#9;}&#10;&#9;else {&#10;&#9;&#9;output_row.IsSingle = false;&#10;&#9;&#9;output_row.AlertTimestampFirst = input_row.AlertTimestampFirst;&#10;&#9;}&#10;}&#10;"/>
     <elementParameter field="MEMO_IMPORT" name="IMPORT" value="//import java.util.List;"/>
     <elementParameter field="TEXT" name="LABEL" value="Enumerate Alerts"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
@@ -1073,6 +1073,7 @@
       <column comment="" key="false" length="-1" name="InstrCode" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="AlertTimestampFirst" nullable="true" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="IsSingle" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Boolean" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ToSend" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Boolean" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1536" posY="1440">
@@ -1115,9 +1116,23 @@
       <elementValue elementRef="LENGTH" value="10"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="AlertTimestamp"/>
       <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CreatedOn"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="IsSent"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="RuleNumber"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ThresholdValue"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ThresholdDelay"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="InstrCode"/>
+      <elementValue elementRef="LENGTH" value="10"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="AlertTimestampFirst"/>
       <elementValue elementRef="LENGTH" value="10"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="IsSingle"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ToSend"/>
       <elementValue elementRef="LENGTH" value="10"/>
     </elementParameter>
     <elementParameter field="CHECK" name="PRINT_CONTENT_WITH_LOG4J" value="true"/>
@@ -1137,8 +1152,15 @@
       <column comment="" key="false" length="18" name="PreviousDayClosePrice" nullable="true" pattern="" precision="2" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="18" name="ClosePrice" nullable="true" pattern="" precision="2" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="AlertTimestamp" nullable="false" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="CreatedOn" nullable="false" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="IsSent" nullable="true" pattern="" precision="0" sourceType="BIT" type="id_Boolean" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="RuleNumber" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ThresholdValue" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ThresholdDelay" nullable="true" pattern="" precision="0" sourceType="SMALLINT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="InstrCode" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="AlertTimestampFirst" nullable="true" originalLength="-1" pattern="&quot;yyyyMMdd HHmmss.SSS&quot;" precision="-1" sourceType="" type="id_Date" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="IsSingle" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Boolean" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="ToSend" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Boolean" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="128" posY="800">
@@ -1564,6 +1586,11 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row14"/>
   </connection>
   <connection connectorName="FLOW" label="row15" lineStyle="0" metaname="tJavaRow_1" offsetLabelX="0" offsetLabelY="0" source="tJavaRow_1" target="tLogRow_1">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="ToSend"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row15"/>
   </connection>
@@ -1678,13 +1705,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_2322f57f-b863-4f7d-b041-96955d8c1402"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>7g2v4mjBGQ0v9omEpWHjttq3tiYLHnlaR/2DqY897r6QpkrpIxnZflCmJPQfqb5cH7fX75dqZ1SN
-Aiwx9Pstyw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_8d6d5012-62a6-4ba8-bc2a-e5f69692ae24"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>mVybmdFK769Yc3RFr7gXw9Iy4gplFQW1m4QYPaRTGQu2W+Gd33NUjwnTClapEtxHVtB/VIW/zX8c
-8wP7i5jiXA==</DigestValue></Reference></SignedInfo><SignatureValue>k5aStYftvRTmGWubrvAubTODTf01hnwqwm9/BubGQV+ZeHOeydV/fqV5otLv2wmG3HKbJacvcq1B
-hKxMcAOWtMQPNlSfi+qZgqjZ+itfzJVALUfUCV7Ab3vdBSV+g+GHW3VdubBVlNYUWduiQ88SC+c2
-3DHiOf2Lgx855tqfYr7z8kJy9QsyGj4NeiJ5TSuHCUP1lBVBTq7Io8Duj4YX2GUOAgMcdVkh7HZD
-ViO8kEL3x2IL5lpiGrpi8ofB8UxFNFO2oNERuhhyysruDDRlQLkyky8/XU+MrVkUp7ZCBlkOfhlR
-Qsu7lKlznJB9JLwR7CfSj6+JqpD4SKz6hcYX1Q==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_f27624e1-f26c-4ed7-8de6-4cd5176e2e98"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>sI1tzDHIeyq8yGoIPWdcxMtWFCtlprRiWkttFjhQuRUM9VI7s4Ny2NWxK8AzSXVyKAW46dX3jTdF
+q3qPAC2hZg==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_e235ade0-49c4-4b82-8286-f15863776177"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>w+e70gLLgqHU/meFugsPXLeI2T5kwiDzaxN5QkPD8qc41Ozlws/3wWuDa4+dVKsMCGm44lw8iflB
+c8goLGFqSQ==</DigestValue></Reference></SignedInfo><SignatureValue>X4beioIHiMakrhi/UWMiMuT2ZrdnA7TxEZcTQ0Vyv0u1/Pnf4MwbgTWnGWkJm+ZPd6F1f7bcDsFK
+yqKrYPHkASgwuPnl+EQe3GHFj2eKYTig3apL90W1mpfqVcZj3WkiND17X8INmnv+5z2B0IPTTPPJ
+ViW5LgcsIqgBk2dPoFLpRl4Fh85kY6nW2UmZOodumByyhkq5w+ttEaUOsXsTFVPVhMP8V8r81W47
+Vhcbv2K/OGIaGYSqJ2w8zobF2jwyUXh/WzCKFNBBDzAcfVtidvX0gKNoNCRV9Ny+sLHj6sjcLptW
+2YOPU6sbdMNHSzKbwbd2wSeyWQOAGIrQ0fSNkA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -1708,4 +1735,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_8d6d5012-62a6-4ba8-bc2a-e5f69692ae24" Target="#_2322f57f-b863-4f7d-b041-96955d8c1402"><Timestamp>2019-01-28 20:06:35</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_e235ade0-49c4-4b82-8286-f15863776177" Target="#_f27624e1-f26c-4ed7-8de6-4cd5176e2e98"><Timestamp>2019-01-28 20:10:14</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
