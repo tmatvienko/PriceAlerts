@@ -95,7 +95,7 @@ public class AlertsUtils {
 		public Instant createdOn;
 		public Boolean isSent;
 		
-		public AlertLog(Integer id, Integer alertConfigurationID, Integer ruleID, Integer ruleThresholdID
+		public AlertLog(Integer alertConfigurationID, Integer ruleID, Integer ruleThresholdID
 								, Integer instrumentID, String priceType, Double basePrice, Double basePricePrevious
 								, Double midPrice, Double tradePrice, Double previousDayClosePrice, Double closePrice
 								, Instant alertTimestamp, Instant createdOn, Boolean isSent){
