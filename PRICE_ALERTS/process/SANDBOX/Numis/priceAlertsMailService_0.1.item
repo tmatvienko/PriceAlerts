@@ -736,7 +736,7 @@
       <column comment="" key="false" length="-1" name="EmailMessage" nullable="false" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables name="Var" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="row5.RuleNumber == 5 &amp;&amp; cOut_single_alerts.PriceType.compareTo(&quot;TradePrice&quot;) == 0 " name="isTradePriceAlert" type="id_Boolean"/>
         <mapperTableEntries expression="row5.RuleNumber == 5 &amp;&amp; cOut_single_alerts.PriceType.compareTo(&quot;BasePrice&quot;) == 0 " name="isBasePriceAlert" type="id_Boolean"/>
@@ -1195,6 +1195,14 @@
       <elementValue elementRef="VALUE" value="&quot;FYI, Base price for the stock @InstrumentCode@ has been changed from @BasePricePrevious@ to @BasePrice@ at @AlertTimestamp@.  This is an automatic re-basing as it is a Mid price intraday low. Please note the revised 10% threshold trigger is now. No other action required.\n\n***** Note: This is an Automated message. Please do NOT reply to this Email.&quot;"/>
       <elementValue elementRef="KEY" value="&quot;emailMessageRule5TradePrice&quot;"/>
       <elementValue elementRef="VALUE" value="&quot;FYI, Trade price (@TradePrice@) at @AlertTimestamp@ was below the Base price @BasePrice@ for the stock @InstrumentCode@.  This is a Trade price rather than a Mid price and so Base price will not be reset unless you deem it material and elect to intervene manually.  Please consider if it is necessary to do so.\n\n***** Note: This is an Automated message. Please do NOT reply to this Email. &quot;"/>
+      <elementValue elementRef="KEY" value="&quot;emailMessageRule1&quot;"/>
+      <elementValue elementRef="VALUE" value="“@InstrumentCode@ (@InstrumentName@) - The Mid-price is up @ThresholdValue@ since the BasePriceLow.\nCurrent Mid-price is @MidPrice@ and Base price is @BasePrice@ (Base price date: @BasePriceDate@).\nNote: @Note@.\nMonitor start date: @MonitorStartDate@&quot;"/>
+      <elementValue elementRef="KEY" value="&quot;emailMessageRule2&quot;"/>
+      <elementValue elementRef="VALUE" value="“@InstrumentCode@ (@InstrumentName@) - The Trade price is up @ThresholdValue@ since the BasePriceLow.\nCurrent Trade price is @TradePrice@ and Base price is @BasePrice@ (Base price date: @BasePriceDate@).\nNote: @Note@.\nMonitor start date: @MonitorStartDate@&quot;"/>
+      <elementValue elementRef="KEY" value="&quot;emailMessageRule3&quot;"/>
+      <elementValue elementRef="VALUE" value="“@InstrumentCode@ (@InstrumentName@) - The Mid-price is up @ThresholdValue@ since the Previous day close.\nCurrent Mid-price is @MidPrice@ and Previous day close price is @PreviousDayClose@\nNote: @Note@.\nMonitor start date: @MonitorStartDate@&quot;"/>
+      <elementValue elementRef="KEY" value="&quot;emailMessageRule4&quot;"/>
+      <elementValue elementRef="VALUE" value="“@InstrumentCode@ (@InstrumentName@) - The Trade price is up @ThresholdValue@ since the Previous day close.\nCurrent Trade price is @TradePrice@ and Previous day close price is @PreviousDayClose@\nNote: @Note@.\nMonitor start date: @MonitorStartDate@&quot;"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="Set Email Message"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
@@ -1209,6 +1217,12 @@
       <elementValue elementRef="VALUE" value="&quot;Stock alert (Rule 2.2): @InstrumentCode@ - Trade price is below the Base price&quot;"/>
       <elementValue elementRef="KEY" value="&quot;emailSubjectRule1&quot;"/>
       <elementValue elementRef="VALUE" value="&quot;Stock Alert (Rule 2.2): @InstrumentCode@ - The Mid-price is up @ThresholdValue@ since the BasePriceLow&quot;"/>
+      <elementValue elementRef="KEY" value="&quot;emailSubjectRule2&quot;"/>
+      <elementValue elementRef="VALUE" value="&quot;Stock Alert (Rule 2.2): @InstrumentCode@ - The Trade price is up @ThresholdValue@ since the BasePriceLow&quot;"/>
+      <elementValue elementRef="KEY" value="&quot;emailSubjectRule3&quot;"/>
+      <elementValue elementRef="VALUE" value="&quot;Stock Alert (Rule 2.2): @InstrumentCode@ - The Mid-price is up @ThresholdValue@ since the Previous day close&quot;"/>
+      <elementValue elementRef="KEY" value="&quot;emailSubjectRule4&quot;"/>
+      <elementValue elementRef="VALUE" value="&quot;Stock Alert (Rule 2.2): @InstrumentCode@ - The Trade price is up @ThresholdValue@ since the Previous day close&quot;"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="Set Email Subject"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
@@ -1419,13 +1433,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_c659886b-2e58-461c-ba06-fbd89288498e"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>gKQ/wvOCn1tHeWQRN312ggzX4qTisR2J1kc8rUjanFQ1zBz5okN1XaKWfo+5vFy9K/k9yeul95Gp
-JT7dNOuUPw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_b1d9d80b-a6fa-49b7-a853-f4103245bc64"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>YSCVNNyWbYClhf8rAY4B4l0aYOctftV8CI0H+YeTmmdwoWS5FP1hgF9VFfUNLutmm/lNYZUVMhQe
-36nzzFp1dQ==</DigestValue></Reference></SignedInfo><SignatureValue>gScQ7C+e6Ip3pboyvzErgufwcWG2Z+4DAU8KigSaehKomdwjYdCkFju2Xj9tu1ecxMpCvxwvLoOW
-u5zei3a7jg5ELpu/luYqvY6s/1lKiOTrV4c8fhFtfZMLMvGDB5KhYozD/g3CBcyVwVxBG84VbozS
-58WZdZsjCcewlTFPVgVdQT7lQz1mqdFzBkQy8nzkKS7EIjZRefdhfJPiBPLUoX5XdxK8mlsyE0/T
-Y/vvmwcLIQDF/n1MGv2XSBoy1DLU3EDLoWmtiEsSgJ0xjfWFaB6afXXXwsFgUMdAaRLjDVm0Zw0l
-blPhiuBHEyLaxmDpxv48E0BBsCbtj2UzKUtkTg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_62ec8abc-5ebf-4ed6-850f-0bf2e15b700d"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>FvTbDbMGzPI7ZIraLUJLhaM8M2bWqMYbE4UPswmAHn7RDeeDkdxxVaPmMpFRi2LQUWiepFCLXUoe
+sPNYMGF1ag==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_c6b21fd7-1dc3-4ae0-8f30-598b864c783a"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>MX6y9mVg553izPQZVeOhPzwN5cdeKmrTk/eY87G3uODilqPUd/Wu3SCb3ru9Es6eC02OJqAgPKXw
+KYRytGyqWw==</DigestValue></Reference></SignedInfo><SignatureValue>UwGR8wUdZ5EQqB+wU33SS/vTWXfC7lmWM6y0NXf6NTcp+zEKunLaSL2/5aay9Q1OBCvOjo2Odqau
+sRr9liV+uLbf57Di9hhaYJ7XJhGRSbTqRc5pXqTpla4M9xUqNHUs6d2xbgtIbDXSxnbHLQ2BUPBd
+J09reWTLayHICidMZGaWwq42T5p4wU2oaJaM/K4M1FItbxVFEShPg+etuj5FRxxhpqHDqh0FqJ0k
+J387jwMTFmESTpfvttQR3W6unswtIGEicte736D1PzTRMmBOa7FyRp9nJ6KkUFn90MH8vIJ4thnk
+DSsj75NcCziKBscVQMd/JAXK+lsBQGEFMbWmdg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -1449,4 +1463,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_b1d9d80b-a6fa-49b7-a853-f4103245bc64" Target="#_c659886b-2e58-461c-ba06-fbd89288498e"><Timestamp>2019-01-25 14:56:58</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_c6b21fd7-1dc3-4ae0-8f30-598b864c783a" Target="#_62ec8abc-5ebf-4ed6-850f-0bf2e15b700d"><Timestamp>2019-01-28 09:52:10</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
