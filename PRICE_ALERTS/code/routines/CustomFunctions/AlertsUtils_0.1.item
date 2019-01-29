@@ -45,14 +45,16 @@ public class AlertsUtils {
 		public Double previousDayClosePrice;
 		public Double tradePriceLastMin;
 		public Double midPriceLast;
+		public Date basePriceDate;
 		
-		public StockCache(Integer instrumentID, String instrCode, Double basePrice, Double previousDayClosePrice, Double tradePriceLastMin, Double midPriceLast) {
+		public StockCache(Integer instrumentID, String instrCode, Double basePrice, Double previousDayClosePrice, Double tradePriceLastMin, Double midPriceLast, Date basePriceDate) {
 			this.instrumentID = instrumentID;
 			this.instrCode = instrCode;
 			this.basePrice = basePrice;
 			this.previousDayClosePrice = previousDayClosePrice;
 			this.tradePriceLastMin = tradePriceLastMin;
 			this.midPriceLast = midPriceLast;
+			this.basePriceDate = basePriceDate;
 		}
 		
 	}
