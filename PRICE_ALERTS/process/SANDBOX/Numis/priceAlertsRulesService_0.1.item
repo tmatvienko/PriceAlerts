@@ -223,7 +223,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" show="false" value=""/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#10;SELECT ac.InstrumentID&#10;     , i.InstrViewCode AS InstrCode&#10;     , ac.ID AS AlertConfigurationID&#10;     , ISNULL(ac.BasePrice, alb.BasePrice) AS BasePrice&#10;     , alt.LastMinTradePrice&#10;     , CONVERT(NUMERIC(18,2), NULL) AS PreviousDayClosePrice&#10;FROM dev.AlertConfiguration AS ac&#10;    INNER JOIN dev.Instrument AS i&#10;        ON ( i.ID = ac.InstrumentID )&#10;    OUTER APPLY&#10;        (&#10;            SELECT TOP 1 al.BasePrice&#10;            FROM dev.AlertLog AS al&#10;                INNER JOIN dev.[Rule] AS r&#10;                    ON ( r.ID = al.RuleID )&#10;            WHERE r.[RuleNumber] = 5&#10;                AND al.PriceType = 'BasePrice'&#10;                AND al.InstrumentID = ac.InstrumentID&#10;            ORDER BY al.CreatedOn DESC&#10;        ) AS alb&#10;    OUTER APPLY&#10;        (&#10;            SELECT TOP 1 al.TradePrice AS LastMinTradePrice&#10;            FROM dev.AlertLog AS al&#10;                INNER JOIN dev.[Rule] AS r&#10;                    ON ( r.ID = al.RuleID )&#10;            WHERE r.RuleNumber = 5&#10;                AND al.PriceType = 'TradePrice'&#10;                AND al.InstrumentID = ac.InstrumentID&#10;            ORDER BY al.CreatedOn DESC&#10;        ) AS alt&#10;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#10;SELECT ac.InstrumentID&#10;     , i.InstrViewCode AS InstrCode&#10;     , ac.ID AS AlertConfigurationID&#10;     , ISNULL(ac.BasePrice, alb.BasePrice) AS BasePrice&#10;     , alt.LastMinTradePrice&#10;     , CONVERT(NUMERIC(18,2), NULL) AS PreviousDayClosePrice&#10;&#9;, CONVERT(NUMERIC(18,2), NULL) AS MidPriceLast&#10;FROM dev.AlertConfiguration AS ac&#10;    INNER JOIN dev.Instrument AS i&#10;        ON ( i.ID = ac.InstrumentID )&#10;    OUTER APPLY&#10;        (&#10;            SELECT TOP 1 al.BasePrice&#10;            FROM dev.AlertLog AS al&#10;                INNER JOIN dev.[Rule] AS r&#10;                    ON ( r.ID = al.RuleID )&#10;            WHERE r.[RuleNumber] = 5&#10;                AND al.PriceType = 'BasePrice'&#10;                AND al.InstrumentID = ac.InstrumentID&#10;            ORDER BY al.CreatedOn DESC&#10;        ) AS alb&#10;    OUTER APPLY&#10;        (&#10;            SELECT TOP 1 al.TradePrice AS LastMinTradePrice&#10;            FROM dev.AlertLog AS al&#10;                INNER JOIN dev.[Rule] AS r&#10;                    ON ( r.ID = al.RuleID )&#10;            WHERE r.RuleNumber = 5&#10;                AND al.PriceType = 'TradePrice'&#10;                AND al.InstrumentID = ac.InstrumentID&#10;            ORDER BY al.CreatedOn DESC&#10;        ) AS alt&#10;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" show="false" value="This option only applies when deploying and running in the Talend Runtime"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" show="false" value="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" show="false" value="&quot;&quot;"/>
@@ -245,6 +245,8 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="PreviousDayClosePrice"/>
       <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="MidPriceLast"/>
+      <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="Persisted Cache"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
@@ -255,6 +257,7 @@
       <column comment="" key="false" length="-1" name="BasePrice" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="LastMinTradePrice" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="MidPriceLast" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tJavaFlex" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="160" posY="640">
@@ -263,7 +266,7 @@
     <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" show="false" value="_onOUgBsuEemtUeD7yhu38A - metadata"/>
     <elementParameter field="CHECK" name="DATA_AUTO_PROPAGATE" value="true"/>
     <elementParameter field="MEMO_JAVA" name="CODE_START" value=""/>
-    <elementParameter field="MEMO_JAVA" name="CODE_MAIN" value="AlertsUtils.setStockCacheValue(row6.AlertConfigurationID, new AlertsUtils.StockCache(row6.InstrumentID, row6.InstrCode, row6.BasePrice,row6.PreviousDayClosePrice, row6.LastMinTradePrice));"/>
+    <elementParameter field="MEMO_JAVA" name="CODE_MAIN" value="AlertsUtils.setStockCacheValue(row6.AlertConfigurationID, new AlertsUtils.StockCache(row6.InstrumentID, row6.InstrCode, row6.BasePrice,row6.PreviousDayClosePrice, row6.LastMinTradePrice, row6.MidPriceLast));"/>
     <elementParameter field="MEMO_JAVA" name="CODE_END" value=""/>
     <elementParameter field="CHECK" name="Version_V2_0" show="false" value="false"/>
     <elementParameter field="CHECK" name="Version_V3_2" show="false" value="false"/>
@@ -278,6 +281,7 @@
       <column comment="" key="false" length="-1" name="BasePrice" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="LastMinTradePrice" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="MidPriceLast" nullable="true" pattern="" precision="0" sourceType="NUMERIC" type="id_Double" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tFixedFlowInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1312" posY="704">
@@ -3268,13 +3272,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_a21704e6-513d-4281-9c3e-c82e2401485b"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>WacmpkchvDCCtiX0GLE96N9V5qAb8zxeS/kDWC42Lzq7ByqIHKXvLHgDtE539GHpXIP73/H3B5h7
-WyRTQnydRg==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_a1528a54-7329-4f7c-a9a3-ad22a1068f77"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>decuZP7LtnAwjyG9ClvjPm6T56shcoDLO99NdFxsPvQQ8IgmbVedyjeNcUzAGjcEIMJXUqJNzaQT
-IfKLpjdH7w==</DigestValue></Reference></SignedInfo><SignatureValue>ulRu83bIjOO+MYI12wYewvnez40qIAmC9efdTwVBMeU9jesqPuYd0wMAnGR+ABsUlFgvTvzcsH89
-69pNuUf+Bk2iRH3sSzcm4pnXTOBko6f90ibokxpK5h/zr4bqbHqyvSocR1D8EKVaQLbY+o1Ong5Q
-DodOmAhgTPausITKr4qDay8o+AKHjteFZbOIhDtu+NCwlLwwsaND8I/GETJBe1jde/J9uNIBgjw0
-Icg0qseTRqUQduXcffhBCAeTyyVYoJ+y04gPhLryNczMK5VhRneiXn4r4gCuPVztbN7j62ZOoFw3
-leCWWguQZVUkIYhhO1bMHkimT3Nm8xyvMsrcbg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_76469059-bc97-4de2-9314-cf38414d0c57"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>2cnisrQTUcg/tjfBRRKNhOqcdUGxdMYA7mjCDJEOqTKErpTkrlXD5Svxut1V9f/T4aG2LsSmlMwu
+5dcHL/nmig==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_5dd6e0ee-d6e8-47ae-8797-658a3c4ce39f"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>CgF8faHlnjMk22DcohOFgsjUpUHd4ForcPBttcEVCDBPwCui553W095l9j6z/1kRis8+lkI+dV1A
+aKrwxNO4Xw==</DigestValue></Reference></SignedInfo><SignatureValue>CsBXoORa96HXQyMtbKixf68agyh9+cM68DimsG1X9VQTxvCw98mP6AucZi587VRN0dyO2tYxrgV1
+ZD/tR99kJBijRxYcRSn2uRyRbMtm2gAcLheDbqifjWMWuuy6RUdtuOmlsLqAJg2QzGSc8fXwN2H6
+KGdbSgeH6z7jIfbWuYgGm4pwap2do8D6rl5lGxkvo1QE4up/AnQaryl//F7D3dczsWajitgLyjbA
+V5WcJMIza+6DT2iJvC8+Y4hnge48Lg3NuRYKzBoJ4y1/bGkQQDQtritIUr0SxTuRKFQnzbc40RlX
+1zMpecK3Vt+Tqq3nLpk7+K9jXxU+AY+aCy9y1g==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -3298,4 +3302,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_a1528a54-7329-4f7c-a9a3-ad22a1068f77" Target="#_a21704e6-513d-4281-9c3e-c82e2401485b"><Timestamp>2019-01-29 10:58:10</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_5dd6e0ee-d6e8-47ae-8797-658a3c4ce39f" Target="#_76469059-bc97-4de2-9314-cf38414d0c57"><Timestamp>2019-01-29 11:06:59</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
