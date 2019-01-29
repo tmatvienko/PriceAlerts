@@ -1381,6 +1381,7 @@
       <column comment="" key="false" length="-1" name="MidPriceVsClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="MidPriceVsBasePriceLow" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="IntradayMidHigh" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="IntradayMidLow" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ArtificialID" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
@@ -1396,9 +1397,10 @@
         <mapperTableEntries expression="String.valueOf(cOut_2_AggregatedAlerts.ThresholdValue) " name="Threshold" nullable="true" type="id_String"/>
         <mapperTableEntries expression="TalendDate.formatDate(&quot;yyyy-MM-dd HH:mm:ss&quot;, cOut_2_AggregatedAlerts.BasePriceDate) " name="BasePriceLowDate" nullable="true" type="id_String"/>
         <mapperTableEntries expression="String.valueOf(cOut_2_AggregatedAlerts.PreviousDayClosePrice) " name="PreviousDayClosePrice" nullable="true" type="id_String"/>
-        <mapperTableEntries expression="cOut_2_AggregatedAlerts.ClosePrice == null ? &quot;0.00&quot; : String.valueOf((cOut_2_AggregatedAlerts.MidPrice - cOut_2_AggregatedAlerts.ClosePrice) / cOut_2_AggregatedAlerts.MidPrice * 100.00) " name="MidPriceVsClosePrice" nullable="true" type="id_String"/>
-        <mapperTableEntries expression="String.format(&quot;%.0f&quot;, (cOut_2_AggregatedAlerts.MidPrice - cOut_2_AggregatedAlerts.BasePrice) / cOut_2_AggregatedAlerts.MidPrice * 100.00) " name="MidPriceVsBasePriceLow" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="cOut_2_AggregatedAlerts.ClosePrice == null ? &quot;0.00&quot; : String.format(&quot;%.2f&quot;, (cOut_2_AggregatedAlerts.MidPrice - cOut_2_AggregatedAlerts.ClosePrice) / cOut_2_AggregatedAlerts.MidPrice * 100.00) " name="MidPriceVsClosePrice" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="String.format(&quot;%.2f&quot;, (cOut_2_AggregatedAlerts.MidPrice - cOut_2_AggregatedAlerts.BasePrice) / cOut_2_AggregatedAlerts.MidPrice * 100.00) " name="MidPriceVsBasePriceLow" nullable="true" type="id_String"/>
         <mapperTableEntries expression="String.valueOf(cOut_2_AggregatedAlerts.MidPrice) " name="IntradayMidHigh" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="String.valueOf(cOut_2_AggregatedAlerts.MidPrice) " name="IntradayMidLow" nullable="true" type="id_String"/>
         <mapperTableEntries expression="cOut_2_AggregatedAlerts.ArtificialID " name="ArtificialID" nullable="true" type="id_String"/>
       </outputTables>
       <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="cOut_2_AggregatedAlerts" sizeState="INTERMEDIATE">
@@ -1465,6 +1467,8 @@
       <elementValue elementRef="LENGTH" value="10"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="IntradayMidHigh"/>
       <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="IntradayMidLow"/>
+      <elementValue elementRef="LENGTH" value="10"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="ArtificialID"/>
       <elementValue elementRef="LENGTH" value="10"/>
     </elementParameter>
@@ -1484,6 +1488,7 @@
       <column comment="" key="false" length="-1" name="MidPriceVsClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="MidPriceVsBasePriceLow" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="IntradayMidHigh" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="IntradayMidLow" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ArtificialID" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
     </metadata>
   </node>
@@ -2467,6 +2472,9 @@
       <elementValue elementRef="TRACE_COLUMN" value="IntradayMidHigh"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="IntradayMidLow"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="out2"/>
@@ -2667,13 +2675,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_acfcf24d-e6f7-4f79-8fa9-9a97319dd9ae"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>qITzqa7X2C+r/+nvDI74r89c5+nJ4/E6X2302yxnWUznuOfYsQDfQJvX75okccrLtjE5PfyQaZfq
-woLo284Z6Q==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_360b13c3-ddca-4332-972f-90af65bf751a"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>Z5y7qiqvmxR1Ai+Dk4lhCS82BXFI9imrr+RH6I9uWMX2YdJ3cGAAvTe6dlTromNA55nRZipYiw4h
-GsO4lfE6Jw==</DigestValue></Reference></SignedInfo><SignatureValue>j1kTk/sIOtZWXN41jLbqkHN8hWT9mqYG9iEyDNRFvBxfNmB7/J9N1kzScDRiFH0ZnrTVzl/vv6/j
-XXFfe2d9tLBGHiySzD6+re4gWg4fo7ov/yAPxyXz+zg+DW0ptCoQJLXlvqBakzKc8MIoIfNTDQyr
-cLscdVrz75g1DrUzu1RLHGxbnSb0i0ye9r7vWvK4xiIydk03HgiYIVvOoWruCkHn3BJawJVWd/Dy
-qKKTUW/sgrcYwk9Su09qheKqd7ec3z5Y3ms6yT5f5NqXQOBJAzqRfrPlJNqUCP0O9H8onoLUc6e5
-DR9Uuc88y5Usyt5nafWPVXulBwiJVkflYT0yQA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_b3e81a72-a089-4e2b-a0b2-8ba246a41f7d"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>lIQGGS5aIQ7q7v5P3v4cau5GaP7/PXUx8Fkwv3FqGMoQOeJI2K7EU28j1xtlyMbJYoJVGjDv4U0r
+TriVc+WFgQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_88dec565-6564-40e4-9785-68147244a2b0"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>NGnUtyPeTTse+d8CcpR5TDWPcVTp7o4262/cYYuJvxtCfPWfoawHBisnjzCHig9iOFuXAXcIgo8v
+birfbjyhsA==</DigestValue></Reference></SignedInfo><SignatureValue>1DhkomYFCX5kwDb0ZXeyoFxer0Um275GgaTeeGWQDH16IWw633uSwz0mPXrDOuR2+ejRqC/XKK3g
++l9M2pYbnjjKmQBValWM/IVhONFh0+uwSEBT+r8y4alTOD2r4ra7IQPk2jvpM+G/PNrXOERDBLi7
+Vl1sUPxxRn+J4X1i+3gxhKIS6oXN4l/XprufeWK4eXmnZC50j4avpavuafOex5rUlJkZqRBW47W8
+l920eSd0LueAT+InEqad6tR1D2nzyS5r1GU8OOhNxY5iovTZ+89/LoS3bZ5G/tmVAX3OzJzP38XG
+6lOrqnNwB9qDebzxWaHGnXrct44+XcaFGIApdg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -2697,4 +2705,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_360b13c3-ddca-4332-972f-90af65bf751a" Target="#_acfcf24d-e6f7-4f79-8fa9-9a97319dd9ae"><Timestamp>2019-01-29 13:38:11</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_88dec565-6564-40e4-9785-68147244a2b0" Target="#_b3e81a72-a089-4e2b-a0b2-8ba246a41f7d"><Timestamp>2019-01-29 13:39:40</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
