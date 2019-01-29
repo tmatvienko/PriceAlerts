@@ -149,6 +149,15 @@ public class AlertsUtils {
 			alertLogMap.computeIfPresent(id, (k, v) -> alertLogCache);
 		}
 	}
+	
+	public static synchronized void setSentAlertLogCache(Integer id)
+	{
+		AlertsUtils.AlertLog pValue = alertLogMap.get(id);
+		if (pValue != null) {
+			pValue.isSent = true;
+			alertLogMap.computeIfPresent(id, (k, v) -> pValue);
+		}
+	}
 
 	
 	
