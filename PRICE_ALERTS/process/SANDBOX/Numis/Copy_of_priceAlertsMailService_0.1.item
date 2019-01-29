@@ -1064,7 +1064,7 @@
   </node>
   <node componentName="tJavaRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1344" posY="1440">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tJavaRow_1"/>
-    <elementParameter field="MEMO_JAVA" name="CODE" value="//Code generated according to input schema and output schema&#10;&#10;output_row.ID = input_row.ID;&#10;output_row.AlertConfigurationID = input_row.AlertConfigurationID;&#10;output_row.RuleID = input_row.RuleID;&#10;output_row.ThresholdID = input_row.ThresholdID;&#10;output_row.InstrumentID = input_row.InstrumentID;&#10;output_row.PriceType = input_row.PriceType;&#10;output_row.BasePrice = input_row.BasePrice;&#10;output_row.BasePricePrevious = input_row.BasePricePrevious;&#10;output_row.MidPrice = input_row.MidPrice;&#10;output_row.TradePrice = input_row.TradePrice;&#10;output_row.PreviousDayClosePrice = input_row.PreviousDayClosePrice;&#10;output_row.ClosePrice = input_row.ClosePrice;&#10;output_row.AlertTimestamp = input_row.AlertTimestamp;&#10;output_row.CreatedOn = input_row.CreatedOn;&#10;output_row.IsSent = input_row.IsSent;&#10;output_row.RuleNumber = input_row.RuleNumber;&#10;output_row.ThresholdValue = input_row.ThresholdValue;&#10;output_row.ThresholdDelay = input_row.ThresholdDelay;&#10;output_row.InstrCode = input_row.InstrCode;&#10;output_row.BasePriceDate = input_row.BasePriceDate;&#10;&#10;SimpleDateFormat formatter = new SimpleDateFormat(&quot;yyyyMMdd HH:mm:ss&quot;);&#10;//Date currentDate = formatter.parse(&quot;20190115 08:08:43&quot;);&#10;Date currentDate = new Date();&#10;&#10;&#10;String prevArtificialID = ((String[]) globalMap.get(&quot;tMemorizeRows_1_ArtificialID&quot;))[1];&#10;&#10;output_row.ToSend = false;&#10;&#10;&#10;//first row for each alert group&#10;if ( !(input_row.ArtificialID.equals(prevArtificialID)) ) {&#10;&#9;&#9;&#10;&#9;if ( input_row.AlertTimestampFirst == null ) {&#10;&#9;&#9;output_row.IsSingle = true;&#10;&#9;&#9;globalMap.put(&quot;AlertTimestampFirstSingle&quot;, input_row.AlertTimestamp);&#10;&#9;&#9;output_row.AlertTimestampFirst = input_row.AlertTimestamp;&#10;&#9;&#9;output_row.ToSend = true;&#10;&#9;}&#10;&#9;else {&#10;&#9;&#9;output_row.IsSingle = false;&#10;&#9;&#9;output_row.AlertTimestampFirst = input_row.AlertTimestampFirst;&#10;&#9;&#9;&#10;&#9;}&#10;&#9;globalMap.put(&quot;IsSingle&quot;, output_row.IsSingle);&#10;&#9;&#10;&#9;//output_row.AlertSequence = 1;&#10;&#9;//globalMap.put(&quot;AlertSequenceID&quot;, output_row.AlertSequence);&#10;&#10;}&#10;else {&#10;&#10;&#9;if ( (Boolean)globalMap.get(&quot;IsSingle&quot;) ) {&#10;&#9;&#9;output_row.AlertTimestampFirst = (Date)globalMap.get(&quot;AlertTimestampFirstSingle&quot;);&#10;&#9;&#9;output_row.IsSingle = false;&#10;&#9;}&#10;&#9;else {&#10;&#9;&#9;output_row.IsSingle = false;&#10;&#9;&#9;output_row.AlertTimestampFirst = input_row.AlertTimestampFirst;&#10;&#9;}&#10;&#9;&#10;&#9;//output_row.AlertSequence = (Integer)globalMap.get(&quot;AlertSequenceID&quot;) + 1;&#10;&#9;//globalMap.put(&quot;AlertSequenceID&quot;, output_row.AlertSequence);&#10;&#9;&#10;&#10;}&#10;&#10;//output_row.TimestampDiff = (output_row.AlertTimestamp.getTime() - output_row.AlertTimestampFirst.getTime())/1000;&#10;//output_row.ToSend = output_row.IsSingle ? output_row.ToSend : (output_row.TimestampDiff &lt; 20 ? true : false);&#10;//output_row.ToSend2 = output_row.IsSingle ? output_row.ToSend : ((currentDate.getTime() - output_row.AlertTimestampFirst.getTime())/1000 &gt; 20 ? true : false);&#10;&#10;output_row.ToSend = output_row.IsSingle ? output_row.ToSend : &#10;&#9;&#9;&#9;&#9;&#9;&#9;((output_row.AlertTimestamp.getTime() - output_row.AlertTimestampFirst.getTime())/1000 &lt; input_row.ThresholdDelay&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&amp;&amp;  (currentDate.getTime() - output_row.AlertTimestampFirst.getTime())/1000 &gt; input_row.ThresholdDelay ? true : false);&#10;&#10;output_row.IsAggregated = output_row.IsSingle ? false : true;"/>
+    <elementParameter field="MEMO_JAVA" name="CODE" value="//Code generated according to input schema and output schema&#10;&#10;output_row.ID = input_row.ID;&#10;output_row.AlertConfigurationID = input_row.AlertConfigurationID;&#10;output_row.RuleID = input_row.RuleID;&#10;output_row.ThresholdID = input_row.ThresholdID;&#10;output_row.InstrumentID = input_row.InstrumentID;&#10;output_row.PriceType = input_row.PriceType;&#10;output_row.BasePrice = input_row.BasePrice;&#10;output_row.BasePricePrevious = input_row.BasePricePrevious;&#10;output_row.MidPrice = input_row.MidPrice;&#10;output_row.TradePrice = input_row.TradePrice;&#10;output_row.PreviousDayClosePrice = input_row.PreviousDayClosePrice;&#10;output_row.ClosePrice = input_row.ClosePrice;&#10;output_row.AlertTimestamp = input_row.AlertTimestamp;&#10;output_row.CreatedOn = input_row.CreatedOn;&#10;output_row.IsSent = input_row.IsSent;&#10;output_row.RuleNumber = input_row.RuleNumber;&#10;output_row.ThresholdValue = input_row.ThresholdValue;&#10;output_row.ThresholdDelay = input_row.ThresholdDelay;&#10;output_row.InstrCode = input_row.InstrCode;&#10;output_row.BasePriceDate = input_row.BasePriceDate;&#10;output_row.ArtificialID = input_row.ArtificialID;&#10;&#10;SimpleDateFormat formatter = new SimpleDateFormat(&quot;yyyyMMdd HH:mm:ss&quot;);&#10;//Date currentDate = formatter.parse(&quot;20190115 08:08:43&quot;);&#10;Date currentDate = new Date();&#10;&#10;&#10;String prevArtificialID = ((String[]) globalMap.get(&quot;tMemorizeRows_1_ArtificialID&quot;))[1];&#10;&#10;output_row.ToSend = false;&#10;&#10;&#10;//first row for each alert group&#10;if ( !(input_row.ArtificialID.equals(prevArtificialID)) ) {&#10;&#9;&#9;&#10;&#9;if ( input_row.AlertTimestampFirst == null ) {&#10;&#9;&#9;output_row.IsSingle = true;&#10;&#9;&#9;globalMap.put(&quot;AlertTimestampFirstSingle&quot;, input_row.AlertTimestamp);&#10;&#9;&#9;output_row.AlertTimestampFirst = input_row.AlertTimestamp;&#10;&#9;&#9;output_row.ToSend = true;&#10;&#9;}&#10;&#9;else {&#10;&#9;&#9;output_row.IsSingle = false;&#10;&#9;&#9;output_row.AlertTimestampFirst = input_row.AlertTimestampFirst;&#10;&#9;&#9;&#10;&#9;}&#10;&#9;globalMap.put(&quot;IsSingle&quot;, output_row.IsSingle);&#10;&#9;&#10;&#9;//output_row.AlertSequence = 1;&#10;&#9;//globalMap.put(&quot;AlertSequenceID&quot;, output_row.AlertSequence);&#10;&#10;}&#10;else {&#10;&#10;&#9;if ( (Boolean)globalMap.get(&quot;IsSingle&quot;) ) {&#10;&#9;&#9;output_row.AlertTimestampFirst = (Date)globalMap.get(&quot;AlertTimestampFirstSingle&quot;);&#10;&#9;&#9;output_row.IsSingle = false;&#10;&#9;}&#10;&#9;else {&#10;&#9;&#9;output_row.IsSingle = false;&#10;&#9;&#9;output_row.AlertTimestampFirst = input_row.AlertTimestampFirst;&#10;&#9;}&#10;&#9;&#10;&#9;//output_row.AlertSequence = (Integer)globalMap.get(&quot;AlertSequenceID&quot;) + 1;&#10;&#9;//globalMap.put(&quot;AlertSequenceID&quot;, output_row.AlertSequence);&#10;&#9;&#10;&#10;}&#10;&#10;//output_row.TimestampDiff = (output_row.AlertTimestamp.getTime() - output_row.AlertTimestampFirst.getTime())/1000;&#10;//output_row.ToSend = output_row.IsSingle ? output_row.ToSend : (output_row.TimestampDiff &lt; 20 ? true : false);&#10;//output_row.ToSend2 = output_row.IsSingle ? output_row.ToSend : ((currentDate.getTime() - output_row.AlertTimestampFirst.getTime())/1000 &gt; 20 ? true : false);&#10;&#10;output_row.ToSend = output_row.IsSingle ? output_row.ToSend : &#10;&#9;&#9;&#9;&#9;&#9;&#9;((output_row.AlertTimestamp.getTime() - output_row.AlertTimestampFirst.getTime())/1000 &lt; input_row.ThresholdDelay&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&amp;&amp;  (currentDate.getTime() - output_row.AlertTimestampFirst.getTime())/1000 &gt; input_row.ThresholdDelay ? true : false);&#10;&#10;output_row.IsAggregated = output_row.IsSingle ? false : true;"/>
     <elementParameter field="MEMO_IMPORT" name="IMPORT" value="//import java.util.List;&#10;import java.text.SimpleDateFormat;&#10;import java.util.Date;&#10;import java.lang.Math;"/>
     <elementParameter field="TEXT" name="LABEL" value="Enumerate Alerts"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
@@ -1380,6 +1380,7 @@
       <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="MidPriceVsClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="MidPriceVsBasePriceLow" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="IntradayMidHigh" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ArtificialID" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
@@ -1397,6 +1398,7 @@
         <mapperTableEntries expression="String.valueOf(cOut_2_AggregatedAlerts.PreviousDayClosePrice) " name="PreviousDayClosePrice" nullable="true" type="id_String"/>
         <mapperTableEntries expression="cOut_2_AggregatedAlerts.ClosePrice == null ? &quot;0.00&quot; : String.valueOf((cOut_2_AggregatedAlerts.MidPrice - cOut_2_AggregatedAlerts.ClosePrice) / cOut_2_AggregatedAlerts.MidPrice * 100.00) " name="MidPriceVsClosePrice" nullable="true" type="id_String"/>
         <mapperTableEntries expression="String.valueOf((cOut_2_AggregatedAlerts.MidPrice - cOut_2_AggregatedAlerts.BasePrice) / cOut_2_AggregatedAlerts.MidPrice * 100.00) " name="MidPriceVsBasePriceLow" nullable="true" type="id_String"/>
+        <mapperTableEntries name="IntradayMidHigh" nullable="true" type="id_String"/>
         <mapperTableEntries expression="cOut_2_AggregatedAlerts.ArtificialID " name="ArtificialID" nullable="true" type="id_String"/>
       </outputTables>
       <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="cOut_2_AggregatedAlerts" sizeState="INTERMEDIATE">
@@ -1453,6 +1455,16 @@
       <elementValue elementRef="LENGTH" value="10"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="Threshold"/>
       <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="BasePriceLowDate"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PreviousDayClosePrice"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="MidPriceVsClosePrice"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="MidPriceVsBasePriceLow"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="IntradayMidHigh"/>
+      <elementValue elementRef="LENGTH" value="10"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="ArtificialID"/>
       <elementValue elementRef="LENGTH" value="10"/>
     </elementParameter>
@@ -1467,6 +1479,11 @@
       <column comment="" key="false" length="-1" name="MidPrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="BasePriceLow" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="Threshold" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="BasePriceLowDate" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="MidPriceVsClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="MidPriceVsBasePriceLow" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="IntradayMidHigh" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ArtificialID" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
     </metadata>
   </node>
@@ -2446,6 +2463,11 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row16"/>
   </connection>
   <connection connectorName="FLOW" label="out2" lineStyle="0" metaname="out2" offsetLabelX="0" offsetLabelY="0" source="tMap_6" target="tLogRow_1">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="IntradayMidHigh"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="out2"/>
   </connection>
@@ -2645,13 +2667,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_782cd033-d85c-4e5c-b5c7-cb137efaa678"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>4bfWPj3g9c+OT+J0spCYav9CF+0Fc0BaYXTp8oH9Mhk3XLkgBVVLHd9sarTBzADXEnxouls98qju
-CnD2IG1DdA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_39540268-c7ba-4461-ba82-7494f1f631f6"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>Eu1EadTBemtn4nW7S4wo8jn/1c7MyzGP+FKA1DSxPw6GWCLqsyFN0DmSiFZ0Z9Y4lwCQNNy5zega
-aI3ZXASYgw==</DigestValue></Reference></SignedInfo><SignatureValue>F4SARmUYJ5T81OCh1SAB1K3jENE3nLHkOEnfCFn91EtuQG26p1ZHx+GpYJFLpeoHV2evv7Lq55/m
-2WCS3ynSMnG/+TJmT33BToixA23pTFemtNXvGblbYO9pv+/yHI/cRPqDQNZJEEHjbfllU99s45Dc
-1qa8GH0IBYkrxtIUqBkkk88c3jeTpeth7UUdrdc6ajV1oxQ78tES9s6OdwcnW0nZK215Fi2tc2Gq
-KbvQjyocAXhvYuHVhbUfMjcxMascz3fv/zXgTHN7C+b6BTBQ5C+5Bu7pOyJDa83+RbEmhP7vn6Bs
-vvxXI8xkdsIRCMudj9qmUDDZYCOon55wAH6Prw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_1775ed8a-0e90-4501-a4bf-b3aeb6b5ca1d"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>WEtPBsyVahlTl2SRt3LkLxjnJNmW1UJPLFlPJAEuPglimXOgNEdQsn7/GII08JXnsT4Y91Sdg7O1
+9bOvSX0Pyw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_00aec699-93e4-4b16-b5e9-031fbf63b25b"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>t3gWrlEDupYb2ut2DLmjoePlb+ibdqE1CZtBIVECBIIW2b8/6kOynRUzSUgDloBnBh2AL/6ydoYS
+yE1+n+vY9g==</DigestValue></Reference></SignedInfo><SignatureValue>n0bohMIzFGRp4X577bN6eG0UiZXJz8IggaOeR0AVbeq1iZmbh9kgXwUXvKtz41lphMYcZTUxTOSd
+gSE19Nb/twO8RGLYr1iuMHSk5SjL1mNn7NJSvDSBlAkdWJ2UPbGd16nvEx/QkNlvh2MxaxdjFhLP
+nEO9AdC40WuZx532jwaIC53m4XT31DnK5xK8M6SOxnW/qKHwgAw2HEtR4zqiATIzapPnHX4ey3Ma
+H06te+DMODbjHhCOuPqUBiRP2LYUb8U3wrFQD0mheItBC2iurqV/tYs6HDwgydf6TK4EwOXGlHpU
+nfUTvCku4LiBRyhqy8I3XXwT4wHIPPk0bE3uzA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -2675,4 +2697,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_39540268-c7ba-4461-ba82-7494f1f631f6" Target="#_782cd033-d85c-4e5c-b5c7-cb137efaa678"><Timestamp>2019-01-29 13:34:56</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_00aec699-93e4-4b16-b5e9-031fbf63b25b" Target="#_1775ed8a-0e90-4501-a4bf-b3aeb6b5ca1d"><Timestamp>2019-01-29 13:36:08</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
