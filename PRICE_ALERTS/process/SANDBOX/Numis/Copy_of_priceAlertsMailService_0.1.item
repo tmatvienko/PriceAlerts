@@ -332,7 +332,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" show="false" value=""/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#10;SELECT al.ID&#10;      , al.AlertConfigurationID&#10;      , al.RuleID&#10;      , al.RuleThresholdID&#10;      , al.InstrumentID&#10;      , al.PriceType&#10;      , al.BasePrice&#10;      , al.BasePricePrevious&#10;      , al.MidPrice&#10;      , al.TradePrice&#10;      , al.PreviousDayClosePrice&#10;      , al.ClosePrice&#10;      , al.AlertTimestamp&#10;      , al.CreatedOn&#10;      , al.IsSent&#10;FROM dev.AlertLog AS al&#10;WHERE al.IsSent = 0&#10;UNION ALL&#10;SELECT al.ID&#10;      , al.AlertConfigurationID&#10;      , al.RuleID&#10;      , al.RuleThresholdID&#10;      , al.InstrumentID&#10;      , al.PriceType&#10;      , al.BasePrice&#10;      , al.BasePricePrevious&#10;      , al.MidPrice&#10;      , al.TradePrice&#10;      , al.PreviousDayClosePrice&#10;      , al.ClosePrice&#10;      , al.AlertTimestamp&#10;      , al.CreatedOn&#10;      , al.IsSent&#10;FROM&#10;(&#10;    SELECT al.ID&#10;        , al.AlertConfigurationID&#10;        , al.RuleID&#10;        , al.RuleThresholdID&#10;        , al.InstrumentID&#10;        , al.PriceType&#10;        , al.BasePrice&#10;        , al.BasePricePrevious&#10;        , al.MidPrice&#10;        , al.TradePrice&#10;        , al.PreviousDayClosePrice&#10;        , al.ClosePrice&#10;        , al.AlertTimestamp&#10;        , al.CreatedOn&#10;        , al.IsSent&#10;        , ROW_NUMBER() OVER(PARTITION BY al.AlertConfigurationID, al.RuleID, al.InstrumentID ORDER BY al.AlertTimestamp DESC) AS Rn&#10;    FROM dev.AlertLog AS al&#10;    WHERE al.IsSent = 1&#10;) AS al&#10;WHERE al.Rn = 1&#10;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;&#10;SELECT al.ID&#10;      , al.AlertConfigurationID&#10;      , al.RuleID&#10;      , al.RuleThresholdID&#10;      , al.InstrumentID&#10;      , al.PriceType&#10;      , al.BasePrice&#10;      , al.BasePricePrevious&#10;      , al.MidPrice&#10;      , al.TradePrice&#10;      , al.PreviousDayClosePrice&#10;      , al.ClosePrice&#10;      , al.AlertTimestamp&#10;      , al.CreatedOn&#10;      , al.IsSent&#10;,  al.BasePriceDate&#10;FROM dev.AlertLog AS al&#10;WHERE al.IsSent = 0&#10;UNION ALL&#10;SELECT al.ID&#10;      , al.AlertConfigurationID&#10;      , al.RuleID&#10;      , al.RuleThresholdID&#10;      , al.InstrumentID&#10;      , al.PriceType&#10;      , al.BasePrice&#10;      , al.BasePricePrevious&#10;      , al.MidPrice&#10;      , al.TradePrice&#10;      , al.PreviousDayClosePrice&#10;      , al.ClosePrice&#10;      , al.AlertTimestamp&#10;      , al.CreatedOn&#10;      , al.IsSent&#10;&#9;,  al.BasePriceDate&#10;FROM&#10;(&#10;    SELECT al.ID&#10;        , al.AlertConfigurationID&#10;        , al.RuleID&#10;        , al.RuleThresholdID&#10;        , al.InstrumentID&#10;        , al.PriceType&#10;        , al.BasePrice&#10;        , al.BasePricePrevious&#10;        , al.MidPrice&#10;        , al.TradePrice&#10;        , al.PreviousDayClosePrice&#10;        , al.ClosePrice&#10;        , al.AlertTimestamp&#10;        , al.CreatedOn&#10;        , al.IsSent&#10;,  al.BasePriceDate&#10;        , ROW_NUMBER() OVER(PARTITION BY al.AlertConfigurationID, al.RuleID, al.RuleThresholdID, al.InstrumentID ORDER BY al.AlertTimestamp DESC) AS Rn&#10;    FROM dev.AlertLog AS al&#10;    WHERE al.IsSent = 1&#10;) AS al&#10;WHERE al.Rn = 1&#10;&quot;"/>
     <elementParameter field="LABEL" name="NOTE" show="false" value="This option only applies when deploying and running in the Talend Runtime"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" show="false" value="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" show="false" value="&quot;&quot;"/>
@@ -372,6 +372,8 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="IsSent"/>
       <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="BasePriceDate"/>
+      <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="Get Alerts"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
@@ -391,13 +393,14 @@
       <column comment="" key="false" length="19" name="AlertTimestamp" nullable="false" originalLength="-1" pattern="&quot;yyyy-MM-dd HH:mm:ss.SSS&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
       <column comment="" key="false" length="19" name="CreatedOn" nullable="false" originalLength="-1" pattern="&quot;yyyy-MM-dd HH:mm:ss.SSS&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="1" name="IsSent" nullable="true" originalLength="-1" pattern="" precision="0" sourceType="BIT" type="id_Boolean" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="BasePriceDate" nullable="true" originalLength="-1" pattern="&quot;yyyy-MM-dd HH:mm:ss.SSS&quot;" precision="-1" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tJavaFlex" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="640" posY="800">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tJavaFlex_1"/>
     <elementParameter field="CHECK" name="DATA_AUTO_PROPAGATE" value="true"/>
     <elementParameter field="MEMO_JAVA" name="CODE_START" value="// start part of your Java code&#10;      "/>
-    <elementParameter field="MEMO_JAVA" name="CODE_MAIN" value="AlertsUtils.setAlertLogCache(row1.ID, new AlertsUtils.AlertLog(row1.AlertConfigurationID, row1.RuleID, row1.RuleThresholdID, row1.InstrumentID, row1.PriceType, row1.BasePrice, row1.BasePricePrevious, row1.MidPrice, row1.TradePrice, row1.PreviousDayClosePrice, row1.ClosePrice, row1.AlertTimestamp, row1.CreatedOn, row1.IsSent));"/>
+    <elementParameter field="MEMO_JAVA" name="CODE_MAIN" value="AlertsUtils.setAlertLogCache(row1.ID, new AlertsUtils.AlertLog(row1.AlertConfigurationID, row1.RuleID, row1.RuleThresholdID, row1.InstrumentID, row1.PriceType, row1.BasePrice, row1.BasePricePrevious, row1.MidPrice, row1.TradePrice, row1.PreviousDayClosePrice, row1.ClosePrice, row1.AlertTimestamp, row1.CreatedOn, row1.IsSent, row1.BasePriceDate));"/>
     <elementParameter field="MEMO_JAVA" name="CODE_END" value=""/>
     <elementParameter field="CHECK" name="Version_V2_0" show="false" value="false"/>
     <elementParameter field="CHECK" name="Version_V3_2" show="false" value="false"/>
@@ -2346,6 +2349,11 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnComponentOk6"/>
   </connection>
   <connection connectorName="FLOW" label="row1" lineStyle="0" metaname="tDBInput_3" offsetLabelX="0" offsetLabelY="0" source="tDBInput_3" target="tJavaFlex_1">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="BasePriceDate"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row1"/>
   </connection>
@@ -2703,13 +2711,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_e9d438b2-06aa-4fae-9921-38e6ea1735a2"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>bDcs4nnH5AtSBGxccO1RKH3Kc1T/I1It/GSEulJCCwIJ5+RVRx8N19d02YxUo51BMhnAFndBz4tp
-KvZn9eeMDg==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_d91c3525-0153-4d0a-8b8e-2b58e9f5d0e3"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>Fo3wqAGwEt+GbvJ/Zph80GsPGERmb+VAsDwTUb1Y1apinsY2uPs6Nx2hP5r3ieU/QnMrP8UGEwKY
-Opie4ms1CQ==</DigestValue></Reference></SignedInfo><SignatureValue>qpyNcNsOhXfFW0IFIVWuBcMYjVnXkgryOQCOwaOAYmlYRVFnWeRU9Yqw0zJVlt6wopn7cy19rA2e
-0fNJY2zcBdn3pqzSCCwr769Q4CGHlDycte74/DrP9pRdoB5mDf7v1y805bEwzSwDb675VHSEg1+N
-WqcSDK8HvCRiVstEQKcIFGJZjO7bZRVmT40i014AQIMmTLbJMtZD0PAuW4I1Kl7zOtfv0H4W4muA
-go2tY0TF6Q794ZC/1vJQ3ypRV4btJc6Fnw9eHnJSUfMMTl3mu9OaxW7T026CuK2Hp2gTGtUoiYuN
-2MtuTi8kVxAFxp+1EY5G3HpdNJVDjurl+o5GHg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_24dff1ea-9e27-42bc-849c-d6a648d30024"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>faGx2WzChZttPWWT7+sOyP1MAK8HiWX/OuQRTep2KwunkxJK/GtiVY4fSOfoZNOS6FGbxReZ3bQO
+KhBGFsQvoA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_9056fadb-46f4-4928-a42c-9d8407050514"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>jyL1P8I+IOAZVs9rnR8nrxQVNNp01ZEs0Uw0Io9HpuP7Nj2KVrlJOa1FTUUWHyk4dEgM2A0efev7
+HTx0DQXO1w==</DigestValue></Reference></SignedInfo><SignatureValue>Z60Ks+GtSFMq/OaPIalwNxUnZvSt6I1CY+VcM6+BH2o3xDzMWr/YvBNgJFC47Qbq/PZtLqO66qZU
+yti+TceUAD3AkAlN8DfAvBMiEnmw45VI6hMgSuCo/PjTvPzDFFvx384knrgRKqxRfWU/mEL/ewSq
+q7i8RpXwFY2bXdwf4j855QIzw+xP938hvcDiremQ0jFxlGfo1NvlLba4N2kP8bdJiEVwwy6uUTxA
+w5Bs+y7SrXK5lE4zYDEKMMJoEbprME8cqThT/yiLa0sseF+7XzjfqsUPxsiUFx27hMMSmX5nJ3QN
+Nf41RQ7m3K69TEgZnY0Jni4nNACj13ZLwd3miA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -2733,4 +2741,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_d91c3525-0153-4d0a-8b8e-2b58e9f5d0e3" Target="#_e9d438b2-06aa-4fae-9921-38e6ea1735a2"><Timestamp>2019-01-29 13:29:06</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_9056fadb-46f4-4928-a42c-9d8407050514" Target="#_24dff1ea-9e27-42bc-849c-d6a648d30024"><Timestamp>2019-01-29 13:30:38</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
