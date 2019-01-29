@@ -1064,7 +1064,7 @@
   </node>
   <node componentName="tJavaRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1344" posY="1440">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tJavaRow_1"/>
-    <elementParameter field="MEMO_JAVA" name="CODE" value="//Code generated according to input schema and output schema&#10;&#10;output_row.ID = input_row.ID;&#10;output_row.AlertConfigurationID = input_row.AlertConfigurationID;&#10;output_row.RuleID = input_row.RuleID;&#10;output_row.ThresholdID = input_row.ThresholdID;&#10;output_row.InstrumentID = input_row.InstrumentID;&#10;output_row.PriceType = input_row.PriceType;&#10;output_row.BasePrice = input_row.BasePrice;&#10;output_row.BasePricePrevious = input_row.BasePricePrevious;&#10;output_row.MidPrice = input_row.MidPrice;&#10;output_row.TradePrice = input_row.TradePrice;&#10;output_row.PreviousDayClosePrice = input_row.PreviousDayClosePrice;&#10;output_row.ClosePrice = input_row.ClosePrice;&#10;output_row.AlertTimestamp = input_row.AlertTimestamp;&#10;output_row.CreatedOn = input_row.CreatedOn;&#10;output_row.IsSent = input_row.IsSent;&#10;output_row.RuleNumber = input_row.RuleNumber;&#10;output_row.ThresholdValue = input_row.ThresholdValue;&#10;output_row.ThresholdDelay = input_row.ThresholdDelay;&#10;output_row.InstrCode = input_row.InstrCode;&#10;output_row.BasePriceDate = input_row.BasePriceDate;&#10;output_row.ArtificialID = input_row.ArtificialID;&#10;&#10;SimpleDateFormat formatter = new SimpleDateFormat(&quot;yyyyMMdd HH:mm:ss&quot;);&#10;//Date currentDate = formatter.parse(&quot;20190115 08:08:43&quot;);&#10;Date currentDate = new Date();&#10;&#10;&#10;String prevArtificialID = ((String[]) globalMap.get(&quot;tMemorizeRows_1_ArtificialID&quot;))[1];&#10;&#10;output_row.ToSend = false;&#10;&#10;&#10;//first row for each alert group&#10;if ( !(input_row.ArtificialID.equals(prevArtificialID)) ) {&#10;&#9;&#9;&#10;&#9;if ( input_row.AlertTimestampFirst == null ) {&#10;&#9;&#9;output_row.IsSingle = true;&#10;&#9;&#9;globalMap.put(&quot;AlertTimestampFirstSingle&quot;, input_row.AlertTimestamp);&#10;&#9;&#9;output_row.AlertTimestampFirst = input_row.AlertTimestamp;&#10;&#9;&#9;output_row.ToSend = true;&#10;&#9;}&#10;&#9;else {&#10;&#9;&#9;output_row.IsSingle = false;&#10;&#9;&#9;output_row.AlertTimestampFirst = input_row.AlertTimestampFirst;&#10;&#9;&#9;&#10;&#9;}&#10;&#9;globalMap.put(&quot;IsSingle&quot;, output_row.IsSingle);&#10;&#9;&#10;&#9;//output_row.AlertSequence = 1;&#10;&#9;//globalMap.put(&quot;AlertSequenceID&quot;, output_row.AlertSequence);&#10;&#10;}&#10;else {&#10;&#10;&#9;if ( (Boolean)globalMap.get(&quot;IsSingle&quot;) ) {&#10;&#9;&#9;output_row.AlertTimestampFirst = (Date)globalMap.get(&quot;AlertTimestampFirstSingle&quot;);&#10;&#9;&#9;output_row.IsSingle = false;&#10;&#9;}&#10;&#9;else {&#10;&#9;&#9;output_row.IsSingle = false;&#10;&#9;&#9;output_row.AlertTimestampFirst = input_row.AlertTimestampFirst;&#10;&#9;}&#10;&#9;&#10;&#9;//output_row.AlertSequence = (Integer)globalMap.get(&quot;AlertSequenceID&quot;) + 1;&#10;&#9;//globalMap.put(&quot;AlertSequenceID&quot;, output_row.AlertSequence);&#10;&#9;&#10;&#10;}&#10;&#10;//output_row.TimestampDiff = (output_row.AlertTimestamp.getTime() - output_row.AlertTimestampFirst.getTime())/1000;&#10;//output_row.ToSend = output_row.IsSingle ? output_row.ToSend : (output_row.TimestampDiff &lt; 20 ? true : false);&#10;//output_row.ToSend2 = output_row.IsSingle ? output_row.ToSend : ((currentDate.getTime() - output_row.AlertTimestampFirst.getTime())/1000 &gt; 20 ? true : false);&#10;&#10;output_row.ToSend = output_row.IsSingle ? output_row.ToSend : &#10;&#9;&#9;&#9;&#9;&#9;&#9;((output_row.AlertTimestamp.getTime() - output_row.AlertTimestampFirst.getTime())/1000 &lt; input_row.ThresholdDelay&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&amp;&amp;  (currentDate.getTime() - output_row.AlertTimestampFirst.getTime())/1000 &gt; input_row.ThresholdDelay ? true : false);&#10;&#10;output_row.IsAggregated = output_row.IsSingle ? false : true;"/>
+    <elementParameter field="MEMO_JAVA" name="CODE" value="//Code generated according to input schema and output schema&#10;System.out.println(input_row.ArtificialID);&#10;&#10;output_row.ID = input_row.ID;&#10;output_row.AlertConfigurationID = input_row.AlertConfigurationID;&#10;output_row.RuleID = input_row.RuleID;&#10;output_row.ThresholdID = input_row.ThresholdID;&#10;output_row.InstrumentID = input_row.InstrumentID;&#10;output_row.PriceType = input_row.PriceType;&#10;output_row.BasePrice = input_row.BasePrice;&#10;output_row.BasePricePrevious = input_row.BasePricePrevious;&#10;output_row.MidPrice = input_row.MidPrice;&#10;output_row.TradePrice = input_row.TradePrice;&#10;output_row.PreviousDayClosePrice = input_row.PreviousDayClosePrice;&#10;output_row.ClosePrice = input_row.ClosePrice;&#10;output_row.AlertTimestamp = input_row.AlertTimestamp;&#10;output_row.CreatedOn = input_row.CreatedOn;&#10;output_row.IsSent = input_row.IsSent;&#10;output_row.RuleNumber = input_row.RuleNumber;&#10;output_row.ThresholdValue = input_row.ThresholdValue;&#10;output_row.ThresholdDelay = input_row.ThresholdDelay;&#10;output_row.InstrCode = input_row.InstrCode;&#10;output_row.BasePriceDate = input_row.BasePriceDate;&#10;output_row.ArtificialID = input_row.ArtificialID;&#10;&#10;SimpleDateFormat formatter = new SimpleDateFormat(&quot;yyyyMMdd HH:mm:ss&quot;);&#10;//Date currentDate = formatter.parse(&quot;20190115 08:08:43&quot;);&#10;Date currentDate = new Date();&#10;&#10;&#10;String prevArtificialID = ((String[]) globalMap.get(&quot;tMemorizeRows_1_ArtificialID&quot;))[1];&#10;&#10;output_row.ToSend = false;&#10;&#10;&#10;//first row for each alert group&#10;if ( !(input_row.ArtificialID.equals(prevArtificialID)) ) {&#10;&#9;&#9;&#10;&#9;if ( input_row.AlertTimestampFirst == null ) {&#10;&#9;&#9;output_row.IsSingle = true;&#10;&#9;&#9;globalMap.put(&quot;AlertTimestampFirstSingle&quot;, input_row.AlertTimestamp);&#10;&#9;&#9;output_row.AlertTimestampFirst = input_row.AlertTimestamp;&#10;&#9;&#9;output_row.ToSend = true;&#10;&#9;}&#10;&#9;else {&#10;&#9;&#9;output_row.IsSingle = false;&#10;&#9;&#9;output_row.AlertTimestampFirst = input_row.AlertTimestampFirst;&#10;&#9;&#9;&#10;&#9;}&#10;&#9;globalMap.put(&quot;IsSingle&quot;, output_row.IsSingle);&#10;&#9;&#10;&#9;//output_row.AlertSequence = 1;&#10;&#9;//globalMap.put(&quot;AlertSequenceID&quot;, output_row.AlertSequence);&#10;&#10;}&#10;else {&#10;&#10;&#9;if ( (Boolean)globalMap.get(&quot;IsSingle&quot;) ) {&#10;&#9;&#9;output_row.AlertTimestampFirst = (Date)globalMap.get(&quot;AlertTimestampFirstSingle&quot;);&#10;&#9;&#9;output_row.IsSingle = false;&#10;&#9;}&#10;&#9;else {&#10;&#9;&#9;output_row.IsSingle = false;&#10;&#9;&#9;output_row.AlertTimestampFirst = input_row.AlertTimestampFirst;&#10;&#9;}&#10;&#9;&#10;&#9;//output_row.AlertSequence = (Integer)globalMap.get(&quot;AlertSequenceID&quot;) + 1;&#10;&#9;//globalMap.put(&quot;AlertSequenceID&quot;, output_row.AlertSequence);&#10;&#9;&#10;&#10;}&#10;&#10;//output_row.TimestampDiff = (output_row.AlertTimestamp.getTime() - output_row.AlertTimestampFirst.getTime())/1000;&#10;//output_row.ToSend = output_row.IsSingle ? output_row.ToSend : (output_row.TimestampDiff &lt; 20 ? true : false);&#10;//output_row.ToSend2 = output_row.IsSingle ? output_row.ToSend : ((currentDate.getTime() - output_row.AlertTimestampFirst.getTime())/1000 &gt; 20 ? true : false);&#10;&#10;output_row.ToSend = output_row.IsSingle ? output_row.ToSend : &#10;&#9;&#9;&#9;&#9;&#9;&#9;((output_row.AlertTimestamp.getTime() - output_row.AlertTimestampFirst.getTime())/1000 &lt; input_row.ThresholdDelay&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&amp;&amp;  (currentDate.getTime() - output_row.AlertTimestampFirst.getTime())/1000 &gt; input_row.ThresholdDelay ? true : false);&#10;&#10;output_row.IsAggregated = output_row.IsSingle ? false : true;"/>
     <elementParameter field="MEMO_IMPORT" name="IMPORT" value="//import java.util.List;&#10;import java.text.SimpleDateFormat;&#10;import java.util.Date;&#10;import java.lang.Math;"/>
     <elementParameter field="TEXT" name="LABEL" value="Enumerate Alerts"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
@@ -2230,61 +2230,6 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tJavaFlex_9"/>
   </node>
-  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="1504" posY="1728">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_7"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
-    <elementParameter field="EXTERNAL" name="MAP" value=""/>
-    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
-    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_IrmJICL0EemNVvKuu-tg1Q-tMap_7-PREVIEW.bmp"/>
-    <elementParameter field="CHECK" name="DIE_ON_ERROR" show="false" value="true"/>
-    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" show="false" value="false"/>
-    <elementParameter field="TEXT" name="LEVENSHTEIN" show="false" value="0"/>
-    <elementParameter field="TEXT" name="JACCARD" show="false" value="0"/>
-    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" show="false" value="false"/>
-    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
-    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="true"/>
-    <elementParameter field="TEXT" name="LABEL" value="Prepare Email Columns"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="copyOfout2">
-      <column comment="" key="false" length="-1" name="ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="RuleNumber" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="InstrumentCode" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="DateAndTime" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="MidPrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="BasePriceLow" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="Threshold" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="BasePriceLowDate" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="MidPriceVsClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="MidPriceVsBasePriceLow" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="IntradayMidHigh" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="IntradayMidLow" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ThresholdValue" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="ArtificialID" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-    </metadata>
-    <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties shellMaximized="true"/>
-      <varTables minimized="true" name="Var" sizeState="INTERMEDIATE"/>
-      <outputTables name="copyOfout2" sizeState="INTERMEDIATE">
-        <mapperTableEntries expression="cOut_2_AggregatedAlerts.ID " name="ID" nullable="true" type="id_Integer"/>
-        <mapperTableEntries expression="cOut_2_AggregatedAlerts.RuleNumber " name="RuleNumber" nullable="true" type="id_Integer"/>
-        <mapperTableEntries expression="cOut_2_AggregatedAlerts.InstrCode " name="InstrumentCode" nullable="true" type="id_String"/>
-        <mapperTableEntries expression="TalendDate.formatDate(&quot;yyyy-MM-dd HH:mm:ss&quot;, cOut_2_AggregatedAlerts.AlertTimestamp) " name="DateAndTime" nullable="true" type="id_String"/>
-        <mapperTableEntries expression="String.valueOf(cOut_2_AggregatedAlerts.MidPrice) " name="MidPrice" nullable="true" type="id_String"/>
-        <mapperTableEntries expression="String.valueOf(cOut_2_AggregatedAlerts.BasePrice) " name="BasePriceLow" nullable="true" type="id_String"/>
-        <mapperTableEntries expression="String.valueOf(cOut_2_AggregatedAlerts.ThresholdValue) " name="Threshold" nullable="true" type="id_String"/>
-        <mapperTableEntries expression="TalendDate.formatDate(&quot;yyyy-MM-dd HH:mm:ss&quot;, cOut_2_AggregatedAlerts.BasePriceDate) " name="BasePriceLowDate" nullable="true" type="id_String"/>
-        <mapperTableEntries expression="String.valueOf(cOut_2_AggregatedAlerts.PreviousDayClosePrice) " name="PreviousDayClosePrice" nullable="true" type="id_String"/>
-        <mapperTableEntries expression="String.valueOf((cOut_2_AggregatedAlerts.MidPrice - cOut_2_AggregatedAlerts.ClosePrice) / cOut_2_AggregatedAlerts.MidPrice * 100.00) " name="MidPriceVsClosePrice" nullable="true" type="id_String"/>
-        <mapperTableEntries expression="String.valueOf((cOut_2_AggregatedAlerts.MidPrice - cOut_2_AggregatedAlerts.BasePrice) / cOut_2_AggregatedAlerts.MidPrice * 100.00) " name="MidPriceVsBasePriceLow" nullable="true" type="id_String"/>
-        <mapperTableEntries expression="String.valueOf(cOut_2_AggregatedAlerts.MidPrice) " name="IntradayMidHigh" nullable="true" type="id_String"/>
-        <mapperTableEntries expression="String.valueOf(cOut_2_AggregatedAlerts.MidPrice) " name="IntradayMidLow" nullable="true" type="id_String"/>
-        <mapperTableEntries expression="cOut_2_AggregatedAlerts.ThresholdValue " name="ThresholdValue" nullable="true" type="id_String"/>
-        <mapperTableEntries expression="cOut_2_AggregatedAlerts.ArtificialID " name="ArtificialID" nullable="true" type="id_String"/>
-      </outputTables>
-    </nodeData>
-  </node>
   <connection connectorName="FLOW" label="row7" lineStyle="0" metaname="tDBInput_1" offsetLabelX="0" offsetLabelY="0" source="tDBInput_1" target="tHashOutput_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row7"/>
@@ -2670,18 +2615,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-  <subjob>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_7"/>
-    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
-    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
-  </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_b3e81a72-a089-4e2b-a0b2-8ba246a41f7d"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>lIQGGS5aIQ7q7v5P3v4cau5GaP7/PXUx8Fkwv3FqGMoQOeJI2K7EU28j1xtlyMbJYoJVGjDv4U0r
-TriVc+WFgQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_88dec565-6564-40e4-9785-68147244a2b0"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>NGnUtyPeTTse+d8CcpR5TDWPcVTp7o4262/cYYuJvxtCfPWfoawHBisnjzCHig9iOFuXAXcIgo8v
-birfbjyhsA==</DigestValue></Reference></SignedInfo><SignatureValue>1DhkomYFCX5kwDb0ZXeyoFxer0Um275GgaTeeGWQDH16IWw633uSwz0mPXrDOuR2+ejRqC/XKK3g
-+l9M2pYbnjjKmQBValWM/IVhONFh0+uwSEBT+r8y4alTOD2r4ra7IQPk2jvpM+G/PNrXOERDBLi7
-Vl1sUPxxRn+J4X1i+3gxhKIS6oXN4l/XprufeWK4eXmnZC50j4avpavuafOex5rUlJkZqRBW47W8
-l920eSd0LueAT+InEqad6tR1D2nzyS5r1GU8OOhNxY5iovTZ+89/LoS3bZ5G/tmVAX3OzJzP38XG
-6lOrqnNwB9qDebzxWaHGnXrct44+XcaFGIApdg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_e8e3b6b4-6308-4323-b699-df0c60acaca8"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>3ar8BuTQUBYKvZC+Qk4Lclji0SR2HkbFdNzJZACHajih1q1EFPiUYhwoVDyLCAD5cTWeQjVugOYt
+CyT+F8hAxg==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_8ce6f50c-e0ed-4f86-a88f-bc20a5a1498c"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>OF26Qwq6XyEsGz7bBrTSTYTqZluTcutuygICU0fnTdRqaDS2CSwqL9GiArY2ONQCPcUfzoPoaeIO
+A8IwHco/oA==</DigestValue></Reference></SignedInfo><SignatureValue>iErJ+UxfiwmKdv27C+itu0jHb9tuUrjinH/3NWJnj1DIMXCdhOUU/UcYzfeaBjgegtIHOrlIqNzs
+cDf5vcRsPmOvJr511KL7/JnsCQ8ifH/nkCZytUdmVqDofncgwmCSWt0lrAmJ701F9sfEFC0T1mOS
+hkTOld2Yl76Qxwxf7cPFboKNfuWKrY0g7mwSgu86Nc7iag+An9L2fhoXQnDOepVb+rX+iejOPo2R
+XF5subd/KtJPGEtl88DtnW6cxbnjah/c3Eti0P6wenNRmSRJcI06JRYhPAM9idD4RqYsf2YMexwX
+UJ5Q/edUGIthXJKQZCOEEn9EiYqjIKgWbuTJ0Q==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -2705,4 +2645,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_88dec565-6564-40e4-9785-68147244a2b0" Target="#_b3e81a72-a089-4e2b-a0b2-8ba246a41f7d"><Timestamp>2019-01-29 13:39:40</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_8ce6f50c-e0ed-4f86-a88f-bc20a5a1498c" Target="#_e8e3b6b4-6308-4323-b699-df0c60acaca8"><Timestamp>2019-01-29 13:40:34</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
