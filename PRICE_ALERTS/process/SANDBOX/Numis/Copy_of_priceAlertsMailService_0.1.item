@@ -1353,7 +1353,7 @@
       <column comment="" key="false" length="0" name="SubscriberEmail" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="1600" posY="1632">
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="1600" posY="1760">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_6"/>
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
@@ -1383,11 +1383,16 @@
       <column comment="" key="false" length="-1" name="IntradayMidHigh" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="IntradayMidLow" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ArtificialID" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="EmailSubscriber" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="EmailSubject" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+    </metadata>
+    <metadata connector="FLOW" name="out3">
+      <column comment="" key="false" length="-1" name="ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
       <uiProperties shellMaximized="true"/>
       <varTables minimized="true" name="Var" sizeState="INTERMEDIATE"/>
-      <outputTables name="out2" sizeState="INTERMEDIATE">
+      <outputTables activateExpressionFilter="true" expressionFilter="cOut_2_AggregatedAlerts.RuleNumber == 1 || cOut_2_AggregatedAlerts.RuleNumber == 2 || cOut_2_AggregatedAlerts.RuleNumber == 3 || cOut_2_AggregatedAlerts.RuleNumber == 4" name="out2" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="cOut_2_AggregatedAlerts.ID " name="ID" nullable="true" type="id_Integer"/>
         <mapperTableEntries expression="cOut_2_AggregatedAlerts.RuleNumber " name="RuleNumber" nullable="true" type="id_Integer"/>
         <mapperTableEntries expression="cOut_2_AggregatedAlerts.InstrCode " name="InstrumentCode" nullable="true" type="id_String"/>
@@ -1402,6 +1407,11 @@
         <mapperTableEntries expression="String.valueOf(cOut_2_AggregatedAlerts.MidPrice) " name="IntradayMidHigh" nullable="true" type="id_String"/>
         <mapperTableEntries expression="String.valueOf(cOut_2_AggregatedAlerts.MidPrice) " name="IntradayMidLow" nullable="true" type="id_String"/>
         <mapperTableEntries expression="cOut_2_AggregatedAlerts.ArtificialID " name="ArtificialID" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="row28.SubscriberEmail " name="EmailSubscriber" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="cOut_2_AggregatedAlerts.RuleNumber == 1 ? globalMap.get(&quot;emailSubjectRule1&quot;).toString().replace(&quot;@InstrumentCode@&quot;, cOut_2_AggregatedAlerts.InstrCode).replace(&quot;@ThresholdValue@&quot;, String.valueOf(cOut_2_AggregatedAlerts.ThresholdValue))  : ( cOut_2_AggregatedAlerts.RuleNumber == 2 ? globalMap.get(&quot;emailSubjectRule1&quot;).toString().replace(&quot;@InstrumentCode@&quot;, cOut_2_AggregatedAlerts.InstrCode).replace(&quot;@ThresholdValue@&quot;, String.valueOf(cOut_2_AggregatedAlerts.ThresholdValue))  : (cOut_2_AggregatedAlerts.RuleNumber == 3 ? globalMap.get(&quot;emailSubjectRule1&quot;).toString().replace(&quot;@InstrumentCode@&quot;, cOut_2_AggregatedAlerts.InstrCode).replace(&quot;@ThresholdValue@&quot;, String.valueOf(cOut_2_AggregatedAlerts.ThresholdValue))  : globalMap.get(&quot;emailSubjectRule1&quot;).toString().replace(&quot;@InstrumentCode@&quot;, cOut_2_AggregatedAlerts.InstrCode).replace(&quot;@ThresholdValue@&quot;, String.valueOf(cOut_2_AggregatedAlerts.ThresholdValue)) )) " name="EmailSubject" nullable="true" type="id_String"/>
+      </outputTables>
+      <outputTables activateExpressionFilter="true" expressionFilter="cOut_2_AggregatedAlerts.RuleNumber == 1 || cOut_2_AggregatedAlerts.RuleNumber == 2 || cOut_2_AggregatedAlerts.RuleNumber == 3 || cOut_2_AggregatedAlerts.RuleNumber == 4" name="out3" sizeState="INTERMEDIATE">
+        <mapperTableEntries expression="cOut_2_AggregatedAlerts.ID " name="ID" nullable="true" type="id_Integer"/>
       </outputTables>
       <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="cOut_2_AggregatedAlerts" sizeState="INTERMEDIATE">
         <mapperTableEntries name="ID" nullable="true" type="id_Integer"/>
@@ -1427,9 +1437,115 @@
         <mapperTableEntries name="BasePriceDate" nullable="true" type="id_Date"/>
         <mapperTableEntries name="ArtificialID" nullable="true" type="id_String"/>
       </inputTables>
+      <inputTables activateCondensedTool="true" innerJoin="true" lookupMode="LOAD_ONCE" matchingMode="ALL_MATCHES" name="row28" sizeState="INTERMEDIATE">
+        <mapperTableEntries expression="cOut_2_AggregatedAlerts.AlertConfigurationID " name="AlertConfigurationID" operator="=" type="id_Integer"/>
+        <mapperTableEntries expression="cOut_2_AggregatedAlerts.InstrumentID " name="InstrumentID" operator="=" type="id_Integer"/>
+        <mapperTableEntries name="StartDate" nullable="true" type="id_Date"/>
+        <mapperTableEntries name="Note" nullable="true" type="id_String"/>
+        <mapperTableEntries name="SubscriberEmail" type="id_String"/>
+      </inputTables>
     </nodeData>
   </node>
-  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="2048" posY="1632">
+  <node componentName="tHashOutput" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1824" posY="1760">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tHashOutput_4"/>
+    <elementParameter field="CHECK" name="LINK_WITH" value="false"/>
+    <elementParameter field="COMPONENT_LIST" name="LIST" show="false" value=""/>
+    <elementParameter field="CLOSED_LIST" name="DATA_WRITE_MODEL" value="MEMORY"/>
+    <elementParameter field="FILE" name="BASE_FILE_PATH" show="false" value="&quot;/Users/cmars/Documents/Talend/Talend-Studio-20181026_1147-V7.1.1/workspace/in.hash&quot;"/>
+    <elementParameter field="TEXT" name="MEMORY_HEAP_MAX_SIZE" show="false" value="2"/>
+    <elementParameter field="CLOSED_LIST" name="KEYS_MANAGEMENT" value="KEEP_ALL"/>
+    <elementParameter field="CHECK" name="APPEND" value="false"/>
+    <elementParameter field="CHECK" name="HASH_KEY_FROM_INPUT_CONNECTOR" show="false" value="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="Temp Alerts Cache"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tHashOutput_4">
+      <column comment="" key="false" length="-1" name="ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="1760" posY="1888">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_7"/>
+    <elementParameter field="EXTERNAL" name="MAP" value=""/>
+    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
+    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_IrmJICL0EemNVvKuu-tg1Q-tMap_7-PREVIEW.bmp"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" show="false" value="true"/>
+    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" show="false" value="false"/>
+    <elementParameter field="TEXT" name="LEVENSHTEIN" show="false" value="0"/>
+    <elementParameter field="TEXT" name="JACCARD" show="false" value="0"/>
+    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" show="false" value="false"/>
+    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
+    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="true"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="out4">
+      <column comment="" key="false" length="-1" name="ArtificialID" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="EmailSubscriber" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="EmailSubject" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TableRow" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+    </metadata>
+    <nodeData xsi:type="TalendMapper:MapperData">
+      <uiProperties shellMaximized="true"/>
+      <varTables minimized="true" name="Var" sizeState="INTERMEDIATE"/>
+      <outputTables name="out4" sizeState="INTERMEDIATE">
+        <mapperTableEntries expression="out2.ArtificialID " name="ArtificialID" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="out2.EmailSubscriber " name="EmailSubscriber" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="out2.EmailSubject " name="EmailSubject" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="&quot;&lt;TR&gt;&lt;TD&gt;&quot; + out2.DateAndTime + &quot;&lt;/TD&gt;&lt;TD&gt;&quot; +out2.MidPrice + &quot;&lt;/TD&gt;&lt;TD&gt;&quot; + out2.BasePriceLow + &quot;&lt;/TD&gt;&lt;TD&gt;&quot; + out2.Threshold + &quot;&lt;/TD&gt;&lt;TD&gt;&quot; + out2.BasePriceLowDate  + &quot;&lt;/TD&gt;&lt;TD&gt;&quot; + out2.PreviousDayClosePrice  + &quot;&lt;/TD&gt;&lt;TD&gt;&quot; + out2.MidPriceVsClosePrice  + &quot;&lt;/TD&gt;&lt;TD&gt;&quot; + out2.MidPriceVsBasePriceLow  + &quot;&lt;/TD&gt;&lt;TD&gt;&quot; + out2.IntradayMidHigh  + &quot;&lt;/TD&gt;&lt;TD&gt;&quot; + out2.IntradayMidLow  + &quot;&lt;/TD&gt;&lt;/TR&gt;&quot; " name="TableRow" nullable="true" type="id_String"/>
+      </outputTables>
+      <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="out2" sizeState="INTERMEDIATE">
+        <mapperTableEntries name="ID" nullable="true" type="id_Integer"/>
+        <mapperTableEntries name="RuleNumber" nullable="true" type="id_Integer"/>
+        <mapperTableEntries name="InstrumentCode" nullable="true" type="id_String"/>
+        <mapperTableEntries name="DateAndTime" nullable="true" type="id_String"/>
+        <mapperTableEntries name="MidPrice" nullable="true" type="id_String"/>
+        <mapperTableEntries name="BasePriceLow" nullable="true" type="id_String"/>
+        <mapperTableEntries name="Threshold" nullable="true" type="id_String"/>
+        <mapperTableEntries name="BasePriceLowDate" nullable="true" type="id_String"/>
+        <mapperTableEntries name="PreviousDayClosePrice" nullable="true" type="id_String"/>
+        <mapperTableEntries name="MidPriceVsClosePrice" nullable="true" type="id_String"/>
+        <mapperTableEntries name="MidPriceVsBasePriceLow" nullable="true" type="id_String"/>
+        <mapperTableEntries name="IntradayMidHigh" nullable="true" type="id_String"/>
+        <mapperTableEntries name="IntradayMidLow" nullable="true" type="id_String"/>
+        <mapperTableEntries name="ArtificialID" nullable="true" type="id_String"/>
+        <mapperTableEntries name="EmailSubscriber" nullable="true" type="id_String"/>
+        <mapperTableEntries name="EmailSubject" nullable="true" type="id_String"/>
+      </inputTables>
+    </nodeData>
+  </node>
+  <node componentName="tHashInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1408" posY="1760">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tHashInput_5"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" show="false" value="_yEjnoCB-EemV5N-vyiAwng - metadata"/>
+    <elementParameter field="CHECK" name="LINK_WITH" value="true"/>
+    <elementParameter field="COMPONENT_LIST" name="LIST" value="tHashOutput_3"/>
+    <elementParameter field="FILE" name="BASE_FILE_PATH" show="false" value="&quot;/Users/cmars/Documents/Talend/Talend-Studio-20181026_1147-V7.1.1/workspace/in.hash&quot;"/>
+    <elementParameter field="CHECK" name="RELEASE_CACHE" value="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="Alert Configuration Cache"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="metadata" name="tHashInput_5">
+      <column comment="" key="false" length="-1" name="AlertConfigurationID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="InstrumentID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="StartDate" nullable="true" pattern="&quot;yyyy-MM-dd hh:mm:ss&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="Note" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="0" name="SubscriberEmail" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tDenormalize" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1920" posY="1888">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDenormalize_1"/>
+    <elementParameter field="TABLE" name="DENORMALIZE_COLUMNS">
+      <elementValue elementRef="INPUT_COLUMN" value="TableRow"/>
+      <elementValue elementRef="DELIMITER" value="&quot;&quot;"/>
+      <elementValue elementRef="MERGE" value="false"/>
+    </elementParameter>
+    <elementParameter field="LABEL" name="NOTE" value=""/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tDenormalize_1">
+      <column comment="" key="false" length="-1" name="ArtificialID" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="EmailSubscriber" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="EmailSubject" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TableRow" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="2080" posY="1856">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tLogRow_1"/>
     <elementParameter field="RADIO" name="BASIC_MODE" value="false"/>
     <elementParameter field="RADIO" name="TABLE_PRINT" value="true"/>
@@ -1443,53 +1559,23 @@
     <elementParameter field="CHECK" name="PRINT_COLNAMES" show="false" value="false"/>
     <elementParameter field="CHECK" name="USE_FIXED_LENGTH" show="false" value="false"/>
     <elementParameter field="TABLE" name="LENGTHS" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="ID"/>
-      <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="RuleNumber"/>
-      <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="InstrumentCode"/>
-      <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="DateAndTime"/>
-      <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="MidPrice"/>
-      <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="BasePriceLow"/>
-      <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="Threshold"/>
-      <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="BasePriceLowDate"/>
-      <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="PreviousDayClosePrice"/>
-      <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="MidPriceVsClosePrice"/>
-      <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="MidPriceVsBasePriceLow"/>
-      <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="IntradayMidHigh"/>
-      <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="IntradayMidLow"/>
-      <elementValue elementRef="LENGTH" value="10"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="ArtificialID"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="EmailSubscriber"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="EmailSubject"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TableRow"/>
       <elementValue elementRef="LENGTH" value="10"/>
     </elementParameter>
     <elementParameter field="CHECK" name="PRINT_CONTENT_WITH_LOG4J" value="true"/>
     <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" show="false" value="100"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tLogRow_1">
-      <column comment="" key="false" length="-1" name="ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="RuleNumber" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="InstrumentCode" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="DateAndTime" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="MidPrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="BasePriceLow" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="Threshold" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="BasePriceLowDate" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="PreviousDayClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="MidPriceVsClosePrice" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="MidPriceVsBasePriceLow" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="IntradayMidHigh" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="IntradayMidLow" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" key="false" length="-1" name="ArtificialID" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="EmailSubscriber" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="EmailSubject" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="TableRow" nullable="true" originalLength="-1" pattern="" precision="-1" sourceType="" type="id_String" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="128" posY="800">
@@ -2412,17 +2498,33 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row16"/>
   </connection>
-  <connection connectorName="FLOW" label="out2" lineStyle="0" metaname="out2" offsetLabelX="0" offsetLabelY="0" source="tMap_6" target="tLogRow_1">
+  <connection connectorName="FLOW" label="out2" lineStyle="0" metaname="out2" offsetLabelX="0" offsetLabelY="0" outputId="1" source="tMap_6" target="tMap_7">
     <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
-      <elementValue elementRef="TRACE_COLUMN" value="IntradayMidHigh"/>
+      <elementValue elementRef="TRACE_COLUMN" value="EmailSubject"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
-      <elementValue elementRef="TRACE_COLUMN" value="IntradayMidLow"/>
+      <elementValue elementRef="TRACE_COLUMN" value="EmailSubscriber"/>
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="out2"/>
+  </connection>
+  <connection connectorName="FLOW" label="out3" lineStyle="0" metaname="out3" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tMap_6" target="tHashOutput_4">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="out3"/>
+  </connection>
+  <connection connectorName="FLOW" label="out4" lineStyle="0" metaname="out4" offsetLabelX="0" offsetLabelY="0" source="tMap_7" target="tDenormalize_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="out4"/>
+  </connection>
+  <connection connectorName="FLOW" label="row28" lineStyle="8" metaname="tHashInput_5" offsetLabelX="0" offsetLabelY="0" source="tHashInput_5" target="tMap_6">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row28"/>
+  </connection>
+  <connection connectorName="FLOW" label="row29" lineStyle="0" metaname="tDenormalize_1" offsetLabelX="0" offsetLabelY="0" source="tDenormalize_1" target="tLogRow_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row29"/>
   </connection>
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tJava_2" offsetLabelX="0" offsetLabelY="0" source="tJava_2" target="tDBInput_3">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnSubjobOk8"/>
@@ -2615,13 +2717,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_ae86f071-c738-4f3d-bb4b-8420cc997c67"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>i3gmcTNLnYCg4zasodSh7ZuIWn9GAJAUgyCI6OacVELjpgnrqBCHOUNzDBjv3GkEiUtHWj1xhgdo
-rqhh4r2+lA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_d97346b8-2e62-412e-bdeb-5955e0835376"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>pS3LL7k16WZ9thEsNZnPCnaD0sCeXouHAb8QIiD+D7BnLbKbXo0AEGObpHWxrucetfPFIS9F4Dxu
-LVQcH6cKqQ==</DigestValue></Reference></SignedInfo><SignatureValue>1/LpIJSPFdmgMtXJ7zriVpiiCmN1PXOmEhp7HeQ5QfDTLY7pRrc1hOtR5AnQ7gzcCHI9wAwMY5kf
-zg952EhN5ii7/nveCH5yiHLL4m5yys12+1uXaCCa9U6dlUKP3ju8t/vaGSH6Tc6UTGZ+TCCV67YA
-3wMRYS+C4i0W+1heq7k8KA085pqA09ZcE/yPglz5K0IJWf9fdRukWQB6tYHiyPPt0M20f5o4v9VY
-NgQpnS1G8diGvbklt6sKXtR7fpvySI7LZIbcSmE4nlmPYSCm5aiIE59dBqVmCS3vaQAXTMvDfmva
-nFSW/j1Ym8fBOhABbAVdZeSCS880kiNDM/P8Rg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_e563de53-69ee-4ba8-b393-c62a1e33e6f2"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>bewQqNLyZCITyWJBTf4I/LJwDRjZCSO9k3HougdaJjklVmn2YRIvng7WpjcN2mSdIY5Sw1tyY6LY
+lT/8D4zK+w==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_6144f944-3b96-4e04-be3c-bd19adc9cb7e"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>DoIUyl+xMA66z4cR/UYJ67sNKvZKYRLS6Azevcyn3hTMBIJ4YpIidH0SJt33RB64V3dP+73fIjxd
+o7h4AQgBng==</DigestValue></Reference></SignedInfo><SignatureValue>Rhze2Q6HWC06N5t1inomeYBYx7RhzzxuHCxtCQFbb87VZZz/ydTsdYDtfAs1FA5e69/dIUdqiC9f
+e6X1UMBB7DbEiqG4QpF3z9CC0s3VdJOXfpdd6ufE1NJsvQM8qkwYWb4/I9nCadXEX+KzTdRr2Cjd
+VmQRVBQtdfWB3XHav50alGfH4lcPA/qr+Kt+CySh8s2Sjdxd+YLraVCYq/QjNIKnqNC+X8pbY2Tx
+kf1e3uXKLJZ6NRTrmQSVnGvrdYyxoI+qSiJHvjkRnJ4HvPBojXdh8GusIVQ57MJXDK9m+cu1d1pt
+YI0hrgJGPqCUM1xTm3U+NmdqONWObQ95nPsEFA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -2645,4 +2747,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_d97346b8-2e62-412e-bdeb-5955e0835376" Target="#_ae86f071-c738-4f3d-bb4b-8420cc997c67"><Timestamp>2019-01-29 13:42:17</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_6144f944-3b96-4e04-be3c-bd19adc9cb7e" Target="#_e563de53-69ee-4ba8-b393-c62a1e33e6f2"><Timestamp>2019-01-29 14:18:17</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
