@@ -583,7 +583,7 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tJavaFlex_3"/>
     <elementParameter field="CHECK" name="DATA_AUTO_PROPAGATE" value="true"/>
     <elementParameter field="MEMO_JAVA" name="CODE_START" value=""/>
-    <elementParameter field="MEMO_JAVA" name="CODE_MAIN" value="Integer alertConfigurationID = cOut_PriceCache.AlertConfigurationID;&#10;AlertsUtils.StockCache pObject = new AlertsUtils.StockCache(cOut_PriceCache.InstrumentID, cOut_PriceCache.InstrCode, cOut_PriceCache.BasePrice,cOut_PriceCache.PreviousDayClosePrice, cOut_PriceCache.LastMinTradePrice, cOut_PriceCache.MidPriceLast, cOut_PriceCache.BasePriceDate);&#10;&#10;AlertsUtils.updateStockCacheValue(alertConfigurationID, pObject);&#10;&#10;System.out.println(cOut_PriceCache.PreviousDayClosePrice);"/>
+    <elementParameter field="MEMO_JAVA" name="CODE_MAIN" value="Integer alertConfigurationID = cOut_PriceCache.AlertConfigurationID;&#10;AlertsUtils.StockCache pObject = new AlertsUtils.StockCache(cOut_PriceCache.InstrumentID, cOut_PriceCache.InstrCode, cOut_PriceCache.BasePrice,cOut_PriceCache.PreviousDayClosePrice, cOut_PriceCache.LastMinTradePrice, cOut_PriceCache.MidPriceLast, cOut_PriceCache.BasePriceDate);&#10;&#10;AlertsUtils.updateStockCacheValue(alertConfigurationID, pObject);&#10;"/>
     <elementParameter field="MEMO_JAVA" name="CODE_END" value=""/>
     <elementParameter field="CHECK" name="Version_V2_0" show="false" value="false"/>
     <elementParameter field="CHECK" name="Version_V3_2" show="false" value="false"/>
@@ -3655,13 +3655,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_ede124ca-dd5d-4862-8f03-88f2829fdda6"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>eFbB9mE+gIS3t+diqE3QnYAJ/ALZiAtpt21rf0yh1EMrOBmcFVmAtPd62mPxfUHsZs9ZjnRbutYv
-DfpI2X7hJg==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_db8ca998-51a1-4b36-a52b-856ab2ef08e1"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>jKajrYYXKzHBlw9SLW3qYNb/arB8q+4sJ+josgTM3zLEkvhmkVHkI+ozbskHiz0DJNckKYPBLXTF
-4wcKU5CZBA==</DigestValue></Reference></SignedInfo><SignatureValue>Uh1X7HKkDTPmpHC3VI7Vs/u/hufUnLFlqB06tndOepYMIgWnHIbSOfEdzZQ5CXEeMRzOmiDKhzrn
-VjmN11KJUnlPhXRQla7kYu0px54jRSbGkpWytUWMBZsm//bORn5z+e1VmO+CqgCNe20mVaw3xQHo
-GjoF0WDXeG2BRJ83rEnsLsQBjeNKpEcB8WF4gqh4aqSfGhXv+ZNLsOSE89uJhHDOxlu6xfzQLOJN
-kHzvV6GLin05StnMU4Coaw4V2NufKxNtsEim0T/Rdo8PlZTTJbB80oJT70LHhorBfM37x4PKV2YV
-dZT0Hjorrj9DN8Uz7f3dYGoODlJkEI3NPKyYkw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_3b75e016-8c35-42b1-b672-3e6595cc6736"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>JdLgloBSS0UuVC7FxzfymkbOJBeamaIj5Yi/acEKtL5wX/qbanWY5owaMAYsXbRQu9V7RPfRWGnv
+D7ifDwLAvA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_0c543b5e-0f6f-4c80-8cad-cd8b79f58cf0"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>3rDuajFprNcPzm2Ty5oosKN577asgfUVf/qHIYDVqWlS5DK8ZDMYZ2qOj1XHPl4mtVfTidL9qW3R
+27jG0DvW+w==</DigestValue></Reference></SignedInfo><SignatureValue>s0ce4mUAAKqG5hukOf35O7HoAGOJRR3w+YnNbneyVJRyDZ5flioR2k8TdZm+nnD79vtXuhPQLx16
+3SGKfl/YnKcDpNBLyjLDEsuzklsZCqCADdlMJRI1BGUUbJrF4uil6TbTNGLyoSnF25xf6EoxexuV
+aBdcBVlAhWY7VopfndGn43GLxaZaBN70hfIEDagQP2J8v8fV0i+J6NWYrJAGB/Db61eQWg5ZOxCM
+MpaJ5PsM2lPx18BuEPvvpFztYuQJDciPKI64EjqGeeBrPpSH0vuhRt+fnEuUfE4cNgTNDkgNermN
+NjLpsAt7IBV6G1F1NN55EYqrSUtgWWE437YeYg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -3685,4 +3685,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_db8ca998-51a1-4b36-a52b-856ab2ef08e1" Target="#_ede124ca-dd5d-4862-8f03-88f2829fdda6"><Timestamp>2019-01-29 12:34:21</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_0c543b5e-0f6f-4c80-8cad-cd8b79f58cf0" Target="#_3b75e016-8c35-42b1-b672-3e6595cc6736"><Timestamp>2019-01-29 12:35:45</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
