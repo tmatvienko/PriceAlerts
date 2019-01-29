@@ -99,11 +99,12 @@ public class AlertsUtils {
 		public Date alertTimestamp;
 		public Date createdOn;
 		public Boolean isSent;
+		public Date basePriceDate;
 		
 		public AlertLog(Integer alertConfigurationID, Integer ruleID, Integer ruleThresholdID
 								, Integer instrumentID, String priceType, Double basePrice, Double basePricePrevious
 								, Double midPrice, Double tradePrice, Double previousDayClosePrice, Double closePrice
-								, Date alertTimestamp, Date createdOn, Boolean isSent){
+								, Date alertTimestamp, Date createdOn, Boolean isSent, Date basePriceDate){
 			this.alertConfigurationID = alertConfigurationID;
 			this.ruleID = ruleID;
 			this.ruleThresholdID = ruleThresholdID;
@@ -118,6 +119,7 @@ public class AlertsUtils {
 			this.alertTimestamp = alertTimestamp;
 			this.createdOn = createdOn;
 			this.isSent = isSent;
+			this.basePriceDate = basePriceDate;
 			
 		}
 		
